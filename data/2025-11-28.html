@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-28.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 6]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-g2vlm-geometry-grounded-vision-language-model-with-unified-3d-reconstruction-and-spatial-reasoning">[1] <a href="https://arxiv.org/abs/2511.21688">G$^2$VLM: Geometry Grounded Vision Language Model with Unified 3D Reconstruction and Spatial Reasoning</a></h3>
+<p><em>Wenbo Hu, Jingli Lin, Yilin Long, Yunlong Ran, Lihan Jiang, Yifan Wang, Chenming Zhu, Runsen Xu, Tai Wang, Jiangmiao Pang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>G²VLM是一个几何基础的视觉语言模型，通过统一3D空间重建和空间理解两个基本方面，解决了视觉语言模型在空间智能方面的不足。该模型利用学习的3D视觉几何特征直接预测3D属性，并通过上下文学习和交错推理增强空间推理任务。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前视觉语言模型在空间智能方面缺乏鲁棒性，在空间理解和推理任务上表现不佳，主要归因于缺乏能够从2D图像重建3D空间的视觉几何学习过程。</p>
+<p><strong>Method:</strong> G²VLM采用统一设计，原生利用学习的3D视觉几何特征直接预测3D属性，通过上下文学习和交错推理增强空间推理任务。该模型在丰富的多视角图像和视频数据上进行训练，同时利用通常仅从难以收集的标注中获得的3D视觉先验。</p>
+<p><strong>Result:</strong> 实验结果表明G²VLM在两项任务上均表现出色，在3D重建任务上达到与最先进前馈模型相当的结果，在空间理解和推理任务上取得更好或具有竞争力的结果。</p>
+<p><strong>Conclusion:</strong> 通过将语义强大的视觉语言模型与低层次3D视觉任务统一，G²VLM有望成为社区的强大基准，并解锁更多未来应用，如3D场景编辑。该研究为空间智能的发展提供了重要基础。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Vision-Language Models (VLMs) still lack robustness in spatial intelligence, demonstrating poor performance on spatial understanding and reasoning tasks. We attribute this gap to the absence of a visual geometry learning process capable of reconstructing 3D space from 2D images. We present G$^2$VLM, a geometry grounded vision-language model that bridges two fundamental aspects of spatial intelligence: spatial 3D reconstruction and spatial understanding. G$^2$VLM natively leverages learned 3D visual geometry features to directly predict 3D attributes and enhance spatial reasoning tasks via in-context learning and interleaved reasoning. Our unified design is highly scalable for spatial understanding: it trains on abundant multi-view image and video data, while simultaneously leveraging the benefits of 3D visual priors that are typically only derived from hard-to-collect annotations. Experimental results demonstrate G$^2$VLM is proficient in both tasks, achieving comparable results to state-of-the-art feed-forward 3D reconstruction models and achieving better or competitive results across spatial understanding and reasoning tasks. By unifying a semantically strong VLM with low-level 3D vision tasks, we hope G$^2$VLM can serve as a strong baseline for the community and unlock more future applications, such as 3D scene editing.</p>
+<h3 id="2-qwen3-vl-technical-report">[2] <a href="https://arxiv.org/abs/2511.21631">Qwen3-VL Technical Report</a></h3>
+<p><em>Shuai Bai, Yuxuan Cai, Ruizhe Chen, Keqin Chen, Xionghui Chen, Zesen Cheng, Lianghao Deng, Wei Ding, Chang Gao, Chunjiang Ge, Wenbin Ge, Zhifang Guo, Qidong Huang, Jie Huang, Fei Huang, Binyuan Hui, Shutong Jiang, Zhaohai Li, Mingsheng Li, Mei Li, Kaixin Li, Zicheng Lin, Junyang Lin, Xuejing Liu, Jiawei Liu, Chenglong Liu, Yang Liu, Dayiheng Liu, Shixuan Liu, Dunjie Lu, Ruilin Luo, Chenxu Lv, Rui Men, Lingchen Meng, Xuancheng Ren, Xingzhang Ren, Sibo Song, Yuchong Sun, Jun Tang, Jianhong Tu, Jianqiang Wan, Peng Wang, Pengfei Wang, Qiuyue Wang, Yuxuan Wang, Tianbao Xie, Yiheng Xu, Haiyang Xu, Jin Xu, Zhibo Yang, Mingkun Yang, Jianxin Yang, An Yang, Bowen Yu, Fei Zhang, Hang Zhang, Xi Zhang, Bo Zheng, Humen Zhong, Jingren Zhou, Fan Zhou, Jing Zhou, Yuanzhi Zhu, Ke Zhu</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>Qwen3-VL是Qwen系列中最先进的视觉语言模型，在多种多模态基准测试中表现卓越，支持高达256K token的交错上下文，并提供密集和MoE架构变体以满足不同延迟-质量权衡需求。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 该研究旨在解决现有视觉语言模型在纯文本理解能力、长上下文处理能力以及跨图像和视频的高级多模态推理方面的局限性，特别是在处理长文档、视频和复杂多模态任务时的性能不足问题。</p>
+<p><strong>Method:</strong> 论文提出了三个关键架构升级：增强的交错MRoPE用于改进图像和视频的时空建模；DeepStack集成有效利用多级ViT特征以加强视觉-语言对齐；基于文本的时间对齐机制从T-RoPE演进为显式时间戳对齐，实现更精确的时间定位。</p>
+<p><strong>Result:</strong> Qwen3-VL在MMMU、MathVista和MathVision等综合评估中表现出领先性能，在可比较的token预算和延迟约束下，无论是密集架构还是MoE架构均实现了优越性能，超越了同类纯文本骨干模型。</p>
+<p><strong>Conclusion:</strong> Qwen3-VL可作为图像基础推理、智能体决策和现实工作流程中多模态代码智能的基础引擎，其强大的长上下文理解和多模态推理能力为实际应用提供了可靠的技术支撑。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>We introduce Qwen3-VL, the most capable vision-language model in the Qwen series to date, achieving superior performance across a broad range of multimodal benchmarks. It natively supports interleaved contexts of up to 256K tokens, seamlessly integrating text, images, and video. The model family includes both dense (2B/4B/8B/32B) and mixture-of-experts (30B-A3B/235B-A22B) variants to accommodate diverse latency-quality trade-offs. Qwen3-VL delivers three core pillars: (i) markedly stronger pure-text understanding, surpassing comparable text-only backbones in several cases; (ii) robust long-context comprehension with a native 256K-token window for both text and interleaved multimodal inputs, enabling faithful retention, retrieval, and cross-referencing across long documents and videos; and (iii) advanced multimodal reasoning across single-image, multi-image, and video tasks, demonstrating leading performance on comprehensive evaluations such as MMMU and visual-math benchmarks (e.g., MathVista and MathVision). Architecturally, we introduce three key upgrades: (i) an enhanced interleaved-MRoPE for stronger spatial-temporal modeling across images and video; (ii) DeepStack integration, which effectively leverages multi-level ViT features to tighten vision-language alignment; and (iii) text-based time alignment for video, evolving from T-RoPE to explicit textual timestamp alignment for more precise temporal grounding. Under comparable token budgets and latency constraints, Qwen3-VL achieves superior performance in both dense and Mixture-of-Experts (MoE) architectures. We envision Qwen3-VL serving as a foundational engine for image-grounded reasoning, agentic decision-making, and multimodal code intelligence in real-world workflows.</p>
+<h3 id="3-attention-guided-patch-wise-sparse-adversarial-attacks-on-vision-language-action-models">[3] <a href="https://arxiv.org/abs/2511.21663">Attention-Guided Patch-Wise Sparse Adversarial Attacks on Vision-Language-Action Models</a></h3>
+<p><em>Naifu Zhang, Wei Tao, Xi Xiao, Qianpu Sun, Yuxin Zheng, Wentao Mo, Peiqiang Wang, Nan Zhang</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出ADVLA框架，通过直接在视觉编码器投影到文本特征空间的特征上应用对抗扰动，有效破坏VLA模型的下游动作预测。该方法在低幅度约束下实现高效攻击，注意力引导使扰动既集中又稀疏，显著优于传统基于补丁的攻击方法。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有VLA模型的对抗攻击方法需要昂贵的端到端训练，且通常生成明显的扰动补丁，这限制了其实际应用。为解决这些局限性，需要开发更高效且不易察觉的攻击方法。</p>
+<p><strong>Method:</strong> ADVLA框架直接在视觉编码器投影到文本特征空间的特征上应用对抗扰动，引入三种策略增强敏感性、强制稀疏性和集中扰动。注意力引导机制使扰动能够聚焦于关键区域并保持稀疏性。</p>
+<p><strong>Result:</strong> 在L∞=4/255约束下，ADVLA结合Top-K掩码仅修改不到10%的补丁即可实现接近100%的攻击成功率。扰动集中于关键区域，在整体图像中几乎不可察觉，单步迭代仅需约0.06秒，显著优于传统补丁攻击方法。</p>
+<p><strong>Conclusion:</strong> ADVLA在低幅度和局部稀疏条件下有效削弱VLA模型的下游动作预测，避免了传统补丁攻击的高训练成本和明显扰动。该方法展示了攻击VLA特征空间的独特有效性和实用价值，为VLA模型的安全性评估提供了新思路。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>In recent years, Vision-Language-Action (VLA) models in embodied intelligence have developed rapidly. However, existing adversarial attack methods require costly end-to-end training and often generate noticeable perturbation patches. To address these limitations, we propose ADVLA, a framework that directly applies adversarial perturbations on features projected from the visual encoder into the textual feature space. ADVLA efficiently disrupts downstream action predictions under low-amplitude constraints, and attention guidance allows the perturbations to be both focused and sparse. We introduce three strategies that enhance sensitivity, enforce sparsity, and concentrate perturbations. Experiments demonstrate that under an $L_{\infty}=4/255$ constraint, ADVLA combined with Top-K masking modifies less than 10% of the patches while achieving an attack success rate of nearly 100%. The perturbations are concentrated on critical regions, remain almost imperceptible in the overall image, and a single-step iteration takes only about 0.06 seconds, significantly outperforming conventional patch-based attacks. In summary, ADVLA effectively weakens downstream action predictions of VLA models under low-amplitude and locally sparse conditions, avoiding the high training costs and conspicuous perturbations of traditional patch attacks, and demonstrates unique effectiveness and practical value for attacking VLA feature spaces.</p>
+<h3 id="4-multi-crit-benchmarking-multimodal-judges-on-pluralistic-criteria-following">[4] <a href="https://arxiv.org/abs/2511.21662">Multi-Crit: Benchmarking Multimodal Judges on Pluralistic Criteria-Following</a></h3>
+<p><em>Tianyi Xiong, Yi Ge, Ming Li, Zuolong Zhang, Pranav Kulkarni, Kaishen Wang, Qi He, Zeying Zhu, Chenxi Liu, Ruibo Chen, Tong Zheng, Yanshuo Chen, Xiyao Wang, Renrui Zhang, Wenhu Chen, Heng Huang</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本研究提出了Multi-Crit基准，用于评估多模态模型在遵循多样化细粒度评估标准方面的能力，通过对25个大型多模态模型的综合分析揭示了当前模型在多元标准遵循方面的局限性。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前大型多模态模型作为评估者在多模态评估系统中日益普及，但其遵循多样化细粒度评估标准的能力尚未得到充分探索，特别是在处理多元标准判断和识别标准间偏好冲突方面存在明显不足。</p>
+<p><strong>Method:</strong> 研究开发了Multi-Crit基准，通过严格的数据筛选流程收集具有多标准人工标注的挑战性响应对，涵盖开放式生成和可验证推理任务，并引入了三个新颖指标来系统评估多元标准遵循、标准切换灵活性和识别标准级偏好冲突的能力。</p>
+<p><strong>Result:</strong> 对25个多模态模型的综合分析表明，专有模型在保持对多元标准的一致性遵循方面仍然困难，特别是在开放式评估中；开源模型在灵活遵循多样化标准方面进一步落后；基于整体判断信号的批评微调虽然增强了视觉基础能力，但无法泛化到多元标准级判断。</p>
+<p><strong>Conclusion:</strong> Multi-Crit为构建可靠且可控的多模态AI评估奠定了基础，揭示了当前多模态评估者在多元标准遵循方面的局限性，并通过对推理微调、测试时扩展以及开源与专有模型间边界一致性的额外分析进一步探索了现有技术的边界。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Large multimodal models (LMMs) are increasingly adopted as judges in multimodal evaluation systems due to their strong instruction following and consistency with human preferences. However, their ability to follow diverse, fine-grained evaluation criteria remains underexplored. We develop Multi-Crit, a benchmark for evaluating multimodal judges on their capacity to follow pluralistic criteria and produce reliable criterion-level judgments. Covering both open-ended generation and verifiable reasoning tasks, Multi-Crit is built through a rigorous data curation pipeline that gathers challenging response pairs with multi-criterion human annotations. It further introduces three novel metrics for systematically assessing pluralistic adherence, criterion-switching flexibility, and the ability to recognize criterion-level preference conflicts. Comprehensive analysis of 25 LMMs reveals that 1) proprietary models still struggle to maintain consistent adherence to pluralistic criteria--especially in open-ended evaluation; 2) open-source models lag further behind in flexibly following diverse criteria; and 3) critic fine-tuning with holistic judgment signals enhances visual grounding but fails to generalize to pluralistic criterion-level judgment. Additional analyses on reasoning fine-tuning, test-time scaling, and boundary consistency between open-source and proprietary models further probe the limits of current multimodal judges. As a pioneering study, Multi-Crit lays the foundation for building reliable and steerable multimodal AI evaluation.</p>
+<h3 id="5-seeing-without-pixels-perception-from-camera-trajectories">[5] <a href="https://arxiv.org/abs/2511.21681">Seeing without Pixels: Perception from Camera Trajectories</a></h3>
+<p><em>Zihui Xue, Kristen Grauman, Dima Damen, Andrew Zisserman, Tengda Han</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文首次系统性地研究了仅通过相机轨迹感知视频内容的可行性，提出了CamFormer对比学习框架，证明相机轨迹是揭示视频内容的强有力信号，其表示在多种下游任务中展现出卓越的鲁棒性和通用性。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 本研究旨在探索一个看似不可能的问题：能否仅通过相机轨迹（相机在空间中移动的路径）来感知视频内容，而无需观察像素信息。该研究填补了现有视频理解方法主要依赖视觉内容而忽视相机运动模式这一重要信号的空白。</p>
+<p><strong>Method:</strong> 本文提出了一个对比学习框架来训练CamFormer编码器，该编码器将相机位姿轨迹投影到联合嵌入空间中，使其与自然语言对齐。该方法能够处理多种相机位姿估计方法，包括高精度多传感器和标准RGB-only估计器。</p>
+<p><strong>Result:</strong> 实验表明相机轨迹是揭示视频内容的强有力信号，CamFormer嵌入在跨模态对齐、分类和时间分析等多种下游任务中表现出色。该表示对不同相机位姿估计方法具有鲁棒性，验证了其通用性和可靠性。</p>
+<p><strong>Conclusion:</strong> 本研究确立了相机轨迹作为一种轻量级、鲁棒且通用的视频内容感知模态，揭示了相机运动模式与视频语义内容之间的深刻联系，为视频理解提供了新的视角和方法论基础。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Can one perceive a video's content without seeing its pixels, just from the camera trajectory-the path it carves through space? This paper is the first to systematically investigate this seemingly implausible question. Towards this end, we propose a contrastive learning framework to train CamFormer, a dedicated encoder that projects camera pose trajectories into a joint embedding space, aligning them with natural language. We find that, contrary to its apparent simplicity, the camera trajectory is a remarkably informative signal to uncover video content. In other words, "how you move" can indeed reveal "what you are doing" (egocentric) or "observing" (exocentric). We demonstrate the versatility of our learned CamFormer embeddings on a diverse suite of downstream tasks, ranging from cross-modal alignment to classification and temporal analysis. Importantly, our representations are robust across diverse camera pose estimation methods, including both high-fidelity multi-sensored and standard RGB-only estimators. Our findings establish camera trajectory as a lightweight, robust, and versatile modality for perceiving video content.</p>
+<h3 id="6-canvas-to-image-compositional-image-generation-with-multimodal-controls">[6] <a href="https://arxiv.org/abs/2511.21691">Canvas-to-Image: Compositional Image Generation with Multimodal Controls</a></h3>
+<p><em>Yusuf Dalva, Guocheng Gordon Qian, Maya Goldenberg, Tsai-Shien Chen, Kfir Aberman, Sergey Tulyakov, Pinar Yanardag, Kuan-Chieh Jackson Wang</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出Canvas-to-Image框架，通过将多种异构控制信号编码为单一画布图像，实现了对文本提示、主体参考、空间布局和姿态约束的统一多模态控制，显著提升了扩散模型在组合生成任务中的忠实度和控制精度。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现代扩散模型在生成高质量多样化图像方面表现出色，但在同时处理文本提示、主体参考、空间排列、姿态约束和布局注释等多模态控制时，仍难以实现高保真度的组合控制，特别是在用户需要同时指定多种控制信号的情况下存在显著局限性。</p>
+<p><strong>Method:</strong> 核心方法是将多样控制信号编码为单一复合画布图像，使模型能够直接进行集成视觉空间推理；同时构建多任务数据集并提出多任务画布训练策略，在统一学习范式下优化扩散模型以联合理解和整合异构控制到文本到图像生成中。</p>
+<p><strong>Result:</strong> 广泛实验表明，Canvas-to-Image在身份保持和控制遵循方面显著优于现有最优方法，在多人物组合、姿态控制组合、布局约束生成和多控制生成等具有挑战性的基准测试中均表现出卓越性能。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过统一学习范式实现跨多控制模态推理的有效性，相比依赖任务特定启发式方法具有更好的泛化能力，为多模态可控图像生成提供了新的技术路径和理论洞见。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>While modern diffusion models excel at generating high-quality and diverse images, they still struggle with high-fidelity compositional and multimodal control, particularly when users simultaneously specify text prompts, subject references, spatial arrangements, pose constraints, and layout annotations. We introduce Canvas-to-Image, a unified framework that consolidates these heterogeneous controls into a single canvas interface, enabling users to generate images that faithfully reflect their intent. Our key idea is to encode diverse control signals into a single composite canvas image that the model can directly interpret for integrated visual-spatial reasoning. We further curate a suite of multi-task datasets and propose a Multi-Task Canvas Training strategy that optimizes the diffusion model to jointly understand and integrate heterogeneous controls into text-to-image generation within a unified learning paradigm. This joint training enables Canvas-to-Image to reason across multiple control modalities rather than relying on task-specific heuristics, and it generalizes well to multi-control scenarios during inference. Extensive experiments show that Canvas-to-Image significantly outperforms state-of-the-art methods in identity preservation and control adherence across challenging benchmarks, including multi-person composition, pose-controlled composition, layout-constrained generation, and multi-control generation.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="7-on-the-limits-of-innate-planning-in-large-language-models">[7] <a href="https://arxiv.org/abs/2511.21591">On the Limits of Innate Planning in Large Language Models</a></h3>
+<p><em>Charles Schepanowski, Charles Ling</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本研究通过8拼图任务评估大型语言模型的规划和状态推理能力，发现即使提供外部移动验证器，所有模型仍无法解决任何谜题，揭示了当前LLMs在状态维护和启发式规划方面存在根本性缺陷。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管大型语言模型在众多基准测试中表现优异，但其规划和状态推理能力仍不明确，本研究旨在直接评估这些核心认知能力，特别是在没有代码执行或其他外部工具辅助的情况下。</p>
+<p><strong>Method:</strong> 研究采用经典的8拼图任务，测试了四种模型在零样本、思维链和算法思维等常见提示条件下，以及分层纠正反馈机制下的表现，并进一步使用外部移动验证器提供仅有效移动的辅助设置。</p>
+<p><strong>Result:</strong> 反馈机制仅对部分模型-提示组合有所改善，但成功运行通常冗长且计算昂贵，即使提供外部移动验证器，所有模型仍无法解决任何谜题，定性分析揭示了模型普遍存在脆弱的状态表示和薄弱的启发式规划能力。</p>
+<p><strong>Conclusion:</strong> 研究结果表明，在没有代码解释器等外部工具的情况下，当前LLMs在规划任务中存在显著局限性，未来的进展可能需要开发能够维护显式状态和执行结构化搜索的机制。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Large language models (LLMs) achieve impressive results on many benchmarks, yet their capacity for planning and stateful reasoning remains unclear. We study these abilities directly, without code execution or other tools, using the 8-puzzle: a classic task that requires state tracking and goal-directed planning while allowing precise, step-by-step evaluation. Four models are tested under common prompting conditions (Zero-Shot, Chain-of-Thought, Algorithm-of-Thought) and with tiered corrective feedback. Feedback improves success rates for some model-prompt combinations, but many successful runs are long, computationally expensive, and indirect. We then examine the models with an external move validator that provides only valid moves. Despite this level of assistance, none of the models solve any puzzles in this setting. Qualitative analysis reveals two dominant deficits across all models: (1) brittle internal state representations, leading to frequent invalid moves, and (2) weak heuristic planning, with models entering loops or selecting actions that do not reduce the distance to the goal state. These findings indicate that, in the absence of external tools such as code interpreters, current LLMs have substantial limitations in planning and that further progress may require mechanisms for maintaining explicit state and performing structured search.</p>
+<h3 id="8-agentic-learner-with-grow-and-refine-multimodal-semantic-memory">[8] <a href="https://arxiv.org/abs/2511.21678">Agentic Learner with Grow-and-Refine Multimodal Semantic Memory</a></h3>
+<p><em>Weihao Bo, Shan Zhang, Yanpeng Sun, Jingjing Wu, Qunyi Xie, Xiao Tan, Kunbin Chen, Wei He, Xiaofan Li, Na Zhao, Jingdong Wang, Zechao Li</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了ViLoMem，一种双流记忆框架，通过分别编码视觉分心模式和逻辑推理错误来构建紧凑的、基于模式的记忆，使多模态大语言模型能够从成功和失败的经验中学习，从而在六个多模态基准测试中持续提高性能。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于轨迹的记忆方法存在简洁性偏差，逐渐丢失关键领域知识，并且在多模态问题解决环境中仅记录单模态行为轨迹，无法保留视觉注意和逻辑推理如何共同促成解决方案，这与人类认知中语义记忆既是多模态又是整合的根本特征不符。</p>
+<p><strong>Method:</strong> ViLoMem采用双流记忆框架，分别编码视觉分心模式和逻辑推理错误，遵循增长-精炼原则逐步积累和更新多模态语义知识，在保持稳定、可泛化策略的同时避免灾难性遗忘。</p>
+<p><strong>Result:</strong> 在六个多模态基准测试中，ViLoMem持续提高了pass@1准确率，并显著减少了重复的视觉和逻辑错误，消融实验证实了具有明确分心-幻觉分离的双流记忆的必要性。</p>
+<p><strong>Conclusion:</strong> 研究证明了错误感知多模态记忆对于终身和跨领域代理学习的重要性，双流记忆设计能够有效捕捉多模态认知过程中的关键错误模式，为构建更接近人类认知机制的人工智能系统提供了新思路。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>MLLMs exhibit strong reasoning on isolated queries, yet they operate de novo -- solving each problem independently and often repeating the same mistakes. Existing memory-augmented agents mainly store past trajectories for reuse. However, trajectory-based memory suffers from brevity bias, gradually losing essential domain knowledge. More critically, even in truly multimodal problem-solving settings, it records only a single-modality trace of past behavior, failing to preserve how visual attention and logical reasoning jointly contributed to the solution. This is fundamentally misaligned with human cognition: semantic memory is both multimodal and integrated, preserving visual and abstract knowledge through coordinated but distinct representational streams. We thus introduce ViLoMem, a dual-stream memory framework that constructs compact, schema-based memory. It separately encodes visual distraction patterns and logical reasoning errors, enabling MLLMs to learn from their successful and failed experiences. Following a grow-and-refine principle, the system incrementally accumulates and updates multimodal semantic knowledge -- preserving stable, generalizable strategies while avoiding catastrophic forgetting. Across six multimodal benchmarks, ViLoMem consistently improves pass@1 accuracy and substantially reduces repeated visual and logical errors. Ablations confirm the necessity of dual-stream memory with explicit distraction--hallucination separation, demonstrating the value of error-aware multimodal memory for lifelong and cross-domain agentic learning. Our project page will be available at https://weihao-bo.github.io/ViLoMeo-page.</p>
+  </article>
+</body>
+</html>
