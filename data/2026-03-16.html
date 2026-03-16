@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-16.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 10]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-sparrow-learning-spatial-precision-and-temporal-referential-consistency-in-pixel-grounded-video-mllms">[1] <a href="https://arxiv.org/abs/2603.12382">SPARROW: Learning Spatial Precision and Temporal Referential Consistency in Pixel-Grounded Video MLLMs</a></h3>
+<p><em>Mohamad Alansari, Naufal Suryanto, Divya Velayudhan, Sajid Javed, Naoufel Werghi, Muzammal Naseer</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出SPARROW，一种像素级视频多模态大语言模型，通过目标特定跟踪特征和双提示设计，统一了空间精度与时间一致性，显著提升了视频中参考对象的跟踪稳定性与空间定位精度。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视频多模态大语言模型通常依赖静态分割标记进行逐帧定位，这种方法虽然提供语义信息但缺乏时间上下文，导致对象移动或重新出现时出现空间漂移、身份切换和不稳定初始化等问题，限制了像素级视频理解的能力。</p>
+<p><strong>Method:</strong> SPARROW采用两个关键组件：目标特定跟踪特征在训练期间注入时间对齐的参考线索，以及双提示设计解码边界框和分割标记以融合几何先验与语义定位；模型基于类无关的SAM2提议器实现端到端操作，无需外部检测器。</p>
+<p><strong>Result:</strong> 在三个开源视频MLLM（UniPixel、GLUS和VideoGLaMM）上集成SPARROW后，在六个基准测试中取得一致提升：RVOS上J&amp;F提升高达+8.9，视觉定位上mIoU提升+5，GCG上CLAIR提升+5.4，显著改善了参考稳定性、空间精度和时间一致性。</p>
+<p><strong>Conclusion:</strong> SPARROW通过统一空间精度与时间稳定性的方法，有效解决了视频多模态大语言模型中的参考跟踪问题，为像素级视频理解提供了新的技术路径，其模块化设计使其能够灵活集成到现有框架中，推动视频理解向更精确、更稳定的方向发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have advanced from image-level reasoning to pixel-level grounding, but extending these capabilities to videos remains challenging as models must achieve spatial precision and temporally consistent reference tracking. Existing video MLLMs often rely on a static segmentation token ([SEG]) for frame-wise grounding, which provides semantics but lacks temporal context, causing spatial drift, identity switches, and unstable initialization when objects move or reappear. We introduce SPARROW, a pixel-grounded video MLLM that unifies spatial accuracy and temporal stability through two key components: (i) Target-Specific Tracked Features (TSF), which inject temporally aligned referent cues during training, and (ii) a dual-prompt design that decodes box ([BOX]) and segmentation ([SEG]) tokens to fuse geometric priors with semantic grounding. SPARROW is supported by a curated referential video dataset of 30,646 videos and 45,231 Q&amp;A pairs and operates end-to-end without external detectors via a class-agnostic SAM2-based proposer. Integrated into three recent open-source video MLLMs (UniPixel, GLUS, and VideoGLaMM), SPARROW delivers consistent gains across six benchmarks, improving up to +8.9 J&amp;F on RVOS, +5 mIoU on visual grounding, and +5.4 CLAIR on GCG. These results demonstrate that SPARROW substantially improves referential stability, spatial precision, and temporal coherence in pixel-grounded video understanding. Project page: https://risys-lab.github.io/SPARROW</p>
+<h3 id="2-do-you-see-what-i-am-pointing-at-gesture-based-egocentric-video-question-answering">[2] <a href="https://arxiv.org/abs/2603.12533">Do You See What I Am Pointing At? Gesture-Based Egocentric Video Question Answering</a></h3>
+<p><em>Yura Choi, Roy Miles, Rolandos Alexandros Potamias, Ismail Elezi, Jiankang Deng, Stefanos Zafeiriou</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了EgoPointVQA数据集和基准，以及Hand Intent Tokens（HINT）方法，用于解决多模态大语言模型在基于手势的自我中心问答任务中的性能瓶颈，显著提升了模型对精细指向意图的理解能力。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在基于用户指向手势的自我中心问答任务中表现不佳，主要原因是缺乏丰富的手势数据以及模型从自我中心视频中推断精细指向意图的能力有限，这阻碍了下一代自我中心AI助手的发展。</p>
+<p><strong>Method:</strong> 本文首先构建了EgoPointVQA数据集，包含4000个合成视频和400个真实世界视频，涵盖多种指示推理任务。在此基础上提出了Hand Intent Tokens（HINT）方法，该方法使用现成的3D手部关键点重建模型提取特征，并将这些特征编码为令牌与模型输入交错排列，为解释指向意图提供显式的空间和时间上下文信息。</p>
+<p><strong>Result:</strong> 实验结果表明，HINT方法在不同骨干网络和模型规模下均优于其他方法，其中HINT-14B在6个任务上的平均准确率达到68.1%，比当前最先进的InternVL3-14B模型高出6.6%。</p>
+<p><strong>Conclusion:</strong> 该研究通过构建专门的数据集和引入显式的手势意图表示方法，显著提升了多模态大语言模型在自我中心指向手势理解任务上的性能，为下一代交互式AI助手的发展提供了重要技术基础，并将开源代码、模型和数据集以促进该领域的开放研究。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Understanding and answering questions based on a user's pointing gesture is essential for next-generation egocentric AI assistants. However, current Multimodal Large Language Models (MLLMs) struggle with such tasks due to the lack of gesture-rich data and their limited ability to infer fine-grained pointing intent from egocentric video. To address this, we introduce EgoPointVQA, a dataset and benchmark for gesture-grounded egocentric question answering, comprising 4000 synthetic and 400 real-world videos across multiple deictic reasoning tasks. Built upon it, we further propose Hand Intent Tokens (HINT), which encodes tokens derived from 3D hand keypoints using an off-the-shelf reconstruction model and interleaves them with the model input to provide explicit spatial and temporal context for interpreting pointing intent. We show that our model outperforms others in different backbones and model sizes. In particular, HINT-14B achieves 68.1% accuracy, on average over 6 tasks, surpassing the state-of-the-art, InternVL3-14B, by 6.6%. To further facilitate the open research, we will release the code, model, and dataset. Project page: https://yuuraa.github.io/papers/choi2026egovqa</p>
+<h3 id="3-visual-erm-reward-modeling-for-visual-equivalence">[3] <a href="https://arxiv.org/abs/2603.13224">Visual-ERM: Reward Modeling for Visual Equivalence</a></h3>
+<p><em>Ziyu Liu, Shengyuan Ding, Xinyu Fang, Xuanlang Dai, Penghui Yang, Jianze Liang, Jiaqi Wang, Kai Chen, Dahua Lin, Yuhang Zang</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出Visual-ERM，一种多模态生成式奖励模型，通过直接在渲染的视觉空间中提供细粒度、可解释且任务无关的反馈，解决了视觉到代码任务中强化学习面临的奖励信号不对齐问题。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 视觉到代码任务要求模型将结构化视觉输入（如图表、表格和SVG）重建为具有高视觉保真度的可执行或结构化表示。现有大型视觉语言模型通过监督微调取得良好效果，但强化学习仍面临挑战，因为现有奖励信号要么依赖文本规则，要么使用粗糙的视觉嵌入相似度，两者都无法捕捉细粒度视觉差异且容易受到奖励攻击。</p>
+<p><strong>Method:</strong> 本文提出Visual-ERM（视觉等价奖励模型），这是一种多模态生成式奖励模型，直接在渲染的视觉空间中评估视觉到代码的质量，提供细粒度、可解释且任务无关的反馈。该方法集成到强化学习中，并通过反思和修订进一步增强测试时的扩展能力。同时，作者还引入了VisualCritic-RewardBench（VC-RewardBench）基准，用于评估结构化视觉数据上的细粒度图像到图像差异。</p>
+<p><strong>Result:</strong> 在强化学习中集成Visual-ERM后，Qwen3-VL-8B-Instruct在图表到代码任务上提升了+8.4分，在表格和SVG解析任务上分别获得+2.7和+4.1的平均增益。在VC-RewardBench基准测试中，8B参数的Visual-ERM显著优于Qwen3-VL-235B-Instruct，并接近领先的闭源模型性能。</p>
+<p><strong>Conclusion:</strong> 研究结果表明，细粒度的视觉奖励监督对于视觉到代码的强化学习既是必要的也是充分的，且不受任务特定性的影响。该方法为多模态强化学习提供了更精确的奖励信号机制，推动了视觉到代码任务的性能提升和泛化能力。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Vision-to-code tasks require models to reconstruct structured visual inputs, such as charts, tables, and SVGs, into executable or structured representations with high visual fidelity. While recent Large Vision Language Models (LVLMs) achieve strong results via supervised fine-tuning, reinforcement learning remains challenging due to misaligned reward signals. Existing rewards either rely on textual rules or coarse visual embedding similarity, both of which fail to capture fine-grained visual discrepancies and are vulnerable to reward hacking. We propose Visual Equivalence Reward Model (Visual-ERM), a multimodal generative reward model that provides fine-grained, interpretable, and task-agnostic feedback to evaluate vision-to-code quality directly in the rendered visual space. Integrated into RL, Visual-ERM improves Qwen3-VL-8B-Instruct by +8.4 on chart-to-code and yields consistent gains on table and SVG parsing (+2.7, +4.1 on average), and further strengthens test-time scaling via reflection and revision. We also introduce VisualCritic-RewardBench (VC-RewardBench), a benchmark for judging fine-grained image-to-image discrepancies on structured visual data, where Visual-ERM at 8B decisively outperforms Qwen3-VL-235B-Instruct and approaches leading closed-source models. Our results suggest that fine-grained visual reward supervision is both necessary and sufficient for vision-to-code RL, regardless of task specificity.</p>
+<h3 id="4-spatial-reasoning-is-not-a-free-lunch-a-controlled-study-on-llava">[4] <a href="https://arxiv.org/abs/2603.12545">Spatial Reasoning is Not a Free Lunch: A Controlled Study on LLaVA</a></h3>
+<p><em>Nahid Alam, Leema Krishna Murali, Siddhant Bharadwaj, Patrick Liu, Timothy Chung, Drishti Sharma, Akshata A., Kranthi Kiran, Wesley Tam, Bala Krishna S Vegesna</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>该研究通过诊断实验揭示，当前视觉语言模型在空间推理方面的缺陷主要源于其架构设计选择，特别是CLIP式图像编码器和一维位置编码的使用，而非单纯的数据不足问题。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管视觉语言模型在通用基准测试中表现优异，但在理解相对位置、布局和计数等基本二维空间关系方面仍然脆弱。本研究认为这种失败不仅是数据问题，更与当前VLM流水线中的主导设计选择密切相关，特别是对CLIP式图像编码器的依赖以及将图像扁平化为具有一维位置编码的一维标记序列。</p>
+<p><strong>Method:</strong> 研究在LLaVA框架内进行了受控诊断研究，以隔离这些设计选择对空间基础能力的影响。评估了前沿模型和LLaVA变体在一系列空间基准测试上的表现，比较了基于CLIP的编码器与采用更密集或生成目标的替代编码器，以及增强二维位置编码的变体。</p>
+<p><strong>Result:</strong> 结果显示不同模型之间存在一致的空间性能差距，表明编码器目标和位置结构确实影响空间行为，但未能完全解决空间推理问题。具体而言，采用更密集或生成目标的编码器以及二维位置编码的变体在空间基准测试中表现有所改善，但仍有显著局限性。</p>
+<p><strong>Conclusion:</strong> 该研究提供了对视觉语言模型空间推理失败根源的系统性分析，指出当前架构设计选择是核心限制因素。研究结果表明，需要重新思考VLM的编码器设计和位置表示机制，而不仅仅是增加训练数据，这为未来改进空间基础能力的模型设计提供了明确方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Vision-language models (VLMs) have advanced rapidly, yet they still struggle with basic spatial reasoning. Despite strong performance on general benchmarks, modern VLMs remain brittle at understanding 2D spatial relationships such as relative position, layout, and counting. We argue that this failure is not merely a data problem, but is closely tied to dominant design choices in current VLM pipelines: reliance on CLIP-style image encoders and the flattening of images into 1D token sequences with 1D positional encoding. We present a controlled diagnostic study within the LLaVA framework to isolate how these choices affect spatial grounding. We evaluate frontier models and LLaVA variants on a suite of spatial benchmarks, comparing CLIP-based encoders against alternatives trained with denser or generative objectives, as well as variants augmented with 2D positional encoding. Our results show consistent spatial performance gaps across models, and indicate that encoder objectives and positional structure shape spatial behavior, but do not fully resolve it.</p>
+<h3 id="5-neural-gate-mitigating-privacy-risks-in-lvlms-via-neuron-level-gradient-gating">[5] <a href="https://arxiv.org/abs/2603.12598">Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating</a></h3>
+<p><em>Xiangkui Cao, Jie Zhang, Meina Kan, Shiguang Shan, Xilin Chen</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出Neural Gate方法，通过神经元级模型编辑增强大型视觉语言模型的隐私保护能力，在显著提升对隐私相关查询拒绝率的同时保持模型原始性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在金融、医疗等关键领域广泛应用，但其安全隐私风险日益突出，恶意攻击者可能利用模型提取敏感信息。现有隐私保护方法在泛化性和非破坏性方面存在局限，难以鲁棒处理未见隐私查询且可能损害模型标准任务性能。</p>
+<p><strong>Method:</strong> 本文提出Neural Gate方法，通过神经元级模型编辑增强隐私保护。该方法学习特征向量来识别模型中与隐私相关概念关联的神经元，在主体表示中进行精确定位，然后精确指导模型参数更新，从而提升模型对隐私问题的拒绝能力。</p>
+<p><strong>Result:</strong> 在MiniGPT和LLaVA上的综合实验表明，Neural Gate方法显著增强了模型的隐私保护能力，提高了对隐私相关问题的拒绝率，并将这种保护行为扩展到编辑过程中未见过的新型敏感查询，同时保持了模型的原始效用。</p>
+<p><strong>Conclusion:</strong> Neural Gate为大型视觉语言模型的隐私保护提供了有效的神经元级编辑解决方案，在增强隐私防护的同时维持模型性能，为安全部署关键领域应用提供了重要技术路径。该方法展示了模型编辑在隐私保护中的潜力，为未来研究提供了新方向。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) have shown remarkable potential across a wide array of vision-language tasks, leading to their adoption in critical domains such as finance and healthcare. However, their growing deployment also introduces significant security and privacy risks. Malicious actors could potentially exploit these models to extract sensitive information, highlighting a critical vulnerability. Recent studies show that LVLMs often fail to consistently refuse instructions designed to compromise user privacy. While existing work on privacy protection has made meaningful progress in preventing the leakage of sensitive data, they are constrained by limitations in both generalization and non-destructiveness. They often struggle to robustly handle unseen privacy-related queries and may inadvertently degrade a model's performance on standard tasks. To address these challenges, we introduce Neural Gate, a novel method for mitigating privacy risks through neuron-level model editing. Our method improves a model's privacy safeguards by increasing its rate of refusal for privacy-related questions, crucially extending this protective behavior to novel sensitive queries not encountered during the editing process. Neural Gate operates by learning a feature vector to identify neurons associated with privacy-related concepts within the model's representation of a subject. This localization then precisely guides the update of model parameters. Through comprehensive experiments on MiniGPT and LLaVA, we demonstrate that our method significantly boosts the model's privacy protection while preserving its original utility.</p>
+<h3 id="6-thinking-in-dynamics-how-multimodal-large-language-models-perceive-track-and-reason-dynamics-in-physical-4d-world">[6] <a href="https://arxiv.org/abs/2603.12746">Thinking in Dynamics: How Multimodal Large Language Models Perceive, Track, and Reason Dynamics in Physical 4D World</a></h3>
+<p><em>Yuzhi Huang, Kairun Wen, Rongxin Gao, Dongxuan Liu, Yibin Lou, Jie Wu, Jing Xu, Jian Zhang, Zheng Yang, Yunlong Lin, Chenxin Li, Panwang Pan, Junbin Lu, Jingyan Jiang, Xinghao Ding, Yue Huang, Zhi Wang</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了Dyn-Bench，一个用于评估多模态大语言模型在动态4D场景中时空推理能力的基准测试，发现现有模型在时空推理和动态物体定位方面存在性能不一致问题，并提出了结构化集成方法以增强模型的动态感知能力。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在静态视觉理解方面表现出色，但缺乏对动态4D现实世界中时空演化的感知、跟踪和推理能力，需要系统评估模型在动态场景中的时空推理和局部动态感知能力。</p>
+<p><strong>Method:</strong> 研究构建了Dyn-Bench大规模基准测试，通过多阶段过滤从大量2D和4D数据源中筛选高质量动态场景，包含1k视频、7k视觉问答对和3k动态物体定位对；提出了结构化集成方法，包括掩码引导融合和时空文本认知地图，以增强模型的动态感知能力。</p>
+<p><strong>Result:</strong> 实验发现现有模型无法同时保持时空推理和动态物体定位的强性能，常产生对运动和交互的不一致解释；传统提示策略改进有限，而结构化集成方法显著提升了模型在物理4D世界中的动态感知和时空推理能力。</p>
+<p><strong>Conclusion:</strong> 研究揭示了当前多模态大语言模型在动态场景理解方面的局限性，提出的结构化集成方法为解决时空推理与动态感知的协调问题提供了有效途径，为开发更强大的动态场景理解模型奠定了基础。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Humans inhabit a physical 4D world where geometric structure and semantic content evolve over time, constituting a dynamic 4D reality (spatial with temporal dimension). While current Multimodal Large Language Models (MLLMs) excel in static visual understanding, can they also be adept at "thinking in dynamics", i.e., perceive, track and reason about spatio-temporal dynamics in evolving scenes? To systematically assess their spatio-temporal reasoning and localized dynamics perception capabilities, we introduce Dyn-Bench, a large-scale benchmark built from diverse real-world and synthetic video datasets, enabling robust and scalable evaluation of spatio-temporal understanding. Through multi-stage filtering from massive 2D and 4D data sources, Dyn-Bench provides a high-quality collection of dynamic scenes, comprising 1k videos, 7k visual question answering (VQA) pairs, and 3k dynamic object grounding pairs. We probe general, spatial and region-level MLLMs to express how they think in dynamics both linguistically and visually, and find that existing models cannot simultaneously maintain strong performance in both spatio-temporal reasoning and dynamic object grounding, often producing inconsistent interpretations of motion and interaction. Notably, conventional prompting strategies (e.g., chain-of-thought or caption-based hints) provide limited improvement, whereas structured integration approaches, including Mask-Guided Fusion and Spatio-Temporal Textual Cognitive Map (ST-TCM), significantly enhance MLLMs' dynamics perception and spatio-temporal reasoning in the physical 4D world. Code and benchmark are available at https://dyn-bench.github.io/.</p>
+<h3 id="7-what-makes-vlms-robust-towards-reconciling-robustness-and-accuracy-in-vision-language-models">[7] <a href="https://arxiv.org/abs/2603.12799">What Makes VLMs Robust? Towards Reconciling Robustness and Accuracy in Vision-Language Models</a></h3>
+<p><em>Sen Nie, Jie Zhang, Zhongqi Wang, Zhaoyang Wei, Shiguang Shan, Xilin Chen</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>该研究提出了一种名为R-Adapt的对抗鲁棒性适应框架，通过冻结预训练权重并仅在浅层引入最小化适应，在视觉语言模型中实现了对抗鲁棒性与干净数据准确率之间的卓越平衡。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 视觉语言模型中的对抗鲁棒性通常以牺牲干净数据准确率为代价，这种权衡长期以来是一个具有挑战性的问题。本研究旨在探究对抗鲁棒性的内在机制，特别是分析鲁棒性如何在网络深度中分布，以及鲁棒机制与干净准确率之间的相互作用，以解决这一根本性权衡问题。</p>
+<p><strong>Method:</strong> 研究首先通过详细分析对抗性微调模型，揭示了对抗鲁棒性主要集中于浅层网络，由低频谱偏置和输入不敏感的注意力模式驱动。基于这一洞察，提出了对抗鲁棒性适应框架，该框架冻结所有预训练权重，仅在初始层引入最小化、基于洞察的适应。R-Adapt进一步支持免训练、模型引导和数据驱动三种范式，为标准模型提供灵活的鲁棒性增强途径。</p>
+<p><strong>Result:</strong> 在18个数据集和多样化任务上的广泛评估表明，R-Adapt在各种攻击下实现了最先进的性能。该方法能够高效泛化到大型视觉语言模型，成功增强了LLaVA和Qwen-VL等模型的鲁棒性，同时保持了卓越的干净数据准确率。</p>
+<p><strong>Conclusion:</strong> 研究发现对抗鲁棒性在视觉语言模型中并非均匀分布，而是主要集中于浅层网络，而深层更新往往会损害干净准确率和鲁棒泛化能力。R-Adapt框架通过最小化适应策略，为平衡对抗鲁棒性与干净准确率提供了一种简单而有效的解决方案，为增强大型视觉语言模型的鲁棒性开辟了新途径。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Achieving adversarial robustness in Vision-Language Models (VLMs) inevitably compromises accuracy on clean data, presenting a long-standing and challenging trade-off. In this work, we revisit this trade-off by investigating a fundamental question: What makes VLMs robust? Through a detailed analysis of adversarially fine-tuned models, we examine how robustness mechanisms function internally and how they interact with clean accuracy. Our analysis reveals that adversarial robustness is not uniformly distributed across network depth. Instead, unexpectedly, it is primarily localized within the shallow layers, driven by a low-frequency spectral bias and input-insensitive attention patterns. Meanwhile, updates to the deep layers tend to undermine both clean accuracy and robust generalization. Motivated by these insights, we propose Adversarial Robustness Adaptation (R-Adapt), a simple yet effective framework that freezes all pre-trained weights and introduces minimal, insight-driven adaptations only in the initial layers. This design achieves an exceptional balance between adversarial robustness and clean accuracy. R-Adapt further supports training-free, model-guided, and data-driven paradigms, offering flexible pathways to seamlessly equip standard models with robustness. Extensive evaluations on 18 datasets and diverse tasks demonstrate our state-of-the-art performance under various attacks. Notably, R-Adapt generalizes efficiently to large vision-language models (e.g., LLaVA and Qwen-VL) to enhance their robustness. Our project page is available at https://summu77.github.io/R-Adapt.</p>
+<h3 id="8-oars-process-aware-online-alignment-for-generative-real-world-image-super-resolution">[8] <a href="https://arxiv.org/abs/2603.12811">OARS: Process-Aware Online Alignment for Generative Real-World Image Super-Resolution</a></h3>
+<p><em>Shijie Zhao, Xuanyu Zhang, Bin Chen, Weiqi Li, Qunliang Xing, Kexin Zhang, Yan Wang, Junlin Li, Li Zhang, Jian Zhang, Tianfan Xue</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出OARS框架，一种基于过程感知的在线对齐方法，用于生成式真实世界图像超分辨率，通过COMPASS多模态大语言模型奖励来联合建模保真度和感知增益，实现感知-保真度权衡的自适应优化。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 生成式真实世界图像超分辨率模型与人类视觉偏好对齐面临挑战，主要源于感知-保真度权衡问题以及多样且未知的退化类型。现有方法依赖离线偏好优化和静态指标聚合，通常缺乏可解释性，且在强条件约束下容易产生伪多样性。</p>
+<p><strong>Method:</strong> 提出OARS框架，基于COMPASS多模态大语言模型奖励评估低分辨率到超分辨率转换过程，联合建模保真度保持和感知增益，采用输入质量自适应权衡机制。训练COMPASS使用包含合成和真实退化的COMPASS-20K数据集，通过三阶段感知标注流程获得校准的细粒度训练标签。OARS执行渐进式在线对齐，从冷启动流匹配到全参考强化学习，最终实现无参考强化学习，采用浅层LoRA优化进行策略探索。</p>
+<p><strong>Result:</strong> 广泛实验和用户研究表明，该方法在保持保真度的同时实现了持续的感知改进，在Real-ISR基准测试中达到了最先进的性能水平。COMPASS-20K数据集包含合成和真实退化类型，为模型训练提供了高质量的标注数据。</p>
+<p><strong>Conclusion:</strong> 该研究展示了过程感知在线对齐框架在生成式超分辨率任务中的有效性，通过多模态大语言模型奖励实现感知-保真度权衡的自适应优化，为真实世界图像超分辨率提供了一种可解释且高效的解决方案，同时为未来相关研究提供了新的基准数据集和评估方法。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Aligning generative real-world image super-resolution models with human visual preference is challenging due to the perception--fidelity trade-off and diverse, unknown degradations. Prior approaches rely on offline preference optimization and static metric aggregation, which are often non-interpretable and prone to pseudo-diversity under strong conditioning. We propose OARS, a process-aware online alignment framework built on COMPASS, a MLLM-based reward that evaluates the LR to SR transition by jointly modeling fidelity preservation and perceptual gain with an input-quality-adaptive trade-off. To train COMPASS, we curate COMPASS-20K spanning synthetic and real degradations, and introduce a three-stage perceptual annotation pipeline that yields calibrated, fine-grained training labels. Guided by COMPASS, OARS performs progressive online alignment from cold-start flow matching to full-reference and finally reference-free RL via shallow LoRA optimization for on-policy exploration. Extensive experiments and user studies demonstrate consistent perceptual improvements while maintaining fidelity, achieving state-of-the-art performance on Real-ISR benchmarks.</p>
+<h3 id="9-test-time-attention-purification-for-backdoored-large-vision-language-models">[9] <a href="https://arxiv.org/abs/2603.12989">Test-Time Attention Purification for Backdoored Large Vision Language Models</a></h3>
+<p><em>Zhifang Zhang, Bojun Yang, Shuo He, Weitong Chen, Wei Emma Zhang, Olaf Maennel, Lei Feng, Miao Xu</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出了CleanSight，一种针对大型视觉语言模型后门攻击的训练免费、即插即用防御方法，通过检测并剪除异常高注意力视觉标记来中和后门激活，显著优于现有像素级净化防御方法。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管大型视觉语言模型在多模态任务上表现强大，但在微调过程中容易受到后门攻击，现有防御方法通常需要重新训练被感染的参数，计算成本高昂且会降低模型性能，因此需要更高效的防御机制。</p>
+<p><strong>Method:</strong> 本文提出了CleanSight防御框架，基于对后门行为的新机制理解：触发器通过异常跨模态注意力重新分配而非低级视觉模式影响预测。该方法包括两个核心步骤：首先基于选定跨模态融合层中的视觉-文本注意力相对比率检测中毒输入，然后通过选择性剪除可疑高注意力视觉标记来净化输入以中和后门激活。</p>
+<p><strong>Result:</strong> 大量实验表明，CleanSight在多种数据集和后门攻击类型上显著优于现有的基于像素的净化防御方法，同时在干净样本和中毒样本上都能保持模型的实用性，实现了高效的后门防御效果。</p>
+<p><strong>Conclusion:</strong> 该研究提供了对大型视觉语言模型中后门行为的新机制理解，揭示了注意力窃取现象，并提出了一种无需训练、仅需测试时操作的实用防御方案，为多模态模型的安全防御开辟了新方向。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Despite the strong multimodal performance, large vision-language models (LVLMs) are vulnerable during fine-tuning to backdoor attacks, where adversaries insert trigger-embedded samples into the training data to implant behaviors that can be maliciously activated at test time. Existing defenses typically rely on retraining backdoored parameters (e.g., adapters or LoRA modules) with clean data, which is computationally expensive and often degrades model performance. In this work, we provide a new mechanistic understanding of backdoor behaviors in LVLMs: the trigger does not influence prediction through low-level visual patterns, but through abnormal cross-modal attention redistribution, where trigger-bearing visual tokens steal attention away from the textual context - a phenomenon we term attention stealing. Motivated by this, we propose CleanSight, a training-free, plug-and-play defense that operates purely at test time. CleanSight (i) detects poisoned inputs based on the relative visual-text attention ratio in selected cross-modal fusion layers, and (ii) purifies the input by selectively pruning the suspicious high-attention visual tokens to neutralize the backdoor activation. Extensive experiments show that CleanSight significantly outperforms existing pixel-based purification defenses across diverse datasets and backdoor attack types, while preserving the model's utility on both clean and poisoned samples.</p>
+<h3 id="10-reasoning-over-video-evaluating-how-mllms-extract-integrate-and-reconstruct-spatiotemporal-evidence">[10] <a href="https://arxiv.org/abs/2603.13091">Reasoning over Video: Evaluating How MLLMs Extract, Integrate, and Reconstruct Spatiotemporal Evidence</a></h3>
+<p><em>Seunghwan Bang, Hwanjun Song</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出了VAEX-BENCH基准测试，用于评估多模态大语言模型在视频理解中的抽象时空推理能力，通过构建结构化评估分类学和可控合成数据集，揭示了现有模型在抽象推理任务上的局限性。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视频理解基准主要关注提取式推理，即答案可直接从时空事件中显式获取，而多模态大语言模型是否能够执行抽象时空推理——这需要整合时间观察、结合分散线索并推断隐式空间和上下文结构——仍然不清楚，本研究旨在填补这一研究空白。</p>
+<p><strong>Method:</strong> 研究通过形式化视频中的抽象时空推理，引入结构化评估分类学系统性地针对其核心维度，构建了可控的场景驱动合成自我中心视频数据集，专门用于评估抽象时空推理能力，涵盖对象、房间和楼层平面图级别场景，并在此基础上提出了VAEX-BENCH基准，包含五个抽象推理任务及其提取式对应任务。</p>
+<p><strong>Result:</strong> 广泛实验比较了最先进多模态大语言模型在提取式和抽象式设置下的性能，揭示了它们在抽象任务上的局限性，并提供了对潜在瓶颈的细粒度分析，表明现有模型在需要整合分散线索和推断隐式结构的抽象时空推理方面存在显著不足。</p>
+<p><strong>Conclusion:</strong> 该研究为评估多模态大语言模型的抽象时空推理能力提供了系统框架和基准，揭示了当前模型在此类任务上的瓶颈，为未来研究指明了改进方向，特别是需要开发能够更好整合时空信息和进行隐式推理的模型架构。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>The growing interest in embodied agents increases the demand for spatiotemporal video understanding, yet existing benchmarks largely emphasize extractive reasoning, where answers can be explicitly presented within spatiotemporal events. It remains unclear whether multimodal large language models can instead perform abstractive spatiotemporal reasoning, which requires integrating observations over time, combining dispersed cues, and inferring implicit spatial and contextual structure. To address this gap, we formalize abstractive spatiotemporal reasoning from videos by introducing a structured evaluation taxonomy that systematically targets its core dimensions and construct a controllable, scenario-driven synthetic egocentric video dataset tailored to evaluate abstractive spatiotemporal reasoning capabilities, spanning object-, room-, and floor-plan-level scenarios. Based on this framework, we present VAEX-BENCH, a benchmark comprising five abstractive reasoning tasks together with their extractive counterparts. Our extensive experiments compare the performance of state-of-the-art MLLMs under extractive and abstractive settings, exposing their limitations on abstractive tasks and providing a fine-grained analysis of the underlying bottlenecks. The dataset will be released soon.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="11-beyond-final-answers-crystal-benchmark-for-transparent-multimodal-reasoning-evaluation">[11] <a href="https://arxiv.org/abs/2603.13099">Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation</a></h3>
+<p><em>Wayner Barrios, SouYoung Jin</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了CRYSTAL基准，用于通过可验证的中间步骤评估多模态推理，并揭示了现有模型在推理链质量方面的系统性缺陷。同时提出了因果过程奖励（CPR）和CPR-Curriculum训练方法，显著提升了推理步骤的对齐质量。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型（MLLM）评估主要关注最终答案准确性，而忽视了推理过程的质量和可验证性。这导致模型可能通过"摘樱桃"策略获得正确答案却缺乏可靠的推理链，因此需要一种能够评估中间步骤质量和顺序的诊断性基准。</p>
+<p><strong>Method:</strong> 提出了CRYSTAL基准，包含6,372个实例，采用德尔菲启发式流程构建参考推理链：四个独立MLLM生成轨迹，通过语义聚类聚合并经人工质量门验证。设计了两个互补指标：Match F1通过语义相似性匹配评估步骤级精确率和召回率，Ordered Match F1进一步惩罚无序推理链。同时提出了因果过程奖励（CPR），将答案正确性与步骤级对齐耦合，以及CPR-Curriculum训练方法，在训练过程中逐步增加推理难度。</p>
+<p><strong>Result:</strong> 对20个MLLM（包括未参与基准构建的前沿商业系统）的评估揭示了准确性指标无法发现的系统性缺陷：普遍存在摘樱桃现象（精确率远高于召回率）、非单调的规模权衡、以及无序推理问题（没有竞争模型能在正确顺序中保留超过60%的匹配步骤）。CPR-Curriculum通过GRPO实现了+32%的Match F1提升，而传统加法奖励策略在此任务上失败。</p>
+<p><strong>Conclusion:</strong> 研究表明仅关注最终答案准确性会掩盖多模态推理模型的根本缺陷，需要步骤级评估来揭示推理质量问题。CPR-Curriculum方法展示了通过耦合答案正确性与步骤对齐的奖励设计，可以在无需人工步骤标注的情况下显著改善推理能力，为未来多模态推理模型的训练和评估提供了新方向。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>We introduce <strong>CRYSTAL</strong> (<em>__C__lear __R__easoning via __Y__ielded __S__teps, __T__raceability and __L__ogic</em>), a diagnostic benchmark with 6,372 instances that evaluates multimodal reasoning through verifiable intermediate steps. We propose two complementary metrics: <em>Match F1</em>, which scores step-level precision and recall via semantic similarity matching, and <em>Ordered Match F1</em>, which further penalizes disordered reasoning chains. References are constructed through a Delphi-inspired pipeline where four independent MLLMs generate trajectories, aggregated via semantic clustering and validated through human quality gates. Evaluation of 20 MLLMs, including commercial frontier systems not used during benchmark construction, reveals systematic failures invisible to accuracy: universal cherry-picking (precision far exceeds recall), non-monotonic scaling trade-offs, and disordered reasoning where no competitive model preserves more than 60% of matched steps in correct order. Beyond evaluation, we propose the <strong>Causal Process Reward (CPR)</strong>, a multiplicative reward that couples answer correctness with step-level alignment, and <strong>CPR-Curriculum</strong>, which progressively increases reasoning difficulty during training. CPR-Curriculum achieves +32% Match F1 via GRPO where additive reward strategies fail, improving reasoning without manual step annotation.</p>
+  </article>
+</body>
+</html>
