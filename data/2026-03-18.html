@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-18.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 16]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 1]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-exploring-the-use-of-vlms-for-navigation-assistance-for-people-with-blindness-and-low-vision">[1] <a href="https://arxiv.org/abs/2603.15624">Exploring the Use of VLMs for Navigation Assistance for People with Blindness and Low Vision</a></h3>
+<p><em>Yu Li, Yuchen Zheng, Giles Hamilton-Fletcher, Marco Mezzavilla, Yao Wang, Sundeep Rangan, Maurizio Porfiri, Zhou Yu, John-Ross Rizzo</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本研究评估了多种视觉语言模型在协助盲人和低视力人群导航任务中的能力，发现GPT-4o在空间推理和场景理解方面表现最佳，而开源模型在复杂环境中存在显著局限性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 本研究旨在探索视觉语言模型在协助盲人和低视力人群导航任务中的潜力，评估当前模型在基础视觉技能和实际导航场景中的表现，以识别现有技术的优势和局限性，为开发更有效的辅助技术提供指导。</p>
+<p><strong>Method:</strong> 研究评估了包括GPT-4V、GPT-4o、Gemini-1.5-Pro和Claude-3.5-Sonnet在内的闭源模型，以及Llava-v1.6-mistral和Llava-onevision-qwen等开源模型，测试了它们在环境障碍物计数、相对空间推理和常识性寻路相关场景理解等基础视觉技能，并设计了针对盲人和低视力人群的特定提示来模拟实际辅助任务。</p>
+<p><strong>Result:</strong> 研究发现模型间存在显著性能差异：GPT-4o在所有任务中表现最佳，尤其在空间推理和场景理解方面；开源模型在复杂环境中存在推理能力和适应性不足的问题；常见挑战包括在杂乱环境中准确计数物体困难、空间推理存在偏见，以及倾向于优先关注物体细节而非空间反馈，限制了其在导航任务中的实用性。</p>
+<p><strong>Conclusion:</strong> 尽管存在局限性，视觉语言模型在寻路辅助方面仍显示出潜力，特别是当模型能更好地与人类反馈对齐并具备改进的空间推理能力时；本研究为当前视觉语言模型的优势和局限性提供了可操作的见解，指导开发者如何有效将视觉语言模型集成到辅助技术中，同时解决关键限制以增强可用性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>This paper investigates the potential of vision-language models (VLMs) to assist people with blindness and low vision (pBLV) in navigation tasks. We evaluate state-of-the-art closed-source models, including GPT-4V, GPT-4o, Gemini-1.5-Pro, and Claude-3.5-Sonnet, alongside open-source models, such as Llava-v1.6-mistral and Llava-onevision-qwen, to analyze their capabilities in foundational visual skills: counting ambient obstacles, relative spatial reasoning, and common-sense wayfinding-pertinent scene understanding. We further assess their performance in navigation scenarios, using pBLV-specific prompts designed to simulate real-world assistance tasks. Our findings reveal notable performance disparities between these models: GPT-4o consistently outperforms others across all tasks, particularly in spatial reasoning and scene understanding. In contrast, open-source models struggle with nuanced reasoning and adaptability in complex environments. Common challenges include difficulties in accurately counting objects in cluttered settings, biases in spatial reasoning, and a tendency to prioritize object details over spatial feedback, limiting their usability for pBLV in navigation tasks. Despite these limitations, VLMs show promise for wayfinding assistance when better aligned with human feedback and equipped with improved spatial reasoning. This research provides actionable insights into the strengths and limitations of current VLMs, guiding developers on effectively integrating VLMs into assistive technologies while addressing key limitations for enhanced usability.</p>
+<h3 id="2-parallel-in-context-learning-for-large-vision-language-models">[2] <a href="https://arxiv.org/abs/2603.16092">Parallel In-context Learning for Large Vision Language Models</a></h3>
+<p><em>Shin'ya Yamaguchi, Daiki Chijiwa, Tamao Sakao, Taku Hasegawa</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出Parallel-ICL，一种用于多模态上下文学习的即插即用推理算法，通过并行处理分块演示示例并采用加权专家乘积集成，在保持性能的同时显著降低推理延迟。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型采用多模态上下文学习时，增加演示示例数量能提升性能但会导致二次计算成本的推理延迟显著增加，现有方法面临准确性与效率之间的权衡问题。</p>
+<p><strong>Method:</strong> 提出Parallel-ICL算法，将长演示上下文划分为多个短块并行处理，在logit层面通过加权专家乘积集成近似完整上下文输出，并引入基于聚类的上下文分块策略以最大化块间多样性，以及基于相似性的上下文编译策略根据查询相关性加权预测。</p>
+<p><strong>Result:</strong> 在VQA、图像描述生成和分类基准测试上的广泛实验表明，Parallel-ICL在保持与完整上下文MM-ICL相当性能的同时，显著提高了推理速度，有效解决了准确性与效率之间的权衡问题。</p>
+<p><strong>Conclusion:</strong> 该研究为多模态上下文学习中的准确性与效率权衡提供了有效解决方案，通过并行处理机制显著降低推理开销，使动态任务适应更加实用可行，为大规模视觉语言模型的实时应用铺平道路。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Large vision-language models (LVLMs) employ multi-modal in-context learning (MM-ICL) to adapt to new tasks by leveraging demonstration examples. While increasing the number of demonstrations boosts performance, they incur significant inference latency due to the quadratic computational cost of Transformer attention with respect to the context length. To address this trade-off, we propose Parallel In-Context Learning (Parallel-ICL), a plug-and-play inference algorithm. Parallel-ICL partitions the long demonstration context into multiple shorter, manageable chunks. It processes these chunks in parallel and integrates their predictions at the logit level, using a weighted Product-of-Experts (PoE) ensemble to approximate the full-context output. Guided by ensemble learning theory, we introduce principled strategies for Parallel-ICL: (i) clustering-based context chunking to maximize inter-chunk diversity and (ii) similarity-based context compilation to weight predictions by query relevance. Extensive experiments on VQA, image captioning, and classification benchmarks demonstrate that Parallel-ICL achieves performance comparable to full-context MM-ICL, while significantly improving inference speed. Our work offers an effective solution to the accuracy-efficiency trade-off in MM-ICL, enabling dynamic task adaptation with substantially reduced inference overhead.</p>
+<h3 id="3-evolving-contextual-safety-in-multi-modal-large-language-models-via-inference-time-self-reflective-memory">[3] <a href="https://arxiv.org/abs/2603.15800">Evolving Contextual Safety in Multi-Modal Large Language Models via Inference-Time Self-Reflective Memory</a></h3>
+<p><em>Ce Zhang, Jinxi He, Junyi He, Katia Sycara, Yaqi Xie</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了MM-SafetyBench++基准用于评估多模态大语言模型的上下文安全性，并开发了EchoSafe训练免费框架，通过自反记忆库积累安全洞察以实现上下文感知推理，显著提升了模型在上下文安全任务上的性能。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在视觉推理任务中表现出色，但其安全脆弱性仍是紧迫问题。先前研究主要关注检测和拒绝显式不安全输入的越狱防御，往往忽略了上下文安全性，即模型需要区分看似相似但安全意图显著不同的场景之间的细微上下文差异。</p>
+<p><strong>Method:</strong> 本文提出了MM-SafetyBench++基准，通过最小修改为每个不安全图像-文本对构建相应的安全对应物，翻转用户意图同时保留底层上下文含义，实现模型是否能基于上下文理解调整安全行为的受控评估。进一步提出了EchoSafe训练免费框架，维护自反记忆库以积累和检索先前交互中的安全洞察，通过将相关过去经验整合到当前提示中，实现推理过程中的上下文感知推理和安全行为的持续演化。</p>
+<p><strong>Result:</strong> 在多个多模态安全基准上的广泛实验表明，EchoSafe始终实现卓越性能，在上下文安全评估中建立了强大的基线。MM-SafetyBench++基准经过精心设计，能够有效评估模型对上下文细微差异的敏感性，所有基准数据和代码均已公开可用。</p>
+<p><strong>Conclusion:</strong> 该研究强调了上下文安全评估在多模态大语言模型安全研究中的重要性，EchoSafe框架展示了通过自反记忆实现上下文感知推理的有效性，为推进MLLMs的上下文安全提供了新的方法论和评估工具，促进了更细致的安全行为理解和改进。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Multi-modal Large Language Models (MLLMs) have achieved remarkable performance across a wide range of visual reasoning tasks, yet their vulnerability to safety risks remains a pressing concern. While prior research primarily focuses on jailbreak defenses that detect and refuse explicitly unsafe inputs, such approaches often overlook contextual safety, which requires models to distinguish subtle contextual differences between scenarios that may appear similar but diverge significantly in safety intent. In this work, we present MM-SafetyBench++, a carefully curated benchmark designed for contextual safety evaluation. Specifically, for each unsafe image-text pair, we construct a corresponding safe counterpart through minimal modifications that flip the user intent while preserving the underlying contextual meaning, enabling controlled evaluation of whether models can adapt their safety behaviors based on contextual understanding. Further, we introduce EchoSafe, a training-free framework that maintains a self-reflective memory bank to accumulate and retrieve safety insights from prior interactions. By integrating relevant past experiences into current prompts, EchoSafe enables context-aware reasoning and continual evolution of safety behavior during inference. Extensive experiments on various multi-modal safety benchmarks demonstrate that EchoSafe consistently achieves superior performance, establishing a strong baseline for advancing contextual safety in MLLMs. All benchmark data and code are available at https://echosafe-mllm.github.io.</p>
+<h3 id="4-360-image-perception-with-mllms-a-comprehensive-benchmark-and-a-training-free-method">[4] <a href="https://arxiv.org/abs/2603.16179">360° Image Perception with MLLMs: A Comprehensive Benchmark and a Training-Free Method</a></h3>
+<p><em>Huyen T. T. Tran, Van-Quang Nguyen, Farros Alferro, Kang-Jun Liu, Takayuki Okatani</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了360Bench基准和Free360框架，用于评估和提升多模态大语言模型在360°图像感知方面的能力。Free360是一种无需训练的场景图框架，通过模块化推理和自适应球面图像变换来解决360°图像理解中的几何失真和复杂空间关系问题。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在传统图像理解方面表现出色，但在360°图像感知方面尚未得到充分探索。360°图像捕获整个周围环境，支持整体空间推理，但引入了几何失真和复杂空间关系等挑战，现有模型在这方面存在明显不足。</p>
+<p><strong>Method:</strong> 研究提出了360Bench基准，包含7K分辨率的360°图像和七个代表性任务的视觉问答数据集。为解决模型不足，提出了Free360框架，这是一种无需训练的场景图方法，将推理过程分解为模块化步骤，应用自适应球面图像变换，并将信息整合到统一的图表示中进行答案生成。</p>
+<p><strong>Result:</strong> 实验评估了七个多模态大语言模型和六种增强方法，揭示了它们在360°图像感知方面的不足。Free360框架在360Bench基准上持续改进了基础模型性能，为360°视觉问答任务提供了强大的无需训练解决方案。</p>
+<p><strong>Conclusion:</strong> 该研究填补了多模态大语言模型在360°图像理解领域的空白，提出的Free360框架为解决几何失真和复杂空间关系问题提供了有效途径。这项工作为360°视觉感知研究建立了基准，并为无需训练的高分辨率360°图像理解开辟了新方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have shown impressive abilities in understanding and reasoning over conventional images. However, their perception of 360° images remains largely underexplored. Unlike conventional images, 360° images capture the entire surrounding environment, enabling holistic spatial reasoning but introducing challenges such as geometric distortion and complex spatial relations. To comprehensively assess MLLMs' capabilities to perceive 360° images, we introduce 360Bench, a Visual Question Answering (VQA) benchmark featuring 7K-resolution 360° images, seven representative (sub)tasks with annotations carefully curated by human annotators. Using 360Bench, we systematically evaluate seven MLLMs and six enhancement methods, revealing their shortcomings in 360° image perception. To address these challenges, we propose Free360, a training-free scene-graph-based framework for high-resolution 360° VQA. Free360 decomposes the reasoning process into modular steps, applies adaptive spherical image transformations to 360° images tailored to each step, and seamlessly integrates the resulting information into a unified graph representation for answer generation. Experiments show that Free360 consistently improves its base MLLM and provides a strong training-free solution for 360° VQA tasks. The source code and dataset will be publicly released upon acceptance.</p>
+<h3 id="5-mostly-text-smart-visuals-asymmetric-text-visual-pruning-for-large-vision-language-models">[5] <a href="https://arxiv.org/abs/2603.16001">Mostly Text, Smart Visuals: Asymmetric Text-Visual Pruning for Large Vision-Language Models</a></h3>
+<p><em>Sijie Li, Biao Qian, Jungong Han</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了一种针对大型视觉语言模型的不对称文本-视觉权重剪枝方法ATV-Pruning，通过解耦模态特定行为并自适应构建校准池，实现了更准确的模型压缩。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的大型视觉语言模型剪枝方法通常以统一方式处理不同模态的校准数据，忽视了模态特定行为，特别是文本和视觉令牌对剪枝操作表现出不同的敏感性，这导致准确剪枝面临挑战。</p>
+<p><strong>Method:</strong> 本文提出ATV-Pruning方法，通过解耦文本和视觉令牌对应的权重来系统研究其敏感性，并采用两个主要创新：自适应构建包含所有文本令牌和部分视觉令牌的校准池，以及设计层自适应选择策略来识别重要视觉令牌。</p>
+<p><strong>Result:</strong> 实验表明文本通路对剪枝更敏感，而视觉通路具有高冗余度，允许高达50%的稀疏度；在标准多模态基准测试中，ATV-Pruning方法优于现有最先进方法。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了大型视觉语言模型中文本和视觉通路的差异性行为，提出的不对称剪枝方法为高效模型压缩提供了新思路，强调了模态特定校准在模型优化中的重要性。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Network pruning is an effective technique for enabling lightweight Large Vision-Language Models (LVLMs), which primarily incorporates both weights and activations into the importance metric. However, existing efforts typically process calibration data from different modalities in a unified manner, overlooking modality-specific behaviors. This raises a critical challenge: how to address the divergent behaviors of textual and visual tokens for accurate pruning of LVLMs. To this end, we systematically investigate the sensitivity of visual and textual tokens to the pruning operation by decoupling their corresponding weights, revealing that: (i) the textual pathway should be calibrated via text tokens, since it exhibits higher sensitivity than the visual pathway; (ii) the visual pathway exhibits high redundancy, permitting even 50% sparsity. Motivated by these insights, we propose a simple yet effective Asymmetric Text-Visual Weight Pruning method for LVLMs, dubbed ATV-Pruning, which establishes the importance metric for accurate weight pruning by selecting the informative tokens from both textual and visual pathways. Specifically, ATV-Pruning integrates two primary innovations: first, a calibration pool is adaptively constructed by drawing on all textual tokens and a subset of visual tokens; second, we devise a layer-adaptive selection strategy to yield important visual tokens. Finally, extensive experiments across standard multimodal benchmarks verify the superiority of our ATV-Pruning over state-of-the-art methods.</p>
+<h3 id="6-visual-prompt-discovery-via-semantic-exploration">[6] <a href="https://arxiv.org/abs/2603.16250">Visual Prompt Discovery via Semantic Exploration</a></h3>
+<p><em>Jaechang Kim, Yotaro Shimose, Zhao Wang, Kuang-Da Wang, Jungseul Ok, Shingo Takamatsu</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了一种名为SEVEX的自动化语义探索框架，用于为大视觉语言模型（LVLMs）发现任务特定的视觉提示。该框架通过代理驱动的实验实现高效探索，显著提升了LVLM的感知能力和推理性能。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大视觉语言模型在图像理解和视觉推理方面存在显著的感知失败问题，而现有视觉提示生成方法主要关注工具选择而非诊断和缓解感知失败的根源。由于LVLM的不透明性和不可预测性，最优视觉提示需要通过经验实验发现，而现有方法依赖人工试错，效率低下且难以扩展。</p>
+<p><strong>Method:</strong> 本文提出了SEVEX语义探索算法，该方法采用抽象概念空间作为搜索空间，结合新颖性引导的选择算法和语义反馈驱动的构思过程。该框架通过代理驱动的实验实现高效探索，解决了视觉提示探索中的两个主要挑战：冗长低级代码带来的干扰以及视觉提示搜索空间的巨大无序性。</p>
+<p><strong>Result:</strong> 在BlindTest和BLINK基准测试上的实验结果表明，SEVEX在任务准确性、推理效率、探索效率和探索稳定性方面显著优于基线方法。该框架发现了超越传统工具使用的复杂且反直觉的视觉策略，为LVLM感知增强提供了新的范式。</p>
+<p><strong>Conclusion:</strong> 该研究为增强LVLM感知能力提供了一种自动化、任务特定的视觉提示发现新范式。SEVEX框架不仅提高了探索效率，还揭示了超越常规工具使用的创新视觉策略，为未来视觉提示优化研究开辟了新的方向。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>LVLMs encounter significant challenges in image understanding and visual reasoning, leading to critical perception failures. Visual prompts, which incorporate image manipulation code, have shown promising potential in mitigating these issues. While emerged as a promising direction, previous methods for visual prompt generation have focused on tool selection rather than diagnosing and mitigating the root causes of LVLM perception failures. Because of the opacity and unpredictability of LVLMs, optimal visual prompts must be discovered through empirical experiments, which have relied on manual human trial-and-error.
+  We propose an automated semantic exploration framework for discovering task-wise visual prompts. Our approach enables diverse yet efficient exploration through agent-driven experiments, minimizing human intervention and avoiding the inefficiency of per-sample generation. We introduce a semantic exploration algorithm named SEVEX, which addresses two major challenges of visual prompt exploration: (1) the distraction caused by lengthy, low-level code and (2) the vast, unstructured search space of visual prompts. Specifically, our method leverages an abstract idea space as a search space, a novelty-guided selection algorithm, and a semantic feedback-driven ideation process to efficiently explore diverse visual prompts based on empirical results.
+  We evaluate SEVEX on the BlindTest and BLINK benchmarks, which are designed to assess LVLM perception. Experimental results demonstrate that SEVEX significantly outperforms baseline methods in task accuracy, inference efficiency, exploration efficiency, and exploration stability. Notably, our framework discovers sophisticated and counter-intuitive visual strategies that go beyond conventional tool usage, offering a new paradigm for enhancing LVLM perception through automated, task-wise visual prompts.</p>
+<h3 id="7-visbrowse-bench-benchmarking-visual-native-search-for-multimodal-browsing-agents">[7] <a href="https://arxiv.org/abs/2603.16289">VisBrowse-Bench: Benchmarking Visual-Native Search for Multimodal Browsing Agents</a></h3>
+<p><em>Zhengbo Zhang, Jinbo Su, Zhaowen Zhou, Changtao Miao, Yuhan Hong, Qimeng Wu, Yumeng Liu, Feier Wu, Yihe Tian, Yuhao Liang, Zitong Shan, Wanke Xia, Yi-Fan Zhang, Bo Zhang, Zhe Li, Shiming Xiang, Ying Yan</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出了VisBrowse-Bench，一个用于评估多模态大语言模型在视觉原生搜索中视觉推理能力的新基准，并设计了一个能够主动收集和推理视觉信息的智能体工作流程。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准存在两个主要局限性：对视觉推理能力的评估不足，以及在推理链中忽视了网页原生视觉信息的重要性，这限制了多模态大语言模型在真实世界浏览任务中的有效评估。</p>
+<p><strong>Method:</strong> 研究团队构建了包含169个视觉问答实例的VisBrowse-Bench基准，覆盖多个领域，并通过文本-图像检索和多模态证据交叉验证来评估模型的视觉推理能力；同时提出了一个智能体工作流程，能够驱动浏览智能体在搜索过程中主动收集和推理视觉信息。</p>
+<p><strong>Result:</strong> 实验结果显示，即使是表现最佳的Claude-4.6-Opus模型在基准测试中仅达到47.6%的准确率，而专有的Deep Research模型o3-deep-research仅达到41.1%的准确率，表明当前模型在视觉原生搜索任务上仍有显著提升空间。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了当前多模态大语言模型在视觉推理能力方面的显著不足，强调了开发更强大的视觉感知和推理机制的重要性，并为未来研究提供了标准化的评估框架和数据集。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>The rapid advancement of Multimodal Large Language Models (MLLMs) has enabled browsing agents to acquire and reason over multimodal information in the real world. But existing benchmarks suffer from two limitations: insufficient evaluation of visual reasoning ability and the neglect of native visual information of web pages in the reasoning chains. To address these challenges, we introduce a new benchmark for visual-native search, VisBrowse-Bench. It contains 169 VQA instances covering multiple domains and evaluates the models' visual reasoning capabilities during the search process through multimodal evidence cross-validation via text-image retrieval and joint reasoning. These data were constructed by human experts using a multi-stage pipeline and underwent rigorous manual verification. We additionally propose an agent workflow that can effectively drive the browsing agent to actively collect and reason over visual information during the search process. We comprehensively evaluated both open-source and closed-source models in this workflow. Experimental results show that even the best-performing model, Claude-4.6-Opus only achieves an accuracy of 47.6%, while the proprietary Deep Research model, o3-deep-research only achieves an accuracy of 41.1%. The code and data can be accessed at: https://github.com/ZhengboZhang/VisBrowse-Bench</p>
+<h3 id="8-kidsnanny-a-two-stage-multimodal-content-moderation-pipeline-integrating-visual-classification-object-detection-ocr-and-contextual-reasoning-for-child-safety">[8] <a href="https://arxiv.org/abs/2603.16181">KidsNanny: A Two-Stage Multimodal Content Moderation Pipeline Integrating Visual Classification, Object Detection, OCR, and Contextual Reasoning for Child Safety</a></h3>
+<p><em>Viraj Panchal, Tanmay Talsaniya, Parag Patel, Meet Patel</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了KidsNanny，一种用于儿童安全的两阶段多模态内容审核架构，该架构通过结合视觉Transformer、目标检测器和基于OCR的文本推理，在保持低延迟的同时实现了优于现有方法的性能。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态内容审核方法在儿童安全领域面临效率与准确性之间的权衡问题，现有方法要么延迟过高，要么在处理文本嵌入式威胁时表现不足，需要一种既能高效处理视觉内容又能准确理解文本上下文的新型架构。</p>
+<p><strong>Method:</strong> KidsNanny采用两阶段架构：第一阶段结合视觉Transformer和目标检测器进行视觉筛查，仅输出文本描述而非原始像素；第二阶段应用OCR和基于7B参数语言模型的文本推理进行上下文分析，整个流程实现了高效的视觉到文本的信息传递。</p>
+<p><strong>Result:</strong> 在UnsafeBench Sexual类别（1,054张图像）的评估中，第一阶段单独达到80.27%准确率和85.39% F1分数，延迟仅11.7毫秒；完整两阶段管道达到81.40%准确率和86.16% F1分数，延迟120毫秒，显著优于ShieldGemma-2和LlavaGuard。在文本嵌入式威胁子集上，KidsNanny实现了100%召回率。</p>
+<p><strong>Conclusion:</strong> 研究表明，专用的基于OCR的推理架构在处理文本嵌入式威胁时具有召回率-精确度优势，同时保持较低延迟，为高效多模态内容审核提供了新思路。尽管文本专用子集样本量有限限制了普遍性结论，但该架构和方法论为儿童安全内容审核研究做出了重要贡献。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>We present KidsNanny, a two-stage multimodal content moderation architecture for child safety. Stage 1 combines a vision transformer (ViT) with an object detector for visual screening (11.7 ms); outputs are routed as text not raw pixels to Stage 2, which applies OCR and a text based 7B language model for contextual reasoning (120 ms total pipeline). We evaluate on the UnsafeBench Sexual category (1,054 images) under two regimes: vision-only, isolating Stage 1, and multimodal, evaluating the full Stage 1+2 pipeline. Stage 1 achieves 80.27% accuracy and 85.39% F1 at 11.7 ms; vision-only baselines range from 59.01% to 77.04% accuracy. The full pipeline achieves 81.40% accuracy and 86.16% F1 at 120 ms, compared to ShieldGemma-2 (64.80% accuracy, 1,136 ms) and LlavaGuard (80.36% accuracy, 4,138 ms). To evaluate text-awareness, we filter two subsets: a text+visual subset (257 images) and a text-only subset (44 images where safety depends primarily on embedded text). On text-only images, KidsNanny achieves 100% recall (25/25 positives; small sample) and 75.76% precision; ShieldGemma-2 achieves 84% recall and 60% precision at 1,136 ms. Results suggest that dedicated OCR-based reasoning may offer recall-precision advantages on text-embedded threats at lower latency, though the small text-only subset limits generalizability. By documenting this architecture and evaluation methodology, we aim to contribute to the broader research effort on efficient multimodal content moderation for child safety.</p>
+<h3 id="9-mllm-based-textual-explanations-for-face-comparison">[9] <a href="https://arxiv.org/abs/2603.16629">MLLM-based Textual Explanations for Face Comparison</a></h3>
+<p><em>Redwan Sony, Anil K Jain, Ross Arun</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文系统分析了多模态大语言模型在无约束人脸验证任务中生成解释的可靠性，发现即使模型做出正确决策，其解释也常依赖于不可验证或虚构的面部属性，并提出了基于似然比的评估框架来衡量文本解释的证据强度。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型被提出用于生成人脸识别决策的自然语言解释以增强人类可解释性，但这些解释在无约束人脸图像上的可靠性尚未得到充分探索，特别是在极端姿态变化和监控图像等挑战性场景下。</p>
+<p><strong>Method:</strong> 研究在具有挑战性的IJB-S数据集上系统分析了MLLM生成的无约束人脸验证解释，特别关注极端姿态变化和监控图像；研究了结合传统人脸识别系统的分数和决策信息对解释质量的影响；并引入了基于似然比的评估框架来衡量文本解释的证据强度。</p>
+<p><strong>Result:</strong> 实验结果表明，即使MLLM产生正确的人脸验证决策，其伴随的解释也经常依赖于不可验证或虚构的面部属性，缺乏视觉证据支持；虽然结合传统人脸识别系统的信息能提高分类验证性能，但并不能一致地产生可靠的解释。</p>
+<p><strong>Conclusion:</strong> 研究揭示了当前MLLM在可解释人脸识别方面的根本局限性，强调了在生物识别应用中需要建立原则性评估框架来确保解释的可靠性和可信度，为未来开发更可靠的解释性AI系统提供了重要方向。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have recently been proposed as a means to generate natural-language explanations for face recognition decisions. While such explanations facilitate human interpretability, their reliability on unconstrained face images remains underexplored. In this work, we systematically analyze MLLM-generated explanations for the unconstrained face verification task on the challenging IJB-S dataset, with a particular focus on extreme pose variation and surveillance imagery. Our results show that even when MLLMs produce correct verification decisions, the accompanying explanations frequently rely on non-verifiable or hallucinated facial attributes that are not supported by visual evidence. We further study the effect of incorporating information from traditional face recognition systems, viz., scores and decisions, alongside the input images. Although such information improves categorical verification performance, it does not consistently lead to faithful explanations. To evaluate the explanations beyond decision accuracy, we introduce a likelihood-ratio-based framework that measures the evidential strength of textual explanations. Our findings highlight fundamental limitations of current MLLMs for explainable face recognition and underscore the need for a principled evaluation of reliable and trustworthy explanations in biometric applications. Code is available at https://github.com/redwankarimsony/LR-MLLMFR-Explainability.</p>
+<h3 id="10-kestrel-grounding-self-refinement-for-lvlm-hallucination-mitigation">[10] <a href="https://arxiv.org/abs/2603.16664">Kestrel: Grounding Self-Refinement for LVLM Hallucination Mitigation</a></h3>
+<p><em>Jiawei Mao, Hardy Chen, Haoqin Tu, Yuhan Wang, Letian Zhang, Zeyu Zheng, Huaxiu Yao, Zirui Wang, Cihang Xie, Yuyin Zhou</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出了Kestrel，一种无需训练的大型视觉语言模型幻觉缓解框架，通过显式视觉基础代理和证据验证的自优化机制，在保持可解释性的同时有效减少多模态任务中的幻觉问题。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在多模态任务中容易产生幻觉，限制了其实际部署，而现有基于解码或工具使用的免训练方法往往效果有限且可解释性不足，需要一种更有效的免训练解决方案。</p>
+<p><strong>Method:</strong> Kestrel框架结合显式视觉基础代理和证据验证的自优化机制，首先收集显式视觉证据并将工具输出转换为结构化文本证据，然后通过LVLM法官验证证据，最后基于验证证据迭代自优化答案以减少过度修正风险。</p>
+<p><strong>Result:</strong> 实验表明Kestrel在幻觉基准测试中显著优于现有基线，如在POPE上平均提升3.31%，在MME-Hallucination上提升28.34分（使用Qwen3-VL），同时自优化模块和基础代理各自贡献约2.0%的POPE性能增益。</p>
+<p><strong>Conclusion:</strong> 该研究证明了免训练方法在缓解LVLM幻觉方面的有效性，提供了一种成本效益高且可解释的解决方案，其透明验证轨迹有助于幻觉诊断和分析，为实际部署提供了实用框架。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Large vision-language models (LVLMs) have become increasingly strong but remain prone to hallucinations in multimodal tasks, which significantly narrows their deployment. As training these LVLMs to avoid hallucinations becomes prohibitively expensive for larger models, training-free methods offer a cheap and flexible solution to this problem, yet existing approaches based on decoding or tool use often bring limited gains and/or weak interpretability. We propose Kestrel, a training-free framework for LVLM hallucination mitigation that combines an explicit visual-grounding agent with evidence-verified self-refinement mechanism. In detail, Kestrel first collects explicit visual evidence and converts tool outputs into reusable and structured textual evidence. Second, to take full advantage of these evidence, Kestrel verifies them via an LVLM judge for evidence checking, then iteratively self-refine answers based on verified evidence to reduce the risk of over-correction. Extensive experiments show that Kestrel improves performance over strong baselines across hallucination benchmarks (e.g., average +3.31% on POPE and +28.34 on MME-Hallucination with Qwen3-VL), while providing transparent verification traces for hallucination diagnosis and analysis -- e.g., both the integrated self-refinement module and grounding agent contributing an average +2.0% gain on POPE.</p>
+<h3 id="11-when-thinking-hurts-mitigating-visual-forgetting-in-video-reasoning-via-frame-repetition">[11] <a href="https://arxiv.org/abs/2603.16256">When Thinking Hurts: Mitigating Visual Forgetting in Video Reasoning via Frame Repetition</a></h3>
+<p><em>Xiaokun Sun, Yubo Wang, Haoyu Cao, Linli Xu</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出FrameRepeat框架，通过轻量级重复评分模块使视频大语言模型能够自主识别需要强化的关键帧，以解决视频问答中思维链推理导致的视觉锚点漂移问题。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在视频问答任务中采用思维链推理时，扩展的思考过程并不总能带来性能提升，反而可能导致性能下降，这是由于"视觉锚点漂移"现象造成的——模型逐渐依赖自生成的文本而忽视视觉输入，从而产生幻觉。现有缓解方法通常引入特定机制使模型在推理过程中重新关注视觉输入，但这些方法训练成本高昂且在不同架构间泛化能力差。</p>
+<p><strong>Method:</strong> 本文提出FrameRepeat自动化增强框架，包含轻量级重复评分模块，使视频大语言模型能够自主识别需要强化的帧。引入新颖的训练策略Add-One-In，利用多模态大语言模型的输出概率生成表示重复增益的监督信号，用于训练帧评分网络，从而指导帧重复行为。</p>
+<p><strong>Result:</strong> 在多个模型和数据集上的实验结果表明，FrameRepeat在强化推理过程中的重要视觉线索方面既有效又具有良好的泛化能力。该方法能够显著改善视频问答任务中视觉锚点漂移问题，提升模型性能。</p>
+<p><strong>Conclusion:</strong> FrameRepeat提供了一种高效且通用的解决方案，通过自动化帧强化机制解决了视频问答中思维链推理导致的视觉锚点漂移问题。该方法避免了昂贵的训练成本，具有良好的架构泛化能力，为多模态推理系统的视觉注意力机制设计提供了新思路。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Recently, Multimodal Large Language Models (MLLMs) have demonstrated significant potential in complex visual tasks through the integration of Chain-of-Thought (CoT) reasoning. However, in Video Question Answering, extended thinking processes do not consistently yield performance gains and may even lead to degradation due to ``visual anchor drifting'', where models increasingly rely on self-generated text, sidelining visual inputs and causing hallucinations. While existing mitigations typically introduce specific mechanisms for the model to re-attend to visual inputs during inference, these approaches often incur prohibitive training costs and suffer from poor generalizability across different architectures. To address this, we propose FrameRepeat, an automated enhancement framework which features a lightweight repeat scoring module that enables Video-LLMs to autonomously identify which frames should be reinforced. We introduce a novel training strategy, Add-One-In (AOI), that uses MLLM output probabilities to generate supervision signals representing repeat gain. This can be used to train a frame scoring network, which guides the frame repetition behavior. Experimental results across multiple models and datasets demonstrate that FrameRepeat is both effective and generalizable in strengthening important visual cues during the reasoning process.</p>
+<h3 id="12-locate-then-sparsify-attribution-guided-sparse-strategy-for-visual-hallucination-mitigation">[12] <a href="https://arxiv.org/abs/2603.16284">Locate-then-Sparsify: Attribution Guided Sparse Strategy for Visual Hallucination Mitigation</a></h3>
+<p><em>TianTian Dang, Chao Bi, Shufan Shen, Jinzhe Liu, Qingming Huang, Shuhui Wang</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文提出了一种名为Locate-Then-Sparsify for Feature Steering (LTS-FS)的即插即用框架，通过根据各层幻觉相关性动态调整特征引导强度，有效缓解大型视觉语言模型中的幻觉问题，同时保持通用任务性能。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管大型视觉语言模型取得了显著进展，但其生成幻觉的倾向严重影响了可靠性并限制了实际部署。现有特征引导方法在所有层上采用统一的引导策略，忽略了层间差异，可能干扰与幻觉无关的层，导致通用任务性能下降。</p>
+<p><strong>Method:</strong> 本文提出LTS-FS框架，首先构建包含令牌级和句子级幻觉案例的合成数据集，然后基于因果干预的归因方法量化各层的幻觉相关性，最后将归因分数转换为各层的特征引导强度，实现对幻觉相关层的精确调整。</p>
+<p><strong>Result:</strong> 在多个大型视觉语言模型和基准测试上的广泛实验表明，LTS-FS框架能有效缓解幻觉问题，同时保持强大的通用任务性能，相比现有方法在幻觉缓解和性能保持方面取得了更好的平衡。</p>
+<p><strong>Conclusion:</strong> 该研究表明，通过层间差异感知的特征引导策略可以更有效地缓解幻觉问题，为大型视觉语言模型的可靠部署提供了新思路，未来的研究方向包括更精细的层间调节机制和更广泛的幻觉类型覆盖。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Despite the significant advancements in Large Vision-Language Models (LVLMs), their tendency to generate hallucinations undermines reliability and restricts broader practical deployment. Among the hallucination mitigation methods, feature steering emerges as a promising approach that reduces erroneous outputs in LVLMs without increasing inference costs. However, current methods apply uniform feature steering across all layers. This heuristic strategy ignores inter-layer differences, potentially disrupting layers unrelated to hallucinations and ultimately leading to performance degradation on general tasks. In this paper, we propose a plug-and-play framework called Locate-Then-Sparsify for Feature Steering (LTS-FS), which controls the steering intensity according to the hallucination relevance of each layer. We first construct a synthetic dataset comprising token-level and sentence-level hallucination cases. Based on this dataset, we introduce an attribution method based on causal interventions to quantify the hallucination relevance of each layer. With the attribution scores across layers, we propose a layerwise strategy that converts these scores into feature steering intensities for individual layers, enabling more precise adjustments specifically on hallucination-relevant layers. Extensive experiments across multiple LVLMs and benchmarks demonstrate that our LTS-FS framework effectively mitigates hallucination while preserving strong performance.</p>
+<h3 id="13-persistent-story-world-simulation-with-continuous-character-customization">[13] <a href="https://arxiv.org/abs/2603.16285">Persistent Story World Simulation with Continuous Character Customization</a></h3>
+<p><em>Jinlu Zhang, Qiyun Wang, Baoxiang Du, Jiayi Ji, Jing He, Rongsheng Zhang, Tangjie Lv, Xiaoshuai Sun, Rongrong Ji</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文提出了EverTale，一个用于连续故事角色定制的故事世界模拟器，通过统一的LoRA模块实现持续角色适应，并引入MLLM-as-Judge的质量门控机制，解决了现有方法在角色定制、语义对齐和新身份连续集成方面的协同问题。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前故事可视化方法在准确角色定制、语义对齐和新身份连续集成方面难以实现协同，现有方法通常需要每个角色的优化模块，且在多角色视觉叙事中存在身份退化和布局冲突问题，这限制了故事世界模拟的连续性和自然性。</p>
+<p><strong>Method:</strong> 本文提出三部分方法：首先设计All-in-One-World Character Integrator，通过统一LoRA模块实现连续角色适应，无需传统方法的逐角色优化模块；其次引入Character Quality Gate机制，利用MLLM-as-Judge通过思维链推理确保每个角色适应过程的保真度；最后提出Character-Aware Region-Focus Sampling策略，通过协调局部角色细节与全局场景上下文，高效解决多角色生成中的身份退化和布局冲突问题。</p>
+<p><strong>Result:</strong> 实验结果表明，EverTale在单角色和多角色故事可视化任务中均表现出优越性能，相比更广泛的对比方法取得了更好的结果，特别是在角色保真度、语义对齐和生成自然性方面具有显著优势，代码将公开提供。</p>
+<p><strong>Conclusion:</strong> 该研究展示了通过统一适应模块和质量门控机制实现连续角色定制的可行性，为故事世界模拟提供了新的技术框架，其方法在多角色协调和身份保持方面的创新为解决视觉叙事中的复杂挑战提供了有效途径，具有推动故事生成系统发展的潜力。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Story visualization has gained increasing attention in computer vision. However, current methods often fail to achieve a synergy between accurate character customization, semantic alignment, and continuous integration of new identities. To tackle this challenge, in this paper we present EverTale, a story world simulator for continuous story character customization. We first propose an All-in-One-World Character Integrator to achieve continuous character adaptation within unified LoRA module, eliminating the need for per-character optimization modules of previous methods. Then, we incorporate a Character Quality Gate via MLLM-as-Judge to ensure the fidelity of each character adaptation process through chain-of-thought reasoning, determining whether the model can proceed to the next character or require additional training on the current one. We also introduce a Character-Aware Region-Focus Sampling strategy to address the identity degradation and layout conflicts in existing multi-character visual storytelling, ensuring natural multi-character generation by harmonizing local character-specific details with global scene context with higher efficiency. Experimental results show that our EverTale achieves superior performance against a wider range of compared methods on both single- and multi-character story visualization. Codes will be available.</p>
+<h3 id="14-invic-intent-aware-visual-cues-for-medical-visual-question-answering">[14] <a href="https://arxiv.org/abs/2603.16372">InViC: Intent-aware Visual Cues for Medical Visual Question Answering</a></h3>
+<p><em>Zhisong Wang, Ziyang Chen, Zanting Ye, Hongze Zhu, Yefeng Zheng, Yong Xia</em></p>
+<h4 id="tldr_13">🧩 TL;DR</h4>
+<p>本文提出了一种轻量级插件框架InViC，通过提取意图感知的视觉线索来增强医学视觉问答中的图像证据利用，有效缓解了多模态大语言模型依赖语言先验而忽视视觉信息的捷径回答问题。</p>
+<hr />
+<h4 id="detailed-summary_13">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有医学视觉问答中的多模态大语言模型存在捷径回答问题，它们倾向于利用语言先验或数据集偏差生成看似合理的回答，而未能充分关注视觉证据，这种在需要细微影像发现时尤为关键的临床可靠性问题亟待解决。</p>
+<p><strong>Method:</strong> InViC框架包含线索标记提取模块，将密集视觉标记蒸馏为紧凑的K个问题条件化线索标记，作为结构化视觉中介注入LLM解码器；采用两阶段微调策略，第一阶段使用线索瓶颈注意力掩码阻断LLM对原始视觉特征的直接访问，强制所有视觉证据通过线索通路，第二阶段恢复标准因果注意力训练LLM联合利用视觉和线索标记。</p>
+<p><strong>Result:</strong> 在三个公开医学VQA基准测试上的实验表明，InViC在零样本推理和标准LoRA微调基础上均取得一致改进，验证了意图感知视觉线索结合瓶颈训练策略在提升医学VQA可信度方面的有效性。</p>
+<p><strong>Conclusion:</strong> 研究表明意图感知视觉线索与瓶颈训练相结合是一种实用有效的策略，能够显著提升医学视觉问答的临床可靠性，为构建更可信的医疗AI系统提供了有前景的技术路径。</p>
+<hr />
+<h4 id="abstract_13">📄 Abstract</h4>
+<p>Medical visual question answering (Med-VQA) aims to answer clinically relevant questions grounded in medical images. However, existing multimodal large language models (MLLMs) often exhibit shortcut answering, producing plausible responses by exploiting language priors or dataset biases while insufficiently attending to visual evidence. This behavior undermines clinical reliability, especially when subtle imaging findings are decisive. We propose a lightweight plug-in framework, termed Intent-aware Visual Cues (InViC), to explicitly enhance image-based answer generation in medical VQA. InViC introduces a Cue Tokens Extraction (CTE) module that distills dense visual tokens into a compact set of K question-conditioned cue tokens, which serve as structured visual intermediaries injected into the LLM decoder to promote intent-aligned visual evidence. To discourage bypassing of visual information, we further design a two-stage fine-tuning strategy with a cue-bottleneck attention mask. In Stage I, we employ an attention mask to block the LLM's direct view of raw visual features, thereby funneling all visual evidence through the cue pathway. In Stage II, standard causal attention is restored to train the LLM to jointly exploit the visual and cue tokens. We evaluate InViC on three public Med-VQA benchmarks (VQA-RAD, SLAKE, and ImageCLEF VQA-Med 2019) across multiple representative MLLMs. InViC consistently improves over zero-shot inference and standard LoRA fine-tuning, demonstrating that intent-aware visual cues with bottlenecked training is a practical and effective strategy for improving trustworthy Med-VQA.</p>
+<h3 id="15-gap-mllm-geometry-aligned-pre-training-for-activating-3d-spatial-perception-in-multimodal-large-language-models">[15] <a href="https://arxiv.org/abs/2603.16461">GAP-MLLM: Geometry-Aligned Pre-training for Activating 3D Spatial Perception in Multimodal Large Language Models</a></h3>
+<p><em>Jiaxin Zhang, Junjun Jiang, Haijie Li, Youyu Chen, Kui Jiang, Dave Zhenyu Chen</em></p>
+<h4 id="tldr_14">🧩 TL;DR</h4>
+<p>本文提出GAP-MLLM，一种几何对齐的预训练范式，通过视觉提示联合任务和多级渐进融合模块，显著提升多模态大语言模型在纯RGB输入下的3D空间感知能力。</p>
+<hr />
+<h4 id="detailed-summary_14">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于图像的多模态大语言模型在纯RGB输入下存在3D空间感知能力不足的问题，尽管利用了3D重建模型的隐式几何先验，但与使用显式3D数据的方法相比仍存在显著性能差距。作者认为这一差距并非源于几何先验不足，而是训练范式不匹配：以文本为主导的微调未能有效激活MLLM内部的几何表征能力。</p>
+<p><strong>Method:</strong> 本文提出GAP-MLLM几何对齐预训练范式，包含两个核心组件：首先设计视觉提示联合任务，强制MLLM同时预测稀疏点云图和语义标签以增强几何感知；其次构建多级渐进融合模块，采用令牌级门控机制实现几何先验的自适应融合，避免抑制语义推理能力。</p>
+<p><strong>Result:</strong> 大量实验表明，GAP-MLLM显著提升了几何特征融合效果，在3D视觉定位、3D密集描述生成和3D视频目标检测等多个任务上均实现了性能的持续提升，验证了该方法的有效性和泛化能力。</p>
+<p><strong>Conclusion:</strong> 研究表明，通过几何对齐的预训练范式可以有效地激活MLLM的结构感知能力，解决传统方法中几何表征未被充分利用的问题。该方法为纯视觉输入的3D理解任务提供了新的解决方案，并展示了多级融合机制在平衡几何与语义信息方面的优越性。</p>
+<hr />
+<h4 id="abstract_14">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) demonstrate exceptional semantic reasoning but struggle with 3D spatial perception when restricted to pure RGB inputs. Despite leveraging implicit geometric priors from 3D reconstruction models, image-based methods still exhibit a notable performance gap compared to methods using explicit 3D data. We argue that this gap does not arise from insufficient geometric priors, but from a misalignment in the training paradigm: text-dominated fine-tuning fails to activate geometric representations within MLLMs. Existing approaches typically resort to naive feature concatenation and optimize directly for downstream tasks without geometry-specific supervision, leading to suboptimal structural utilization. To address this limitation, we propose GAP-MLLM, a Geometry-Aligned Pre-training paradigm that explicitly activates structural perception before downstream adaptation. Specifically, we introduce a visual-prompted joint task that compels the MLLMs to predict sparse pointmaps alongside semantic labels, thereby enforcing geometric awareness. Furthermore, we design a multi-level progressive fusion module with a token-level gating mechanism, enabling adaptive integration of geometric priors without suppressing semantic reasoning. Extensive experiments demonstrate that GAP-MLLM significantly enhances geometric feature fusion and consistently enhances performance across 3D visual grounding, 3D dense captioning, and 3D video object detection tasks.</p>
+<h3 id="16-segmentation-based-attention-entropy-detecting-and-mitigating-object-hallucinations-in-large-vision-language-models">[16] <a href="https://arxiv.org/abs/2603.16558">Segmentation-Based Attention Entropy: Detecting and Mitigating Object Hallucinations in Large Vision-Language Models</a></h3>
+<p><em>Jiale Song, Jiaxin Luo, Xue-song Tang, Kuangrong Hao, Mingbo Zhao</em></p>
+<h4 id="tldr_15">🧩 TL;DR</h4>
+<p>本文提出了一种基于分割的注意力熵（SAE）方法，通过量化视觉模态中的注意力不确定性来检测和缓解大型视觉语言模型中的物体幻觉问题，无需额外训练成本即可显著降低幻觉现象。</p>
+<hr />
+<h4 id="detailed-summary_15">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在多模态任务中表现优异，但物体幻觉严重损害了其可靠性。现有研究主要关注文本模态，将幻觉归因于过强的语言先验和不足的视觉基础，而本文观察到视觉模态内部的异常注意力模式也会导致幻觉物体的产生，因此需要新的方法来检测和缓解这一问题。</p>
+<p><strong>Method:</strong> 本文提出了基于分割的注意力熵（SAE），该方法利用语义分割在对象级语义空间中量化视觉注意力不确定性。基于SAE，进一步设计了幻觉检测的可靠性评分和SAE引导的注意力调整方法，在推理时修改视觉注意力以减轻幻觉，无需额外训练成本。</p>
+<p><strong>Result:</strong> 实验结果表明，SAE在公共基准测试和四足机器人的实际具身多模态场景中均能显著减少物体幻觉。该方法有效提升了LVLM驱动的感知和决策的可信度，在保持模型性能的同时降低了幻觉发生率。</p>
+<p><strong>Conclusion:</strong> 本研究揭示了视觉模态内部注意力模式对物体幻觉的重要影响，提供了一种无需训练即可检测和缓解幻觉的实用方法。SAE方法为构建更可靠的大型视觉语言模型提供了新思路，特别适用于需要高可靠性的具身智能和机器人应用场景。</p>
+<hr />
+<h4 id="abstract_15">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) achieve strong performance on many multimodal tasks, but object hallucinations severely undermine their reliability. Most existing studies focus on the text modality, attributing hallucinations to overly strong language priors and insufficient visual grounding. In contrast, we observe that abnormal attention patterns within the visual modality can also give rise to hallucinated objects. Building on this observation, we propose Segmentation-based Attention Entropy (SAE), which leverages semantic segmentation to quantify visual attention uncertainty in an object-level semantic space. Based on SAE, we further design a reliability score for hallucination detection and an SAE-guided attention adjustment method that modifies visual attention at inference time to mitigate hallucinations. We evaluate our approach on public benchmarks and in real embodied multimodal scenarios with quadruped robots. Experimental results show that SAE substantially reduces object hallucinations without any additional training cost, thereby enabling more trustworthy LVLM-driven perception and decision-making.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="17-batquant-outlier-resilient-mxfp4-quantization-via-learnable-block-wise-optimization">[17] <a href="https://arxiv.org/abs/2603.16590">BATQuant: Outlier-resilient MXFP4 Quantization via Learnable Block-wise Optimization</a></h3>
+<p><em>Ji-Fu Li, Manyi Zhang, Xiaobo Xia, Han Bao, Haoli Bai, Zhenhua Dong, Xianzhi Yu</em></p>
+<h4 id="tldr_16">🧩 TL;DR</h4>
+<p>本文提出BATQuant（块级仿射变换）方法，解决了现有后训练量化技术在MXFP4格式上性能崩溃的问题，通过格式对齐的变换和参数高效分解，在W4A4KV16配置下为多模态大语言模型和大语言模型建立了新的性能标杆。</p>
+<hr />
+<h4 id="detailed-summary_16">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于旋转的后训练量化方法在应用于MXFP4格式时出现严重性能崩溃，主要原因是全局正交变换会跨量化块传播异常值能量，同时产生双峰激活分布，导致有限量化范围利用不足，这与MXFP的块级缩放机制存在根本性格式不匹配。</p>
+<p><strong>Method:</strong> BATQuant方法将变换限制在与MXFP粒度对齐的块级仿射变换，防止跨块异常值传播，同时放宽正交约束以优化分布形状；采用全局和私有克罗内克分解确保参数效率，减少存储和运行时开销，并引入块级可学习裁剪来抑制残余异常值。</p>
+<p><strong>Result:</strong> 在MLLMs和LLMs上的广泛实验表明，BATQuant在激进的W4A4KV16配置下建立了新的最先进结果，在多模态基准测试中恢复了高达96.43%的全精度性能，并在多样化任务上明显优于现有方法。</p>
+<p><strong>Conclusion:</strong> 该研究证明了格式对齐的变换对于MXFP量化至关重要，BATQuant通过块级仿射变换和参数高效分解成功解决了现有量化方法在MXFP4上的失败问题，为在加速器架构上高效部署多模态大语言模型提供了有效的量化解决方案。</p>
+<hr />
+<h4 id="abstract_16">📄 Abstract</h4>
+<p>Microscaling floating-point (MXFP) formats have emerged as a promising standard for deploying Multi-modal Large Language Models (MLLMs) and Large Language Models (LLMs) on modern accelerator architectures. However, existing Post-Training Quantization (PTQ) methods, particularly rotation-based techniques designed for integer formats, suffer from severe performance collapse when applied to MXFP4. Recent studies attribute this failure to a fundamental format mismatch: global orthogonal rotations inadvertently transfer outlier energy across quantization blocks, inducing new outliers that disrupt local block-wise scaling, while often creating bimodal activation distributions that underutilize the limited quantization range. To address these issues, we propose BATQuant (Block-wise Affine Transformation), which restricts transformations to align with MXFP granularity to prevent cross-block outlier propagation, while relaxing orthogonality constraints to optimize distribution shaping. To ensure parameter efficiency, we introduce Global and Private Kronecker (GPK) decomposition to effectively reduces storage and runtime overhead and incorporate Block-wise Learnable Clipping to suppress residual outliers. Extensive experiments on both MLLMs and LLMs demonstrate that BATQuant establishes new state-of-the-art results under aggressive W4A4KV16 configurations, recovering up to 96.43% of full-precision performance on multimodal benchmarks and clearly outperforming existing methods across diverse tasks.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="18-nesy-route-a-neuro-symbolic-benchmark-for-constrained-route-planning-in-remote-sensing">[18] <a href="https://arxiv.org/abs/2603.16307">NeSy-Route: A Neuro-Symbolic Benchmark for Constrained Route Planning in Remote Sensing</a></h3>
+<p><em>Ming Yang, Zhi Zhou, Shi-Yu Tian, Kun-Yang Yu, Lan-Zhe Guo, Yu-Feng Li</em></p>
+<h4 id="tldr_17">🧩 TL;DR</h4>
+<p>本文提出了NeSy-Route，一个用于遥感场景下约束路径规划的大规模神经符号基准测试，通过自动化数据生成框架和分层评估协议，全面评估多模态大语言模型的规划能力，填补了现有基准在规划能力评估方面的空白。</p>
+<hr />
+<h4 id="detailed-summary_17">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前遥感基准主要评估多模态大语言模型的感知和推理能力，但缺乏对规划能力的有效评估，这源于大规模规划任务数据集的构建难度以及现有评估协议的不准确性和不充分性，限制了遥感系统中复杂场景理解和可靠决策能力的发展。</p>
+<p><strong>Method:</strong> 本文提出了NeSy-Route基准，包含一个自动化数据生成框架，该框架将高保真语义掩码与启发式搜索相结合，生成具有可证明最优解的多样化路径规划任务；同时开发了三级分层神经符号评估协议，支持对感知、推理和规划能力进行精确评估和细粒度分析。</p>
+<p><strong>Result:</strong> NeSy-Route基准包含10,821个路径规划样本，规模比现有最大基准大近10倍；对多种最先进多模态大语言模型的综合评估表明，现有模型在感知和规划能力方面存在显著缺陷，无法有效处理约束路径规划任务。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了当前多模态大语言模型在遥感规划任务中的局限性，NeSy-Route基准为评估和开发更强大的遥感多模态大语言模型提供了重要工具，有望推动遥感系统中复杂场景理解和决策能力的研究进展。</p>
+<hr />
+<h4 id="abstract_17">📄 Abstract</h4>
+<p>Remote sensing underpins crucial applications such as disaster relief and ecological field surveys, where systems must understand complex scenes and constraints and make reliable decisions. Current remote-sensing benchmarks mainly focus on evaluating perception and reasoning capabilities of multimodal large language models (MLLMs). They fail to assess planning capability, stemming either from the difficulty of curating and validating planning tasks at scale or from evaluation protocols that are inaccurate and inadequate. To address these limitations, we introduce NeSy-Route, a large-scale neuro-symbolic benchmark for constrained route planning in remote sensing. Within this benchmark, we introduce an automated data-generation framework that integrates high-fidelity semantic masks with heuristic search to produce diverse route-planning tasks with provably optimal solutions. This allows NeSy-Route to comprehensively evaluate planning across 10,821 route-planning samples, nearly 10 times larger than the largest prior benchmark. Furthermore, a three-level hierarchical neuro-symbolic evaluation protocol is developed to enable accurate assessment and support fine-grained analysis on perception, reasoning, and planning simultaneously. Our comprehensive evaluation of various state-of-the-art MLLMs demonstrates that existing MLLMs show significant deficiencies in perception and planning capabilities. We hope NeSy-Route can support further research and development of more powerful MLLMs for remote sensing.</p>
+<h3 id="19-follow-the-clues-frame-the-truth-hybrid-evidential-deductive-reasoning-in-open-vocabulary-multimodal-emotion-recognition">[19] <a href="https://arxiv.org/abs/2603.16463">Follow the Clues, Frame the Truth: Hybrid-evidential Deductive Reasoning in Open-Vocabulary Multimodal Emotion Recognition</a></h3>
+<p><em>Yu Liu, Lei Zhang, Haoxun Li, Hanlei Shi, Yuxuan Ding, Leyuan Qu, Taihao Li</em></p>
+<h4 id="tldr_18">🧩 TL;DR</h4>
+<p>本文提出HyDRA，一种混合证据演绎推理架构，用于解决开放词汇多模态情感识别中的模糊性挑战。该方法通过提出-验证-决策协议和分层奖励强化的强化学习，实现了对多模态线索的细粒度推理，显著提升了在模糊或冲突场景下的性能。</p>
+<hr />
+<h4 id="detailed-summary_18">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 开放词汇多模态情感识别面临固有挑战，源于模糊多模态线索的歧义性，这些线索通常来自未观察到的情境动态。尽管多模态大语言模型提供广泛语义覆盖，但其性能常受限于对主导数据先验的过早承诺，导致次优启发式方法忽略了跨模态的关键互补情感线索。</p>
+<p><strong>Method:</strong> 本文引入HyDRA，一种混合证据演绎推理架构，将推理形式化为提出-验证-决策协议。为内化这一溯因过程，采用具有分层奖励塑形的强化学习，使推理轨迹与最终任务性能对齐，确保最佳地调和观察到的多模态线索。</p>
+<p><strong>Result:</strong> 系统评估验证了设计选择，HyDRA在多个基准上持续优于强基线方法，特别是在模糊或冲突场景中表现尤为突出。该方法同时提供了可解释的诊断证据轨迹，增强了推理过程的透明度。</p>
+<p><strong>Conclusion:</strong> 研究表明，有效的情感推理需要超越表面关联，通过从不同潜在视角综合多个证据基础的理性来重建细微情感状态。该方法为多模态情感识别提供了新的推理框架，特别适用于处理现实世界中的模糊和冲突情境。</p>
+<hr />
+<h4 id="abstract_18">📄 Abstract</h4>
+<p>Open-Vocabulary Multimodal Emotion Recognition (OV-MER) is inherently challenging due to the ambiguity of equivocal multimodal cues, which often stem from distinct unobserved situational dynamics. While Multimodal Large Language Models (MLLMs) offer extensive semantic coverage, their performance is often bottlenecked by premature commitment to dominant data priors, resulting in suboptimal heuristics that overlook crucial, complementary affective cues across modalities. We argue that effective affective reasoning requires more than surface-level association; it necessitates reconstructing nuanced emotional states by synthesizing multiple evidence-grounded rationales that reconcile these observations from diverse latent perspectives. We introduce HyDRA, a Hybrid-evidential Deductive Reasoning Architecture that formalizes inference as a Propose-Verify-Decide protocol. To internalize this abductive process, we employ reinforcement learning with hierarchical reward shaping, aligning the reasoning trajectories with final task performance to ensure they best reconcile the observed multimodal cues. Systematic evaluations validate our design choices, with HyDRA consistently outperforming strong baselines--especially in ambiguous or conflicting scenarios--while providing interpretable, diagnostic evidence traces.</p>
+<h3 id="20-expressmind-a-multimodal-pretrained-large-language-model-for-expressway-operation">[20] <a href="https://arxiv.org/abs/2603.16495">ExpressMind: A Multimodal Pretrained Large Language Model for Expressway Operation</a></h3>
+<p><em>Zihe Wang, Yihuan Wang, Haiyang Yu. Zhiyong Cui, Xiaojian Liao, Chengcheng Wang, Yonglin Tian, Yongxin Tong</em></p>
+<h4 id="tldr_19">🧩 TL;DR</h4>
+<p>本文提出了ExpressMind，一个面向高速公路领域的预训练多模态大语言模型，通过构建首个全栈高速公路数据集和创新的训练框架，解决了通用LLM在理解高速公路非常规场景规则与因果关系方面的局限性，显著提升了事件检测、安全响应生成和复杂交通分析能力。</p>
+<hr />
+<h4 id="detailed-summary_19">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前高速公路运营依赖基于规则和孤立模型的方法，限制了跨系统知识联合分析能力，而通用大语言模型无法有效理解高速公路领域中非常规场景的规则和事件因果关系，这阻碍了智能交通系统从算法智能向认知智能的演进。</p>
+<p><strong>Method:</strong> 本文构建了行业首个全栈高速公路数据集，包含交通知识文本、应急推理链和标注视频事件；提出了基于自监督训练和无监督学习的双层LLM预训练范式；引入了图增强RAG框架动态索引高速公路知识库；开发了RL对齐的思维链机制，确保模型推理与专家问题解决启发式方法的一致性；集成了跨模态编码器对齐视觉和文本通道的动态特征序列。</p>
+<p><strong>Result:</strong> 在新发布的多模态高速公路基准测试上的广泛实验表明，ExpressMind在事件检测、安全响应生成和复杂交通分析方面全面优于现有基线模型，验证了所提方法在高速公路认知智能任务中的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究为高速公路智能运营提供了认知核心解决方案，通过多模态融合和领域知识增强，推动了交通模型从算法智能向认知智能的转变，为复杂交通场景的理解和决策支持开辟了新途径，相关代码和数据集已开源促进领域发展。</p>
+<hr />
+<h4 id="abstract_19">📄 Abstract</h4>
+<p>The current expressway operation relies on rule-based and isolated models, which limits the ability to jointly analyze knowledge across different systems. Meanwhile, Large Language Models (LLMs) are increasingly applied in intelligent transportation, advancing traffic models from algorithmic to cognitive intelligence. However, general LLMs are unable to effectively understand the regulations and causal relationships of events in unconventional scenarios in the expressway field. Therefore, this paper constructs a pre-trained multimodal large language model (MLLM) for expressways, ExpressMind, which serves as the cognitive core for intelligent expressway operations. This paper constructs the industry's first full-stack expressway dataset, encompassing traffic knowledge texts, emergency reasoning chains, and annotated video events to overcome data scarcity. This paper proposes a dual-layer LLM pre-training paradigm based on self-supervised training and unsupervised learning. Additionally, this study introduces a Graph-Augmented RAG framework to dynamically index the expressway knowledge base. To enhance reasoning for expressway incident response strategies, we develop a RL-aligned Chain-of-Thought (RL-CoT) mechanism that enforces consistency between model reasoning and expert problem-solving heuristics for incident handling. Finally, ExpressMind integrates a cross-modal encoder to align the dynamic feature sequences under the visual and textual channels, enabling it to understand traffic scenes in both video and image modalities. Extensive experiments on our newly released multi-modal expressway benchmark demonstrate that ExpressMind comprehensively outperforms existing baselines in event detection, safety response generation, and complex traffic analysis. The code and data are available at: https://wanderhee.github.io/ExpressMind/.</p>
+  </article>
+</body>
+</html>
