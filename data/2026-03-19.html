@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-19.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 19]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-agrichat-a-multimodal-large-language-model-for-agriculture-image-understanding">[1] <a href="https://arxiv.org/abs/2603.16934">AgriChat: A Multimodal Large Language Model for Agriculture Image Understanding</a></h3>
+<p><em>Abderrahmene Boudiaf, Irfan Hussain, Sajid Javed</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了Vision-to-Verified-Knowledge (V2VK)管道，一种生成式AI驱动的注释框架，用于自主创建包含3000多个农业类别和60.7万VQA的AgriMM基准，并基于此开发了在农业任务上表现优越的专用多模态大语言模型AgriChat。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前农业领域多模态大语言模型的部署面临关键权衡：现有文献缺乏大规模农业数据集用于模型开发和评估，而现有最先进模型缺乏经过验证的领域专业知识来跨不同分类学进行推理。</p>
+<p><strong>Method:</strong> 提出了Vision-to-Verified-Knowledge (V2VK)管道，这是一种新颖的生成式AI驱动注释框架，通过将视觉描述与基于网络的科学检索相结合，自主生成AgriMM基准，通过将训练数据基于经过验证的植物病理学文献来有效消除生物幻觉。</p>
+<p><strong>Result:</strong> AgriMM基准包含3000多个农业类别和超过607,000个视觉问答对，涵盖细粒度植物物种识别、植物病害症状识别、作物计数和成熟度评估等多个任务；AgriChat在多样化任务、数据集和评估条件下表现出色，性能优于其他开源模型。</p>
+<p><strong>Conclusion:</strong> 研究结果表明，保留视觉细节与基于网络的验证知识相结合，为构建稳健可信的农业AI提供了可靠途径；该工作为农业多模态大语言模型的发展提供了高质量基准和专用模型，推动了农业AI的可信部署。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>The deployment of Multimodal Large Language Models (MLLMs) in agriculture is currently stalled by a critical trade-off: the existing literature lacks the large-scale agricultural datasets required for robust model development and evaluation, while current state-of-the-art models lack the verified domain expertise necessary to reason across diverse taxonomies. To address these challenges, we propose the Vision-to-Verified-Knowledge (V2VK) pipeline, a novel generative AI-driven annotation framework that integrates visual captioning with web-augmented scientific retrieval to autonomously generate the AgriMM benchmark, effectively eliminating biological hallucinations by grounding training data in verified phytopathological literature. The AgriMM benchmark contains over 3,000 agricultural classes and more than 607k VQAs spanning multiple tasks, including fine-grained plant species identification, plant disease symptom recognition, crop counting, and ripeness assessment. Leveraging this verifiable data, we present AgriChat, a specialized MLLM that presents broad knowledge across thousands of agricultural classes and provides detailed agricultural assessments with extensive explanations. Extensive evaluation across diverse tasks, datasets, and evaluation conditions reveals both the capabilities and limitations of current agricultural MLLMs, while demonstrating AgriChat's superior performance over other open-source models, including internal and external benchmarks. The results validate that preserving visual detail combined with web-verified knowledge constitutes a reliable pathway toward robust and trustworthy agricultural AI. The code and dataset are publicly available at https://github.com/boudiafA/AgriChat .</p>
+<h3 id="2-msramie-multimodal-structured-reasoning-agent-for-multi-instruction-image-editing">[2] <a href="https://arxiv.org/abs/2603.16967">MSRAMIE: Multimodal Structured Reasoning Agent for Multi-instruction Image Editing</a></h3>
+<p><em>Zhaoyuan Qiu, Ken Chen, Xiangwei Wang, Yu Xia, Sachith Seneviratne, Saman Halgamuge</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出MSRAMIE，一种基于多模态大语言模型的免训练代理框架，用于处理复杂的多指令图像编辑任务。该框架将现有编辑模型作为插件组件，通过结构化多模态推理实现迭代式指令分解与状态管理。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于指令的图像编辑模型在简单单步指令下表现良好，但在涉及多个、冗长且相互依赖指令的现实场景中性能下降。主要原因是缺乏具有复杂多指令标注的训练数据，而收集此类数据并重新训练模型成本高昂。</p>
+<p><strong>Method:</strong> MSRAMIE采用基于多模态大语言模型的免训练代理框架，将现有编辑模型作为插件组件。它通过结构化多模态推理处理多指令任务，引入树状状态和图状引用的新型推理拓扑结构，在推理过程中将复杂指令分解为多个编辑步骤，实现状态转换、跨步骤信息聚合和原始输入召回。</p>
+<p><strong>Result:</strong> 实验表明，随着指令复杂度的增加，MSRAMIE能将指令遵循率提高超过15%，并在单次运行中完成所有修改的概率提高超过100%。同时保持感知质量和视觉一致性，其可视化推理拓扑结构提供了可解释且可控的决策路径。</p>
+<p><strong>Conclusion:</strong> 该研究展示了免训练框架在复杂多指令图像编辑任务中的有效性，通过结构化推理拓扑实现了系统化的编辑空间探索和渐进式输出优化。视觉化推理路径增强了模型的可解释性和可控性，为处理复杂多模态任务提供了新的架构范式。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Existing instruction-based image editing models perform well with simple, single-step instructions but degrade in realistic scenarios that involve multiple, lengthy, and interdependent directives. A main cause is the scarcity of training data with complex multi-instruction annotations. However, it is costly to collect such data and retrain these models. To address this challenge, we propose MSRAMIE, a training-free agent framework built on Multimodal Large Language Model (MLLM). MSRAMIE takes existing editing models as plug-in components and handle multi-instruction tasks via structured multimodal reasoning. It orchestrates iterative interactions between an MLLM-based Instructor and an image editing Actor, introducing a novel reasoning topology that comprises the proposed Tree-of-States and Graph-of-References. During inference, complex instructions are decomposed into multiple editing steps which enable state transitions, cross-step information aggregation, and original input recall, which enables systematic exploration of the image editing space and flexible progressive output refinement. The visualizable inference topology further provides interpretable and controllable decision pathways. Experiments show that as the instruction complexity increases, MSRAMIE can improve instruction following over 15% and increases the probability of finishing all modifications in a single run over 100%, while preserving perceptual quality and maintaining visual consistency.</p>
+<h3 id="3-empirical-recipes-for-efficient-and-compact-vision-language-models">[3] <a href="https://arxiv.org/abs/2603.16987">Empirical Recipes for Efficient and Compact Vision-Language Models</a></h3>
+<p><em>Jiabo Huang, Zhizhong Li, Sina Sajadmanesh, Weiming Zhuang, Lingjuan Lyu</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>该研究通过系统性的效率分析和优化技术，显著提升了紧凑型视觉语言模型的推理速度，同时开发了具有结构化感知输出的ArgusVLM模型家族，在保持紧凑高效设计的同时实现了强大的性能表现。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有紧凑型视觉语言模型在资源受限环境中的实际推理速度提升远低于其较小参数量所暗示的潜力，这种效率差距阻碍了它们在低延迟高吞吐量场景中的实际部署，因此需要系统性地识别瓶颈并开发针对性优化方案。</p>
+<p><strong>Method:</strong> 研究首先对紧凑型VLM进行端到端效率分析和系统性的推理性能剖析以识别主要瓶颈，然后开发针对性的优化技术配方，同时扩展紧凑型VLM以支持结构化感知输出，最终构建了ArgusVLM模型家族。</p>
+<p><strong>Result:</strong> 优化技术使InternVL3-2B的首令牌时间减少53%，SmolVLM-256M的首令牌时间减少93%，同时ArgusVLM模型家族在多样化基准测试中展现出强大性能，保持了紧凑高效的设计特点。</p>
+<p><strong>Conclusion:</strong> 该研究提供了适用于多种VLM架构和常见服务框架的实用优化指导，证明了通过系统性分析和针对性优化可以显著提升紧凑型模型的推理效率，同时展示了扩展紧凑型VLM以支持结构化感知输出的可行性，为构建高效VLM系统提供了重要参考。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Deploying vision-language models (VLMs) in resource-constrained settings demands low latency and high throughput, yet existing compact VLMs often fall short of the inference speedups their smaller parameter counts suggest. To explain this discrepancy, we conduct an empirical end-to-end efficiency analysis and systematically profile inference to identify the dominant bottlenecks. Based on these findings, we develop optimization recipes tailored to compact VLMs that substantially reduce latency while preserving accuracy. These techniques cut time to first token (TTFT) by 53% on InternVL3-2B and by 93% on SmolVLM-256M. Our recipes are broadly applicable across both VLM architectures and common serving frameworks, providing practical guidance for building efficient VLM systems. Beyond efficiency, we study how to extend compact VLMs with structured perception outputs and introduce the resulting model family, ArgusVLM. Across diverse benchmarks, ArgusVLM achieves strong performance while maintaining a compact and efficient design.</p>
+<h3 id="4-loc3r-vlm-language-based-localization-and-3d-reasoning-with-vision-language-models">[4] <a href="https://arxiv.org/abs/2603.18002">Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models</a></h3>
+<p><em>Kevin Qu, Haozhe Qi, Mihai Dusmanu, Mahdi Rad, Rui Wang, Marc Pollefeys</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出Loc3R-VLM框架，通过联合全局布局重建和显式情境建模两个目标，为2D视觉语言模型赋予从单目视频输入中理解3D空间的能力，在语言定位和3D问答任务上达到最先进性能。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在视觉与语言连接方面取得显著进展，但在空间理解和视角感知推理方面仍存在不足，现有方法主要通过添加几何线索增强输入表示，而非显式教授模型进行3D空间推理。</p>
+<p><strong>Method:</strong> Loc3R-VLM框架受人类空间认知启发，采用两个联合目标：全局布局重建以构建场景结构的整体表示，以及显式情境建模以锚定自我中心视角；同时利用从预训练3D基础模型中提取的轻量级相机姿态先验，确保几何一致性和度量尺度对齐。</p>
+<p><strong>Result:</strong> Loc3R-VLM在基于语言的定位任务中达到最先进性能，并在情境化和通用3D问答基准测试中优于现有的2D和视频方法，证明了空间监督框架能够实现强大的3D理解能力。</p>
+<p><strong>Conclusion:</strong> 该研究表明通过直接的空间监督将感知和语言在3D上下文中进行接地是有效的，为视觉语言模型提供了先进的3D理解能力，为多模态AI系统的空间推理开辟了新方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have made impressive progress in connecting vision and language, but they still struggle with spatial understanding and viewpoint-aware reasoning. Recent efforts aim to augment the input representations with geometric cues rather than explicitly teaching models to reason in 3D space. We introduce Loc3R-VLM, a framework that equips 2D Vision-Language Models with advanced 3D understanding capabilities from monocular video input. Inspired by human spatial cognition, Loc3R-VLM relies on two joint objectives: global layout reconstruction to build a holistic representation of the scene structure, and explicit situation modeling to anchor egocentric perspective. These objectives provide direct spatial supervision that grounds both perception and language in a 3D context. To ensure geometric consistency and metric-scale alignment, we leverage lightweight camera pose priors extracted from a pre-trained 3D foundation model. Loc3R-VLM achieves state-of-the-art performance in language-based localization and outperforms existing 2D- and video-based approaches on situated and general 3D question-answering benchmarks, demonstrating that our spatial supervision framework enables strong 3D understanding. Project page: https://kevinqu7.github.io/loc3r-vlm</p>
+<h3 id="5-openqlaw-an-agentic-ai-assistant-for-analysis-of-2d-quantum-materials">[5] <a href="https://arxiv.org/abs/2603.17043">OpenQlaw: An Agentic AI Assistant for Analysis of 2D Quantum Materials</a></h3>
+<p><em>Sankalp Pandey, Xuan-Bac Nguyen, Hoang-Quan Nguyen, Tim Faltermeier, Nicholas Borys, Hugh Churchill, Khoa Luu</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了OpenQlaw，一个用于分析二维量子材料的智能体编排系统，通过将视觉识别与物理推理解耦，并引入持久记忆机制，将传统多模态大语言模型的逐步推理转化为面向实际设备制造的高效上下文感知助手。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有面向量子材料的多模态大语言模型虽然能通过物理知识增强的推理实现视觉特征定位，但其输出设计强调逐步认知透明度，导致冗长的候选枚举和密集推理，可能引发认知过载且缺乏与研究人员实际交互的即时实用性，阻碍了从光学识别到实际器件制造的过渡。</p>
+<p><strong>Method:</strong> OpenQlaw采用基于NanoBot轻量级智能体框架的编排架构，该框架受OpenClaw启发，并整合了QuPAINT物理感知指令多模态平台。系统核心LLM智能体将领域专家MLLM（QuPAINT）作为专用节点进行编排，实现视觉识别与推理及确定性图像渲染的解耦，通过解析专家的空间数据动态处理用户查询，并配备持久记忆机制保存物理尺度比例和样品制备方法。</p>
+<p><strong>Result:</strong> 该系统能够执行尺度感知的物理计算、生成独立的视觉标注并以自然方式回答查询，通过持久记忆支持面积计算和样品制备方法的效果比较，将孤立的推理转化为上下文感知的助手，加速高通量器件制造流程，并通过多种消息通道实现实验室层面的可访问性。</p>
+<p><strong>Conclusion:</strong> 智能体架构与核心智能体作为领域专家编排器的扩展相结合，成功将传统多模态模型的逐步推理范式转变为支持实际交互的上下文感知系统，为二维量子材料从识别到器件制造的过渡提供了可操作的解决方案，展示了智能体编排在专业科学计算中的实用价值。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>The transition from optical identification of 2D quantum materials to practical device fabrication requires dynamic reasoning beyond the detection accuracy. While recent domain-specific Multimodal Large Language Models (MLLMs) successfully ground visual features using physics-informed reasoning, their outputs are optimized for step-by-step cognitive transparency. This yields verbose candidate enumerations followed by dense reasoning that, while accurate, may induce cognitive overload and lack immediate utility for real-world interaction with researchers. To address this challenge, we introduce OpenQlaw, an agentic orchestration system for analyzing 2D materials. The architecture is built upon NanoBot, a lightweight agentic framework inspired by OpenClaw, and QuPAINT, one of the first Physics-Aware Instruction Multi-modal platforms for Quantum Material Discovery. This allows accessibility to the lab floor via a variety of messaging channels. OpenQlaw allows the core Large Language Model (LLM) agent to orchestrate a domain-expert MLLM,with QuPAINT, as a specialized node, successfully decoupling visual identification from reasoning and deterministic image rendering. By parsing spatial data from the expert, the agent can dynamically process user queries, such as performing scale-aware physical computation or generating isolated visual annotations, and answer in a naturalistic manner. Crucially, the system features a persistent memory that enables the agent to save physical scale ratios (e.g., 1 pixel = 0.25 μm) for area computations and store sample preparation methods for efficacy comparison. The application of an agentic architecture, together with the extension that uses the core agent as an orchestrator for domain-specific experts, transforms isolated inferences into a context-aware assistant capable of accelerating high-throughput device fabrication.</p>
+<h3 id="6-generalist-multimodal-llms-gain-biometric-expertise-via-human-salience">[6] <a href="https://arxiv.org/abs/2603.17173">Generalist Multimodal LLMs Gain Biometric Expertise via Human Salience</a></h3>
+<p><em>Jacob Piland, Byron Dowling, Christopher Sweet, Adam Czajka</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本研究探索了在严格隐私约束下，利用通用多模态大语言模型进行虹膜呈现攻击检测的可行性，通过结合人类专家知识的结构化提示，证明了MLLMs在虹膜PAD任务上的有效性，且性能优于专用CNN基线和人类检查员。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 虹膜呈现攻击检测面临实际挑战：无法收集未来未知攻击的数据，收集足够多样化的数据成本高昂，且共享生物识别数据存在隐私问题。由于新攻击向量快速出现需要适应性解决方案，本研究旨在探索在禁止将生物识别数据发送到公共云服务的严格隐私约束下，通用多模态大语言模型是否能够结合人类专家知识执行虹膜PAD任务。</p>
+<p><strong>Method:</strong> 研究采用预训练视觉变换器作为MLLMs的视觉编码器，分析其在虹膜攻击类型上的嵌入表示聚类特性。针对聚类重叠的攻击类别，开发了结合人类显著性（受试者识别攻击指标的言语描述）的结构化提示。实验使用仅限于大学批准服务（Gemini 2.5 Pro）或本地部署模型（如Llama 3.2-Vision），在包含224张虹膜图像、涵盖七种攻击类型的IRB限制数据集上进行测试。</p>
+<p><strong>Result:</strong> 实验结果表明，预训练的视觉变换器在未经显式训练的情况下，能够对多种虹膜攻击类型进行内在聚类。结合专家知识提示的Gemini模型在性能上超越了专用卷积神经网络基线和人类检查员，而本地可部署的Llama模型达到了接近人类的性能水平，证明了MLLMs在机构隐私约束下进行虹膜PAD的可行性。</p>
+<p><strong>Conclusion:</strong> 本研究确立了在机构隐私约束下可部署的多模态大语言模型为虹膜呈现攻击检测提供了可行路径。通过利用预训练视觉编码器的内在聚类能力和结合人类专家知识的结构化提示，MLLMs能够有效解决传统方法面临的数据收集困难和隐私限制问题，为生物识别安全领域提供了新的适应性解决方案。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Iris presentation attack detection (PAD) is critical for secure biometric deployments, yet developing specialized models faces significant practical barriers: collecting data representing future unknown attacks is impossible, and collecting diverse-enough data, yet still limited in terms of its predictive power, is expensive. Additionally, sharing biometric data raises privacy concerns. Due to rapid emergence of new attack vectors demanding adaptable solutions, we thus investigate in this paper whether general-purpose multimodal large language models (MLLMs) can perform iris PAD when augmented with human expert knowledge, operating under strict privacy constraints that prohibit sending biometric data to public cloud MLLM services. Through analysis of vision encoder embeddings applied to our dataset, we demonstrate that pre-trained vision transformers in MLLMs inherently cluster many iris attack types despite never being explicitly trained for this task. However, where clustering shows overlap between attack classes, we find that structured prompts incorporating human salience (verbal descriptions from subjects identifying attack indicators) enable these models to resolve ambiguities. Testing on an IRB-restricted dataset of 224 iris images spanning seven attack types, using only university-approved services (Gemini 2.5 Pro) or locally-hosted models (e.g., Llama 3.2-Vision), we show that Gemini with expert-informed prompts outperforms both a specialized convolutional neural networks (CNN)-based baseline and human examiners, while the locally-deployable Llama achieves near-human performance. Our results establish that MLLMs deployable within institutional privacy constraints offer a viable path for iris PAD.</p>
+<h3 id="7-from-drop-off-to-recovery-a-mechanistic-analysis-of-segmentation-in-mllms">[7] <a href="https://arxiv.org/abs/2603.17228">From Drop-off to Recovery: A Mechanistic Analysis of Segmentation in MLLMs</a></h3>
+<p><em>Boyong Wu, Sanghwan Kim, Zeynep Akata</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本研究通过层间线性探测和注意力干预分析，揭示了多模态大语言模型在分割任务中的内在工作机制，发现适配器层会导致表征质量下降，而LLM层通过注意力机制逐步恢复空间理解能力。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在像素级视觉任务中应用日益广泛，但其内在的空间理解能力机制尚不明确，特别是模型各组件如何协同处理视觉信息以实现分割任务的理解存在研究空白。</p>
+<p><strong>Method:</strong> 采用层间线性探测评估方法，系统分析MLLM全流程各组件（视觉编码器、适配器、LLM）的分割能力；实施基于干预的注意力敲除分析，检验跨令牌注意力是否逐步精炼视觉表征；评估图像令牌间双向注意力对空间一致性的影响。</p>
+<p><strong>Result:</strong> 分析发现适配器层引入分割表征质量下降，但LLM层通过注意力介导的精炼过程逐步恢复，其中正确分类的令牌引导错误分类的邻居令牌趋向正确标签；早期图像令牌位置的恢复受因果注意力限制，而图像令牌间的双向注意力能缓解此限制。</p>
+<p><strong>Conclusion:</strong> 研究为MLLM处理视觉信息进行分割的机制提供了机械性解释，揭示了注意力在空间理解中的关键作用，为未来设计具有分割能力的模型提供了重要指导，特别是优化适配器设计和利用注意力机制改进空间一致性。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) are increasingly applied to pixel-level vision tasks, yet their intrinsic capacity for spatial understanding remains poorly understood. We investigate segmentation capacity through a layerwise linear probing evaluation across the entire MLLM pipeline: vision encoder, adapter, and LLM. We further conduct an intervention based attention knockout analysis to test whether cross-token attention progressively refines visual representations, and an evaluation of bidirectional attention among image tokens on spatial consistency. Our analysis reveals that the adapter introduces a segmentation representation drop-off, but LLM layers progressively recover through attention-mediated refinement, where correctly classified tokens steer misclassified neighbors toward the correct label. At early image token positions, this recovery is bounded by causal attention, which bidirectional attention among image tokens alleviates. These findings provide a mechanistic account of how MLLMs process visual information for segmentation, informing the design of future segmentation-capable models.</p>
+<h3 id="8-symphony-a-cognitively-inspired-multi-agent-system-for-long-video-understanding">[8] <a href="https://arxiv.org/abs/2603.17307">Symphony: A Cognitively-Inspired Multi-Agent System for Long-Video Understanding</a></h3>
+<p><em>Haiyang Yan, Hongyun Zhou, Peng Xu, Xiaoxue Feng, Mengyi Liu</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了Symphony，一个用于长视频理解任务的多智能体系统，通过模拟人类认知模式将复杂任务分解为细粒度子任务，并采用增强的深度推理协作机制，在多个基准测试中实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型智能体发展迅速且应用广泛，但在长视频理解任务上仍面临挑战，这些任务具有信息密度高、时间跨度长的特点。现有方法中简单的任务分解与协作机制不足以处理长链推理任务，而基于嵌入的检索直接缩减时间上下文可能导致复杂问题的关键信息丢失。</p>
+<p><strong>Method:</strong> Symphony采用多智能体系统架构，通过模拟人类认知模式将长视频理解分解为细粒度子任务，并引入基于反思增强的深度推理协作机制。此外，系统提供了基于视觉语言模型的定位方法，用于分析长视频理解任务并评估视频片段的相关性，从而增强对具有隐含意图和大时间跨度的复杂问题的定位能力。</p>
+<p><strong>Result:</strong> 实验结果表明，Symphony在LVBench、LongVideoBench、VideoMME和MLVU等多个基准测试上实现了最先进的性能，其中在LVBench上比先前最先进方法提升了5.0%。代码已在GitHub上开源。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过模拟人类认知模式进行细粒度任务分解和深度推理协作的有效性，为长视频理解任务提供了新的解决方案。基于视觉语言模型的定位方法显著提升了复杂问题的识别能力，为多智能体系统在长视频分析领域的应用开辟了新方向。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Despite rapid developments and widespread applications of MLLM agents, they still struggle with long-form video understanding (LVU) tasks, which are characterized by high information density and extended temporal spans. Recent research on LVU agents demonstrates that simple task decomposition and collaboration mechanisms are insufficient for long-chain reasoning tasks. Moreover, directly reducing the time context through embedding-based retrieval may lose key information of complex problems. In this paper, we propose Symphony, a multi-agent system, to alleviate these limitations. By emulating human cognition patterns, Symphony decomposes LVU into fine-grained subtasks and incorporates a deep reasoning collaboration mechanism enhanced by reflection, effectively improving the reasoning capability. Additionally, Symphony provides a VLM-based grounding approach to analyze LVU tasks and assess the relevance of video segments, which significantly enhances the ability to locate complex problems with implicit intentions and large temporal spans. Experimental results show that Symphony achieves state-of-the-art performance on LVBench, LongVideoBench, VideoMME, and MLVU, with a 5.0% improvement over the prior state-of-the-art method on LVBench. Code is available at https://github.com/Haiyang0226/Symphony.</p>
+<h3 id="9-finevit-progressively-unlocking-fine-grained-perception-with-dense-recaptions">[9] <a href="https://arxiv.org/abs/2603.17326">FineViT: Progressively Unlocking Fine-Grained Perception with Dense Recaptions</a></h3>
+<p><em>Peisen Zhao, Xiaopeng Zhang, Mingxing Xu, Ruoyu Sun, Zewei Du, Dunzheng Wang, Guanghao Zheng, Haohang Xu, Zhibo Zhang, Yuhang Zhang, Yi Ai, Lin Liu, Qi Tian</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出了FineViT，一种专为细粒度视觉感知设计的新型视觉编码器，通过渐进式训练范式解决传统CLIP编码器在密集空间任务中的性能瓶颈问题。该模型在零样本识别和检索任务上实现了最先进的性能，并显著提升了多模态大语言模型的视觉编码能力。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型的视觉编码器常成为性能瓶颈，传统基于CLIP的编码器由于低分辨率预训练和依赖噪声较大的网络爬取图像-文本对，在处理密集空间任务时存在视觉细节丢失问题。本研究旨在克服这些限制，开发专门针对细粒度感知优化的视觉编码器。</p>
+<p><strong>Method:</strong> 提出的FineViT采用渐进式训练范式：首先在高原生分辨率下使用数十亿个全局重标注图像-文本对从头训练编码器，建立细节丰富的语义基础；随后通过LLM对齐进一步增强局部感知能力，利用精心构建的包含超过4.5亿高质量局部标注的FineCap-450M数据集进行优化。该方法用密集重标注替代粗糙的网络数据，系统性地减少信息损失。</p>
+<p><strong>Result:</strong> 实验验证了渐进式策略的有效性，FineViT在零样本识别和检索任务上实现了最先进的性能，尤其在长上下文检索方面表现突出。当集成到多模态大语言模型中时，FineViT持续优于SigLIP2和Qwen-ViT等多模态视觉编码器，展示了其在细粒度视觉感知任务上的优越性。</p>
+<p><strong>Conclusion:</strong> FineViT为细粒度视觉感知提供了强大的新基准，其渐进式训练方法有效解决了传统视觉编码器的细节丢失问题。该研究展示了高质量标注数据和系统化训练策略对提升视觉编码器性能的重要性，为未来多模态模型的发展提供了有价值的参考方向。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>While Multimodal Large Language Models (MLLMs) have experienced rapid advancements, their visual encoders frequently remain a performance bottleneck. Conventional CLIP-based encoders struggle with dense spatial tasks due to the loss of visual details caused by low-resolution pretraining and the reliance on noisy, coarse web-crawled image-text pairs. To overcome these limitations, we introduce FineViT, a novel vision encoder specifically designed to unlock fine-grained perception. By replacing coarse web data with dense recaptions, we systematically mitigate information loss through a progressive training paradigm.: first, the encoder is trained from scratch at a high native resolution on billions of global recaptioned image-text pairs, establishing a robust, detail rich semantic foundation. Subsequently, we further enhance its local perception through LLM alignment, utilizing our curated FineCap-450M dataset that comprises over $450$ million high quality local captions. Extensive experiments validate the effectiveness of the progressive strategy. FineViT achieves state-of-the-art zero-shot recognition and retrieval performance, especially in long-context retrieval, and consistently outperforms multimodal visual encoders such as SigLIP2 and Qwen-ViT when integrated into MLLMs. We hope FineViT could serve as a powerful new baseline for fine-grained visual perception.</p>
+<h3 id="10-evoguard-an-extensible-agentic-rl-based-framework-for-practical-and-evolving-ai-generated-image-detection">[10] <a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></h3>
+<p><em>Chenyang Zhu, Maorong Wang, Jun Liu, Ching-Chun Chang, Isao Echizen</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出EvoGuard，一种用于AI生成图像检测的新型智能体框架，通过动态编排异构检测器并利用基于GRPO的智能体强化学习进行优化，实现了最先进的检测精度和可扩展性。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> AI生成图像的快速扩散带来了严重的信息误传风险，传统检测方法主要依赖低级特征，而基于多模态大语言模型的方法虽然能利用其通用理解能力实现更好的泛化，但仍面临有限的可扩展性和昂贵的训练数据标注成本问题，难以应对复杂动态的真实世界环境。</p>
+<p><strong>Method:</strong> EvoGuard将各种最先进的现有多模态大语言模型和非多模态大语言模型检测器封装为可调用工具，通过能力感知的动态编排机制进行协调，利用智能体的自主规划和反思能力，为给定样本智能选择合适工具，反思中间结果并决定下一步行动，通过多轮调用和推理得出最终结论，并采用基于GRPO的智能体强化学习算法进行优化，仅需低成本二元标签即可训练。</p>
+<p><strong>Result:</strong> 大量实验表明，EvoGuard实现了最先进的检测精度，同时缓解了正负样本之间的偏差，更重要的是，它允许即插即用地集成新检测器，以无需训练的方式提升整体性能，为不断演化的AI生成图像威胁提供了高度实用的长期解决方案。</p>
+<p><strong>Conclusion:</strong> 该研究提出的智能体框架有效利用了异构检测器之间的互补优势，超越了任何单一模型的限制，通过消除对细粒度标注的依赖，仅需低成本二元标签即可优化，为AI生成图像检测领域提供了可扩展、可演化的实用解决方案，其源代码将在论文接受后公开。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>The rapid proliferation of AI-Generated Images (AIGIs) has introduced severe risks of misinformation, making AIGI detection a critical yet challenging task. While traditional detection paradigms mainly rely on low-level features, recent research increasingly focuses on leveraging the general understanding ability of Multimodal Large Language Models (MLLMs) to achieve better generalization, but still suffer from limited extensibility and expensive training data annotations. To better address complex and dynamic real-world environments, we propose EvoGuard, a novel agentic framework for AIGI detection. It encapsulates various state-of-the-art (SOTA) off-the-shelf MLLM and non-MLLM detectors as callable tools, and coordinates them through a capability-aware dynamic orchestration mechanism. Empowered by the agent's capacities for autonomous planning and reflection, it intelligently selects suitable tools for given samples, reflects intermediate results, and decides the next action, reaching a final conclusion through multi-turn invocation and reasoning. This design effectively exploits the complementary strengths among heterogeneous detectors, transcending the limits of any single model. Furthermore, optimized by a GRPO-based Agentic Reinforcement Learning algorithm using only low-cost binary labels, it eliminates the reliance on fine-grained annotations. Extensive experiments demonstrate that EvoGuard achieves SOTA accuracy while mitigating the bias between positive and negative samples. More importantly, it allows the plug-and-play integration of new detectors to boost overall performance in a train-free manner, offering a highly practical, long-term solution to ever-evolving AIGI threats. Source code will be publicly available upon acceptance.</p>
+<h3 id="11-mcot-mvs-multi-level-vision-selection-by-multi-modal-chain-of-thought-reasoning-for-composed-image-retrieval">[11] <a href="https://arxiv.org/abs/2603.17360">MCoT-MVS: Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning for Composed Image Retrieval</a></h3>
+<p><em>Xuri Ge, Chunhao Wang, Xindi Wang, Zheyun Qin, Zhumin Chen, Xin Xin</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了一种用于组合图像检索的新型多模态思维链推理引导的多层次视觉选择方法（MCoT-MVS），通过多模态大语言模型生成推理线索来指导视觉注意力选择，有效解决了现有方法在文本修改提示下难以从参考图像中提取正确语义线索的问题。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有组合图像检索方法在文本修改提示下难以从参考图像中提取最能反映用户意图的正确语义线索，容易受到无关视觉噪声的干扰，导致检索性能受限。</p>
+<p><strong>Method:</strong> 该方法利用多模态大语言模型对多模态组合输入进行思维链推理，生成保留、移除和目标推断文本，这些文本线索指导两个参考视觉注意力选择模块从参考图像中选择性提取判别性的补丁级和实例级语义，并通过加权分层组合模块将这些多粒度视觉线索与修改文本及想象的目标描述融合对齐。</p>
+<p><strong>Result:</strong> 在CIRR和FashionIQ两个组合图像检索基准上的大量实验表明，该方法持续优于现有方法，实现了新的最先进性能，验证了多模态思维链推理引导的多层次视觉选择的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究展示了多模态大语言模型推理能力与多层次视觉特征选择的协同优势，为组合图像检索提供了一种新的语义理解与对齐范式，通过公开代码和训练模型促进了该领域的研究进展。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Composed Image Retrieval (CIR) aims to retrieve target images based on a reference image and modified texts. However, existing methods often struggle to extract the correct semantic cues from the reference image that best reflect the user's intent under textual modification prompts, resulting in interference from irrelevant visual noise. In this paper, we propose a novel Multi-level Vision Selection by Multi-modal Chain-of-Thought Reasoning (MCoT-MVS) for CIR, integrating attention-aware multi-level vision features guided by reasoning cues from a multi-modal large language model (MLLM). Specifically, we leverage an MLLM to perform chain-of-thought reasoning on the multimodal composed input, generating the retained, removed, and target-inferred texts. These textual cues subsequently guide two reference visual attention selection modules to selectively extract discriminative patch-level and instance-level semantics from the reference image. Finally, to effectively fuse these multi-granular visual cues with the modified text and the imagined target description, we design a weighted hierarchical combination module to align the composed query with target images in a unified embedding space. Extensive experiments on two CIR benchmarks, namely CIRR and FashionIQ, demonstrate that our approach consistently outperforms existing methods and achieves new state-of-the-art performance. Code and trained models are publicly released.</p>
+<h3 id="12-finer-mllms-hallucinate-under-fine-grained-negative-queries">[12] <a href="https://arxiv.org/abs/2603.17662">FINER: MLLMs Hallucinate under Fine-grained Negative Queries</a></h3>
+<p><em>Rui Xiao, Sanghwan Kim, Yongqin Xian, Zeynep Akata, Stephan Alaniz</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文针对多模态大语言模型在细粒度查询中存在的幻觉问题，提出了FINER基准和FINER-Tuning方法，通过细粒度负查询评估和直接偏好优化微调，显著降低了幻觉率并提升了多模态能力。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在细粒度查询中存在严重的幻觉问题，而现有基准主要关注粗粒度图像相关问题，未能充分评估细粒度不匹配场景下的幻觉现象，这限制了模型在实际应用中的可靠性。</p>
+<p><strong>Method:</strong> 研究提出了FINER细粒度负查询基准，包括FINER-CompreCap和FINER-DOCCI两个子基准，用于分析多对象、多属性、多关系和"什么"问题四种设置下的幻觉现象，并开发了FINER-Tuning方法，利用直接偏好优化在FINER启发数据上进行模型微调。</p>
+<p><strong>Result:</strong> 实验发现MLLMs在细粒度不匹配与图像中真实元素共存时会产生幻觉，FINER-Tuning微调使InternVL3.5-14B在基准上的幻觉率降低了24.2%，同时在八个现有幻觉测试套件上表现提升，并在六个多模态基准上增强了通用能力。</p>
+<p><strong>Conclusion:</strong> 该研究表明细粒度负查询是评估和缓解MLLMs幻觉的有效方法，FINER-Tuning不仅显著降低幻觉率，还能同时提升模型的通用多模态能力，为构建更可靠的多模态系统提供了重要技术路径。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) struggle with hallucinations, particularly with fine-grained queries, a challenge underrepresented by existing benchmarks that focus on coarse image-related questions. We introduce FIne-grained NEgative queRies (FINER), alongside two benchmarks: FINER-CompreCap and FINER-DOCCI. Using FINER, we analyze hallucinations across four settings: multi-object, multi-attribute, multi-relation, and ``what'' questions. Our benchmarks reveal that MLLMs hallucinate when fine-grained mismatches co-occur with genuinely present elements in the image. To address this, we propose FINER-Tuning, leveraging Direct Preference Optimization (DPO) on FINER-inspired data. Finetuning four frontier MLLMs with FINER-Tuning yields up to 24.2\% gains (InternVL3.5-14B) on hallucinations from our benchmarks, while simultaneously improving performance on eight existing hallucination suites, and enhancing general multimodal capabilities across six benchmarks. Code, benchmark, and models are available at \href{https://explainableml.github.io/finer-project/}{https://explainableml.github.io/finer-project/}.</p>
+<h3 id="13-temporal-gains-spatial-costs-revisiting-video-fine-tuning-in-multimodal-large-language-models">[13] <a href="https://arxiv.org/abs/2603.17541">Temporal Gains, Spatial Costs: Revisiting Video Fine-Tuning in Multimodal Large Language Models</a></h3>
+<p><em>Linghao Zhang, Jungang Li, Yonghua Hei, Sicheng Tao, Song Dai, Yibo Yan, Zihao Dongfang, Weiting Liu, Chenxi Qin, Hanqian Li, Xin Zou, Jiahao Zhang, Shuhang Xun, Haiyun Jiang, Xuming Hu</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文系统研究了视频监督微调对多模态大语言模型视觉能力的影响，发现视频性能提升通常以静态图像性能下降为代价，并提出了一种指令感知的混合帧策略来部分缓解这种权衡。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型通常通过多阶段训练进行开发，其中视频监督微调是提升视觉理解能力的关键步骤，但其对视觉能力细粒度演化的影响，特别是空间与时间理解之间的平衡，目前尚未得到充分理解。</p>
+<p><strong>Method:</strong> 研究采用系统化方法分析视频监督微调对MLLMs视觉能力的重塑作用，考察了不同架构、参数规模和帧采样设置下的影响模式，并进一步提出了一种指令感知的混合帧策略，该策略能够自适应分配帧数以优化性能平衡。</p>
+<p><strong>Result:</strong> 实验结果显示，视频监督微调在不同架构、参数规模和帧采样设置下均呈现一致模式：可靠提升视频性能，但对静态图像基准测试的增益有限甚至导致性能下降；增加采样帧数通常改善视频性能，但无法可靠提升静态图像性能；提出的混合帧策略能够部分缓解图像-视频权衡问题。</p>
+<p><strong>Conclusion:</strong> 研究表明视频监督微调并非多模态大语言模型的免费午餐，在联合图像-视频训练中保持空间理解能力仍是一个核心挑战，自适应帧分配策略为缓解性能权衡提供了可行方向，但需要更深入的方法来平衡时空理解能力。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) are typically trained in multiple stages, with video-based supervised fine-tuning (Video-SFT) serving as a key step for improving visual understanding. Yet its effect on the fine-grained evolution of visual capabilities, particularly the balance between spatial and temporal understanding, remains poorly understood. In this paper, we systematically study how Video-SFT reshapes visual capabilities in MLLMs. Across architectures, parameter scales, and frame sampling settings, we observe a consistent pattern: Video-SFT reliably improves video performance, but often yields limited gains or even degradation on static image benchmarks. We further show that this trade-off is closely tied to temporal budget: increasing the number of sampled frames generally improves video performance, but does not reliably improve static image performance. Motivated by this finding, we study an instruction-aware Hybrid-Frame strategy that adaptively allocates frame counts and partially mitigates the image-video trade-off. Our results indicate that Video-SFT is not a free lunch for MLLMs, and preserving spatial understanding remains a central challenge in joint image-video training.</p>
+<h3 id="14-sare-sample-wise-adaptive-reasoning-for-training-free-fine-grained-visual-recognition">[14] <a href="https://arxiv.org/abs/2603.17729">SARE: Sample-wise Adaptive Reasoning for Training-free Fine-grained Visual Recognition</a></h3>
+<p><em>Jingxiao Yang, DaLin He, Miao Pan, Ge Su, Wenqi Zhang, Yifeng Hu, Tangwei Li, Yuke Li, Xuhong Zhang</em></p>
+<h4 id="tldr_13">🧩 TL;DR</h4>
+<p>本文提出SARE，一种样本自适应推理框架，用于解决训练无关的细粒度视觉识别问题。该框架通过级联设计和自反经验机制，在保持高性能的同时显著降低计算开销。</p>
+<hr />
+<h4 id="detailed-summary_13">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前基于大视觉语言模型的训练无关细粒度视觉识别方法面临两个核心限制：一是对所有样本采用相同的推理流程，未考虑识别难度的不均匀性，导致准确率和效率均不理想；二是缺乏整合和重用错误特定经验的机制，导致在类似困难案例上重复失败。</p>
+<p><strong>Method:</strong> SARE采用级联设计，结合快速候选检索与细粒度推理，仅在必要时调用后者。在推理过程中，框架引入自反经验机制，利用过往失败案例提供可迁移的判别性指导，无需任何参数更新。这种样本自适应方法能够根据识别难度动态调整推理策略。</p>
+<p><strong>Result:</strong> 在14个数据集上的广泛实验表明，SARE实现了最先进的性能，同时显著降低了计算开销。该方法在准确率和效率方面均优于现有的检索导向和推理导向范式，验证了样本自适应设计和经验重用机制的有效性。</p>
+<p><strong>Conclusion:</strong> 研究证明了样本自适应推理框架在训练无关细粒度视觉识别中的有效性，为利用大视觉语言模型解决视觉歧义问题提供了新思路。自反经验机制展示了如何在不更新参数的情况下利用过往经验提升性能，为高效推理系统设计提供了重要启示。</p>
+<hr />
+<h4 id="abstract_13">📄 Abstract</h4>
+<p>Recent advances in Large Vision-Language Models (LVLMs) have enabled training-free Fine-Grained Visual Recognition (FGVR). However, effectively exploiting LVLMs for FGVR remains challenging due to the inherent visual ambiguity of subordinate-level categories. Existing methods predominantly adopt either retrieval-oriented or reasoning-oriented paradigms to tackle this challenge, but both are constrained by two fundamental limitations:(1) They apply the same inference pipeline to all samples without accounting for uneven recognition difficulty, thereby leading to suboptimal accuracy and efficiency; (2) The lack of mechanisms to consolidate and reuse error-specific experience causes repeated failures on similar challenging cases. To address these limitations, we propose SARE, a Sample-wise Adaptive textbfREasoning framework for training-free FGVR. Specifically, SARE adopts a cascaded design that combines fast candidate retrieval with fine-grained reasoning, invoking the latter only when necessary. In the reasoning process, SARE incorporates a self-reflective experience mechanism that leverages past failures to provide transferable discriminative guidance during inference, without any parameter updates. Extensive experiments across 14 datasets substantiate that SARE achieves state-of-the-art performance while substantially reducing computational overhead.</p>
+<h3 id="15-fine-grained-post-training-quantization-for-large-vision-language-models-with-quantization-aware-integrated-gradients">[15] <a href="https://arxiv.org/abs/2603.17809">Fine-Grained Post-Training Quantization for Large Vision Language Models with Quantization-Aware Integrated Gradients</a></h3>
+<p><em>Ziwei Xiang, Fanhu Zeng, Hongjian Fang, Rui-Qi Wang, Renxing Chen, Yanan Zhu, Yi Chen, Peipei Yang, Xu-Yao Zhang</em></p>
+<h4 id="tldr_14">🧩 TL;DR</h4>
+<p>本文提出了一种基于量化感知积分梯度的细粒度量化策略QIG，通过将积分梯度应用于大视觉语言模型的量化过程，实现了从模态级别到令牌级别的细粒度量化，显著提升了量化模型的精度。</p>
+<hr />
+<h4 id="detailed-summary_14">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大视觉语言模型在实际部署中面临巨大的计算和内存开销，而现有的量化方法通常在模态级别衡量令牌敏感性，无法捕捉复杂的跨令牌交互关系，也难以在令牌级别定量测量量化误差，这限制了量化效果的进一步提升。</p>
+<p><strong>Method:</strong> 该方法受到机制可解释性中公理化归因的启发，提出了量化感知积分梯度策略，利用积分梯度定量评估令牌敏感性，将量化粒度从模态级别推进到令牌级别，同时反映模态间和模态内的动态特性。</p>
+<p><strong>Result:</strong> 在多种LVLM模型上进行的广泛实验表明，该方法在W4A8和W3A16设置下均能提升模型精度且延迟开销可忽略。例如，在3位权重量化下，LLaVA-onevision-7B的平均准确率提升了1.60%，与全精度模型的差距缩小至仅1.33%。</p>
+<p><strong>Conclusion:</strong> 该研究证明了细粒度令牌级别量化的重要性，通过引入积分梯度方法能够更精确地评估量化敏感性，为高效部署大视觉语言模型提供了有效的量化解决方案，同时保持了模型的性能表现。</p>
+<hr />
+<h4 id="abstract_14">📄 Abstract</h4>
+<p>Large Vision Language Models (LVLMs) have achieved remarkable success in a range of downstream tasks that require multimodal interaction, but their capabilities come with substantial computational and memory overhead, which hinders practical deployment. Among numerous acceleration techniques, post-training quantization is a popular and effective strategy for reducing memory cost and accelerating inference. However, existing LVLM quantization methods typically measure token sensitivity at the modality level, which fails to capture the complex cross-token interactions and falls short in quantitatively measuring the quantization error at the token level. As tokens interact within the model, the distinction between modalities gradually diminishes, suggesting the need for fine-grained calibration. Inspired by axiomatic attribution in mechanistic interpretability, we introduce a fine-grained quantization strategy on Quantization-aware Integrated Gradients (QIG), which leverages integrated gradients to quantitatively evaluate token sensitivity and push the granularity from modality level to token level, reflecting both inter-modality and intra-modality dynamics. Extensive experiments on multiple LVLMs under both W4A8 and W3A16 settings show that our method improves accuracy across models and benchmarks with negligible latency overhead. For example, under 3-bit weight-only quantization, our method improves the average accuracy of LLaVA-onevision-7B by 1.60%, reducing the gap to its full-precision counterpart to only 1.33%. The code is available at https://github.com/ucas-xiang/QIG.</p>
+<h3 id="16-concept-to-pixel-prompt-free-universal-medical-image-segmentation">[16] <a href="https://arxiv.org/abs/2603.17746">Concept-to-Pixel: Prompt-Free Universal Medical Image Segmentation</a></h3>
+<p><em>Haoyun Chen, Fenghe Tang, Wenxin Ma, Shaohua Kevin Zhou</em></p>
+<h4 id="tldr_15">🧩 TL;DR</h4>
+<p>本文提出了Concept-to-Pixel（C2P），一种无需提示的通用医学图像分割框架，通过将解剖知识显式解耦为几何和语义表示，并利用多模态大语言模型提取可学习的语义标记，实现了跨多种成像模态的统一分割。</p>
+<hr />
+<h4 id="detailed-summary_15">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有通用医学图像分割方法严重依赖手动视觉提示或检索参考图像，限制了自动化和鲁棒性；同时，跨模态的简单联合训练难以处理大的域偏移问题，需要一种更有效的统一分割框架。</p>
+<p><strong>Method:</strong> C2P框架将解剖知识显式解耦为几何和语义表示，利用多模态大语言模型提取抽象医学概念为可学习的语义标记，并引入显式监督的几何标记来强制执行通用物理和结构约束；这些解耦标记与图像特征深度交互生成输入特定的动态核进行精确掩码预测，并采用几何感知推理共识机制评估预测可靠性。</p>
+<p><strong>Result:</strong> 在包含七个模态八个数据集的统一基准测试中，C2P表现出显著优越性；该统一模型在涉及未见案例的零样本任务和跨模态相似任务转移中均展现出强大的泛化能力，取得了令人印象深刻的结果。</p>
+<p><strong>Conclusion:</strong> C2P通过解剖知识的显式解耦表示和几何感知推理机制，为通用医学图像分割提供了有效的解决方案；该方法不仅提升了跨模态分割性能，还展示了在零样本和跨模态转移任务中的强大泛化能力，为医学图像分析的基础模型发展提供了新方向。</p>
+<hr />
+<h4 id="abstract_15">📄 Abstract</h4>
+<p>Universal medical image segmentation seeks to use a single foundational model to handle diverse tasks across multiple imaging modalities. However, existing approaches often rely heavily on manual visual prompts or retrieved reference images, which limits their automation and robustness. In addition, naive joint training across modalities often fails to address large domain shifts. To address these limitations, we propose Concept-to-Pixel (C2P), a novel prompt-free universal segmentation framework. C2P explicitly separates anatomical knowledge into two components: Geometric and Semantic representations. It leverages Multimodal Large Language Models (MLLMs) to distill abstract, high-level medical concepts into learnable Semantic Tokens and introduces explicitly supervised Geometric Tokens to enforce universal physical and structural constraints. These disentangled tokens interact deeply with image features to generate input-specific dynamic kernels for precise mask prediction. Furthermore, we introduce a Geometry-Aware Inference Consensus mechanism, which utilizes the model's predicted geometric constraints to assess prediction reliability and suppress outliers. Extensive experiments and analysis on a unified benchmark comprising eight diverse datasets across seven modalities demonstrate the significant superiority of our jointly trained approach, compared to universe- or single-model approaches. Remarkably, our unified model demonstrates strong generalization, achieving impressive results not only on zero-shot tasks involving unseen cases but also in cross-modal transfers across similar tasks. Code is available at: https://github.com/Yundi218/Concept-to-Pixel</p>
+<h3 id="17-evidence-packing-for-cross-domain-image-deepfake-detection-with-lvlms">[17] <a href="https://arxiv.org/abs/2603.17761">Evidence Packing for Cross-Domain Image Deepfake Detection with LVLMs</a></h3>
+<p><em>Yuxin Liu, Fei Wang, Kun Li, Yiqi Nie, Junjie Chen, Zhangling Duan, Zhaohong Jia</em></p>
+<h4 id="tldr_16">🧩 TL;DR</h4>
+<p>本文提出了一种无需训练的语义一致证据包（SCEP）框架，通过挖掘可疑补丁令牌进行证据驱动推理，使大型视觉语言模型能够有效检测深度伪造图像，无需微调即可在多样化基准上实现优越性能。</p>
+<hr />
+<h4 id="detailed-summary_16">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管大型视觉语言模型具备强大的图像理解能力，但将其应用于图像深度伪造检测通常需要昂贵的微调过程，并且对多样化、不断演变的伪造操作泛化能力有限，因此需要一种无需训练即可有效利用这些模型进行伪造检测的框架。</p>
+<p><strong>Method:</strong> SCEP采用无需训练的框架，通过挖掘最能揭示伪造线索的紧凑可疑补丁令牌集合进行证据驱动推理。该方法使用视觉编码器的CLS令牌作为全局参考，将补丁特征聚类为连贯组，并通过融合度量对补丁进行评分，该度量结合了CLS引导的语义不匹配与基于频率和噪声的异常检测。为覆盖分散的伪造痕迹并避免冗余，SCEP从每个聚类中采样少量高置信度补丁，并应用基于网格的非极大值抑制，生成用于冻结大型视觉语言模型预测的证据包。</p>
+<p><strong>Result:</strong> 在多样化基准测试上的实验表明，SCEP无需对大型视觉语言模型进行微调即可超越强基线方法，展示了其在检测多种伪造操作方面的优越性能，验证了证据驱动推理框架的有效性和泛化能力。</p>
+<p><strong>Conclusion:</strong> 该研究证明了无需微调大型视觉语言模型即可实现有效的深度伪造检测的可行性，通过语义一致证据包框架将全局推理转变为局部证据驱动分析，为利用预训练模型进行伪造检测提供了高效且可泛化的解决方案，对实际应用具有重要意义。</p>
+<hr />
+<h4 id="abstract_16">📄 Abstract</h4>
+<p>Image Deepfake Detection (IDD) separates manipulated images from authentic ones by spotting artifacts of synthesis or tampering. Although large vision-language models (LVLMs) offer strong image understanding, adapting them to IDD often demands costly fine-tuning and generalizes poorly to diverse, evolving manipulations. We propose the Semantic Consistent Evidence Pack (SCEP), a training-free LVLM framework that replaces whole-image inference with evidence-driven reasoning. SCEP mines a compact set of suspicious patch tokens that best reveal manipulation cues. It uses the vision encoder's CLS token as a global reference, clusters patch features into coherent groups, and scores patches with a fused metric combining CLS-guided semantic mismatch with frequency-and noise-based anomalies. To cover dispersed traces and avoid redundancy, SCEP samples a few high-confidence patches per cluster and applies grid-based NMS, producing an evidence pack that conditions a frozen LVLM for prediction. Experiments on diverse benchmarks show SCEP outperforms strong baselines without LVLM fine-tuning.</p>
+<h3 id="18-feeling-the-space-egomotion-aware-video-representation-for-efficient-and-accurate-3d-scene-understanding">[18] <a href="https://arxiv.org/abs/2603.17980">Feeling the Space: Egomotion-Aware Video Representation for Efficient and Accurate 3D Scene Understanding</a></h3>
+<p><em>Shuyao Shi, Kang G. Shin</em></p>
+<h4 id="tldr_17">🧩 TL;DR</h4>
+<p>本文提出Motion-MLLM框架，通过引入IMU采集的自我运动模态数据增强多模态大语言模型的空间推理能力，在显著降低计算开销的同时实现了与基于显式3D数据方法相当甚至更高的精度。</p>
+<hr />
+<h4 id="detailed-summary_17">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型在3D场景空间推理中通常依赖计算昂贵的点云或重建鸟瞰图等3D表示，或缺乏物理基础来解决尺度和大小模糊性问题，这限制了模型的实际应用效率和准确性。</p>
+<p><strong>Method:</strong> 提出Motion-MLLM框架，包含两个核心组件：级联运动-视觉关键帧过滤模块，利用IMU数据和视觉特征高效选择稀疏但具代表性的关键帧；以及非对称跨模态融合模块，其中运动令牌作为中介将自我运动线索和跨帧视觉上下文注入视觉表示。</p>
+<p><strong>Result:</strong> Motion-MLLM在多种3D场景理解和空间推理任务中取得显著改进，相比基于视频帧和显式3D数据的SOTA方法，在显著降低开销的情况下达到相似甚至更高的准确率，分别实现1.40倍和1.63倍的成本效益提升。</p>
+<p><strong>Conclusion:</strong> 通过将视觉内容锚定在物理自我运动轨迹上，Motion-MLLM能够推理绝对尺度和场景空间关系，为多模态大语言模型的空间推理提供了更高效且物理基础的方法，平衡了计算效率与推理精度。</p>
+<hr />
+<h4 id="abstract_17">📄 Abstract</h4>
+<p>Recent Multimodal Large Language Models (MLLMs) have shown high potential for spatial reasoning within 3D scenes. However, they typically rely on computationally expensive 3D representations like point clouds or reconstructed Bird's-Eye View (BEV) maps, or lack physical grounding to resolve ambiguities in scale and size. This paper significantly enhances MLLMs with egomotion modality data, captured by Inertial Measurement Units (IMUs) concurrently with the video. In particular, we propose a novel framework, called Motion-MLLM, introducing two key components: (1) a cascaded motion-visual keyframe filtering module that leverages both IMU data and visual features to efficiently select a sparse yet representative set of keyframes, and (2) an asymmetric cross-modal fusion module where motion tokens serve as intermediaries that channel egomotion cues and cross-frame visual context into the visual representation. By grounding visual content in physical egomotion trajectories, Motion-MLLM can reason about absolute scale and spatial relationships across the scene. Our extensive evaluation shows that Motion-MLLM makes significant improvements in various tasks related to 3D scene understanding and spatial reasoning. Compared to state-of-the-art (SOTA) methods based on video frames and explicit 3D data, Motion-MLLM exhibits similar or even higher accuracy with significantly less overhead (i.e., 1.40$\times$ and 1.63$\times$ higher cost-effectiveness, respectively).</p>
+<h3 id="19-universal-skeleton-understanding-via-differentiable-rendering-and-mllms">[19] <a href="https://arxiv.org/abs/2603.18003">Universal Skeleton Understanding via Differentiable Rendering and MLLMs</a></h3>
+<p><em>Ziyi Wang, Peiming Li, Xinshun Wang, Yang Tang, Kai-Kuang Ma, Mengyuan Liu</em></p>
+<h4 id="tldr_18">🧩 TL;DR</h4>
+<p>本文提出了SkeletonLLM，一种通过将任意骨架序列转换为多模态大语言模型原生视觉模态来实现通用骨架理解的方法。该方法的核心是DrAction——一个可微分、格式无关的渲染器，能够将骨骼运动学转换为紧凑的图像序列。</p>
+<hr />
+<h4 id="detailed-summary_18">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在视觉-语言推理方面表现出色，但局限于原生模态，无法直接处理结构化、非视觉数据如人体骨架。现有方法要么将骨架动态压缩为有损特征向量进行文本对齐，要么将运动量化为离散标记，在不同异构骨架格式间泛化能力差。</p>
+<p><strong>Method:</strong> 该方法的核心是DrAction，一个可微分、格式无关的渲染器，将骨骼运动学转换为紧凑的图像序列。由于整个流程端到端可微分，MLLM梯度可以直接指导渲染过程生成任务信息丰富的视觉标记。此外，引入了协作训练策略：因果推理蒸馏从教师模型迁移结构化、逐步推理能力，而判别性微调则锐化易混淆动作之间的决策边界。</p>
+<p><strong>Result:</strong> SkeletonLLM在包括识别、描述、推理和跨格式迁移在内的多样化任务上展示了强大的泛化能力。实验结果表明该方法为将MLLM应用于非原生模态提供了可行路径，代码将在论文接受后发布。</p>
+<p><strong>Conclusion:</strong> 该研究提出了一种将多模态大语言模型应用于非原生模态的可行路径，通过将任意骨架序列转换为视觉模态实现了通用骨架理解。DrAction的可微分渲染机制允许模型梯度直接指导视觉标记生成，而协作训练策略进一步增强了推理能力，为处理结构化非视觉数据提供了新的框架。</p>
+<hr />
+<h4 id="abstract_18">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) exhibit strong visual-language reasoning, yet remain confined to their native modalities and cannot directly process structured, non-visual data such as human skeletons. Existing methods either compress skeleton dynamics into lossy feature vectors for text alignment, or quantize motion into discrete tokens that generalize poorly across heterogeneous skeleton formats. We present SkeletonLLM, which achieves universal skeleton understanding by translating arbitrary skeleton sequences into the MLLM's native visual modality. At its core is DrAction, a differentiable, format-agnostic renderer that converts skeletal kinematics into compact image sequences. Because the pipeline is end-to-end differentiable, MLLM gradients can directly guide the rendering to produce task-informative visual tokens. To further enhance reasoning capabilities, we introduce a cooperative training strategy: Causal Reasoning Distillation transfers structured, step-by-step reasoning from a teacher model, while Discriminative Finetuning sharpens decision boundaries between confusable actions. SkeletonLLM demonstrates strong generalization on diverse tasks including recognition, captioning, reasoning, and cross-format transfer -- suggesting a viable path for applying MLLMs to non-native modalities. Code will be released upon acceptance.</p>
+  </article>
+</body>
+</html>
