@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-26.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 11]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-revealing-multi-view-hallucination-in-large-vision-language-models">[1] <a href="https://arxiv.org/abs/2603.23934">Revealing Multi-View Hallucination in Large Vision-Language Models</a></h3>
+<p><em>Wooje Park, Insu Lee, Soohyun Kim, Jaeyun Jang, Minyoung Noh, Kyuhong Shim, Byonghyo Shim</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种名为参考移位对比解码（RSCD）的训练无关解码技术，用于解决大视觉语言模型在多视图图像输入中出现的跨实例和跨视图幻觉问题，并在MVH-Bench基准测试中显著提升了模型性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前大视觉语言模型在处理多视图图像输入时，经常混淆或错配来自不同实例或视角的视觉信息，这种现象被称为多视图幻觉，限制了模型在多视图场景下的可靠应用。</p>
+<p><strong>Method:</strong> 研究团队构建了包含4.8k个问答对的MVH-Bench基准来系统分析多视图幻觉问题，并提出了一种名为参考移位对比解码（RSCD）的训练无关解码技术，该技术通过注意力掩码生成负对数来抑制视觉干扰。</p>
+<p><strong>Result:</strong> 在MVH-Bench基准测试中，实验结果显示近期的大视觉语言模型难以正确关联视觉证据与其对应的实例或视角，而RSCD方法在Qwen2.5-VL和LLaVA-OneVision模型上分别实现了高达21.1和34.6个百分点的性能提升，显著优于现有的幻觉缓解方法。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了多视图幻觉是大视觉语言模型的一个重要局限性，提出的RSCD方法为缓解这一问题提供了有效的训练无关解决方案，为未来多视图视觉语言理解研究提供了新的基准和方法论基础。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Large vision-language models (LVLMs) are increasingly being applied to multi-view image inputs captured from diverse viewpoints. However, despite this growing use, current LVLMs often confuse or mismatch visual information originating from different instances or viewpoints, a phenomenon we term multi-view hallucination. To systematically analyze this problem, we construct MVH-Bench, a benchmark comprising 4.8k question-answer pairs targeting two types of hallucination: cross-instance and cross-view. Empirical results show that recent LVLMs struggle to correctly associate visual evidence with its corresponding instance or viewpoint. To overcome this limitation, we propose Reference Shift Contrastive Decoding (RSCD), a training-free decoding technique that suppresses visual interference by generating negative logits through attention masking. Experiments on MVH-Bench with Qwen2.5-VL and LLaVA-OneVision demonstrate that RSCD consistently improves performance by up to 21.1 and 34.6 points over existing hallucination mitigation methods, highlighting the effectiveness of our approach.</p>
+<h3 id="2-mitigating-object-hallucinations-in-lvlms-via-attention-imbalance-rectification">[2] <a href="https://arxiv.org/abs/2603.24058">Mitigating Object Hallucinations in LVLMs via Attention Imbalance Rectification</a></h3>
+<p><em>Han Sun, Qin Li, Peixin Wang, Min Zhang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种名为注意力不平衡的新概念，用于量化大型视觉语言模型中注意力分配的失衡程度，并开发了注意力不平衡矫正方法，通过解码时干预来重新分配注意力权重，从而显著减少目标幻觉现象。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型中的目标幻觉严重损害了其在自动驾驶和医学图像分析等高风险场景中的可靠性，成为实际部署的关键障碍。现有研究缺乏对注意力分配失衡与目标幻觉之间因果关系的系统性理解，需要一种能够量化并可视化注意力不平衡模式的方法来有效缓解这一问题。</p>
+<p><strong>Method:</strong> 本文首先通过系统性实证研究识别了跨模态和模态内注意力分配失衡与目标幻觉之间的强因果相关性。基于此提出了注意力不平衡这一新概念，用于量化注意力差异程度并可视化驱动目标幻觉的底层模式。进一步开发了注意力不平衡矫正方法，这是一种轻量级的解码时干预技术，通过重新分配注意力权重和调整注意力分布来矫正模态间和标记间的不平衡。</p>
+<p><strong>Result:</strong> 在四个主流大型视觉语言模型和三个基准测试上的广泛评估表明，该方法在CHAIR、POPE和MM-Vet基准上相比七个基线方法持续降低目标幻觉率，最高减少35.1%。同时，该方法还能提升模型在多样化视觉语言任务中的通用能力，最高改善15.9%，证明了其有效性和通用性。</p>
+<p><strong>Conclusion:</strong> 注意力分配失衡是大型视觉语言模型中目标幻觉的关键驱动因素，注意力不平衡概念为理解和可视化这一现象提供了新视角。注意力不平衡矫正方法作为一种轻量级解码时干预技术，在显著减少目标幻觉的同时保持甚至提升模型性能，为实际部署提供了实用解决方案，并为未来研究注意力机制与模型可靠性关系奠定了基础。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Object hallucination in Large Vision-Language Models (LVLMs) severely compromises their reliability in real-world applications, posing a critical barrier to their deployment in high-stakes scenarios such as autonomous driving and medical image analysis. Through systematic empirical investigation, we identify that the imbalanced attention allocation, both across modalities (i.e., vision and language) and within modalities (among individual tokens), exhibits a strong causal correlation with the occurrence of object hallucination. Leveraging this insight, we introduce a novel concept termed attention imbalance, which not only quantifies the degree of attention disparity but also visually delineates the underlying patterns (e.g., over-attentiveness to irrelevant language tokens or under-attentiveness to discriminative visual features) that drive object hallucination. To mitigate object hallucination, we further propose Attention Imbalance Rectification (AIR), a lightweight decoding-time intervention method that reallocates attention weights and adjusts attention distributions to rectify modality-wise and token-wise imbalances. Extensive evaluations on four mainstream LVLMs and three benchmarks (CHAIR, POPE, and MM-Vet) with seven baselines demonstrate that AIR consistently reduces object hallucination rates, achieving up to a 35.1% reduction compared to the baselines, while improving up to 15.9% of LVLMs' general capability across diverse vision-language tasks.</p>
+<h3 id="3-when-understanding-becomes-a-risk-authenticity-and-safety-risks-in-the-emerging-image-generation-paradigm">[3] <a href="https://arxiv.org/abs/2603.24079">When Understanding Becomes a Risk: Authenticity and Safety Risks in the Emerging Image Generation Paradigm</a></h3>
+<p><em>Ye Leng, Junjie Chu, Mingjie Li, Chenhao Lin, Chao Shen, Michael Backes, Yun Shen, Yang Zhang</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文系统分析了多模态大语言模型（MLLMs）相比扩散模型在内容生成安全方面的新兴风险，发现MLLMs能理解更复杂的文本提示从而生成更多不安全内容，且其生成的虚假图像更难被现有检测器识别。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型（MLLMs）作为语言和图像生成的统一范式，相比扩散模型具有更强的语义理解能力，但这一增强的语义能力可能引入新的、更大的安全风险。研究旨在系统分析和比较新兴MLLMs与扩散模型在安全风险方面的差异，特别是在不安全内容生成和虚假图像合成两个维度上。</p>
+<p><strong>Method:</strong> 研究采用系统分析方法，以扩散模型为参照点，从两个维度评估MLLMs的安全风险：不安全内容生成和虚假图像合成。通过多个不安全生成基准数据集进行对比实验，并测试当前先进的虚假图像检测器对MLLM生成图像的识别能力，包括重新训练检测器使用MLLMs特定数据后的效果评估。</p>
+<p><strong>Result:</strong> 在多个不安全生成基准数据集上，MLLMs倾向于生成比扩散模型更多的不安全图像。这种差异部分源于扩散模型经常无法解释抽象提示而输出损坏内容，而MLLMs能够理解这些提示并生成不安全内容。对于当前先进的虚假图像检测器，MLLM生成的图像也明显更难识别，即使检测器使用MLLMs特定数据重新训练后，仍可通过为MLLMs提供更长、更详细的输入来绕过检测。</p>
+<p><strong>Conclusion:</strong> 研究表明，前沿生成范式MLLMs的新兴安全风险尚未得到充分认识，对现实世界安全构成了新挑战。MLLMs增强的语义理解能力使其能够处理更复杂的文本输入并理解更丰富的上下文含义，但这也带来了更大的安全风险，需要开发新的安全防护措施和检测技术来应对这一威胁。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Recently, multimodal large language models (MLLMs) have emerged as a unified paradigm for language and image generation. Compared with diffusion models, MLLMs possess a much stronger capability for semantic understanding, enabling them to process more complex textual inputs and comprehend richer contextual meanings. However, this enhanced semantic ability may also introduce new and potentially greater safety risks. Taking diffusion models as a reference point, we systematically analyze and compare the safety risks of emerging MLLMs along two dimensions: unsafe content generation and fake image synthesis. Across multiple unsafe generation benchmark datasets, we observe that MLLMs tend to generate more unsafe images than diffusion models. This difference partly arises because diffusion models often fail to interpret abstract prompts, producing corrupted outputs, whereas MLLMs can comprehend these prompts and generate unsafe content. For current advanced fake image detectors, MLLM-generated images are also notably harder to identify. Even when detectors are retrained with MLLMs-specific data, they can still be bypassed by simply providing MLLMs with longer and more descriptive inputs. Our measurements indicate that the emerging safety risks of the cutting-edge generative paradigm, MLLMs, have not been sufficiently recognized, posing new challenges to real-world safety.</p>
+<h3 id="4-towards-real-world-document-parsing-via-realistic-scene-synthesis-and-document-aware-training">[4] <a href="https://arxiv.org/abs/2603.23885">Towards Real-World Document Parsing via Realistic Scene Synthesis and Document-Aware Training</a></h3>
+<p><em>Gengluo Li, Chengquan Zhang, Yupu Liang, Huawen Shen, Yaping Zhang, Pengyuan Lyu, Weinong Wang, Xingyu Wan, Gangyan Zeng, Han Hu, Can Ma, Yu Zhou</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种数据与训练协同设计框架，用于实现鲁棒的端到端文档解析，通过现实场景合成策略构建大规模、结构多样的全页端到端监督数据，并结合文档感知训练方法提升结构保真度和解码稳定性。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统级联式文档解析流水线依赖精确的版面分析，在非标准或随意捕获的场景下容易失效；端到端方法虽减轻了这种依赖，但仍存在重复、幻觉和结构不一致的预测问题，主要源于大规模高质量全页端到端解析数据的稀缺以及缺乏结构感知的训练策略。</p>
+<p><strong>Method:</strong> 提出数据与训练协同设计框架，包括现实场景合成策略，通过组合版面模板与丰富文档元素构建大规模、结构多样的全页端到端监督数据；以及文档感知训练方法，引入渐进式学习和结构令牌优化以增强结构保真度和解码稳定性。该方法集成到10亿参数的多模态大语言模型中。</p>
+<p><strong>Result:</strong> 构建了Wild-OmniDocBench基准测试集，源自真实世界捕获的文档用于鲁棒性评估。在扫描/数字和真实世界捕获场景中均实现了优越的准确性和鲁棒性，所有模型、数据合成流水线和基准测试都将公开发布以推动文档理解研究。</p>
+<p><strong>Conclusion:</strong> 该研究通过数据合成与训练策略的协同设计，有效解决了端到端文档解析中的结构一致性和鲁棒性问题，为实际应用场景中的文档理解提供了可靠解决方案，其公开的数据和模型资源将促进该领域的进一步发展。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Document parsing has recently advanced with multimodal large language models (MLLMs) that directly map document images to structured outputs. Traditional cascaded pipelines depend on precise layout analysis and often fail under casually captured or non-standard conditions. Although end-to-end approaches mitigate this dependency, they still exhibit repetitive, hallucinated, and structurally inconsistent predictions - primarily due to the scarcity of large-scale, high-quality full-page (document-level) end-to-end parsing data and the lack of structure-aware training strategies. To address these challenges, we propose a data-training co-design framework for robust end-to-end document parsing. A Realistic Scene Synthesis strategy constructs large-scale, structurally diverse full-page end-to-end supervision by composing layout templates with rich document elements, while a Document-Aware Training Recipe introduces progressive learning and structure-token optimization to enhance structural fidelity and decoding stability. We further build Wild-OmniDocBench, a benchmark derived from real-world captured documents for robustness evaluation. Integrated into a 1B-parameter MLLM, our method achieves superior accuracy and robustness across both scanned/digital and real-world captured scenarios. All models, data synthesis pipelines, and benchmarks will be publicly released to advance future research in document understanding.</p>
+<h3 id="5-dp2-vl-private-photo-dataset-protection-by-data-poisoning-for-vision-language-models">[5] <a href="https://arxiv.org/abs/2603.23925">DP^2-VL: Private Photo Dataset Protection by Data Poisoning for Vision-Language Models</a></h3>
+<p><em>Hongyi Miao, Jun Jia, Xincheng Wang, Qianli Ma, Wei Sun, Wangqiu Zhou, Dandan Zhu, Yewen Cao, Zhi Liu, Guangtao Zhai</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了一种名为身份-关联学习的新型隐私威胁模型，揭示了视觉语言模型在微调后可能泄露个人隐私信息，并开发了首个基于数据投毒的隐私保护框架DP2-VL来缓解这一风险。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 随着视觉语言模型在细粒度图像理解能力上的进步，新的隐私风险随之产生。本文旨在解决攻击者通过少量目标个体的私人照片微调VLM，从而将目标面部身份与其私有财产和社会关系关联嵌入模型内部表示，进而通过公共API部署模型时导致目标用户隐私信息未经授权泄露的问题。</p>
+<p><strong>Method:</strong> 本文首先提出了身份-关联学习的隐私威胁模型，并构建了首个包含七个典型私人照片场景的身份-关联数据集。为缓解隐私风险，提出了DP2-VL框架，这是一种基于数据投毒的私有照片数据集保护方法，通过优化不可感知的扰动将原始表示推向对立区域，从而在VLM编码器的嵌入空间中引起数据集级别的偏移。</p>
+<p><strong>Result:</strong> 实验结果表明，主流VLM如LLaVA、Qwen-VL和MiniGPT-v2能够通过在小规模私人照片数据集甚至合成生成的数据集上进行微调来识别面部身份并推断身份-关联关系。DP2-VL在跨模型泛化性、对多样化后处理操作的鲁棒性以及在不同保护比例下的一致性有效性方面表现出色。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了视觉语言模型在隐私保护方面的新漏洞，提出的身份-关联学习威胁模型为评估VLM隐私风险提供了基准。DP2-VL框架为保护私人照片数据集提供了有效的技术解决方案，对未来VLM的安全部署和隐私保护机制设计具有重要指导意义。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Recent advances in visual-language alignment have endowed vision-language models (VLMs) with fine-grained image understanding capabilities. However, this progress also introduces new privacy risks. This paper first proposes a novel privacy threat model named identity-affiliation learning: an attacker fine-tunes a VLM using only a few private photos of a target individual, thereby embedding associations between the target facial identity and their private property and social relationships into the model's internal representations. Once deployed via public APIs, this model enables unauthorized exposure of the target user's private information upon input of their photos. To benchmark VLMs' susceptibility to such identity-affiliation leakage, we introduce the first identity-affiliation dataset comprising seven typical scenarios appearing in private photos. Each scenario is instantiated with multiple identity-centered photo-description pairs. Experimental results demonstrate that mainstream VLMs like LLaVA, Qwen-VL, and MiniGPT-v2, can recognize facial identities and infer identity-affiliation relationships by fine-tuning on small-scale private photographic dataset, and even on synthetically generated datasets. To mitigate this privacy risk, we propose DP2-VL, the first Dataset Protection framework for private photos that leverages Data Poisoning. Though optimizing imperceptible perturbations by pushing the original representations toward an antithetical region, DP2-VL induces a dataset-level shift in the embedding space of VLMs'encoders. This shift separates protected images from clean inference images, causing fine-tuning on the protected set to overfit. Extensive experiments demonstrate that DP2-VL achieves strong generalization across models, robustness to diverse post-processing operations, and consistent effectiveness across varying protection ratios.</p>
+<h3 id="6-volmo-versatile-and-open-large-models-for-ophthalmology">[6] <a href="https://arxiv.org/abs/2603.23953">VOLMO: Versatile and Open Large Models for Ophthalmology</a></h3>
+<p><em>Zhenyue Qin, Younjoon Chung, Elijah Lee, Wanyue Feng, Xuguang Ai, Serina Applebaum, Minjie Zou, Yang Liu, Pan Xiao, Mac Singer, Amisha Dave, Aidan Gilson, Tiarnan D. L. Keenan, Emily Y. Chew, Zhiyong Lu, Yih-Chung Tham, Ron Adelman, Luciano V. Del Priore, Qingyu Chen</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了VOLMO，一个模型无关、数据开放的框架，用于开发眼科专用的多模态大语言模型，该框架通过三阶段训练流程构建的2B参数模型在多项眼科任务上超越了现有基线模型。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 全球数百万人受视力障碍影响，早期检测对预防不可逆视力丧失至关重要。眼科临床工作流程需要整合医学影像、结构化临床数据和自由文本笔记来确定疾病严重程度和管理方案，这一过程耗时且繁重。现有的通用和医学多模态大语言模型在眼科领域表现不佳，且缺乏公开可用的眼科专用模型。</p>
+<p><strong>Method:</strong> VOLMO是一个模型无关、数据开放的框架，包含三个阶段：眼科知识预训练，使用来自82种期刊26,569篇文章的86,965个图像-文本对；领域任务微调，使用涵盖12种眼病的26,929个标注实例进行疾病筛查和严重程度分类；多步临床推理，使用913份患者病例报告进行评估、规划和随访护理。基于该框架训练了一个紧凑的2B参数多模态大语言模型。</p>
+<p><strong>Result:</strong> VOLMO-2B在多项评估中一致优于基线模型，包括InternVL-2B、LLaVA-Med-7B、MedGemma-4B、MedGemma-27B和RETFound。该模型在图像描述生成方面表现更强，在12种眼病上平均F1得分为87.4%，并在年龄相关性黄斑变性和糖尿病视网膜病变的三个独立队列外部验证中获得更高评分。</p>
+<p><strong>Conclusion:</strong> VOLMO框架为开发眼科专用多模态大语言模型提供了系统方法，其紧凑的2B参数模型在多项任务上超越更大规模的基线模型，证明了领域特定训练的重要性。该研究为医学AI在专科领域的应用提供了可复现的范例，并展示了通过结构化训练流程实现高效临床推理的潜力。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Vision impairment affects millions globally, and early detection is critical to preventing irreversible vision loss. Ophthalmology workflows require clinicians to integrate medical images, structured clinical data, and free-text notes to determine disease severity and management, which is time-consuming and burdensome. Recent multimodal large language models (MLLMs) show promise, but existing general and medical MLLMs perform poorly in ophthalmology, and few ophthalmology-specific MLLMs are openly available. We present VOLMO (Versatile and Open Large Models for Ophthalmology), a model-agnostic, data-open framework for developing ophthalmology-specific MLLMs. VOLMO includes three stages: ophthalmology knowledge pretraining on 86,965 image-text pairs from 26,569 articles across 82 journals; domain task fine-tuning on 26,929 annotated instances spanning 12 eye conditions for disease screening and severity classification; and multi-step clinical reasoning on 913 patient case reports for assessment, planning, and follow-up care. Using this framework, we trained a compact 2B-parameter MLLM and compared it with strong baselines, including InternVL-2B, LLaVA-Med-7B, MedGemma-4B, MedGemma-27B, and RETFound. We evaluated these models on image description generation, disease screening and staging classification, and assessment-and-management generation, with additional manual review by two healthcare professionals and external validation on three independent cohorts for age-related macular degeneration and diabetic retinopathy. Across settings, VOLMO-2B consistently outperformed baselines, achieving stronger image description performance, an average F1 of 87.4% across 12 eye conditions, and higher scores in external validation.</p>
+<h3 id="7-posteriq-a-design-perspective-benchmark-for-poster-understanding-and-generation">[7] <a href="https://arxiv.org/abs/2603.24078">PosterIQ: A Design Perspective Benchmark for Poster Understanding and Generation</a></h3>
+<p><em>Yuheng Feng, Wen Zhang, Haodong Duan, Xingxing Zou</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出了PosterIQ，一个面向海报理解与生成的设计驱动基准，包含7,765个图像-标注实例和822个生成提示，旨在弥合视觉设计认知与生成建模之间的鸿沟，并评估现有模型在视觉层次、排版语义和意图传达等方面的能力差距。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前生成视觉语言系统在理解海报设计的视觉层次、排版语义、显著性控制和意图传达方面存在显著不足，缺乏能够系统评估设计认知与生成能力的基准，需要弥合视觉设计原理与生成建模之间的认知鸿沟。</p>
+<p><strong>Method:</strong> 研究构建了包含7,765个图像-标注实例和822个生成提示的数据集，涵盖真实、专业和合成案例，定义了布局解析、图文对应、排版可读性、字体感知、设计质量评估以及可控的构图感知生成等任务，采用多模态大语言模型和基于扩散的生成器进行评估。</p>
+<p><strong>Result:</strong> 评估发现现有模型在视觉层次、排版语义、显著性控制和意图传达方面存在持续差距，商业模型在高层次推理方面领先但作为评分器不够敏感，生成器在文本渲染方面表现良好但在构图感知合成方面仍有困难，PosterIQ既可作为定量基准也可作为设计推理的诊断工具。</p>
+<p><strong>Conclusion:</strong> PosterIQ为设计驱动的生成AI提供了可复现的任务特定评估框架，揭示了当前模型在视觉设计认知方面的系统性不足，旨在促进模型创造力的发展并将以人为中心的设计原则整合到生成视觉语言系统中，为未来研究提供了重要的诊断工具和基准。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>We present PosterIQ, a design-driven benchmark for poster understanding and generation, annotated across composition structure, typographic hierarchy, and semantic intent. It includes 7,765 image-annotation instances and 822 generation prompts spanning real, professional, and synthetic cases. To bridge visual design cognition and generative modeling, we define tasks for layout parsing, text-image correspondence, typography/readability and font perception, design quality assessment, and controllable, composition-aware generation with metaphor. We evaluate state-of-the-art MLLMs and diffusion-based generators, finding persistent gaps in visual hierarchy, typographic semantics, saliency control, and intention communication; commercial models lead on high-level reasoning but act as insensitive automatic raters, while generators render text well yet struggle with composition-aware synthesis. Extensive analyses show PosterIQ is both a quantitative benchmark and a diagnostic tool for design reasoning, offering reproducible, task-specific metrics. We aim to catalyze models' creativity and integrate human-centred design principles into generative vision-language systems.</p>
+<h3 id="8-unlocking-few-shot-capabilities-in-lvlms-via-prompt-conditioning-and-head-selection">[8] <a href="https://arxiv.org/abs/2603.24181">Unlocking Few-Shot Capabilities in LVLMs via Prompt Conditioning and Head Selection</a></h3>
+<p><em>Adhemar de Senneville, Xavier Bou, Jérémy Anger, Rafael Grompone, Gabriele Facciolo</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出Head Ensemble Classifiers (HEC)方法，通过利用大型视觉语言模型(LVLMs)内部注意力头的判别性表示，弥合了LVLMs在图像分类任务上与CLIP方法的性能差距，实现了零样本和少样本分类的先进性能。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前大型视觉语言模型(LVLMs)在图像分类任务上表现不佳，显著落后于CLIP方法，尽管许多LVLMs使用CLIP预训练的视觉编码器。这种性能差距源于CLIP架构中视觉和文本编码器的分离偏向于类名匹配而非联合视觉-文本推理，而LVLMs理论上不受此限制但实际表现仍不理想。</p>
+<p><strong>Method:</strong> 本文提出Head Ensemble Classifiers (HEC)方法，受高斯判别分析启发，该方法首先识别LVLMs中最具判别性的视觉和文本注意力头，然后将这些头部组合成无需训练的分类器。HEC利用LVLMs内部表示，特别是注意力头，这些表示在零样本和少样本分类中能够超越模型本身的性能。</p>
+<p><strong>Result:</strong> HEC在12个数据集上实现了最先进的零样本和少样本分类性能，显著缩小了LVLMs与CLIP方法之间的性能差距。实验表明，尽管LVLMs原始分类性能较差，但其内部注意力头表示具有优异的类别可分性，通过提示条件化可以改善视觉特征的类别分离能力。</p>
+<p><strong>Conclusion:</strong> 研究表明LVLMs内部表示，特别是注意力头，包含丰富的判别性信息，能够有效用于图像分类任务。HEC方法为利用LVLMs进行高效分类提供了新途径，揭示了大型多模态模型中未被充分利用的表示能力，为改进视觉-语言模型的分类性能提供了重要见解。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Current Large Vision Language Models (LVLMs) excel at many zero-shot tasks like image captioning, visual question answering and OCR. However, these same models suffer from poor performance at image classification tasks, underperforming against CLIP-based methods. Notably, this gap is surprising because many LVLMs use CLIP-pretrained vision encoders. Yet LVLMs are not inherently limited by CLIP's architecture with independent vision and text encoders. In CLIP, this separation biases classification toward class-name matching rather than joint visual-text reasoning. In this paper we show that, despite their poor raw performance, LVLMs can improve visual feature class separability at inference using prompt conditioning, and LVLMs' internal representations, especially attention heads, can outperform the model itself at zero-shot and few-shot classification. We introduce Head Ensemble Classifiers (HEC) to bridge the performance gap between CLIP-based and LVLM-based classification methods. Inspired by Gaussian Discriminant Analysis, HEC ranks the most discriminative vision and text heads and combines them into a training-free classifier. We show that HEC achieves state-of-the-art performance in few-shot and zero-shot classification across 12 datasets.</p>
+<h3 id="9-refreward-sr-lr-conditioned-reward-modeling-for-preference-aligned-super-resolution">[9] <a href="https://arxiv.org/abs/2603.24198">RefReward-SR: LR-Conditioned Reward Modeling for Preference-Aligned Super-Resolution</a></h3>
+<p><em>Yushuai Song, Weize Quan, Weining Wang, Jiahui Sun, Jing Liu, Meng Li, Pengbin Yu, Zhentao Chen, Wei Shen, Lunxi Yuan, Dong-ming Yan</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出RefReward-SR，一种基于低分辨率参考的奖励模型，通过多模态大语言模型的视觉-语言先验评估语义一致性和合理性，实现了与人类感知对齐的超分辨率生成。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有生成式超分辨率方法在评估和优化框架上与人类感知存在偏差，全参考和无参考指标无法准确反映感知偏好，要么因像素错位惩罚语义合理的细节，要么偏好视觉锐利但不一致的伪影，且大多数SR方法依赖地面真值相关的分布匹配，这与人类判断并不对应。</p>
+<p><strong>Method:</strong> 提出RefReward-SR，一种低分辨率参考感知的奖励模型，将LR图像作为语义锚点评估HR重建质量，利用多模态大语言模型的视觉-语言先验进行推理感知的语义一致性和合理性评估，构建了首个大规模LR条件偏好数据集RefSR-18K，采用组相对策略优化微调MLLM，并将GRPO集成到SR模型训练中，以RefReward-SR作为核心奖励信号实现偏好对齐生成。</p>
+<p><strong>Result:</strong> 大量实验表明，该框架在人类判断对齐方面显著优于现有方法，能够生成既保持语义一致性又增强感知合理性和视觉自然性的重建结果，RefReward-SR作为LR条件奖励模型在评估和优化SR模型方面表现出色。</p>
+<p><strong>Conclusion:</strong> 该研究通过引入LR参考感知的奖励建模范式，解决了SR评估与人类感知的偏差问题，为生成式超分辨率提供了更符合人类偏好的优化框架，推动了感知对齐的SR方法发展，代码、模型和数据集将在论文接受后公开。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Recent advances in generative super-resolution (SR) have greatly improved visual realism, yet existing evaluation and optimization frameworks remain misaligned with human perception. Full-Reference and No-Reference metrics often fail to reflect perceptual preference, either penalizing semantically plausible details due to pixel misalignment or favoring visually sharp but inconsistent artifacts. Moreover, most SR methods rely on ground-truth (GT)-dependent distribution matching, which does not necessarily correspond to human judgments. In this work, we propose RefReward-SR, a low-resolution (LR) reference-aware reward model for preference-aligned SR. Instead of relying on GT supervision or NR evaluation, RefReward-SR assesses high-resolution (HR) reconstructions conditioned on their LR inputs, treating the LR image as a semantic anchor. Leveraging the visual-linguistic priors of a Multimodal Large Language Models (MLLM), it evaluates semantic consistency and plausibility in a reasoning-aware manner. To support this paradigm, we construct RefSR-18K, the first large-scale LR-conditioned preference dataset for SR, providing pairwise rankings based on LR-HR consistency and HR naturalness. We fine-tune the MLLM with Group Relative Policy Optimization (GRPO) using LR-conditioned ranking rewards, and further integrate GRPO into SR model training with RefReward-SR as the core reward signal for preference-aligned generation. Extensive experiments show that our framework achieves substantially better alignment with human judgments, producing reconstructions that preserve semantic consistency while enhancing perceptual plausibility and visual naturalness. Code, models, and datasets will be released upon paper acceptance.</p>
+<h3 id="10-georouter-dynamic-paradigm-routing-for-worldwide-image-geolocalization">[10] <a href="https://arxiv.org/abs/2603.24376">GeoRouter: Dynamic Paradigm Routing for Worldwide Image Geolocalization</a></h3>
+<p><em>Pengyue Jia, Derong Xu, Yingyi Zhang, Xiaopeng Li, Wenlin Zhang, Yi Wen, Yuanshao Zhu, Xiangyu Zhao</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出GeoRouter，一个动态路由框架，用于自适应地将图像地理定位查询分配给检索或生成范式，从而利用两种方法的互补优势，显著提升了全球图像地理定位的精度。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 全球图像地理定位面临视觉和地理多样性的巨大挑战，现有检索方法和生成方法各有局限：检索方法擅长细粒度实例匹配，而生成方法具有更强的语义推理能力，但单一范式无法在所有场景下都表现最优，因此需要一种能自适应选择最佳范式的方法。</p>
+<p><strong>Method:</strong> 本文提出GeoRouter动态路由框架，利用大型视觉语言模型分析图像内容并做出路由决策，同时引入距离感知偏好目标函数，将两种范式预测结果的距离差异转化为连续监督信号，并构建了专门用于训练路由策略的首个大规模数据集GeoRouting。</p>
+<p><strong>Result:</strong> 在IM2GPS3k和YFCC4k数据集上的广泛实验表明，GeoRouter显著超越了现有最先进基线方法，验证了动态路由框架在利用检索和生成方法互补优势方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究表明检索和生成范式在图像地理定位任务中存在互补性，动态路由策略能够有效利用这种异质性，为多范式协同优化提供了新思路，并推动了自适应地理定位系统的发展。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Worldwide image geolocalization aims to predict precise GPS coordinates for images captured anywhere on Earth, which is challenging due to the large visual and geographic diversity. Recent methods mainly follow two paradigms: retrieval-based approaches that match queries against a reference database, and generation-based approaches that directly predict coordinates using Large Vision-Language Models (LVLMs). However, we observe distinct error profiles between them: retrieval excels at fine-grained instance matching, while generation offers robust semantic reasoning. This complementary heterogeneity suggests that no single paradigm is universally superior. To harness this potential, we propose GeoRouter, a dynamic routing framework that adaptively assigns each query to the optimal paradigm. GeoRouter leverages an LVLM backbone to analyze visual content and provide routing decisions. To optimize GeoRouter, we introduce a distance-aware preference objective that converts the distance gap between paradigms into a continuous supervision signal, explicitly reflecting relative performance differences. Furthermore, we construct GeoRouting, the first large-scale dataset tailored for training routing policies with independent paradigm predictions. Extensive experiments on IM2GPS3k and YFCC4k demonstrate that GeoRouter significantly outperforms state-of-the-art baselines.</p>
+<h3 id="11-video-only-tom-enhancing-theory-of-mind-in-multimodal-large-language-models">[11] <a href="https://arxiv.org/abs/2603.24484">Video-Only ToM: Enhancing Theory of Mind in Multimodal Large Language Models</a></h3>
+<p><em>Siqi Liu, Xinyang Li, Bochao Zou, Junbao Zhuo, Huimin Ma, Jiansheng Chen</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了VisionToM，一种面向视觉的干预框架，旨在通过计算干预向量来对齐视觉表征与语义目标，从而增强多模态语言模型在心理理论任务中的推理能力，减少对虚假语言先验的依赖。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有心理理论评估主要集中于文本输入，而依赖视觉信息的场景研究不足，这造成了与现实世界多模态人机交互需求的差距；同时，当前方法将模型视为黑箱，很少探究其内部注意力在多选题问答中的行为，且从可解释性角度研究大语言模型幻觉对此类任务的影响也尚未充分探索。</p>
+<p><strong>Method:</strong> 本文提出了VisionToM视觉导向干预框架，其核心思想是计算干预向量，将视觉表征与正确的语义目标对齐，从而通过不同层次的视觉特征引导模型的注意力机制；这种方法减少了模型对虚假语言先验的依赖，提升了多模态语言模型输出的可靠性。</p>
+<p><strong>Result:</strong> 在EgoToM基准测试（一个以自我为中心的真实世界视频数据集，包含三种多选题问答设置）上的实验表明，该方法显著提升了多模态语言模型的心理理论能力；在额外的开放式生成任务中，VisionToM使多模态语言模型能够生成更准确捕捉智能体心理状态的自由形式解释。</p>
+<p><strong>Conclusion:</strong> 该研究通过视觉导向的干预机制增强了多模态语言模型在心理理论任务中的推理能力，推动了机器与人类协作的更好对齐；该方法不仅提升了问答性能，还改善了模型生成解释的质量，为多模态心理理论评估提供了新的可解释性视角。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>As large language models (LLMs) continue to advance, there is increasing interest in their ability to infer human mental states and demonstrate a human-like Theory of Mind (ToM). Most existing ToM evaluations, however, are centered on text-based inputs, while scenarios relying solely on visual information receive far less attention. This leaves a gap, since real-world human-AI interaction typically requires multimodal understanding. In addition, many current methods regard the model as a black box and rarely probe how its internal attention behaves in multiple-choice question answering (QA). The impact of LLM hallucinations on such tasks is also underexplored from an interpretability perspective. To address these issues, we introduce VisionToM, a vision-oriented intervention framework designed to strengthen task-aware reasoning. The core idea is to compute intervention vectors that align visual representations with the correct semantic targets, thereby steering the model's attention through different layers of visual features. This guidance reduces the model's reliance on spurious linguistic priors, leading to more reliable multimodal language model (MLLM) outputs and better QA performance. Experiments on the EgoToM benchmark-an egocentric, real-world video dataset for ToM with three multiple-choice QA settings-demonstrate that our method substantially improves the ToM abilities of MLLMs. Furthermore, results on an additional open-ended generation task show that VisionToM enables MLLMs to produce free-form explanations that more accurately capture agents' mental states, pushing machine-human collaboration toward greater alignment.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="12-gameplayqa-a-benchmarking-framework-for-decision-dense-pov-synced-multi-video-understanding-of-3d-virtual-agents">[12] <a href="https://arxiv.org/abs/2603.24329">GameplayQA: A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents</a></h3>
+<p><em>Yunzhe Wang, Runhui Xu, Kexin Zheng, Tianyi Zhang, Jayavibhav Niranjan Kogundi, Soham Hans, Volkan Ustun</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文提出了GameplayQA框架，用于评估多模态大语言模型在3D多智能体环境中的感知与推理能力，通过密集标注的多玩家游戏视频和结构化诊断问答对，揭示了现有模型在时间定位、智能体角色归因等方面的显著性能差距。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准测试无法充分评估多模态大语言模型在3D多智能体环境中的关键能力，包括感知快速状态变化、正确归因动作到相应实体以及从第一人称视角推理并发多智能体行为，这些能力对于自主智能体在机器人学和虚拟世界中的应用至关重要。</p>
+<p><strong>Method:</strong> 研究提出了GameplayQA评估框架，通过密集标注多玩家3D游戏视频（标注密度为1.22标签/秒），采用时间同步的并发状态、动作和事件描述，构建了围绕自我、其他智能体和世界的三元分解系统，并从中提炼出2.4K个诊断性问答对，按认知复杂度分为三个层级，同时设计了结构化干扰项分类法以精细分析模型幻觉模式。</p>
+<p><strong>Result:</strong> 对前沿多模态大语言模型的评估显示，其性能与人类表现存在显著差距，模型在时间定位、跨视频定位、智能体角色归因以及处理游戏决策密度方面普遍存在失败，这些发现通过结构化干扰项分类法得到了细粒度分析。</p>
+<p><strong>Conclusion:</strong> GameplayQA框架揭示了当前多模态大语言模型在智能体中心感知和推理方面的核心局限性，为具身人工智能、智能体感知和世界建模交叉领域的研究提供了重要基准，有望推动该方向未来研究的发展。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Multimodal LLMs are increasingly deployed as perceptual backbones for autonomous agents in 3D environments, from robotics to virtual worlds. These applications require agents to perceive rapid state changes, attribute actions to the correct entities, and reason about concurrent multi-agent behaviors from a first-person perspective, capabilities that existing benchmarks do not adequately evaluate. We introduce GameplayQA, a framework for evaluating agentic-centric perception and reasoning through video understanding. Specifically, we densely annotate multiplayer 3D gameplay videos at 1.22 labels/second, with time-synced, concurrent captions of states, actions, and events structured around a triadic system of Self, Other Agents, and the World, a natural decomposition for multi-agent environments. From these annotations, we refined 2.4K diagnostic QA pairs organized into three levels of cognitive complexity, accompanied by a structured distractor taxonomy that enables fine-grained analysis of where models hallucinate. Evaluation of frontier MLLMs reveals a substantial gap from human performance, with common failures in temporal and cross-video grounding, agent-role attribution, and handling the decision density of the game. We hope GameplayQA stimulates future research at the intersection of embodied AI, agentic perception, and world modeling.</p>
+<h3 id="13-thinking-with-tables-enhancing-multi-modal-tabular-understanding-via-neuro-symbolic-reasoning">[13] <a href="https://arxiv.org/abs/2603.24004">Thinking with Tables: Enhancing Multi-Modal Tabular Understanding via Neuro-Symbolic Reasoning</a></h3>
+<p><em>Kun-Yang Yu, Zhi Zhou, Shi-Yu Tian, Xiao-Wen Yang, Zi-Yi Jia, Ming Yang, Zi-Jian Cheng, Lan-Zhe Guo, Yu-Feng Li</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文提出了Thinking with Tables (TWT)框架，通过程序辅助的代码驱动神经符号推理机制，解决了表格-视觉多模态理解任务中的核心挑战，在多个基准数据集上显著超越了现有基线方法。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在图像和文本等模态上展现出卓越的推理能力，但表格数据作为现实世界中的关键模态在跨模态学习中仍相对未被充分探索。本文聚焦于表格-视觉多模态理解任务，识别出三个核心挑战：表格结构的高度可变性和数据不完整性、隐式且复杂的特征依赖关系，以及下游任务间问题解决流程的显著异质性。</p>
+<p><strong>Method:</strong> 本文提出了Thinking with Tables (TWT)框架，采用程序辅助的代码驱动神经符号推理机制。该机制通过与外部环境交互，促进了信息提取和元素建模等关键操作，有效应对表格数据的结构复杂性和任务多样性挑战。</p>
+<p><strong>Result:</strong> 在八个代表性数据集上的实验结果表明，TWT在准确率上平均超越现有基线方法10%，在表格-视觉多模态理解任务上达到了与专有商业SOTA大语言模型相当甚至更优的性能表现。</p>
+<p><strong>Conclusion:</strong> 该研究证明了程序辅助的神经符号推理机制在处理表格-视觉多模态理解任务中的有效性，为复杂结构化数据的跨模态理解提供了新的技术路径，同时开源了模型和代码以促进该领域的研究发展。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have demonstrated remarkable reasoning capabilities across modalities such as images and text. However, tabular data, despite being a critical real-world modality, remains relatively underexplored in multimodal learning. In this paper, we focus on the task of Tabular-Vision Multi-Modal Understanding (TVMU) and identify three core challenges: (1) high structural variability and data incompleteness in tables, (2) implicit and complex feature dependencies, and (3) significant heterogeneity in problem-solving pipelines across downstream tasks. To address these issues, we propose Thinking with Tables (TWT). TWT employs a program-aided code-based neuro-symbolic reasoning mechanism that facilitates key operations, such as information extraction and element modeling, by interacting with external environments. We evaluate TWT on eight representative datasets. Experimental results demonstrate that TWT consistently outperforms existing baselines by an average of 10\% in accuracy, achieving performance comparable to, or even surpassing, proprietary commercial SOTA LLMs on TVMU tasks. Models and codes are available at https://github.com/kunyang-YU/Thinking-with-Tables</p>
+  </article>
+</body>
+</html>
