@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-28.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-themis-towards-holistic-evaluation-of-mllms-for-scientific-paper-fraud-forensics">[1] <a href="https://arxiv.org/abs/2603.25089">THEMIS: Towards Holistic Evaluation of MLLMs for Scientific Paper Fraud Forensics</a></h3>
+<p><em>Tzu-Yen Ma, Bo Zhang, Zichen Tang, Junpeng Ding, Haolin Tian, Yuanze Li, Zhuodi Hao, Zixin Ding, Zirui Wang, Xinyu Yu, Shiyao Peng, Yizhuo Zhao, Ruomeng Jiang, Yiling Huang, Peizhi Zhao, Jiayuan Chen, Weisheng Tan, Haocheng Gao, Yang Liu, Jiacheng Liu, Zhongjun Yang, Jiayu Huang, Haihong E</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了THEMIS，一个新颖的多任务基准测试，旨在全面评估多模态大语言模型在真实学术场景下的视觉欺诈推理能力，通过引入现实世界复杂性、欺诈类型多样性和多维能力评估，为模型性能提供了严格的测试标准。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准测试在评估多模态大语言模型的视觉欺诈推理能力时存在显著不足，特别是在真实世界学术场景的复杂性和欺诈类型多样性方面存在差距，无法充分反映模型在实际应用中的表现，需要开发更贴近现实复杂度的评估框架。</p>
+<p><strong>Method:</strong> THEMIS基准测试通过三个关键创新实现：首先构建包含4000多个问题的数据集，涵盖七个真实学术场景，其中60.47%为复杂纹理图像；其次系统覆盖五种欺诈类型并引入16种细粒度操作，每个样本经历多重堆叠操作；最后建立从欺诈类型到五种核心视觉欺诈推理能力的映射，实现多维能力评估。</p>
+<p><strong>Result:</strong> 在16个领先的多模态大语言模型上的实验表明，即使是表现最佳的GPT-5模型，在THEMIS基准上的总体准确率仅为56.15%，这证明了该基准测试的严格性和挑战性，能够有效揭示不同模型在视觉欺诈推理方面的具体优势和弱点。</p>
+<p><strong>Conclusion:</strong> THEMIS基准测试填补了现有评估体系在真实世界视觉欺诈推理方面的空白，为多模态大语言模型的发展提供了重要的评估工具，有望推动模型在复杂现实欺诈检测任务中的进步，并为未来研究指明了改进方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>We present THEMIS, a novel multi-task benchmark designed to comprehensively evaluate multimodal large language models (MLLMs) on visual fraud reasoning within real-world academic scenarios. Compared to existing benchmarks, THEMIS introduces three major advances. (1) Real-World Scenarios and Complexity: Our benchmark comprises over 4,000 questions spanning seven scenarios, derived from authentic retracted-paper cases and carefully curated multimodal synthetic data. With 60.47% complex-texture images, THEMIS bridges the critical gap between existing benchmarks and the complexity of real-world academic fraud. (2) Fraud-Type Diversity and Granularity: THEMIS systematically covers five challenging fraud types and introduces 16 fine-grained manipulation operations. On average, each sample undergoes multiple stacked manipulation operations, with the diversity and difficulty of these manipulations demanding a high level of visual fraud reasoning from the models. (3) Multi-Dimensional Capability Evaluation: We establish a mapping from fraud types to five core visual fraud reasoning capabilities, thereby enabling an evaluation that reveals the distinct strengths and specific weaknesses of different models across these core capabilities. Experiments on 16 leading MLLMs show that even the best-performing model, GPT-5, achieves an overall performance of only 56.15%, demonstrating that our benchmark presents a stringent test. We expect THEMIS to advance the development of MLLMs for complex, real-world fraud reasoning tasks.</p>
+  </article>
+</body>
+</html>
