@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-07.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 13]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 1]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-3d-ide-3d-implicit-depth-emergent">[1] <a href="https://arxiv.org/abs/2604.03296">3D-IDE: 3D Implicit Depth Emergent</a></h3>
+<p><em>Chushan Zhang, Ruihan Lu, Jinguang Tong, Yikai Wang, Hongdong Li</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出3D-Implicit Depth Emergence方法，将3D感知重构为从几何自监督中涌现的特性而非显式编码，通过隐式几何涌现原理实现零延迟开销的3D场景理解，在多个基准测试中超越现有方法。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型在室内场景理解中利用3D信息的方法面临2D-3D表示融合的权衡困境，无论是使用显式真值3D位置编码还是嫁接外部3D基础模型进行隐式几何处理，都导致次优部署效果，需要解决这一表示融合的根本问题。</p>
+<p><strong>Method:</strong> 该方法基于隐式几何涌现原理，通过细粒度几何验证器和全局表示约束等机制策略性地利用特权几何监督构建信息瓶颈，迫使模型最大化视觉特征与3D结构之间的互信息，使3D感知在统一视觉表示中自然涌现，实现推理时无深度和姿态依赖的隐式3D理解。</p>
+<p><strong>Result:</strong> 该方法在多个3D场景理解基准测试中超越现有最优方法，实现推理延迟降低55%的同时保持跨多样化下游任务的强大性能，证明了精心设计的辅助目标对无依赖3D理解的有效性。</p>
+<p><strong>Conclusion:</strong> 该方法代表了从外部嫁接到隐式涌现的范式转变，从根本上重新思考了视觉语言模型中3D知识集成的方式，通过几何自监督实现3D感知的隐式涌现，为依赖自由的3D场景理解提供了新思路，展示了精心设计的辅助目标在消除推理时依赖方面的有效性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Leveraging 3D information within Multimodal Large Language Models (MLLMs) has recently shown significant advantages for indoor scene understanding. However, existing methods, including those using explicit ground-truth 3D positional encoding and those grafting external 3D foundation models for implicit geometry, struggle with the trade-off in 2D-3D representation fusion, leading to suboptimal deployment. To this end, we propose 3D-Implicit Depth Emergence, a method that reframes 3D perception as an emergent property derived from geometric self-supervision rather than explicit encoding. Our core insight is the Implicit Geometric Emergence Principle: by strategically leveraging privileged geometric supervision through mechanisms like a fine-grained geometry validator and global representation constraints, we construct an information bottleneck. This bottleneck forces the model to maximize the mutual information between visual features and 3D structures, allowing 3D awareness to emerge naturally within a unified visual representation. Unlike existing approaches, our method enables 3D perception to emerge implicitly, disentangling features in dense regions and, crucially, eliminating depth and pose dependencies during inference with zero latency overhead. This paradigm shift from external grafting to implicit emergence represents a fundamental rethinking of 3D knowledge integration in visual-language models. Extensive experiments demonstrate that our method surpasses SOTA on multiple 3D scene understanding benchmarks. Our approach achieves a 55% reduction in inference latency while maintaining strong performance across diverse downstream tasks, underscoring the effectiveness of meticulously designed auxiliary objectives for dependency-free 3D understanding. Source code can be found at github.com/ChushanZhang/3D-IDE.</p>
+<h3 id="2-beyond-static-vision-scene-dynamic-field-unlocks-intuitive-physics-understanding-in-multi-modal-large-language-models">[2] <a href="https://arxiv.org/abs/2604.03302">Beyond Static Vision: Scene Dynamic Field Unlocks Intuitive Physics Understanding in Multi-modal Large Language Models</a></h3>
+<p><em>Nanxi Li, Xiang Wang, Yuanjie Chen, Haode Zhang, Hong Li, Yong-Lu Li</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>该研究揭示了多模态大语言模型在连续体对象动态理解方面的显著缺陷，并提出了一种名为场景动态场的简洁方法，通过物理模拟器驱动的多任务微调框架显著提升了模型的物理推理能力。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在图像和视频理解方面展现出强大能力，但它们在高级物理推理方面存在显著不足，特别是在理解连续体对象的动态特性方面存在根本性缺陷，这限制了模型对物理世界的真实理解能力。</p>
+<p><strong>Method:</strong> 研究引入了两个基础基准任务来评估模型的直观物理理解能力：下一帧选择和时序一致性验证，并提出场景动态场方法，该方法利用物理模拟器构建多任务微调框架，通过系统化的训练策略提升模型的动态场景理解能力。</p>
+<p><strong>Result:</strong> 实验表明，即使是当前最先进的多模态大语言模型在基础物理推理任务上也表现不佳，而提出的场景动态场方法显著提升了性能，在流体任务上实现了高达20.7%的性能增益，并展现出对未见物理领域的强大泛化能力。</p>
+<p><strong>Conclusion:</strong> 该研究不仅揭示了当前多模态大语言模型在物理理解方面的关键缺陷，还提供了一种成本效益高的方法路径，为开发更具物理基础的多模态大语言模型开辟了新的研究方向，强调了物理模拟器在增强模型物理推理能力中的重要作用。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>While Multimodal Large Language Models (MLLMs) have demonstrated impressive capabilities in image and video understanding, their ability to comprehend the physical world has become an increasingly important research focus. Despite their improvements, current MLLMs struggle significantly with high-level physics reasoning. In this work, we investigate the first step of physical reasoning, i.e., intuitive physics understanding, revealing substantial limitations in understanding the dynamics of continuum objects. To isolate and evaluate this specific capability, we introduce two fundamental benchmark tasks: Next Frame Selection (NFS) and Temporal Coherence Verification (TCV). Our experiments demonstrate that even state-of-the-art MLLMs perform poorly on these foundational tasks. To address this limitation, we propose Scene Dynamic Field (SDF), a concise approach that leverages physics simulators within a multi-task fine-tuning framework. SDF substantially improves performance, achieving up to 20.7% gains on fluid tasks while showing strong generalization to unseen physical domains. This work not only highlights a critical gap in current MLLMs but also presents a promising cost-efficient approach for developing more physically grounded MLLMs. Our code and data are available at https://github.com/andylinx/Scene-Dynamic-Field.</p>
+<h3 id="3-v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">[3] <a href="https://arxiv.org/abs/2604.03307">V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</a></h3>
+<p><em>Jiazhou Zhou, Yucheng Chen, Hongyang Li, Qing Jiang, Hu Zhou, Ying-Cong Chen, Lei Zhang</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出V-Reflection框架，通过"思考-观察"视觉反思机制将多模态大语言模型转变为主动询问者，解决了细粒度任务中的感知幻觉问题，在六个感知密集型基准测试中显著缩小了细粒度感知差距。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在细粒度任务中容易产生感知相关的幻觉，根本原因在于其推理主要局限于语言领域，将视觉输入视为静态的、与推理无关的前置内容而非动态参与者，导致模型成为被动观察者，无法重新审视视觉细节来支撑其演变的推理状态。</p>
+<p><strong>Method:</strong> 提出V-Reflection框架，采用"思考-观察"视觉反思机制，通过两阶段蒸馏策略实现：首先，Box-Guided Compression模块通过显式空间定位建立稳定的像素到潜在目标；其次，Dynamic Autoregressive Compression模块将模型的隐藏状态映射为动态探针，用于询问全局视觉特征图；通过将BCM教师的空间专业知识蒸馏到DAC学生中，使模型内化定位任务关键证据的能力。</p>
+<p><strong>Result:</strong> 在六个感知密集型基准测试上进行了广泛实验，证明V-Reflection的有效性，显著缩小了细粒度感知差距；可视化验证表明潜在推理能够自主定位任务关键的视觉证据；推理过程中两个模块完全保持非活动状态，在潜在空间中维持纯端到端的自回归解码，实现了最优效率。</p>
+<p><strong>Conclusion:</strong> V-Reflection框架通过将多模态大语言模型从被动观察者转变为主动询问者，解决了感知幻觉的根本问题；该方法通过内部化的空间定位能力，使模型能够在推理过程中动态地重新审视视觉证据，为多模态推理系统提供了新的架构范式，同时保持了推理效率。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have achieved remarkable success, yet they remain prone to perception-related hallucinations in fine-grained tasks. This vulnerability arises from a fundamental limitation: their reasoning is largely restricted to the language domain, treating visual input as a static, reasoning-agnostic preamble rather than a dynamic participant. Consequently, current models act as passive observers, unable to re-examine visual details to ground their evolving reasoning states. To overcome this, we propose V-Reflection, a framework that transforms the MLLM into an active interrogator through a "think-then-look" visual reflection mechanism. During reasoning, latent states function as dynamic probes that actively interrogate the visual feature space, grounding each reasoning step for task-critical evidence. Our approach employs a two-stage distillation strategy. First, the Box-Guided Compression (BCM) module establishes stable pixel-to-latent targets through explicit spatial grounding. Next, a Dynamic Autoregressive Compression (DAC) module maps the model's hidden states into dynamic probes that interrogate the global visual feature map. By distilling the spatial expertise of the BCM teacher into the DAC student, V-Reflection internalizes the ability to localize task-critical evidence. During inference, both modules remain entirely inactive, maintaining a purely end-to-end autoregressive decoding in the latent space with optimal efficiency. Extensive experiments demonstrate the effectiveness of our V-Reflection across six perception-intensive benchmarks, significantly narrowing the fine-grained perception gap. Visualizations confirm that latent reasoning autonomously localizes task-critical visual evidence.</p>
+<h3 id="4-when-sinks-help-or-hurt-unified-framework-for-attention-sink-in-large-vision-language-models">[4] <a href="https://arxiv.org/abs/2604.03316">When Sinks Help or Hurt: Unified Framework for Attention Sink in Large Vision-Language Models</a></h3>
+<p><em>Jiho Choi, Jaemin Kim, Sanghwan Kim, Seunghoon Hong, Jin-Hwi Park</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文首次系统研究了大型视觉语言模型中的注意力汇现象，揭示了其在全局先验编码与局部感知证据之间的基本权衡，并提出了一种无需任务特定监督的轻量级层间汇门控模块，有效平衡了全局推理与局部证据的利用。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管注意力汇在单模态Transformer中已有研究，但其在大型视觉语言模型中的跨模态影响尚未被充分探索，特别是需要厘清这些汇是冗余的伪影还是必要的全局先验，以及它们如何影响模型的全局推理与局部感知能力之间的平衡。</p>
+<p><strong>Method:</strong> 本文首先将视觉汇分为两类：从视觉编码器传播的ViT-emerged汇和在大语言模型深层产生的LLM-emerged汇，基于此定义分析了汇的性能权衡效应，并提出了层间汇门控模块，该模块通过标准的下一个词预测进行训练，无需任务特定监督，能够动态调节V-sink与其他视觉token的注意力贡献。</p>
+<p><strong>Result:</strong> 分析揭示了注意力汇在编码全局场景先验与抑制细粒度视觉证据之间的基本性能权衡，识别了对下游性能影响最显著的功能层，LSG模块在大多数层中都能改善代表性多模态基准测试的性能，有效平衡了全局推理与精确的局部证据利用。</p>
+<p><strong>Conclusion:</strong> 注意力汇在LVLM中既非完全冗余也非纯粹有害，而是承担着编码全局先验的重要功能，但需要适当调节以避免过度抑制局部证据，LSG提供了一种轻量级、即插即用的解决方案，为理解和管理多模态注意力机制提供了新的理论框架和实践工具。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Attention sinks are defined as tokens that attract disproportionate attention. While these have been studied in single modality transformers, their cross-modal impact in Large Vision-Language Models (LVLM) remains largely unexplored: are they redundant artifacts or essential global priors? This paper first categorizes visual sinks into two distinct categories: ViT-emerged sinks (V-sinks), which propagate from the vision encoder, and LLM-emerged sinks (L-sinks), which arise within deep LLM layers. Based on the new definition, our analysis reveals a fundamental performance trade-off: while sinks effectively encode global scene-level priors, their dominance can suppress the fine-grained visual evidence required for local perception. Furthermore, we identify specific functional layers where modulating these sinks most significantly impacts downstream performance. To leverage these insights, we propose Layer-wise Sink Gating (LSG), a lightweight, plug-and-play module that dynamically scales the attention contributions of V-sink and the rest visual tokens. LSG is trained via standard next-token prediction, requiring no task-specific supervision while keeping the LVLM backbone frozen. In most layers, LSG yields improvements on representative multimodal benchmarks, effectively balancing global reasoning and precise local evidence.</p>
+<h3 id="5-egomind-activating-spatial-cognition-through-linguistic-reasoning-in-mllms">[5] <a href="https://arxiv.org/abs/2604.03318">EgoMind: Activating Spatial Cognition through Linguistic Reasoning in MLLMs</a></h3>
+<p><em>Zhenghao Chen, Huiqun Wang, Di Huang</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出EgoMind，一种无需几何先验的链式思维框架，通过角色扮演描述和渐进式空间分析增强多模态大语言模型的空间推理能力，在多个基准测试中取得竞争性结果。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型在空间认知任务中存在局限性：基于3D先验或几何监督的方法需要大量数据准备和对齐成本，而纯2D方法在多帧空间推理中难以捕捉跨帧空间关系。本文旨在开发一种无需几何先验的高效空间推理框架。</p>
+<p><strong>Method:</strong> 提出EgoMind框架，包含两个核心组件：角色扮演描述联合构建跨帧的连贯语言场景图，以及渐进式空间分析逐步推理任务特定问题。该方法仅需5K自动生成的监督微调样本和20K强化学习样本，实现几何无关的空间推理。</p>
+<p><strong>Result:</strong> EgoMind在VSI-Bench、SPAR-Bench、SITE-Bench和SPBench等多个基准测试中取得竞争性结果，证明了其在增强多模态大语言模型空间推理能力方面的有效性，同时显著降低了数据需求。</p>
+<p><strong>Conclusion:</strong> 研究表明语言推理在空间认知中具有巨大潜力，EgoMind框架通过链式思维方法实现了高效的空间推理，为多模态大语言模型的空间能力增强提供了新方向，同时避免了传统几何方法的复杂数据需求。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) are increasingly being applied to spatial cognition tasks, where they are expected to understand and interact with complex environments. Most existing works improve spatial reasoning by introducing 3D priors or geometric supervision, which enhances performance but incurs substantial data preparation and alignment costs. In contrast, purely 2D approaches often struggle with multi-frame spatial reasoning due to their limited ability to capture cross-frame spatial relationships. To address these limitations, we propose EgoMind, a Chain-of-Thought framework that enables geometry-free spatial reasoning through Role-Play Caption, which jointly constructs a coherent linguistic scene graph across frames, and Progressive Spatial Analysis, which progressively reasons toward task-specific questions. With only 5K auto-generated SFT samples and 20K RL samples, EgoMind achieves competitive results on VSI-Bench, SPAR-Bench, SITE-Bench, and SPBench, demonstrating its effectiveness in strengthening the spatial reasoning capabilities of MLLMs and highlighting the potential of linguistic reasoning for spatial cognition. Code and data are released at https://github.com/Hyggge/EgoMind.</p>
+<h3 id="6-focus-matters-phase-aware-suppression-for-hallucination-in-vision-language-models">[6] <a href="https://arxiv.org/abs/2604.03556">Focus Matters: Phase-Aware Suppression for Hallucination in Vision-Language Models</a></h3>
+<p><em>Sohyeon Kim, Sang Yeon Yoon, Kyeongbo Kong</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了一种轻量级推理时干预方法，通过分析视觉编码器内部注意力动态并选择性抑制焦点阶段低注意力标记，有效减少大型视觉语言模型中的物体幻觉问题，同时保持推理效率。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在多模态推理方面取得显著进展，但仍存在物体幻觉问题，即生成输入图像中不存在的物体描述。现有方法通常通过抑制视觉编码器中不可靠信号来缓解幻觉，但许多方法依赖每个输入的迭代优化，导致显著的推理延迟，因此需要开发更高效的幻觉缓解方法。</p>
+<p><strong>Method:</strong> 本文首先分析LVLMs中视觉编码器的内部注意力动态，识别出视觉信息处理的一致三阶段结构：扩散、聚焦和再扩散。研究发现幻觉行为对焦点阶段接收低注意力的标记特别敏感，基于此提出了一种轻量级推理时干预方法，在焦点阶段选择性抑制这些标记。该方法采用无需训练的方式，利用单次前向传播的统计信息，并应用行列式点过程来保持多样化的视觉线索同时过滤冗余标记。</p>
+<p><strong>Result:</strong> 在多个LVLM主干网络和解码策略上的广泛实验表明，所提出的方法能够一致地减少幻觉指标，同时保持竞争力的字幕质量。与对抗性不确定性估计方法相比，该方法实现了可比的幻觉缓解效果，同时带来可忽略的额外推理延迟，在效率和效果之间取得了良好平衡。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了视觉编码器注意力动态与幻觉行为之间的关键联系，提出了一种高效且无需训练的推理时干预策略。该方法通过选择性抑制焦点阶段的低注意力标记，在保持模型性能的同时显著减少幻觉，为LVLMs的可靠性改进提供了新的技术路径，具有实际部署价值。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) have achieved impressive progress in multimodal reasoning, yet they remain prone to object hallucinations, generating descriptions of objects that are not present in the input image. Recent approaches attempt to mitigate hallucinations by suppressing unreliable visual signals in the vision encoder, but many rely on iterative optimization for each input, resulting in substantial inference latency. In this work, we investigate the internal attention dynamics of vision encoders in LVLMs and identify a consistent three-phase structure of visual information processing: diffusion, focus, and rediffusion. Our analysis reveals that hallucination behavior is particularly sensitive to tokens receiving low attention during the focus phase. Motivated by this observation, we propose a lightweight inference-time intervention that selectively suppresses such tokens during the focus phase. The method operates in a training-free manner using statistics from a single forward pass and employs a Determinantal Point Process (DPP) to preserve diverse visual cues while filtering redundant tokens. Extensive experiments across multiple LVLM backbones and decoding strategies demonstrate that the proposed approach consistently reduces hallucination metrics while maintaining competitive caption quality. Moreover, compared to adversarial uncertainty estimation methods, our approach achieves comparable hallucination mitigation with negligible additional inference latency.</p>
+<h3 id="7-stabilizing-unsupervised-self-evolution-of-mllms-via-continuous-softened-retracing-resampling">[7] <a href="https://arxiv.org/abs/2604.03647">Stabilizing Unsupervised Self-Evolution of MLLMs via Continuous Softened Retracing reSampling</a></h3>
+<p><em>Yunyao Yu, Zhengxian Wu, Zhuohong Chen, Hangrui Xu, Zirui Liao, Xiangwen Deng, Zhifang Liu, Senyuan Shi, Haoqian Wang</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出了一种名为CSRS（连续软化回溯重采样）的新方法，用于解决多模态大语言模型在无监督自进化过程中因多数投票机制导致的推理路径偏差问题，该方法通过回溯重推理机制和软化频率奖励显著提升了模型在数学推理任务上的性能。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型的无监督自进化方法主要依赖多数投票机制来选择最频繁的输出作为伪黄金答案，但这种方法可能源于模型的内在偏见而非推理路径的客观正确性，导致模型在长尾推理路径上的探索不足和性能退化。</p>
+<p><strong>Method:</strong> CSRS方法包含三个核心组件：回溯重推理机制（RRM）从锚点重新推理以扩展长尾推理路径的探索；软化频率奖励（SFR）用连续信号替代二元奖励，根据答案在采样推理集中的频率校准奖励；视觉语义扰动（VSP）确保模型优先考虑数学逻辑而非视觉表面特征。</p>
+<p><strong>Result:</strong> 实验结果表明，CSRS显著提升了Qwen2.5-VL-7B在MathVision等基准测试中的推理性能，在几何任务的无监督自进化中实现了最先进的结果，证明了该方法在减少模型偏见和提升推理质量方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了传统多数投票机制在模型自进化中的局限性，并提出了一种更精细的奖励校准方法，为多模态大语言模型的无监督学习提供了新的技术路径，特别是在数学推理和几何任务领域具有重要应用价值。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>In the unsupervised self-evolution of Multimodal Large Language Models, the quality of feedback signals during post-training is pivotal for stable and effective learning. However, existing self-evolution methods predominantly rely on majority voting to select the most frequent output as the pseudo-golden answer, which may stem from the model's intrinsic biases rather than guaranteeing the objective correctness of the reasoning paths. To counteract the degradation, we propose \textbf{C}ontinuous \textbf{S}oftened \textbf{R}etracing re\textbf{S}ampling (\textbf{CSRS}) in MLLM self-evolution. Specifically, we introduce a Retracing Re-inference Mechanism (\textbf{RRM}) that the model re-inferences from anchor points to expand the exploration of long-tail reasoning paths. Simultaneously, we propose Softened Frequency Reward (\textbf{SFR}), which replaces binary rewards with continuous signals, calibrating reward based on the answers' frequency across sampled reasoning sets. Furthermore, incorporated with Visual Semantic Perturbation (\textbf{VSP}), CSRS ensures the model prioritizes mathematical logic over visual superficiality. Experimental results demonstrate that CSRS significantly enhances the reasoning performance of Qwen2.5-VL-7B on benchmarks such as MathVision. We achieve state-of-the-art (SOTA) results in unsupervised self-evolution on geometric tasks. Our code is avaible at https://github.com/yyy195/CSRS.</p>
+<h3 id="8-itiscore-an-image-to-text-to-image-rating-framework-for-the-image-captioning-ability-of-mllms">[8] <a href="https://arxiv.org/abs/2604.03765">ITIScore: An Image-to-Text-to-Image Rating Framework for the Image Captioning Ability of MLLMs</a></h3>
+<p><em>Zitong Xu, Huiyu Duan, Shengyao Qin, Guangyu Yao, Guangji Ma, Xiongkuo Min, Ke Gu, Guangtao Zhai, Patrick Le Callet</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了ICBench，一个用于全面评估多模态大语言模型图像描述能力的大规模基准数据集，同时开发了基于图像-文本-图像重建一致性的自动评估指标ITIScore，该指标与人类主观评价高度一致。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有图像描述基准存在描述长度多样性有限、缺乏最新先进多模态大语言模型评估以及人类标注不足等问题，这些局限性可能导致评估偏差，无法全面衡量现代多模态大语言模型的真实性能。</p>
+<p><strong>Method:</strong> 研究构建了包含12个内容类别、2000张图像的大规模基准ICBench，使用10种先进多模态大语言模型生成长短两种描述共计4万条，通过人类主观研究获得细粒度维度的平均意见分数，并提出了基于图像-文本-图像框架的自动评估指标ITIScore，通过重建一致性来衡量描述质量。</p>
+<p><strong>Result:</strong> 实验结果表明，ITIScore自动评估指标与人类主观判断具有强一致性，同时在公开描述数据集上展现出优秀的零样本泛化能力，短描述在流畅性、相关性和简洁性维度评估，长描述在流畅性、相关性和完整性维度评估。</p>
+<p><strong>Conclusion:</strong> ICBench基准和ITIScore指标为多模态大语言模型的图像描述能力评估提供了更全面、可靠的框架，解决了现有基准的局限性，研究数据集和模型将在发表后开源，促进该领域的标准化评估和进一步发展。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Recent advances in multimodal large language models (MLLMs) have greatly improved image understanding and captioning capabilities. However, existing image captioning benchmarks typically suffer from limited diversity in caption length, the absence of recent advanced MLLMs, and insufficient human annotations, which potentially introduces bias and limits the ability to comprehensively assess the performance of modern MLLMs. To address these limitations, we present a new large-scale image captioning benchmark, termed, ICBench, which covers 12 content categories and consists of both short and long captions generated by 10 advanced MLLMs on 2K images, resulting in 40K captions in total. We conduct extensive human subjective studies to obtain mean opinion scores (MOSs) across fine-grained evaluation dimensions, where short captions are assessed in terms of fluency, relevance, and conciseness, while long captions are evaluated based on fluency, relevance, and completeness. Furthermore, we propose an automated evaluation metric, \textbf{ITIScore}, based on an image-to-text-to-image framework, which measures caption quality through reconstruction consistency. Experimental results demonstrate strong alignment between our automatic metric and human judgments, as well as robust zero-shot generalization ability on other public captioning datasets. Both the dataset and model will be released upon publication.</p>
+<h3 id="9-a-systematic-study-of-cross-modal-typographic-attacks-on-audio-visual-reasoning">[9] <a href="https://arxiv.org/abs/2604.03995">A Systematic Study of Cross-Modal Typographic Attacks on Audio-Visual Reasoning</a></h3>
+<p><em>Tianle Chen, Deepti Ghadiyaram</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出了多模态排版攻击，系统性地研究了跨模态对抗攻击对音频-视觉多模态大语言模型的影响，揭示了多模态协同攻击相比单模态攻击具有更强的威胁性。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 随着音频-视觉多模态大语言模型在安全关键应用中的部署日益增多，理解其脆弱性变得至关重要。现有研究主要关注单模态攻击，而多模态模型在跨模态交互中的脆弱性尚未得到充分探索，因此需要系统性地研究多模态对抗攻击对MLLMs的影响。</p>
+<p><strong>Method:</strong> 本文引入了多模态排版攻击这一系统性研究方法，通过分析音频、视觉和文本扰动之间的相互作用，设计协调的多模态攻击策略。该方法在不同前沿MLLMs、多种任务以及常识推理和内容审核基准上进行评估，探究跨模态脆弱性的具体表现。</p>
+<p><strong>Result:</strong> 实验结果表明，协调的多模态攻击相比单模态攻击具有显著更强的威胁性，攻击成功率从34.93%提升至83.43%。这一发现在多个前沿MLLMs、不同任务以及常识推理和内容审核基准上均得到验证，证实了多模态攻击的有效性。</p>
+<p><strong>Conclusion:</strong> 多模态排版攻击揭示了MLLMs在跨模态交互中的严重脆弱性，表明多模态协同攻击是一个关键且未被充分探索的攻击策略。这一发现对多模态推理系统的安全性设计具有重要启示，强调了需要开发更鲁棒的多模态防御机制来应对此类威胁。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>As audio-visual multi-modal large language models (MLLMs) are increasingly deployed in safety-critical applications, understanding their vulnerabilities is crucial. To this end, we introduce Multi-Modal Typography, a systematic study examining how typographic attacks across multiple modalities adversely influence MLLMs. While prior work focuses narrowly on unimodal attacks, we expose the cross-modal fragility of MLLMs. We analyze the interactions between audio, visual, and text perturbations and reveal that coordinated multi-modal attack creates a significantly more potent threat than single-modality attacks (attack success rate = $83.43\%$ vs $34.93\%$).Our findings across multiple frontier MLLMs, tasks, and common-sense reasoning and content moderation benchmarks establishes multi-modal typography as a critical and underexplored attack strategy in multi-modal reasoning. Code and data will be publicly available.</p>
+<h3 id="10-boxcomm-benchmarking-category-aware-commentary-generation-and-narration-rhythm-in-boxing">[10] <a href="https://arxiv.org/abs/2604.04419">BoxComm: Benchmarking Category-Aware Commentary Generation and Narration Rhythm in Boxing</a></h3>
+<p><em>Kaiwen Wang, Kaili Zheng, Rongrong Deng, Yiming Shi, Chenyi Guo, Ji Wu</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出了BoxComm，首个专注于格斗运动（拳击）的大规模视频解说生成数据集，包含445场世界拳击锦标赛视频和超过52K专业解说句子，并引入了结构化解说分类法和两种新颖的评估方法，揭示了当前多模态大语言模型在格斗运动解说生成上的局限性。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有体育解说生成基准主要关注足球、篮球等团队运动，完全忽视了格斗运动领域。格斗运动存在独特挑战：关键动作在毫秒级内发生且视觉差异细微但语义决定性高，专业解说中战术分析比例远高于团队运动，现有基准无法评估模型在这些方面的能力。</p>
+<p><strong>Method:</strong> 本文构建了BoxComm数据集，包含445场世界拳击锦标赛视频和超过52K专业解说句子，提出了结构化解说分类法将句子分为逐场播报、战术分析和背景信息三类。在此基础上引入了两种新颖评估方法：类别条件生成评估模型根据指定类型生成准确解说的能力，以及解说节奏评估测量自由生成解说在连续视频片段中的时间分布和类型分布是否合理。</p>
+<p><strong>Result:</strong> 实验表明，多个最先进的多模态大语言模型在两项评估中均表现不佳。本文进一步提出了EIC-Gen改进基线，通过检测击打事件提供结构化动作提示，在各项指标上取得了一致性提升，突显了感知短暂细微事件对格斗运动解说的重要性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了当前多模态大语言模型在格斗运动解说生成任务上的显著局限性，特别是对毫秒级细微动作的感知能力和战术分析能力不足。提出的结构化分类法和评估框架为体育解说生成研究提供了更全面的评估维度，EIC-Gen方法证明了结合结构化动作线索的有效性，为未来研究指明了改进方向。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Recent multimodal large language models (MLLMs) have shown strong capabilities in general video understanding, driving growing interest in automatic sports commentary generation. However, existing benchmarks for this task focus exclusively on team sports such as soccer and basketball, leaving combat sports entirely unexplored. Notably, combat sports present distinct challenges: critical actions unfold within milliseconds with visually subtle yet semantically decisive differences, and professional commentary contains a substantially higher proportion of tactical analysis compared to team sports. In this paper, we present BoxComm, a large-scale dataset comprising 445 World Boxing Championship match videos with over 52K commentary sentences from professional broadcasts. We propose a structured commentary taxonomy that categorizes each sentence into play-by-play, tactical, or contextual, providing the first category-level annotation for sports commentary benchmarks. Building on this taxonomy, we introduce two novel and complementary evaluations tailored to sports commentary generation: (1) category-conditioned generation, which evaluates whether models can produce accurate commentary of a specified type given video context; and (2) commentary rhythm assessment, which measures whether freely generated commentary exhibits appropriate temporal pacing and type distribution over continuous video segments, capturing a dimension of commentary competence that prior benchmarks have not addressed. Experiments on multiple state-of-the-art MLLMs reveal that current models struggle on both evaluations. We further propose EIC-Gen, an improved baseline incorporating detected punch events to supply structured action cues, yielding consistent gains and highlighting the importance of perceiving fleeting and subtle events for combat sports commentary.</p>
+<h3 id="11-firebolt-vl-efficient-vision-language-understanding-with-cross-modality-modulation">[11] <a href="https://arxiv.org/abs/2604.04579">Firebolt-VL: Efficient Vision-Language Understanding with Cross-Modality Modulation</a></h3>
+<p><em>Quoc-Huy Trinh, Mustapha Abdullahi, Bo Zhao, Debesh Jha</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了Firebolt-VL，一种高效的视觉语言模型，通过用液态基础模型解码器替代Transformer解码器，并引入令牌-网格相关模块来增强视觉定位，在保持线性时间推理的同时实现了细粒度理解。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在视觉语言理解方面取得显著进展，但其高计算成本限制了在资源受限场景中的部署。现有方法主要依赖Transformer交叉注意力机制，其二次复杂度阻碍了效率提升，同时小型视觉语言模型难以精确捕捉细粒度任务相关视觉区域，导致在细粒度推理任务上性能下降。</p>
+<p><strong>Method:</strong> Firebolt-VL采用液态基础模型解码器替代传统的Transformer解码器以提升效率。模型引入了令牌-网格相关模块，该模块计算文本令牌与图像补丁之间的轻量级相关性，并通过状态空间模型和FiLM条件进行调制，使模型能够选择性地强调与文本提示相关的视觉区域，同时保持线性时间推理复杂度。</p>
+<p><strong>Result:</strong> 在多个基准测试上的实验结果表明，Firebolt-VL实现了准确且细粒度的视觉语言理解，同时显著提升了计算效率。模型在保持高性能的同时，相比传统Transformer架构具有更低的计算复杂度，特别适用于资源受限的实际应用场景。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过结合液态基础模型和视觉定位增强机制，可以在不牺牲性能的前提下显著提升视觉语言模型的效率。Firebolt-VL为资源受限环境下的多模态应用提供了可行的解决方案，并为未来高效视觉语言模型的设计提供了新的架构思路。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Recent advances in multimodal large language models (MLLMs) have enabled impressive progress in vision-language understanding, yet their high computational cost limits deployment in resource-constrained scenarios such as personal assistants, document understanding, and smart cameras. Most existing methods rely on Transformer-based cross-attention, whose quadratic complexity hinders efficiency. Moreover, small vision-language models often struggle to precisely capture fine-grained, task-relevant visual regions, leading to degraded performance on fine-grained reasoning tasks that limit their effectiveness in the real world. To address these issues, we introduce Firebolt-VL, an efficient vision-language model that replaces the Transformer-based decoder with a Liquid Foundation Model (LFM) decoder. To further enhance visual grounding, we propose a Token-Grid Correlation Module, which computes lightweight correlations between text tokens and image patches and modulates via the state-space model with FiLM conditioning. This enables the model to selectively emphasize visual regions relevant to the textual prompt while maintaining linear-time inference. Experimental results across multiple benchmarks demonstrate that Firebolt-VL achieves accurate, fine-grained understanding with significantly improved efficiency. Our model and code are available at: https://fireboltvl.github.io</p>
+<h3 id="12-synthesis4ad-synthetic-anomalies-are-all-you-need-for-3d-anomaly-detection">[12] <a href="https://arxiv.org/abs/2604.04658">Synthesis4AD: Synthetic Anomalies are All You Need for 3D Anomaly Detection</a></h3>
+<p><em>Yihan Sun, Yuqi Cheng, Junjie Zu, Yuxiang Tan, Guoyang Xie, Yucheng Wang, Yunkang Cao, Weiming Shen</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文提出Synthesis4AD，一种利用大规模高保真合成异常进行3D异常检测的端到端范式，通过3D-DefectStudio平台和MPAS可控合成引擎生成几何真实的缺陷，并结合多模态大语言模型实现知识驱动的异常数据生成。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 工业3D异常检测性能受到异常样本稀缺性和长尾分布的根本限制，现有方法难以获取足够且多样化的异常数据来训练鲁棒的检测模型，这阻碍了实际工业应用中的检测精度和泛化能力。</p>
+<p><strong>Method:</strong> 方法核心包括基于MPAS可控合成引擎构建的3D-DefectStudio软件平台，通过高维支撑基元指导注入几何真实缺陷并生成精确点级异常掩码；引入多模态大语言模型解释产品设计信息并自动转换为可执行的异常合成指令；采用基于空间分布归一化和几何忠实数据增强的训练管道，缓解Point Transformer架构对绝对坐标的敏感性。</p>
+<p><strong>Result:</strong> 在Real3D-AD、MulSen-AD和真实工业零件数据集上的广泛实验表明，该方法实现了最先进的性能，验证了合成异常数据对提升3D异常检测效果的有效性，MPAS合成方法和3D-DefectStudio交互系统将公开开源。</p>
+<p><strong>Conclusion:</strong> 该研究证明了利用可控合成技术生成高质量异常数据是解决工业3D异常检测数据稀缺问题的有效途径，知识驱动的异常生成框架为工业质检提供了可扩展的解决方案，空间分布归一化方法提升了点云处理架构的鲁棒性和泛化能力。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Industrial 3D anomaly detection performance is fundamentally constrained by the scarcity and long-tailed distribution of abnormal samples. To address this challenge, we propose Synthesis4AD, an end-to-end paradigm that leverages large-scale, high-fidelity synthetic anomalies to learn more discriminative representations for 3D anomaly detection. At the core of Synthesis4AD is 3D-DefectStudio, a software platform built upon the controllable synthesis engine MPAS, which injects geometrically realistic defects guided by higher-dimensional support primitives while simultaneously generating accurate point-wise anomaly masks. Furthermore, Synthesis4AD incorporates a multimodal large language model (MLLM) to interpret product design information and automatically translate it into executable anomaly synthesis instructions, enabling scalable and knowledge-driven anomalous data generation. To improve the robustness and generalization of the downstream detector on unstructured point clouds, Synthesis4AD further introduces a training pipeline based on spatial-distribution normalization and geometry-faithful data augmentations, which alleviates the sensitivity of Point Transformer architectures to absolute coordinates and improves feature learning under realistic data variations. Extensive experiments demonstrate state-of-the-art performance on Real3D-AD, MulSen-AD, and a real-world industrial parts dataset. The proposed synthesis method MPAS and the interactive system 3D-DefectStudio will be publicly released at https://github.com/hustCYQ/Synthesis4AD.</p>
+<h3 id="13-beyond-the-global-scores-fine-grained-token-grounding-as-a-robust-detector-of-lvlm-hallucinations">[13] <a href="https://arxiv.org/abs/2604.04863">Beyond the Global Scores: Fine-Grained Token Grounding as a Robust Detector of LVLM Hallucinations</a></h3>
+<p><em>Tuan Dung Nguyen, Minh Khoi Ho, Qi Chen, Yutong Xie, Nguyen Cam-Tu, Minh Khoi Nguyen, Dang Huy Pham Nguyen, Anton van den Hengel, Johan W. Verjans, Phi Le Nguyen, Vu Minh Hieu Phan</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文提出了一种基于图像块级别的大视觉语言模型幻觉检测框架，通过分析细粒度的令牌级跨层交互来识别幻觉对象令牌，实现了高达90%的检测准确率。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的大视觉语言模型幻觉检测方法主要依赖粗粒度的全局图像相关性度量，这种方法存在局限性：幻觉令牌可能在多个局部区域表现出微弱但广泛分布的关联性，这些分散的相关性聚合后会产生欺骗性的高整体相关性，从而逃避当前的全局幻觉检测器。</p>
+<p><strong>Method:</strong> 本文提出了一个基于图像块级别的幻觉检测框架，通过分析细粒度的令牌级跨层交互来识别幻觉特征。该方法基于两个关键观察：忠实对象令牌必须与特定图像区域强关联，而幻觉令牌则表现出扩散的非局部化注意力模式，且缺乏与任何视觉区域的有意义语义对齐。该方法利用图像块级别的统计特征结合隐藏层表示，开发了一种轻量级且可解释的检测方法。</p>
+<p><strong>Result:</strong> 该方法在令牌级幻觉检测中实现了高达90%的准确率，显著优于现有方法。实验结果表明，幻觉令牌表现出扩散的注意力模式和缺乏语义对齐的特征，而忠实令牌则展现出紧凑、聚焦的注意力模式，验证了细粒度结构分析在幻觉检测中的优越性。</p>
+<p><strong>Conclusion:</strong> 研究表明，细粒度的结构分析对于检测大视觉语言模型中的幻觉至关重要，基于图像块级别的检测方法能够有效识别幻觉令牌的特征模式。该方法不仅提高了检测准确性，还提供了更好的可解释性，为未来更可靠的视觉语言模型开发提供了重要方向。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Large vision-language models (LVLMs) achieve strong performance on visual reasoning tasks but remain highly susceptible to hallucination. Existing detection methods predominantly rely on coarse, whole-image measures of how an object token relates to the input image. This global strategy is limited: hallucinated tokens may exhibit weak but widely scattered correlations across many local regions, which aggregate into deceptively high overall relevance, thus evading the current global hallucination detectors. We begin with a simple yet critical observation: a faithful object token must be strongly grounded in a specific image region. Building on this insight, we introduce a patch-level hallucination detection framework that examines fine-grained token-level interactions across model layers. Our analysis uncovers two characteristic signatures of hallucinated tokens: (i) they yield diffuse, non-localized attention patterns, in contrast to the compact, well-focused attention seen in faithful tokens; and (ii) they fail to exhibit meaningful semantic alignment with any visual region. Guided by these findings, we develop a lightweight and interpretable detection method that leverages patch-level statistical features, combined with hidden-layer representations. Our approach achieves up to 90% accuracy in token-level hallucination detection, demonstrating the superiority of fine-grained structural analysis for detecting hallucinations.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="14-responses-fall-short-of-understanding-revealing-the-gap-between-internal-representations-and-responses-in-visual-document-understanding">[14] <a href="https://arxiv.org/abs/2604.04411">Responses Fall Short of Understanding: Revealing the Gap between Internal Representations and Responses in Visual Document Understanding</a></h3>
+<p><em>Haruka Kawasaki, Ryota Tanaka, Kyosuke Nishida</em></p>
+<h4 id="tldr_13">🧩 TL;DR</h4>
+<p>本文研究了视觉文档理解任务中大型视觉语言模型内部表示与生成响应之间的差距，发现中间层编码了更线性的任务相关信息，并通过微调中间层提高了线性探测准确率和响应准确率。</p>
+<hr />
+<h4 id="detailed-summary_13">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管大型视觉语言模型在视觉文档理解基准测试中表现出进步，但基于生成响应的评估可能无法反映模型是否真正在内部捕获了所需信息，因此需要研究VDU任务所需信息在LVLM不同层中的表示方式，以及内部表示与生成响应之间的潜在差距。</p>
+<p><strong>Method:</strong> 本研究采用线性探测方法分析LVLM中LLM不同层的信息表示，通过比较中间层与最终层的表示线性度，并基于发现探索针对中间层的微调策略，以改善模型对视觉文档理解任务的内部信息编码。</p>
+<p><strong>Result:</strong> 实验发现内部表示与生成响应之间存在明显差距，且解决VDU任务所需信息在中间层比最终层编码得更线性；针对中间层的微调策略同时提高了线性探测准确率和响应准确率，并缩小了内部表示与生成响应之间的差距。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了LVLM在视觉文档理解任务中内部表示与外部表现的不一致性，表明中间层编码了更本质的任务相关信息，针对中间层的微调是改善模型性能的有效策略，为理解大型多模态模型的内部工作机制提供了新视角。</p>
+<hr />
+<h4 id="abstract_13">📄 Abstract</h4>
+<p>Visual document understanding (VDU) is a challenging task for large vision language models (LVLMs), requiring the integration of visual perception, text recognition, and reasoning over structured layouts. Although recent LVLMs have shown progress on VDU benchmarks, their performance is typically evaluated based on generated responses, which may not necessarily reflect whether the model has actually captured the required information internally. In this paper, we investigate how information required to solve VDU tasks is represented across different layers of LLMs within LVLMs using linear probing. Our study reveals that (1) there is a clear gap between internal representations and generated responses, and (2) information required to solve the task is often encoded more linearly from intermediate layers than from the final layer. Motivated by these findings, we explore fine-tuning strategies that target intermediate layers. Experiments show that fine-tuning intermediate layers improves both linear probing accuracy and response accuracy while narrowing the gap.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="15-tablevision-a-large-scale-benchmark-for-spatially-grounded-reasoning-over-complex-hierarchical-tables">[15] <a href="https://arxiv.org/abs/2604.03660">TableVision: A Large-Scale Benchmark for Spatially Grounded Reasoning over Complex Hierarchical Tables</a></h3>
+<p><em>Xiaoyu Chen, Lu Dai, Hanqing Wang, Zhuoyu Li, Wenbin Dai, Yanzong Zheng, Zhenggang Xia, Junyong Lin, Hui Xiong</em></p>
+<h4 id="tldr_14">🧩 TL;DR</h4>
+<p>本文提出了TableVision，一个用于空间感知表格推理的大规模轨迹感知基准测试，通过显式空间约束解决多模态大语言模型在处理复杂分层表格时的感知瓶颈问题，显著提升了推理性能。</p>
+<hr />
+<h4 id="detailed-summary_14">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在表格理解方面取得了进展，但在处理具有分层布局的复杂表格时推理性能仍然有限。本文通过定量分析识别出一个关键的感知瓶颈：随着任务复杂度增加，涉及的离散视觉区域数量不成比例地增长，导致模型在隐式生成过程中难以维持准确的空间注意力，产生内部"感知过载"问题。</p>
+<p><strong>Method:</strong> 本文引入TableVision，一个大规模、轨迹感知的基准测试，专为空间基础推理设计。该基准将表格任务分层为三个认知级别（感知、推理和分析），涵盖13个子类别，并通过基于渲染的确定性基础管道，将多步逻辑推导与像素级空间真实值显式耦合，包含6,799个高保真推理轨迹。此外，提出了两阶段解耦框架来应对感知瓶颈。</p>
+<p><strong>Result:</strong> 实证结果表明，显式空间约束显著恢复了多模态大语言模型的推理潜力。通过诊断性探测支持，两阶段解耦框架在测试集上实现了稳健的12.3%整体准确率提升。TableVision为评估模型在复杂表格理解中的表现提供了严格的测试平台。</p>
+<p><strong>Conclusion:</strong> TableVision不仅为文档理解中的感知与逻辑协同提供了新的研究视角，还通过显式空间约束机制有效缓解了多模态大语言模型在处理复杂表格时的感知瓶颈。该研究强调了在表格推理任务中结合空间基础信息的重要性，为未来多模态文档理解系统的发展提供了重要参考框架和评估标准。</p>
+<hr />
+<h4 id="abstract_14">📄 Abstract</h4>
+<p>Structured tables are essential for conveying high-density information in professional domains such as finance, healthcare, and scientific research. Despite the progress in Multimodal Large Language Models (MLLMs), reasoning performance remains limited for complex tables with hierarchical layouts. In this paper, we identify a critical Perception Bottleneck through quantitative analysis. We find that as task complexity scales, the number of involved discrete visual regions increases disproportionately. This processing density leads to an internal "Perceptual Overload," where MLLMs struggle to maintain accurate spatial attention during implicit generation. To address this bottleneck, we introduce TableVision, a large-scale, trajectory-aware benchmark designed for spatially grounded reasoning. TableVision stratifies tabular tasks into three cognitive levels (Perception, Reasoning, and Analysis) across 13 sub-categories. By utilizing a rendering-based deterministic grounding pipeline, the dataset explicitly couples multi-step logical deductions with pixel-perfect spatial ground truths, comprising 6,799 high-fidelity reasoning trajectories. Our empirical results, supported by diagnostic probing, demonstrate that explicit spatial constraints significantly recover the reasoning potential of MLLMs. Furthermore, our two-stage decoupled framework achieves a robust 12.3% overall accuracy improvement on the test set. TableVision provides a rigorous testbed and a fresh perspective on the synergy between perception and logic in document understanding.</p>
+<h3 id="16-feynmanbench-benchmarking-multimodal-llms-on-diagrammatic-physics-reasoning">[16] <a href="https://arxiv.org/abs/2604.03893">FeynmanBench: Benchmarking Multimodal LLMs on Diagrammatic Physics Reasoning</a></h3>
+<p><em>Zeyu Wang, Xiaogang Li, Peiyao Xiao, Qinhao Kong, Ben Wang, Chengliang Xu, Zichao Chen, Bing Zhao, Hu Wei</em></p>
+<h4 id="tldr_15">🧩 TL;DR</h4>
+<p>该研究提出了FeynmanBench，这是首个专注于费曼图任务的基准测试，旨在评估AI在多步图推理方面的能力，包括满足守恒定律、识别图拓扑结构以及在图表示与代数表示之间进行转换。</p>
+<hr />
+<h4 id="detailed-summary_15">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在科学任务中展现出潜力，但现有基准测试主要关注局部信息提取，而非形式化科学符号中固有的全局结构逻辑。该研究旨在填补这一空白，通过创建专门针对费曼图推理的基准测试，评估AI在满足物理约束和全局拓扑条件方面的能力。</p>
+<p><strong>Method:</strong> 研究开发了FeynmanBench基准测试，包含一个自动化流水线，能够生成多样化的费曼图以及可验证的拓扑标注和振幅结果。该数据库涵盖标准模型的电磁、弱和强相互作用，包含超过100种不同类型和2000多个任务，专门设计用于评估多步图推理能力。</p>
+<p><strong>Result:</strong> 在最先进的多模态大语言模型上的实验揭示了系统性的失败模式，包括物理约束的不稳定执行和全局拓扑条件的违反。这些结果表明当前模型在满足费曼图推理所需的严格物理和数学约束方面存在显著不足。</p>
+<p><strong>Conclusion:</strong> FeynmanBench提供了一个逻辑严谨的测试平台，用于评估AI是否能够有效参与科学发现，特别是在理论物理领域。该研究强调了基于物理基础的视觉推理基准测试的必要性，并揭示了当前AI模型在科学符号理解方面的局限性。</p>
+<hr />
+<h4 id="abstract_15">📄 Abstract</h4>
+<p>Breakthroughs in frontier theory often depend on the combination of concrete diagrammatic notations with rigorous logic. While multimodal large language models (MLLMs) show promise in general scientific tasks, current benchmarks often focus on local information extraction rather than the global structural logic inherent in formal scientific notations. In this work, we introduce FeynmanBench, the first benchmark centered on Feynman diagram tasks. It is designed to evaluate AI's capacity for multistep diagrammatic reasoning, which requires satisfying conservation laws and symmetry constraints, identifying graph topology, converting between diagrammatic and algebraic representations, and constructing scattering amplitudes under specific conventions and gauges. To support large-scale and reproducible evaluation, we developed an automated pipeline producing diverse Feynman diagrams along with verifiable topological annotations and amplitude results. Our database spans the electromagnetic, weak, and strong interactions of the Standard Model, encompasses over 100 distinct types and includes more than 2000 tasks. Experiments on state-of-the-art MLLMs reveal systematic failure modes, including unstable enforcement of physical constraints and violations of global topological conditions, highlighting the need for physics-grounded benchmarks for visual reasoning over scientific notation. FeynmanBench provides a logically rigorous test of whether AI can effectively engage in scientific discovery, particularly within theoretical physics.</p>
+<h3 id="17-scalable-and-explainable-learner-video-interaction-prediction-using-multimodal-large-language-models">[17] <a href="https://arxiv.org/abs/2604.04482">Scalable and Explainable Learner-Video Interaction Prediction using Multimodal Large Language Models</a></h3>
+<p><em>Dominik Glandorf, Fares Fawzi, Tanja Käser</em></p>
+<h4 id="tldr_16">🧩 TL;DR</h4>
+<p>本研究提出了一种可扩展且可解释的预测管道，利用多模态大语言模型从视频内容中预测学习者观看控制行为，作为认知负荷的代理指标，为教育视频设计提供预筛选工具。</p>
+<hr />
+<h4 id="detailed-summary_16">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前缺乏可扩展且可解释的预测模型来预测学习者在教育视频中的控制行为，这些行为反映了认知加工过程和教学设计质量，限制了教师在部署前预判此类行为的能力。</p>
+<p><strong>Method:</strong> 该方法利用多模态大语言模型计算短视频片段的嵌入表示，训练神经网络分类器识别时间细粒度的交互峰值；基于多媒体学习理论，使用GPT-5对视频片段特征进行编码，并通过概念激活向量解释模型预测。</p>
+<p><strong>Result:</strong> 在来自66门在线课程的7700万个视频控制事件上评估表明，基于MLLM嵌入的分类器能可靠预测交互峰值，泛化到未见过的学术领域，并编码了可解释的、与理论相关的教学概念。</p>
+<p><strong>Conclusion:</strong> 研究证明了成本效益高、可解释的教育视频设计预筛选的可行性，为大规模实证检验多媒体学习理论开辟了新机会，提供了基于理论的教学设计质量评估工具。</p>
+<hr />
+<h4 id="abstract_16">📄 Abstract</h4>
+<p>Learners' use of video controls in educational videos provides implicit signals of cognitive processing and instructional design quality, yet the lack of scalable and explainable predictive models limits instructors' ability to anticipate such behavior before deployment. We propose a scalable, interpretable pipeline for predicting population-level watching, pausing, skipping, and rewinding behavior as proxies for cognitive load from video content alone. Our approach leverages multimodal large language models (MLLMs) to compute embeddings of short video segments and trains a neural classifier to identify temporally fine-grained interaction peaks. Drawing from multimedia learning theory on instructional design for optimal cognitive load, we code features of the video segments using GPT-5 and employ them as a basis for interpreting model predictions via concept activation vectors. We evaluate our pipeline on 77 million video control events from 66 online courses. Our findings demonstrate that classifiers based on MLLM embeddings reliably predict interaction peaks, generalize to unseen academic fields, and encode interpretable, theory-relevant instructional concepts. Overall, our results show the feasibility of cost-efficient, interpretable pre-screening of educational video design and open new opportunities to empirically examine multimedia learning theory at scale.</p>
+  </article>
+</body>
+</html>
