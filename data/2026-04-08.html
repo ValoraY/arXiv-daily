@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-08.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 10]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 2]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-generative-ai-for-video-trailer-synthesis-from-extractive-heuristics-to-autoregressive-creativity">[1] <a href="https://arxiv.org/abs/2604.04953">Generative AI for Video Trailer Synthesis: From Extractive Heuristics to Autoregressive Creativity</a></h3>
+<p><em>Abhishek Dharmaratnakar, Srivaths Ranganathan, Debanshu Das, Anushree Sinha</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文对自动视频预告片生成领域进行了全面的技术综述，重点分析了从启发式提取方法向深度生成合成范式的转变，并提出了基础模型时代AI驱动预告片生成的新分类体系。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 自动视频预告片生成领域正在经历深刻的范式转变，从基于启发式的提取方法转向深度生成合成，但缺乏对这一技术演进过程的系统性综述和对生成技术（特别是大型语言模型和扩散模型）的全面技术回顾。</p>
+<p><strong>Method:</strong> 本文采用系统性文献综述方法，重点分析生成技术包括自回归Transformer、LLM编排的流水线以及文本到视频基础模型（如OpenAI的Sora和Google的Veo），同时考察从图卷积网络到预告片生成Transformer的架构演进。</p>
+<p><strong>Result:</strong> 通过综合分析近期文献，本文建立了基础模型时代AI驱动预告片生成的新分类体系，揭示了技术从低层次特征工程和规则启发式向神经合成和语义重建的演进路径，并评估了自动化内容生成对用户生成内容平台的经济影响。</p>
+<p><strong>Conclusion:</strong> 研究表明未来的宣传视频系统将超越提取式选择，转向可控的生成式编辑和预告片的语义重建，同时提出了高保真神经合成带来的伦理挑战，为自动视频预告片生成领域提供了系统性的技术框架和发展方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>The domain of automatic video trailer generation is currently undergoing a profound paradigm shift, transitioning from heuristic-based extraction methods to deep generative synthesis. While early methodologies relied heavily on low-level feature engineering, visual saliency, and rule-based heuristics to select representative shots, recent advancements in Large Language Models (LLMs), Multimodal Large Language Models (MLLMs), and diffusion-based video synthesis have enabled systems that not only identify key moments but also construct coherent, emotionally resonant narratives. This survey provides a comprehensive technical review of this evolution, with a specific focus on generative techniques including autoregressive Transformers, LLM-orchestrated pipelines, and text-to-video foundation models like OpenAI's Sora and Google's Veo. We analyze the architectural progression from Graph Convolutional Networks (GCNs) to Trailer Generation Transformers (TGT), evaluate the economic implications of automated content velocity on User-Generated Content (UGC) platforms, and discuss the ethical challenges posed by high-fidelity neural synthesis. By synthesizing insights from recent literature, this report establishes a new taxonomy for AI-driven trailer generation in the era of foundation models, suggesting that future promotional video systems will move beyond extractive selection toward controllable generative editing and semantic reconstruction of trailers.</p>
+<h3 id="2-videostir-understanding-long-videos-via-spatio-temporally-structured-and-intent-aware-rag">[2] <a href="https://arxiv.org/abs/2604.05418">VideoStir: Understanding Long Videos via Spatio-Temporally Structured and Intent-Aware RAG</a></h3>
+<p><em>Honghao Fu, Miao Xu, Yiwei Wang, Dailing Zhang, Liu Jun, Yujun Cai</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了VideoStir，一种结构化且意图感知的长视频检索增强生成框架，通过时空图表示和多跳检索解决现有方法忽略视频结构且依赖显式语义匹配的问题。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有长视频多模态大语言模型受限于上下文窗口长度，而检索增强生成方法通常将视频扁平化为独立片段，破坏了固有的时空结构，并且依赖显式语义匹配，可能遗漏与查询意图隐式相关的线索。</p>
+<p><strong>Method:</strong> VideoStir首先将视频在片段级别构建为时空图，然后执行多跳检索以聚合跨距离但上下文相关事件的证据，并引入基于MLLM的意图相关性评分器，根据帧与查询推理意图的对齐程度进行检索，为此还构建了IR-600K大规模数据集用于学习帧-查询意图对齐。</p>
+<p><strong>Result:</strong> 实验表明VideoStir在不依赖辅助信息的情况下与最先进的基线方法具有竞争力，验证了从扁平化语义匹配转向结构化意图感知推理的长视频RAG方法的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究展示了将长视频检索增强生成从扁平化语义匹配转向结构化意图感知推理的前景，通过时空图表示和多跳检索机制更好地保留了视频的时空结构，同时意图感知评分器能够捕捉隐式相关的视觉证据。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Scaling multimodal large language models (MLLMs) to long videos is constrained by limited context windows. While retrieval-augmented generation (RAG) is a promising remedy by organizing query-relevant visual evidence into a compact context, most existing methods (i) flatten videos into independent segments, breaking their inherent spatio-temporal structure, and (ii) depend on explicit semantic matching, which can miss cues that are implicitly relevant to the query's intent. To overcome these limitations, we propose VideoStir, a structured and intent-aware long-video RAG framework. It firstly structures a video as a spatio-temporal graph at clip level, and then performs multi-hop retrieval to aggregate evidence across distant yet contextually related events. Furthermore, it introduces an MLLM-backed intent-relevance scorer that retrieves frames based on their alignment with the query's reasoning intent. To support this capability, we curate IR-600K, a large-scale dataset tailored for learning frame-query intent alignment. Experiments show that VideoStir is competitive with state-of-the-art baselines without relying on auxiliary information, highlighting the promise of shifting long-video RAG from flattened semantic matching to structured, intent-aware reasoning. Codes and checkpoints are available at Github.</p>
+<h3 id="3-lightweight-multimodal-adaptation-of-vision-language-models-for-species-recognition-and-habitat-context-interpretation-in-drone-thermal-imagery">[3] <a href="https://arxiv.org/abs/2604.06124">Lightweight Multimodal Adaptation of Vision Language Models for Species Recognition and Habitat Context Interpretation in Drone Thermal Imagery</a></h3>
+<p><em>Hao Chen, Fang Qiu, Fangchao Dong, Defei Yang, Eve Bohnett, Li An</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本研究提出了一种轻量级多模态适应框架，用于弥合RGB预训练视觉语言模型与热红外图像之间的表示差距，并通过无人机采集的真实数据集验证了其在实际生态监测中的实用性。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 该研究旨在解决RGB预训练的视觉语言模型与热红外图像之间的表示差距问题，特别是在生态监测应用中，需要将现有的强大视觉语言模型有效迁移到热红外无人机图像分析领域，以实现从物体级识别到栖息地环境解释的扩展。</p>
+<p><strong>Method:</strong> 研究提出了一个轻量级多模态适应框架，通过多模态投影器对齐技术将RGB视觉表示的信息迁移到热辐射输入，使用无人机采集的热红外数据集对三个代表性模型进行微调，包括InternVL3-8B-Instruct、Qwen2.5-VL-7B-Instruct和Qwen3-VL-8B-Instruct，并在闭集和开集提示条件下对物种识别和实例计数任务进行基准测试。</p>
+<p><strong>Result:</strong> 在测试模型中，采用开集提示的Qwen3-VL-8B-Instruct取得了最佳整体性能，在鹿、犀牛和大象识别上的F1分数分别为0.935、0.915和0.968，在±1计数精度上分别为0.779、0.982和1.000，此外，结合热红外与同时采集的RGB图像使模型能够生成包括土地覆盖特征、关键景观要素和可见人为干扰在内的栖息地环境信息。</p>
+<p><strong>Conclusion:</strong> 研究结果表明，基于投影器的轻量级适应为将RGB预训练的视觉语言模型迁移到热红外无人机图像提供了一条有效且实用的途径，显著扩展了这些模型在生态监测中的应用范围，从物体级识别提升到栖息地环境解释，为多模态生态监测系统的发展提供了重要技术支撑。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>This study proposes a lightweight multimodal adaptation framework to bridge the representation gap between RGB-pretrained VLMs and thermal infrared imagery, and demonstrates its practical utility using a real drone-collected dataset. A thermal dataset was developed from drone-collected imagery and was used to fine-tune VLMs through multimodal projector alignment, enabling the transfer of information from RGB-based visual representations to thermal radiometric inputs. Three representative models, including InternVL3-8B-Instruct, Qwen2.5-VL-7B-Instruct, and Qwen3-VL-8B-Instruct, were benchmarked under both closed-set and open-set prompting conditions for species recognition and instance enumeration. Among the tested models, Qwen3-VL-8B-Instruct with open-set prompting achieved the best overall performance, with F1 scores of 0.935 for deer, 0.915 for rhino, and 0.968 for elephant, and within-1 enumeration accuracies of 0.779, 0.982, and 1.000, respectively. In addition, combining thermal imagery with simultaneously collected RGB imagery enabled the model to generate habitat-context information, including land-cover characteristics, key landscape features, and visible human disturbance. Overall, the findings demonstrate that lightweight projector-based adaptation provides an effective and practical route for transferring RGB-pretrained VLMs to thermal drone imagery, expanding their utility from object-level recognition to habitat-context interpretation in ecological monitoring.</p>
+<h3 id="4-rcp-representation-consistency-pruner-for-mitigating-distribution-shift-in-large-vision-language-models">[4] <a href="https://arxiv.org/abs/2604.04972">RCP: Representation Consistency Pruner for Mitigating Distribution Shift in Large Vision-Language Models</a></h3>
+<p><em>Jianwei Zhang, Chaoning Zhang, Sihan Cao, Wang Liu, Pengcheng Zheng, Jiaxin Huang, Caiyan Qin, Yalan Ye, Wei Dong, Yang Yang</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了表示一致性剪枝器（RCP），一种新颖的视觉语言模型推理加速框架，通过累积视觉令牌剪枝和延迟修复机制，在保持性能的同时大幅减少计算开销。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型因处理大量视觉令牌而产生高昂推理成本，现有剪枝方法常导致显著性能下降，因为不可逆的令牌移除会引起隐藏状态分布偏移，偏离预训练的全令牌机制。</p>
+<p><strong>Method:</strong> RCP框架集成了累积视觉令牌剪枝与延迟修复机制，引入跨注意力剪枝器利用LLM固有注意力预测累积掩码，确保跨层一致单调的令牌减少；设计延迟修复适配器缓存剪除令牌本质，通过FiLM调制应用于答案生成令牌，并使用修复损失匹配剪枝表示与全令牌教师的一阶和二阶统计量。</p>
+<p><strong>Result:</strong> 在LVLM基准测试中，RCP可移除高达88.9%的视觉令牌，减少高达85.7%的FLOPs，仅带来边际平均精度下降，并在多个广泛使用的基准上优于无需微调原始模型的先前方法。</p>
+<p><strong>Conclusion:</strong> 该研究表明通过累积剪枝与延迟修复的结合，可以在保持表示分布一致性的同时实现高效的视觉令牌减少，为视觉语言模型的高效推理提供了轻量级可插拔解决方案，仅需训练轻量模块即可在推理时物理丢弃令牌。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) suffer from prohibitive inference costs due to the massive number of visual tokens processed by the language decoder. Existing pruning methods often lead to significant performance degradation because the irreversible removal of visual tokens causes a distribution shift in the hidden states that deviates from the pre-trained full-token regime. To address this, we propose Representation Consistency Pruner, which we refer to as RCP, as a novel framework that integrates cumulative visual token pruning with a delayed repair mechanism. Specifically, we introduce a cross-attention pruner that leverages the intrinsic attention of the LLM as a baseline to predict cumulative masks, ensuring consistent and monotonic token reduction across layers. To compensate for the resulting information loss, we design a delayed repair adapter denoted as DRA, which caches the essence of pruned tokens and applies FiLM-based modulation specifically to the answer generation tokens. We employ a repair loss to match the first and second-order statistics of the pruned representations with a full-token teacher. RCP is highly efficient because it trains only lightweight plug-in modules while allowing for physical token discarding at inference. Extensive experiments on LVLM benchmarks demonstrate that RCP removes up to 88.9\% of visual tokens and reduces FLOPs by up to 85.7\% with only a marginal average accuracy drop, and outperforms prior methods that avoid fine-tuning the original model on several widely used benchmarks.</p>
+<h3 id="5-mmemb-r1-reasoning-enhanced-multimodal-embedding-with-pair-aware-selection-and-adaptive-control">[5] <a href="https://arxiv.org/abs/2604.06156">MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and Adaptive Control</a></h3>
+<p><em>Yuchi Wang, Haiyang Yu, Weikang Bian, Jiefeng Long, Xiao Liang, Chao Feng, Hongsheng Li</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出MMEmb-R1，一种自适应推理的多模态嵌入框架，通过将推理建模为隐变量并采用强化学习选择性调用推理，在显著减少计算开销的同时实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型已成功应用于多模态嵌入任务，但其生成推理能力仍未得到充分利用。直接将思维链推理纳入嵌入学习面临两个基本挑战：实例级推理与成对对比监督之间的结构错位可能导致模型仅学习推理的表面格式；推理并非对所有嵌入任务都有益，强制对所有输入进行推理会引入不必要的计算和延迟，甚至可能掩盖简单案例中的显著语义信号。</p>
+<p><strong>Method:</strong> 本文提出MMEmb-R1，一种自适应推理的多模态嵌入框架。该方法将推理建模为隐变量，并引入基于对感知的推理选择机制，利用反事实干预来识别有利于查询-目标对齐的推理路径。此外，采用强化学习技术，仅在必要时选择性调用推理过程，从而优化计算效率。</p>
+<p><strong>Result:</strong> 在MMEB-V2基准测试上的实验表明，该模型仅使用40亿参数就取得了71.2分的成绩，建立了新的最先进水平。同时，该方法显著减少了推理开销和推理延迟，在保持高性能的同时实现了计算效率的大幅提升。</p>
+<p><strong>Conclusion:</strong> 该研究证明了自适应推理机制在多模态嵌入任务中的有效性，通过选择性推理调用平衡了性能与效率的权衡。该方法为多模态大语言模型的推理能力利用提供了新思路，表明并非所有输入都需要复杂推理，智能化的推理调度可以显著提升实际部署的可行性。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>MLLMs have been successfully applied to multimodal embedding tasks, yet their generative reasoning capabilities remain underutilized. Directly incorporating chain-of-thought reasoning into embedding learning introduces two fundamental challenges. First, structural misalignment between instance-level reasoning and pairwise contrastive supervision may lead to shortcut behavior, where the model merely learns the superficial format of reasoning. Second, reasoning is not universally beneficial for embedding tasks. Enforcing reasoning for all inputs may introduce unnecessary computation and latency, and can even obscure salient semantic signals for simple cases. To address these issues, we propose MMEmb-R1, an adaptive reasoning-based multimodal embedding framework. We formulate reasoning as a latent variable and introduce pair-aware reasoning selection that employs counterfactual intervention to identify reasoning paths beneficial for query-target alignment. Furthermore, we adopt reinforcement learning to selectively invoke reasoning only when necessary. Experiments on the MMEB-V2 benchmark demonstrate that our model achieves a score of 71.2 with only 4B parameters, establishing a new state-of-the-art while significantly reducing reasoning overhead and inference latency.</p>
+<h3 id="6-detailverifybench-a-benchmark-for-dense-hallucination-localization-in-long-image-captions">[6] <a href="https://arxiv.org/abs/2604.05623">DetailVerifyBench: A Benchmark for Dense Hallucination Localization in Long Image Captions</a></h3>
+<p><em>Xinran Wang, Yuxuan Zhang, Xiao Zhang, Haolong Yan, Muxi Diao, Songyu Xu, Zhonghao Yan, Hongbing Li, Kongming Liang, Zhanyu Ma</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了DetailVerifyBench，这是一个用于长图像描述中幻觉定位的严格基准，包含1000张高质量图像和细粒度标注，旨在解决现有基准在粒度和领域多样性方面的不足。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 随着多模态大语言模型的发展，图像描述已从简短句子演变为包含数百字的综合叙述，这极大地增加了幻觉检测的挑战性：模型需要在广泛上下文中精确定位特定错误片段，而不仅仅是标记响应级别的不一致性。然而，现有基准缺乏评估这种能力所需的细粒度粒度和领域多样性。</p>
+<p><strong>Method:</strong> 本文引入了DetailVerifyBench基准，包含1000张高质量图像，覆盖五个不同领域，平均描述长度超过200字，并提供了密集的token级别多类型幻觉标注。该基准专门设计用于评估长图像描述中精确幻觉定位的能力。</p>
+<p><strong>Result:</strong> DetailVerifyBench成为迄今为止长图像描述领域中幻觉精确定位最具挑战性的基准，其细粒度标注和领域多样性为评估模型在复杂叙述中的幻觉检测能力提供了严格标准。</p>
+<p><strong>Conclusion:</strong> 该研究强调了在MLLM时代需要更精细的幻觉评估工具，DetailVerifyBench填补了现有基准的空白，为开发更可靠的图像描述系统提供了重要评估框架，并推动了幻觉定位技术向更细粒度方向发展。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Accurately detecting and localizing hallucinations is a critical task for ensuring high reliability of image captions. In the era of Multimodal Large Language Models (MLLMs), captions have evolved from brief sentences into comprehensive narratives, often spanning hundreds of words. This shift exponentially increases the challenge: models must now pinpoint specific erroneous spans or words within extensive contexts, rather than merely flag response-level inconsistencies. However, existing benchmarks lack the fine granularity and domain diversity required to evaluate this capability. To bridge this gap, we introduce DetailVerifyBench, a rigorous benchmark comprising 1,000 high-quality images across five distinct domains. With an average caption length of over 200 words and dense, token-level annotations of multiple hallucination types, it stands as the most challenging benchmark for precise hallucination localization in the field of long image captioning to date. Our benchmark is available at https://zyx-hhnkh.github.io/DetailVerifyBench/.</p>
+<h3 id="7-video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">[7] <a href="https://arxiv.org/abs/2604.05015">Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</a></h3>
+<p><em>Chaoyou Fu, Haozhi Yuan, Yuhao Dong, Yi-Fan Zhang, Yunhang Shen, Xiaoxing Hu, Xueying Li, Jinsen Su, Chengwu Long, Xiaoyao Xie, Yongkang Xie, Xiawu Zheng, Xue Yang, Haoyu Cao, Yunsheng Wu, Ziwei Liu, Xing Sun, Caifeng Shan, Ran He</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出了Video-MME-v2，这是一个全面的视频理解基准测试，旨在通过渐进式三层层次结构和基于分组的非线性评估策略，严格评估模型的鲁棒性和忠实性，以解决现有基准测试饱和度与真实世界能力之间的差距。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 随着视频理解的快速发展，现有基准测试逐渐趋于饱和，暴露出排行榜分数虚高与模型真实能力之间的关键差距。为了解决这一日益扩大的鸿沟，需要建立一个能够严格评估视频理解鲁棒性和忠实性的综合基准测试。</p>
+<p><strong>Method:</strong> 本文设计了渐进式三层层次结构，逐步增加视频理解的复杂性，涵盖从多点视觉信息聚合、时序动态建模到复杂多模态推理。此外，提出了基于分组的非线性评估策略，强调相关查询间的一致性和多步推理的连贯性，仅对有效推理支持的答案给予评分。数据通过严格的人工标注流程构建，涉及12名标注者和50名独立评审员，投入3300人时并经过多达5轮质量保证。</p>
+<p><strong>Result:</strong> 广泛实验揭示了当前最佳模型Gemini-3-Pro与人类专家之间的显著差距，并发现了清晰的分层瓶颈：视觉信息聚合和时序建模中的错误会传播并限制高级推理能力。研究还发现基于思考的推理高度依赖文本线索，在字幕存在时性能提升，但在纯视觉设置中有时性能下降。</p>
+<p><strong>Conclusion:</strong> Video-MME-v2通过暴露现有模型的局限性，为下一代视频多模态大语言模型的发展建立了严格的新测试平台。该基准测试揭示了模型能力的分层瓶颈，并强调了推理过程对文本线索的依赖性，为未来视频理解研究提供了重要的评估框架和方向指引。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>With the rapid advancement of video understanding, existing benchmarks are becoming increasingly saturated, exposing a critical discrepancy between inflated leaderboard scores and real-world model capabilities. To address this widening gap, we introduce Video-MME-v2, a comprehensive benchmark designed to rigorously evaluate the robustness and faithfulness of video understanding. To systematically evaluate model capabilities, we design a \textbf{progressive tri-level hierarchy} that incrementally increases the complexity of video comprehension, ranging from multi-point visual information aggregation, to temporal dynamics modeling, and ultimately to complex multimodal reasoning. Besides, in contrast to conventional per-question accuracy, we propose a \textbf{group-based non-linear evaluation} strategy that enforces both consistency across related queries and coherence in multi-step reasoning. It penalizes fragmented or guess-based correctness and assigns credit only to answers supported by valid reasoning. To guarantee data quality, Video-MME-v2 is constructed through a rigorously controlled human annotation pipeline, involving 12 annotators and 50 independent reviewers. Backed by \textbf{3,300 human-hours} and up to \textbf{5 rounds} of quality assurance, Video-MME-v2 aims to serve as one of the most authoritative video benchmarks. Extensive experiments reveal a substantial gap between current best model Gemini-3-Pro and human experts, and uncover a clear hierarchical bottleneck where errors in visual information aggregation and temporal modeling propagate to limit high-level reasoning. We further find that thinking-based reasoning is highly dependent on textual cues, improving performance with subtitles but sometimes degrading it in purely visual settings. By exposing these limitations, Video-MME-v2 establishes a demanding new testbed for the development of next-generation video MLLMs.</p>
+<h3 id="8-integration-of-object-detection-and-small-vlms-for-construction-safety-hazard-identification">[8] <a href="https://arxiv.org/abs/2604.05210">Integration of Object Detection and Small VLMs for Construction Safety Hazard Identification</a></h3>
+<p><em>Muhammad Adil, Mehmood Ahmed, Muhammad Aqib, Vicente A. Gonzalez, Gaang Lee, Qipei Mei</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本研究提出了一种检测引导的小型视觉语言模型框架，通过集成目标检测与多模态推理来解决建筑工地危险识别中效率与准确性的权衡问题，显著提升了小型模型在复杂场景下的危险检测性能。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在建筑危险识别中具有强大的上下文推理能力，但计算需求高限制了其在近实时检测中的应用；而小型视觉语言模型虽然效率更高，但在分析复杂建筑场景时往往存在准确性下降和幻觉问题，需要在效率与准确性之间找到平衡。</p>
+<p><strong>Method:</strong> 本研究提出了一个检测引导的小型视觉语言模型框架，首先使用YOLOv11n检测器定位场景中的工人和建筑机械，然后将检测到的实体嵌入结构化提示中，引导小型视觉语言模型进行空间基础的危险评估；该框架评估了六种小型视觉语言模型，包括Gemma-3 4B、Qwen-3-VL 2B/4B、InternVL-3 1B/2B和SmolVLM-2B，在零样本设置下进行性能测试。</p>
+<p><strong>Result:</strong> 所提出的方法在所有模型中一致提升了危险检测性能，最佳模型Gemma-3 4B的F1分数达到50.6%，相比基线配置的34.5%有显著提升；解释质量也大幅改善，BERTScore F1从0.61提高到0.82；尽管集成了目标检测，该框架在推理过程中仅增加每图像2.5毫秒的额外开销，保持了高效性。</p>
+<p><strong>Conclusion:</strong> 研究表明，将轻量级目标检测与小型视觉语言模型推理相结合，为上下文感知的建筑安全危险检测提供了有效且高效的解决方案；该方法在保持实时性能的同时显著提升了小型模型在复杂场景下的准确性和解释能力，为实际部署提供了可行的技术路径。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Accurate and timely identification of construction hazards around workers is essential for preventing workplace accidents. While large vision-language models (VLMs) demonstrate strong contextual reasoning capabilities, their high computational requirements limit their applicability in near real-time construction hazard detection. In contrast, small vision-language models (sVLMs) with fewer than 4 billion parameters offer improved efficiency but often suffer from reduced accuracy and hallucination when analyzing complex construction scenes. To address this trade-off, this study proposes a detection-guided sVLM framework that integrates object detection with multimodal reasoning for contextual hazard identification. The framework first employs a YOLOv11n detector to localize workers and construction machinery within the scene. The detected entities are then embedded into structured prompts to guide the reasoning process of sVLMs, enabling spatially grounded hazard assessment. Within this framework, six sVLMs (Gemma-3 4B, Qwen-3-VL 2B/4B, InternVL-3 1B/2B, and SmolVLM-2B) were evaluated in zero-shot settings on a curated dataset of construction site images with hazard annotations and explanatory rationales. The proposed approach consistently improved hazard detection performance across all models. The best-performing model, Gemma-3 4B, achieved an F1-score of 50.6%, compared to 34.5% in the baseline configuration. Explanation quality also improved significantly, with BERTScore F1 increasing from 0.61 to 0.82. Despite incorporating object detection, the framework introduces minimal overhead, adding only 2.5 ms per image during inference. These results demonstrate that integrating lightweight object detection with small VLM reasoning provides an effective and efficient solution for context-aware construction safety hazard detection.</p>
+<h3 id="9-id-selection-importance-diversity-based-visual-token-selection-for-efficient-lvlm-inference">[9] <a href="https://arxiv.org/abs/2604.05601">ID-Selection: Importance-Diversity Based Visual Token Selection for Efficient LVLM Inference</a></h3>
+<p><em>Zhaohong Huang, Wenjing Liu, Yuxin Zhang, Fei Chao, Rongrong Ji</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出ID-Selection，一种用于大型视觉语言模型高效推理的视觉令牌选择策略，通过重要性估计与多样性感知迭代选择的耦合，在极端剪枝比例下实现性能与效率的平衡。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视觉令牌剪枝方法在平衡令牌重要性与多样性方面存在局限：基于重要性的方法倾向于保留冗余令牌，而基于多样性的方法可能忽略信息丰富的令牌，这种权衡在高剪枝比例下尤为关键，因为仅保留少量视觉令牌对模型性能至关重要。</p>
+<p><strong>Method:</strong> ID-Selection的核心思想是将重要性估计与多样性感知迭代选择相结合：首先为每个令牌分配重要性分数，然后逐个选择高分令牌，同时逐步抑制相似令牌的分数，从而在统一的选择过程中既保留信息丰富的令牌又减少冗余。</p>
+<p><strong>Result:</strong> 在5个LVLM主干和16个主要基准上的广泛实验表明，ID-Selection在性能和效率方面始终表现优异，特别是在极端剪枝比例下。例如，在LLaVA-1.5-7B上，ID-Selection剪除了97.2%的视觉令牌（仅保留16个令牌），推理FLOPs减少超过97%，同时保持了91.8%的原始性能，且无需额外训练。</p>
+<p><strong>Conclusion:</strong> ID-Selection提供了一种简单而有效的令牌选择策略，解决了视觉令牌剪枝中重要性与多样性的权衡问题，为大型视觉语言模型的高效推理提供了实用解决方案，特别是在资源受限场景下具有重要应用价值。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Recent advances have explored visual token pruning to accelerate the inference of large vision-language models (LVLMs). However, existing methods often struggle to balance token importance and diversity: importance-based methods tend to retain redundant tokens, whereas diversity-based methods may overlook informative ones. This trade-off becomes especially problematic under high reduction ratios, where preserving only a small subset of visual tokens is critical. To address this issue, we propose ID-Selection, a simple yet effective token selection strategy for efficient LVLM inference. The key idea is to couple importance estimation with diversity-aware iterative selection: each token is first assigned an importance score, after which high-scoring tokens are selected one by one while the scores of similar tokens are progressively suppressed. In this way, ID-Selection preserves informative tokens while reducing redundancy in a unified selection process. Extensive experiments across 5 LVLM backbones and 16 main benchmarks demonstrate that ID-Selection consistently achieves superior performance and efficiency, especially under extreme pruning ratios. For example, on LLaVA-1.5-7B, ID-Selection prunes 97.2% of visual tokens, retaining only 16 tokens, while reducing inference FLOPs by over 97% and preserving 91.8% of the original performance, all without additional training.</p>
+<h3 id="10-let-geometry-guide-layer-wise-unrolling-of-geometric-priors-in-multimodal-llms">[10] <a href="https://arxiv.org/abs/2604.05695">Let Geometry GUIDE: Layer-wise Unrolling of Geometric Priors in Multimodal LLMs</a></h3>
+<p><em>Chongyu Wang, Ting Huang, Chunyu Sun, Xinyu Ning, Di Wang, Hao Tang</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出GUIDE框架，一种渐进式几何先验注入方法，通过在多模态大语言模型的早期层中逐步融合多粒度几何特征，显著提升了模型在复杂空间推理任务中的物理空间感知能力。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在2D视觉任务中表现优异，但在处理真实世界视觉流时物理空间感知能力有限。现有几何感知MLLM主要受限于单深度层提取和输入级融合的范式，这种扁平化融合导致局部几何细节丢失，并在早期层引发语义不匹配问题。</p>
+<p><strong>Method:</strong> 提出GUIDE框架，在几何编码器内进行多级采样，全面捕获从局部边缘到全局拓扑的多粒度特征。随后，将这些多级几何先验逐步与MLLM的早期层进行严格对齐和融合，引导模型渐进学习2D到3D的过渡过程。此外，引入上下文感知门控机制，使模型能够基于当前语义获取必要的空间线索，最大化空间先验的利用效率并有效抑制冗余几何噪声。</p>
+<p><strong>Result:</strong> 大量实验表明，GUIDE在多个复杂空间推理和感知任务上显著优于现有基线方法，为将3D几何先验整合到大型模型中建立了新的范式。</p>
+<p><strong>Conclusion:</strong> 该研究突破了现有几何感知MLLM的瓶颈，通过渐进式多粒度几何先验注入框架，实现了更精细的空间感知能力。GUIDE的设计为大型模型整合3D几何信息提供了创新方法，通过上下文感知门控机制有效平衡了空间线索利用与噪声抑制，为未来多模态空间推理研究开辟了新方向。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have achieved remarkable progress in 2D visual tasks but still exhibit limited physical spatial awareness when processing real-world visual streams. Recently, feed-forward geometric foundation models, which implicitly extract geometric priors, have provided a new pathway to address this issue. However, existing geometry-aware MLLMs are predominantly constrained by the paradigm of single deep-layer extraction and input-level fusion. This flattened fusion leads to the loss of local geometric details and causes semantic mismatches in the early layers. To break this bottleneck, we propose GUIDE (Geometric Unrolling Inside MLLM Early-layers), a progressive geometric priors injection framework. GUIDE performs multi-level sampling within the geometric encoder, comprehensively capturing multi-granularity features ranging from local edges to global topologies. Subsequently, we rigorously align and fuse these multi-level geometric priors step-by-step with the early layers of the MLLM. Building upon the injection of multi-granularity geometric information, this design guides the model to progressively learn the 2D-to-3D transitional process. Furthermore, we introduce a context-aware gating that enables the model to fetch requisite spatial cues based on current semantics, thereby maximizing the utilization efficiency of spatial priors and effectively suppressing redundant geometric noise. Extensive experiments demonstrate that GUIDE significantly outperforms existing baselines on multiple complex spatial reasoning and perception tasks, establishing a novel paradigm for integrating 3D geometric priors into large models.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="11-efficient-inference-for-large-vision-language-models-bottlenecks-techniques-and-prospects">[11] <a href="https://arxiv.org/abs/2604.05546">Efficient Inference for Large Vision-Language Models: Bottlenecks, Techniques, and Prospects</a></h3>
+<p><em>Jun Zhang, Yicheng Ji, Feiyang Ren, Yihang Li, Bowen Zeng, Zonghao Chen, Ke Chen, Lidan Shou, Gang Chen, Huan Li</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>该研究系统性地分析了大型视觉语言模型中的视觉令牌主导效率瓶颈，提出了基于推理生命周期的分类框架，并揭示了编码、预填充和解码阶段的关键效率权衡，为社区提供了结构化分析工具和未来研究方向。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在图像和视频推理方面表现出色，但其推理效率受到视觉令牌主导的系统性障碍限制，这种开销源于高分辨率特征提取、二次注意力缩放和内存带宽约束之间的多机制相互作用，现有研究缺乏对端到端推理流程中上游决策如何决定下游瓶颈的系统分析。</p>
+<p><strong>Method:</strong> 研究提出了围绕推理生命周期的系统性分类法，包括编码、预填充和解码三个阶段，通过解耦效率景观为信息密度塑造、长上下文注意力管理和内存限制克服三个轴，分析孤立优化如何组合以导航视觉保真度与系统效率之间的权衡，并包含文献库软件快照作为社区维护的活资源。</p>
+<p><strong>Result:</strong> 研究揭示了计算受限的视觉编码、大规模上下文密集预填充以及带宽受限解码中的"视觉内存墙"等关键瓶颈，通过结构化分析展示了上游决策如何决定下游效率约束，并基于初步实证洞察提出了四个未来前沿方向。</p>
+<p><strong>Conclusion:</strong> 该工作为LVLM效率优化提供了系统性框架，强调端到端管道分析的重要性，提出的四个未来方向包括基于功能单元敏感性的混合压缩、具有宽松验证的模态感知解码、流连续性的渐进状态管理以及通过硬件算法协同设计的阶段解耦服务，为社区提供了持续更新的研究资源。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) enable sophisticated reasoning over images and videos, yet their inference is hindered by a systemic efficiency barrier known as visual token dominance. This overhead is driven by a multi-regime interplay between high-resolution feature extraction, quadratic attention scaling, and memory bandwidth constraints. We present a systematic taxonomy of efficiency techniques structured around the inference lifecycle, consisting of encoding, prefilling, and decoding. Unlike prior reviews focused on isolated optimizations, we analyze the end-to-end pipeline to reveal how upstream decisions dictate downstream bottlenecks, covering compute-bound visual encoding, the intensive prefilling of massive contexts, and the ''visual memory wall'' in bandwidth-bound decoding. By decoupling the efficiency landscape into the axes of shaping information density, managing long-context attention, and overcoming memory limits, this work provides a structured analysis of how isolated optimizations compose to navigate the trade-off between visual fidelity and system efficiency. The survey concludes by outlining four future frontiers supported by pilot empirical insights, including hybrid compression based on functional unit sensitivity, modality-aware decoding with relaxed verification, progressive state management for streaming continuity, and stage-disaggregated serving through hardware-algorithm co-design. The submitted software contains a snapshot of our literature repository, which is designed to be maintained as a living resource for the community.</p>
+<h3 id="12-see-the-forest-for-the-trees-loosely-speculative-decoding-via-visual-semantic-guidance-for-efficient-inference-of-video-llms">[12] <a href="https://arxiv.org/abs/2604.05650">See the Forest for the Trees: Loosely Speculative Decoding via Visual-Semantic Guidance for Efficient Inference of Video LLMs</a></h3>
+<p><em>Yicheng Ji, Jun Zhang, Jinpeng Chen, Cong Wang, Lidan Shou, Gang Chen, Huan Li</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文提出LVSpec，首个面向视频大语言模型的免训练宽松推测解码框架，通过识别视觉相关锚点令牌和位置偏移容忍机制，在保持模型性能的同时显著提升推理速度。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 视频大语言模型在自回归生成过程中存在高推理延迟问题，现有推测解码方法受限于严格的精确匹配规则，严重限制了加速潜力，需要开发更灵活的验证机制来提升效率。</p>
+<p><strong>Method:</strong> LVSpec采用免训练宽松推测解码框架，基于生成过程由稀疏视觉相关锚点和丰富视觉无关填充词组成的洞察，设计了轻量级视觉相关令牌识别方案来准确定位锚点，并引入位置偏移容忍机制来挽救位置不匹配但语义等价的令牌。</p>
+<p><strong>Result:</strong> 实验表明LVSpec在保持高保真度的同时实现了显著加速：在Qwen2.5-VL-32B上达到2.70倍加速，在LLaVA-OneVision-72B上达到2.94倍加速，同时保持目标模型99.8%以上的性能，相比现有免训练推测解码方法将平均接受长度和加速比分别提升了136%和35%。</p>
+<p><strong>Conclusion:</strong> 该研究证明了宽松验证机制在视频大语言模型推测解码中的有效性，通过区分视觉相关锚点和视觉无关填充词实现了性能与效率的平衡，为视频理解模型的高效推理提供了新思路，展示了免训练方法在实际部署中的潜力。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Video Large Language Models (Video-LLMs) excel in video understanding but suffer from high inference latency during autoregressive generation. Speculative Decoding (SD) mitigates this by applying a draft-and-verify paradigm, yet existing methods are constrained by rigid exact-match rules, severely limiting the acceleration potential. To bridge this gap, we propose LVSpec, the first training-free loosely SD framework tailored for Video-LLMs. Grounded in the insight that generation is governed by sparse visual-relevant anchors (mandating strictness) amidst abundant visual-irrelevant fillers (permitting loose verification), LVSpec employs a lightweight visual-relevant token identification scheme to accurately pinpoint the former. To further maximize acceptance, we augment this with a position-shift tolerant mechanism that effectively salvages positionally mismatched but semantically equivalent tokens. Experiments demonstrate that LVSpec achieves high fidelity and speed: it preserves &gt;99.8 of target performance while accelerating Qwen2.5-VL-32B by 2.70x and LLaVA-OneVision-72B by 2.94x. Notably, it boosts the mean accepted length and speedup ratio by 136% and 35% compared to SOTA training-free SD methods for Video-LLMs.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="13-thinking-diffusion-penalize-and-guide-visual-grounded-reasoning-in-diffusion-multimodal-language-models">[13] <a href="https://arxiv.org/abs/2604.05497">Thinking Diffusion: Penalize and Guide Visual-Grounded Reasoning in Diffusion Multimodal Language Models</a></h3>
+<p><em>Keuntae Kim, Mingyu Kang, Yong Suk Choi</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文针对扩散多模态大语言模型在思维链推理中过早生成答案且视觉信息利用不足的问题，提出了位置与步长惩罚和视觉推理引导两种方法，显著提升了推理性能并加速了推理过程。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 扩散多模态大语言模型在结合思维链推理时存在两个关键问题：首先，模型在非常早期的时间步就生成最终答案标记，表明其在充分推理前就确定了答案，导致推理性能下降；其次，在初始时间步中，模型对视觉提示的依赖性极小，显示出与自回归视觉语言模型根本不同的视觉信息利用模式，表明dMLLMs倾向于在未充分基于视觉输入的情况下生成过早的最终答案。</p>
+<p><strong>Method:</strong> 本文提出了两种方法来解决dMLLMs的推理问题：位置与步长惩罚在早期时间步对后续位置的标记进行惩罚，延迟过早的答案生成并鼓励跨时间步的渐进式推理；视觉推理引导受无分类器引导启发，放大视觉基础信号以增强模型与视觉证据的对齐，这两种方法共同改善了模型的推理过程。</p>
+<p><strong>Result:</strong> 在各种dMLLMs上的广泛实验表明，该方法实现了高达7.5%的准确率提升，同时相比使用四倍更多扩散步长的推理，提供了超过3倍的加速效果，显著改善了模型的推理性能和效率。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了扩散多模态大语言模型在推理过程中的独特行为模式，提出的方法有效解决了过早答案生成和视觉信息利用不足的问题，为改进扩散模型的推理能力提供了新思路，同时展示了在保持推理质量的同时显著加速推理过程的可行性。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Diffusion large language models (dLLMs) are emerging as promising alternatives to autoregressive (AR) LLMs. Recently, this paradigm has been extended to multimodal tasks, leading to the development of diffusion multimodal large language models (dMLLMs). These models are expected to retain the reasoning capabilities of LLMs while enabling faster inference through parallel generation. However, when combined with Chain-of-Thought (CoT) reasoning, dMLLMs exhibit two critical issues. First, we observe that dMLLMs often generate the final answer token at a very early timestep. This trend indicates that the model determines the answer before sufficient reasoning, leading to degraded reasoning performance. Second, during the initial timesteps, dMLLMs show minimal dependency on visual prompts, exhibiting a fundamentally different pattern of visual information utilization compared to AR vision-language models. In summary, these findings indicate that dMLLMs tend to generate premature final answers without sufficiently grounding on visual inputs. To address these limitations, we propose Position and Step Penalty (PSP) and Visual Reasoning Guidance (VRG). PSP penalizes tokens in later positions during early timesteps, delaying premature answer generation and encouraging progressive reasoning across timesteps. VRG, inspired by classifier-free guidance, amplifies visual grounding signals to enhance the model's alignment with visual evidence. Extensive experiments across various dMLLMs demonstrate that our method achieves up to 7.5% higher accuracy while delivering more than 3x speedup compared to reasoning with four times more diffusion steps.</p>
+<h3 id="14-hybridkv-hybrid-kv-cache-compression-for-efficient-multimodal-large-language-model-inference">[14] <a href="https://arxiv.org/abs/2604.05887">HybridKV: Hybrid KV Cache Compression for Efficient Multimodal Large Language Model Inference</a></h3>
+<p><em>Bowen Zeng, Feiyang Ren, Jun Zhang, Xiaoling Gu, Ke Chen, Lidan Shou, Huan Li</em></p>
+<h4 id="tldr_13">🧩 TL;DR</h4>
+<p>本文提出HybridKV，一种混合KV缓存压缩框架，通过分层预算分配和针对不同注意力头类型的差异化压缩策略，显著降低多模态大语言模型推理时的内存开销和延迟，同时保持模型性能。</p>
+<hr />
+<h4 id="detailed-summary_13">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在推理过程中面临KV缓存快速增长的问题，每个视觉输入会扩展为数千个token，导致缓存随上下文长度线性增长并持续占用GPU内存，造成高昂的内存开销和延迟。现有压缩方法虽然在不同粒度上分配固定预算，但忽略了注意力头的异构行为，未能为不同类型的头设计差异化压缩策略。</p>
+<p><strong>Method:</strong> HybridKV采用三阶段混合压缩框架：首先使用文本中心注意力将注意力头分类为静态或动态类型；然后通过自上而下的分层预算分配方案分配KV缓存预算；最后对静态头采用文本先验剪枝压缩，对动态头采用分块检索压缩，实现针对不同头类型的差异化压缩策略。</p>
+<p><strong>Result:</strong> 在11个多模态基准测试中使用Qwen2.5-VL-7B模型的实验表明，HybridKV将KV缓存内存减少了高达7.9倍，解码速度提升了1.52倍，同时相对于完整缓存模型几乎没有性能下降甚至在某些情况下表现更优。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了多模态大语言模型中注意力头的异构行为对缓存压缩的重要性，提出的混合压缩框架通过差异化策略有效平衡了内存效率与模型性能，为大规模多模态模型的高效推理提供了实用解决方案，并展示了针对不同头类型设计专门压缩方法的有效性。</p>
+<hr />
+<h4 id="abstract_13">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have advanced unified reasoning over text, images, and videos, but their inference is hindered by the rapid growth of key-value (KV) caches. Each visual input expands into thousands of tokens, causing caches to scale linearly with context length and remain resident in GPU memory throughout decoding, which leads to prohibitive memory overhead and latency even on high-end GPUs. A common solution is to compress caches under a fixed allocated budget at different granularities: token-level uniformly discards less important tokens, layer-level varies retention across layers, and head-level redistributes budgets across heads. Yet these approaches stop at allocation and overlook the heterogeneous behaviors of attention heads that require distinct compression strategies. We propose HybridKV, a hybrid KV cache compression framework that integrates complementary strategies in three stages: heads are first classified into static or dynamic types using text-centric attention; then a top-down budget allocation scheme hierarchically assigns KV budgets; finally, static heads are compressed by text-prior pruning and dynamic heads by chunk-wise retrieval. Experiments on 11 multimodal benchmarks with Qwen2.5-VL-7B show that HybridKV reduces KV cache memory by up to $7.9\times$ and achieves $1.52\times$ faster decoding, with almost no performance drop or even higher relative to the full-cache MLLM.</p>
+  </article>
+</body>
+</html>
