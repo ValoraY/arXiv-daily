@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-13.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 11]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-mariner-a-3e-driven-benchmark-for-fine-grained-perception-and-complex-reasoning-in-open-water-environments">[1] <a href="https://arxiv.org/abs/2604.08615">MARINER: A 3E-Driven Benchmark for Fine-Grained Perception and Complex Reasoning in Open-Water Environments</a></h3>
+<p><em>Xingming Liao, Ning Chen, Muying Shu, Yunpeng Yin, Peijian Zeng, Zhuowei Wang, Nankai Lin, Lianglun Cheng</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>该研究提出了MARINER基准测试，这是一个基于实体-环境-事件（3E）范式的综合性海事多模态基准，包含16,629张多源海事图像，涵盖细粒度分类、目标检测和视觉问答任务，旨在填补真实海洋场景中细粒度视觉理解和高级推理的评估空白。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现实世界开放水域环境中的细粒度视觉理解和高级推理研究因缺乏专用基准而探索不足，现有模型在复杂海洋场景中的细粒度辨别和因果推理能力存在明显局限，需要建立专门的海事多模态基准来推动相关研究发展。</p>
+<p><strong>Method:</strong> 研究提出了基于实体-环境-事件（3E）范式的MARINER基准，包含16,629张多源海事图像，涵盖63个细粒度船舶类别、多样化恶劣环境和5种典型动态海事事件，支持细粒度分类、目标检测和视觉问答三大任务，并对主流多模态大语言模型进行了系统评估。</p>
+<p><strong>Result:</strong> 实验评估显示，即使是先进的多模态大语言模型在复杂海洋场景中也难以进行细粒度辨别和因果推理，基准测试揭示了现有模型在海事多模态理解方面的显著局限性，为相关研究提供了重要的性能基线。</p>
+<p><strong>Conclusion:</strong> MARINER作为专门的海事基准填补了真实认知级海事多模态理解的评估空白，揭示了当前模型在海洋场景中的不足，将推动面向开放水域应用的鲁棒视觉语言模型的未来发展，促进海事人工智能技术的进步。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Fine-grained visual understanding and high-level reasoning in real-world open-water environments remain under-explored due to the lack of dedicated benchmarks. We introduce MARINER, a comprehensive benchmark built under the novel Entity-Environment-Event (3E) paradigm. MARINER contains 16,629 multi-source maritime images with 63 fine-grained vessel categories, diverse adverse environments, and 5 typical dynamic maritime incidents, covering fine-grained classification, object detection, and visual question answering tasks. We conduct extensive evaluations on mainstream Multimodal Large language models (MLLMs) and establish baselines, revealing that even advanced models struggle with fine-grained discrimination and causal reasoning in complex marine scenes. As a dedicated maritime benchmark, MARINER fills the gap of realistic and cognitive-level evaluation for maritime multimodal understanding, and promotes future research on robust vision-language models for open-water applications. Appendix and supplementary materials are available at https://lxixim.github.io/MARINER.</p>
+<h3 id="2-hm-bench-a-comprehensive-benchmark-for-multimodal-large-language-models-in-hyperspectral-remote-sensing">[2] <a href="https://arxiv.org/abs/2604.08884">HM-Bench: A Comprehensive Benchmark for Multimodal Large Language Models in Hyperspectral Remote Sensing</a></h3>
+<p><em>Xinyu Zhang, Zurong Mai, Qingmei Li, Zjin Liao, Yibin Wen, Yuhang Chen, Xiaoya Fan, Chan Tsz Ho, Bi Tianyuan, Haoyuan Liang, Ruifeng Su, Zihao Qian, Juepeng Zheng, Jianxi Huang, Yutong Lu, Haohuan Fu</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>该研究提出了首个专门评估多模态大语言模型在遥感高光谱图像理解能力的基准HM-Bench，包含大规模数据集和双模态评估框架，揭示了现有模型在复杂光谱空间推理任务上的显著困难。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在自然图像理解方面取得显著进展，但其在高光谱图像感知和推理方面的能力尚未得到充分探索，而HSI是遥感领域的重要模态，其高维度和复杂的光谱空间特性对主要基于RGB数据训练的模型构成了独特挑战。</p>
+<p><strong>Method:</strong> 研究提出了HM-Bench基准，包含19,337个问答对，覆盖13个任务类别，从基础感知到光谱推理；针对现有MLLMs无法原生处理原始高光谱立方体的问题，设计了双模态评估框架，将HSI数据转换为两种互补表示：基于PCA的合成图像和结构化文本报告，以系统比较不同表示对模型性能的影响。</p>
+<p><strong>Result:</strong> 对18个代表性MLLMs的广泛评估显示，现有模型在处理复杂空间-光谱推理任务时存在显著困难；实验结果进一步表明，视觉输入通常优于文本输入，强调了基于光谱空间证据的接地对于有效HSI理解的重要性。</p>
+<p><strong>Conclusion:</strong> 该研究填补了多模态大语言模型在高光谱图像理解评估方面的空白，提出的HM-Bench基准为未来研究提供了标准化评估平台；研究结果揭示了现有模型在遥感多模态理解方面的局限性，强调了开发专门处理高维光谱空间数据模型架构的必要性。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>While multimodal large language models (MLLMs) have made significant strides in natural image understanding, their ability to perceive and reason over hyperspectral image (HSI) remains underexplored, which is a vital modality in remote sensing. The high dimensionality and intricate spectral-spatial properties of HSI pose unique challenges for models primarily trained on RGB data.To address this gap, we introduce Hyperspectral Multimodal Benchmark (HM-Bench), the first benchmark designed specifically to evaluate MLLMs in HSI understanding. We curate a large-scale dataset of 19,337 question-answer pairs across 13 task categories, ranging from basic perception to spectral reasoning. Given that existing MLLMs are not equipped to process raw hyperspectral cubes natively, we propose a dual-modality evaluation framework that transforms HSI data into two complementary representations: PCA-based composite images and structured textual reports. This approach facilitates a systematic comparison of different representation for model performance. Extensive evaluations on 18 representative MLLMs reveal significant difficulties in handling complex spatial-spectral reasoning tasks. Furthermore, our results demonstrate that visual inputs generally outperform textual inputs, highlighting the importance of grounding in spectral-spatial evidence for effective HSI understanding. Dataset and appendix can be accessed at https://github.com/HuoRiLi-Yu/HM-Bench.</p>
+<h3 id="3-geommbench-and-geommagent-toward-expert-level-multimodal-intelligence-in-geoscience-and-remote-sensing">[3] <a href="https://arxiv.org/abs/2604.08896">GeoMMBench and GeoMMAgent: Toward Expert-Level Multimodal Intelligence in Geoscience and Remote Sensing</a></h3>
+<p><em>Aoran Xiao, Shihao Cheng, Yonghao Xu, Yexian Ren, Hongruixuan Chen, Naoto Yokoya</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文针对地理科学和遥感领域多模态大语言模型发展的瓶颈，提出了GeoMMBench综合评估基准和GeoMMAgent多智能体框架，通过系统评估36个模型并开发工具增强的智能体，显著提升了地理空间解释的专业能力。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在地球科学和遥感领域的发展面临三大挑战：广泛的学科知识需求、异构的传感器模态以及碎片化的任务谱系，现有基准无法全面评估这些专业能力，限制了领域专用AI系统的进步。</p>
+<p><strong>Method:</strong> 研究提出了GeoMMBench综合多模态问答基准，覆盖多样化的遥感学科、传感器和任务；同时开发了GeoMMAgent多智能体框架，通过策略性地整合检索、感知和推理模块，结合领域特定的遥感模型和工具来实现专业的地理空间解释。</p>
+<p><strong>Result:</strong> 使用GeoMMBench对36个开源和专有大语言模型进行评估，揭示了这些模型在领域知识、感知基础和推理能力方面的系统性缺陷；实验结果表明GeoMMAgent框架显著优于独立的大语言模型，验证了工具增强智能体在解决复杂地理科学问题上的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究表明工具增强的多智能体框架是解决复杂地理科学和遥感挑战的关键途径，GeoMMBench基准为领域模型评估提供了更全面和严格的标准化工具，为专业地理空间AI系统的发展奠定了重要基础。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Recent advances in multimodal large language models (MLLMs) have accelerated progress in domain-oriented AI, yet their development in geoscience and remote sensing (RS) remains constrained by distinctive challenges: wide-ranging disciplinary knowledge, heterogeneous sensor modalities, and a fragmented spectrum of tasks. To bridge these gaps, we introduce GeoMMBench, a comprehensive multimodal question-answering benchmark covering diverse RS disciplines, sensors, and tasks, enabling broader and more rigorous evaluation than prior benchmarks. Using GeoMMBench, we assess 36 open-source and proprietary large language models, uncovering systematic deficiencies in domain knowledge, perceptual grounding, and reasoning--capabilities essential for expert-level geospatial interpretation. Beyond evaluation, we propose GeoMMAgent, a multi-agent framework that strategically integrates retrieval, perception, and reasoning through domain-specific RS models and tools. Extensive experimental results demonstrate that GeoMMAgent significantly outperforms standalone LLMs, underscoring the importance of tool-augmented agents for dynamically tackling complex geoscience and RS challenges.</p>
+<h3 id="4-how-should-video-llms-output-time-an-analysis-of-efficient-temporal-grounding-paradigms">[4] <a href="https://arxiv.org/abs/2604.08966">How Should Video LLMs Output Time? An Analysis of Efficient Temporal Grounding Paradigms</a></h3>
+<p><em>Shengji Jin, Yuanhao Zou, Victor Zhu, Zhengping Ji, Chen Chen</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文通过受控实证研究比较了视频时序定位中的三种主流输出范式，发现连续分布范式在效率-准确率权衡方面表现最优，为设计高效部署就绪的VTG系统提供了客观经验指导。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型在视频时序定位任务中通常将不同输出范式与不同骨干网络、数据集和训练协议耦合，难以分离输出设计的具体影响；同时，随着VTG系统越来越多地考虑在资源受限的边缘设备上部署，输出范式与系统级效率之间的权衡需要系统研究。</p>
+<p><strong>Method:</strong> 研究采用受控实证方法比较三种主流VTG输出范式：文本数字生成、时序令牌生成和连续时序解码；在相同的紧凑视觉语言模型上评估这些范式，包括SmolVLM2、FastVLM和Molmo2，使用一致的数据集和LoRA微调协议。</p>
+<p><strong>Result:</strong> 在Charades-STA、QVHighlights和YouCook2数据集上的评估表明，输出范式的选择显著影响定位准确率和计算成本，且独立于模型规模；连续分布范式在帕累托前沿上始终实现最有利的效率-准确率权衡，以最小延迟开销提供鲁棒的定位性能。</p>
+<p><strong>Conclusion:</strong> 研究结果为设计高效、部署就绪的视频时序定位系统提供了客观的经验指导，表明输出范式设计是影响系统性能的关键因素，连续解码方法在资源受限场景下具有显著优势。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>While Multimodal Large Language Models (MLLMs) have advanced Video Temporal Grounding (VTG), existing methods often couple output paradigms with different backbones, datasets, and training protocols. This makes it challenging to isolate the specific impact of the output design. Additionally, as VTG systems are increasingly considered for resource-constrained edge deployment, the trade-off between output formulation and system-level efficiency requires systematic investigation. In this paper, we present a controlled empirical study comparing three dominant VTG output paradigms: Text Numeral Generation, Temporal Token Generation, and Continuous Temporal Decoding. We evaluate these paradigms across identical compact VLMs (SmolVLM2, FastVLM, and Molmo2) using consistent datasets and LoRA fine-tuning protocols. Evaluations on Charades-STA, QVHighlights, and YouCook2 measure both localization accuracy and system efficiency, including inference latency, training throughput, and parameter overhead. Our results demonstrate that the choice of output formulation significantly affects both grounding accuracy and computational cost, independent of model scale. Specifically, the continuous distribution paradigm consistently achieves the most favorable efficiency-accuracy trade-off on the Pareto frontier, delivering robust localization with minimal latency overhead. These findings provide objective empirical guidelines for designing efficient, deployment-ready VTG systems.</p>
+<h3 id="5-siming-bench-evaluating-procedural-correctness-from-continuous-interactions-in-clinical-skill-videos">[5] <a href="https://arxiv.org/abs/2604.09037">SiMing-Bench: Evaluating Procedural Correctness from Continuous Interactions in Clinical Skill Videos</a></h3>
+<p><em>Xiyang Huang, Jiawei Lin, Keying Wu, Jiaxin Huang, Kailai Yang, Renxiong Wei, Cheng zeng, Jiayi Xiang, Ziyan Kuang, Min Peng, Qianqian Xie, Sophia Ananiadou</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了SiMing-Bench，这是首个用于评估多模态大语言模型在完整临床技能视频中进行程序状态跟踪能力的基准，该基准通过SiMing-Score数据集实例化，包含医生标注的真实临床技能考试视频和标准化评分标准。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前视频基准主要关注事件识别、时序排序和长上下文回忆，但忽视了专家程序判断所需的关键能力：跟踪持续交互如何更新程序状态并决定后续动作的正确性，特别是在临床技能评估等需要过程级判断的领域存在研究空白。</p>
+<p><strong>Method:</strong> 研究提出了SiMing-Bench基准，通过SiMing-Score数据集具体实现，该数据集包含医生标注的真实临床技能考试视频，涵盖心肺复苏、自动体外除颤器操作和球囊面罩通气等技能，每个视频都配有标准化的分步评分标准和双专家标注，用于评估模型在完整工作流程中跟踪交互驱动状态更新的能力。</p>
+<p><strong>Result:</strong> 实验结果显示，在多样化的开源和闭源多模态大语言模型中，模型与医生判断的一致性持续较弱，即使在整体程序级相关性看似可接受的情况下，模型在评分标准定义的中间步骤上表现仍然不佳，这表明粗粒度的全局评估严重高估了当前模型的程序判断能力。</p>
+<p><strong>Conclusion:</strong> 该研究表明当前多模态大语言模型在程序状态跟踪方面存在根本性瓶颈，问题不仅在于细粒度评分或时间定位，而在于建模持续交互如何随时间更新程序状态的能力，这为未来研究指明了需要关注交互驱动的状态更新建模这一关键方向。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Current video benchmarks for multimodal large language models (MLLMs) focus on event recognition, temporal ordering, and long-context recall, but overlook a harder capability required for expert procedural judgment: tracking how ongoing interactions update the procedural state and thereby determine the correctness of later actions. We introduce SiMing-Bench, the first benchmark for evaluating this capability from full-length clinical skill videos. It targets rubric-grounded process-level judgment of whether interaction-driven state updates preserve procedural correctness across an entire workflow. SiMing-Bench is instantiated with SiMing-Score, a physician-annotated dataset of real clinical skill examination videos spanning cardiopulmonary resuscitation, automated external defibrillator operation, and bag-mask ventilation, each paired with a standardized step-wise rubric and dual-expert labels. Across diverse open- and closed-source MLLMs, we observe consistently weak agreement with physician judgments. Moreover, weak performance on rubric-defined intermediate steps persists even when overall procedure-level correlation appears acceptable, suggesting that coarse global assessment substantially overestimates current models' procedural judgment ability. Additional analyses with binary step judgment and step-aligned clips indicate that the bottleneck is not merely fine-grained scoring or temporal localization, but modeling how continuous interactions update procedural state over time.</p>
+<h3 id="6-actfer-agentic-facial-expression-recognition-via-active-tool-augmented-visual-reasoning">[6] <a href="https://arxiv.org/abs/2604.08990">ActFER: Agentic Facial Expression Recognition via Active Tool-Augmented Visual Reasoning</a></h3>
+<p><em>Shifeng Liu, Zhengye Zhang, Sirui Zhao, Xinglong Mao, Zhehan Kan, Zhixiang Wei, Shiwei Wu, Chaoyou Fu, Tong Xu, Enhong Chen</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出ActFER，一种将面部表情识别重构为主动视觉证据获取与多模态推理的智能体框架，并开发了UC-GRPO强化学习算法来训练该框架，显著提升了基于MLLM的面部表情识别性能。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于多模态大语言模型的面部表情识别方法仍遵循被动范式，依赖外部准备的面部输入并进行单次固定视觉证据推理，缺乏主动面部感知能力，这限制了其在真实场景中的表现和应用潜力。</p>
+<p><strong>Method:</strong> 本文提出ActFER框架，通过动态调用人脸检测和对齐工具、选择性放大信息丰富的局部区域，并利用视觉思维链对面部动作单元和情绪进行推理；同时开发了UC-GRPO强化学习算法，该算法采用基于动作单元的多层次可验证奖励、查询条件对比效用估计以及情绪感知EMA校准，实现了样本感知的动态信用分配和噪声减少。</p>
+<p><strong>Result:</strong> 综合实验表明，使用UC-GRPO训练的ActFER在性能上持续超越被动的MLLM基面部表情识别基线方法，并显著提高了动作单元预测的准确性，验证了主动感知框架的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究将面部表情识别从被动标签预测范式转变为主动视觉证据获取与推理的智能体框架，为多模态情感理解开辟了新方向；UC-GRPO算法通过密集监督和动态信用分配解决了智能体训练中的关键挑战，为类似主动感知任务提供了可扩展的解决方案。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Recent advances in Multimodal Large Language Models (MLLMs) have created new opportunities for facial expression recognition (FER), moving it beyond pure label prediction toward reasoning-based affect understanding. However, existing MLLM-based FER methods still follow a passive paradigm: they rely on externally prepared facial inputs and perform single-pass reasoning over fixed visual evidence, without the capability for active facial perception. To address this limitation, we propose ActFER, an agentic framework that reformulates FER as active visual evidence acquisition followed by multimodal reasoning. Specifically, ActFER dynamically invokes tools for face detection and alignment, selectively zooms into informative local regions, and reasons over facial Action Units (AUs) and emotions through a visual Chain-of-Thought. To realize such behavior, we further develop Utility-Calibrated GRPO (UC-GRPO), a reinforcement learning algorithm tailored to agentic FER. UC-GRPO uses AU-grounded multi-level verifiable rewards to densify supervision, query-conditional contrastive utility estimation to enable sample-aware dynamic credit assignment for local inspection, and emotion-aware EMA calibration to reduce noisy utility estimates while capturing emotion-wise inspection tendencies. This algorithm enables ActFER to learn both when local inspection is beneficial and how to reason over the acquired evidence. Comprehensive experiments show that ActFER trained with UC-GRPO consistently outperforms passive MLLM-based FER baselines and substantially improves AU prediction accuracy.</p>
+<h3 id="7-vl-calibration-decoupled-confidence-calibration-for-large-vision-language-models-reasoning">[7] <a href="https://arxiv.org/abs/2604.09529">VL-Calibration: Decoupled Confidence Calibration for Large Vision-Language Models Reasoning</a></h3>
+<p><em>Wenyi Xiao, Xinchi Xu, Leilei Gan</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出VL-Calibration，一种用于大型视觉语言模型的强化学习框架，通过将置信度显式解耦为视觉置信度和推理置信度来解决现有口头化置信度校准方法在视觉感知不确定性方面的不足，有效减少幻觉并提升视觉推理准确性。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型虽然具备强大的多模态推理能力，但经常以高置信度产生幻觉和错误响应，这阻碍了其在关键领域的应用。现有的口头化置信度校准方法主要针对纯文本LLM开发，通常使用二元答案级正确性优化单一整体置信度，这种设计与LVLM不匹配：错误预测可能源于感知失败或基于正确感知的推理错误，而单一置信度混淆了这些来源，同时视觉不确定性常被语言先验主导。</p>
+<p><strong>Method:</strong> 本文提出VL-Calibration强化学习框架，显式地将置信度解耦为视觉置信度和推理置信度。在没有真实感知标签的情况下，引入内在视觉确定性估计，结合（i）通过图像扰动下KL散度测量的视觉基础性和（ii）通过标记熵测量的内部确定性。进一步提出基于标记级别的优势重加权，根据视觉确定性聚焦优化标记，抑制无根据的幻觉同时保留有效感知。</p>
+<p><strong>Result:</strong> 在十三个基准测试上的实验表明，VL-Calibration有效改善了校准效果，同时提升了视觉推理准确性。该方法在不同模型规模和架构上均能泛化到分布外基准测试，证明了其鲁棒性和通用性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了将置信度解耦为视觉和推理分量的重要性，为解决LVLM中的幻觉问题提供了新方向。提出的内在视觉确定性估计方法为无监督感知质量评估提供了有效途径，而基于标记的优化策略为多模态模型校准开辟了新的技术路径，对高可靠性多模态AI系统的发展具有重要意义。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Large Vision Language Models (LVLMs) achieve strong multimodal reasoning but frequently exhibit hallucinations and incorrect responses with high certainty, which hinders their usage in high-stakes domains. Existing verbalized confidence calibration methods, largely developed for text-only LLMs, typically optimize a single holistic confidence score using binary answer-level correctness. This design is mismatched to LVLMs: an incorrect prediction may arise from perceptual failures or from reasoning errors given correct perception, and a single confidence conflates these sources while visual uncertainty is often dominated by language priors. To address these issues, we propose VL-Calibration, a reinforcement learning framework that explicitly decouples confidence into visual and reasoning confidence. To supervise visual confidence without ground-truth perception labels, we introduce an intrinsic visual certainty estimation that combines (i) visual grounding measured by KL-divergence under image perturbations and (ii) internal certainty measured by token entropy. We further propose token-level advantage reweighting to focus optimization on tokens based on visual certainty, suppressing ungrounded hallucinations while preserving valid perception. Experiments on thirteen benchmarks show that VL-Calibration effectively improves calibration while boosting visual reasoning accuracy, and it generalizes to out-of-distribution benchmarks across model scales and architectures.</p>
+<h3 id="8-pinpointqa-a-dataset-and-benchmark-for-small-object-centric-spatial-understanding-in-indoor-videos">[8] <a href="https://arxiv.org/abs/2604.08991">PinpointQA: A Dataset and Benchmark for Small Object-Centric Spatial Understanding in Indoor Videos</a></h3>
+<p><em>Zhiyu Zhou, Peilin Liu, Ruoxuan Zhang, Luyang Zhang, Cheng Zhang, Hongxia Xie, Wen-Huang Cheng</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了PinpointQA，这是首个用于室内视频中小物体中心空间理解的数据集和基准测试，旨在评估多模态大语言模型在精确定位目标物体方面的能力。该数据集包含四个渐进式挑战任务，实验表明现有模型在这些任务上存在显著能力差距，而基于该数据集的监督微调能带来实质性性能提升。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在室内视频中的小物体中心空间理解具有实际应用价值，但现有基准测试未能直接评估模型是否能够精确定位视频中的目标物体并以足够精确的方式表达其位置。当前缺乏专门针对这一关键能力的评估数据集，而这对物体搜索和辅助应用至关重要。</p>
+<p><strong>Method:</strong> 研究团队构建了PinpointQA数据集，该数据集基于ScanNet++和ScanNet200构建，包含1,024个场景和10,094个问答对。数据集组织为四个渐进式挑战任务：目标存在验证、最近参考物识别、细粒度空间描述和结构化空间预测。问答对通过中间空间表示自动生成，并经过质量控制进一步精炼。</p>
+<p><strong>Result:</strong> 在代表性多模态大语言模型上的实验揭示了沿渐进任务链的一致能力差距，其中结构化空间预测任务尤其困难。在PinpointQA上进行监督微调带来了实质性性能提升，特别是在较难任务上，表明该数据集既能作为诊断基准，也能作为有效的训练数据集。</p>
+<p><strong>Conclusion:</strong> PinpointQA填补了多模态大语言模型在室内视频小物体空间理解评估方面的空白，为模型能力诊断和性能提升提供了系统框架。该研究揭示了现有模型在精确定位任务上的局限性，同时证明了专门训练数据对提升空间推理能力的重要性，为未来研究提供了有价值的基准和训练资源。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Small object-centric spatial understanding in indoor videos remains a significant challenge for multimodal large language models (MLLMs), despite its practical value for object search and assistive applications. Although existing benchmarks have advanced video spatial intelligence, embodied reasoning, and diagnostic perception, no existing benchmark directly evaluates whether a model can localize a target object in video and express its position with sufficient precision for downstream use. In this work, we introduce PinpointQA, the first dataset and benchmark for small object-centric spatial understanding in indoor videos. Built from ScanNet++ and ScanNet200, PinpointQA comprises 1,024 scenes and 10,094 QA pairs organized into four progressively challenging tasks: Target Presence Verification (TPV), Nearest Reference Identification (NRI), Fine-Grained Spatial Description (FSD), and Structured Spatial Prediction (SSP). The dataset is built from intermediate spatial representations, with QA pairs generated automatically and further refined through quality control. Experiments on representative MLLMs reveal a consistent capability gap along the progressive chain, with SSP remaining particularly difficult. Supervised fine-tuning on PinpointQA yields substantial gains, especially on the harder tasks, demonstrating that PinpointQA serves as both a diagnostic benchmark and an effective training dataset. The dataset and project page are available at https://rainchowz.github.io/PinpointQA.</p>
+<h3 id="9-leave-my-images-alone-preventing-multi-modal-large-language-models-from-analyzing-images-via-visual-prompt-injection">[9] <a href="https://arxiv.org/abs/2604.09024">Leave My Images Alone: Preventing Multi-Modal Large Language Models from Analyzing Images via Visual Prompt Injection</a></h3>
+<p><em>Zedian Shao, Hongbin Liu, Yuepeng Hu, Neil Zhenqiang Gong</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出ImageProtector，一种用户端的图像隐私保护方法，通过嵌入几乎不可察觉的扰动作为视觉提示注入攻击，诱导多模态大语言模型在分析受保护图像时生成拒绝响应，从而防止敏感信息被大规模提取。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在分析互联网规模图像数据时存在严重的安全和社会隐患，特别是开源权重的MLLM可能被滥用于从个人图像中大规模提取敏感信息，如身份、位置等隐私细节，因此需要有效的隐私保护机制来防止这种滥用。</p>
+<p><strong>Method:</strong> 该方法采用用户端的主动保护策略，在图像共享前嵌入精心设计的、几乎不可察觉的扰动，这种扰动作为视觉提示注入攻击作用于MLLM，当攻击者分析受保护图像时，模型会被诱导生成一致的拒绝响应，如"抱歉，我无法处理该请求"。</p>
+<p><strong>Result:</strong> 实验在六个MLLM和四个数据集上验证了ImageProtector的有效性，同时评估了三种潜在对抗措施（高斯噪声、DiffPure和对抗训练），发现这些措施虽然能部分缓解ImageProtector的影响，但会同时降低模型的准确性和/或效率。</p>
+<p><strong>Conclusion:</strong> 该研究聚焦于开源权重MLLM和大规模自动化图像分析这一实际重要场景，既展示了基于扰动的隐私保护方法的潜力，也揭示了其局限性，为MLLM安全防护提供了新的技术思路和实证基础。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Multi-modal large language models (MLLMs) have emerged as powerful tools for analyzing Internet-scale image data, offering significant benefits but also raising critical safety and societal concerns. In particular, open-weight MLLMs may be misused to extract sensitive information from personal images at scale, such as identities, locations, or other private details. In this work, we propose ImageProtector, a user-side method that proactively protects images before sharing by embedding a carefully crafted, nearly imperceptible perturbation that acts as a visual prompt injection attack on MLLMs. As a result, when an adversary analyzes a protected image with an MLLM, the MLLM is consistently induced to generate a refusal response such as "I'm sorry, I can't help with that request." We empirically demonstrate the effectiveness of ImageProtector across six MLLMs and four datasets. Additionally, we evaluate three potential countermeasures, Gaussian noise, DiffPure, and adversarial training, and show that while they partially mitigate the impact of ImageProtector, they simultaneously degrade model accuracy and/or efficiency. Our study focuses on the practically important setting of open-weight MLLMs and large-scale automated image analysis, and highlights both the promise and the limitations of perturbation-based privacy protection.</p>
+<h3 id="10-fashionstylist-an-expert-knowledge-enhanced-multimodal-dataset-for-fashion-understanding">[10] <a href="https://arxiv.org/abs/2604.09249">FashionStylist: An Expert Knowledge-enhanced Multimodal Dataset for Fashion Understanding</a></h3>
+<p><em>Kaidong Feng, Zhuoxuan Huang, Huizhong Guo, Yuting Jin, Xinyu Chen, Yue Liang, Yifei Gai, Li Zhou, Yunshan Ma, Zhu Sun</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出了FashionStylist，一个专家标注的时尚理解基准数据集，支持服装到单品定位、服装补全和服装评估三项任务，为整体和专家级时尚理解提供了统一评估框架。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有时尚数据集存在碎片化和任务特定性问题，主要关注单品属性、服装共现或弱文本监督，缺乏对整体服装理解的支持，无法满足需要视觉感知和专家级风格、场合、兼容性推理的时尚理解需求。</p>
+<p><strong>Method:</strong> 通过专门的时尚专家标注流程构建FashionStylist基准数据集，提供专业基础的单品和服装级标注，支持三项代表性任务：服装到单品定位、服装补全和服装评估，涵盖复杂服装中的单品恢复、超越共现匹配的兼容性感知组合以及专家级风格、季节、场合和整体连贯性评估。</p>
+<p><strong>Result:</strong> 实验结果表明，FashionStylist不仅作为多个时尚任务的统一基准，还能作为有效的训练资源，提升基于多模态大语言模型的时尚系统中的定位、补全和服装级语义评估能力。</p>
+<p><strong>Conclusion:</strong> 该研究为整体时尚理解提供了专业标注的基准数据集，填补了现有数据集的局限性，支持更全面的时尚分析任务，并为基于MLLM的时尚系统提供了有效的训练和评估资源，推动了专家级时尚理解的发展。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Fashion understanding requires both visual perception and expert-level reasoning about style, occasion, compatibility, and outfit rationale. However, existing fashion datasets remain fragmented and task-specific, often focusing on item attributes, outfit co-occurrence, or weak textual supervision, and thus provide limited support for holistic outfit understanding. In this paper, we introduce FashionStylist, an expert-annotated benchmark for holistic and expert-level fashion understanding. Constructed through a dedicated fashion-expert annotation pipeline, FashionStylist provides professionally grounded annotations at both the item and outfit levels. It supports three representative tasks: outfit-to-item grounding, outfit completion, and outfit evaluation. These tasks cover realistic item recovery from complex outfits with layering and accessories, compatibility-aware composition beyond co-occurrence matching, and expert-level assessment of style, season, occasion, and overall coherence. Experimental results show that FashionStylist serves not only as a unified benchmark for multiple fashion tasks, but also as an effective training resource for improving grounding, completion, and outfit-level semantic evaluation in MLLM-based fashion systems.</p>
+<h3 id="11-tango-taming-visual-signals-for-efficient-video-large-language-models">[11] <a href="https://arxiv.org/abs/2604.09547">Tango: Taming Visual Signals for Efficient Video Large Language Models</a></h3>
+<p><em>Shukang Yin, Sirui Zhao, Hanchao Wang, Baozhi Jia, Xianquan Wang, Chaoyou Fu, Enhong Chen</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了Tango框架，通过改进视频大语言模型中的令牌剪枝策略来解决现有注意力选择和相似性聚类方法的局限性，在保留仅10%视频令牌的情况下实现了接近原始性能的高效推理。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视频大语言模型中的令牌剪枝方法存在两个关键局限：传统top-k选择策略未能充分考虑注意力分布的空间多模态和长尾特性；直接相似性聚类经常产生碎片化簇，导致池化后表示失真。本研究旨在优化视觉信号的利用效率，解决这些瓶颈问题。</p>
+<p><strong>Method:</strong> 提出了Tango框架，整合了多样性驱动的策略来增强基于注意力的令牌选择，并引入了时空旋转位置嵌入来通过局部先验保持几何结构。该框架重新审视并改进了两种主要的令牌剪枝范式：注意力选择和相似性聚类。</p>
+<p><strong>Result:</strong> 在各种视频大语言模型和视频理解基准上的综合实验证明了该方法的有效性和泛化能力。当仅保留10%的视频令牌时，Tango在LLaVA-OV上保持了98.9%的原始性能，同时实现了1.88倍的推理加速。</p>
+<p><strong>Conclusion:</strong> 该研究表明，通过优化注意力分布建模和聚类表示质量，可以显著提高令牌剪枝的效率。Tango框架为开发高效视频大语言模型提供了新的技术路径，平衡了计算效率与模型性能的权衡。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Token pruning has emerged as a mainstream approach for developing efficient Video Large Language Models (Video LLMs). This work revisits and advances the two predominant token-pruning paradigms: attention-based selection and similarity-based clustering. Our study reveals two critical limitations in existing methods: (1) conventional top-k selection strategies fail to fully account for the attention distribution, which is often spatially multi-modal and long-tailed in magnitude; and (2) direct similarity-based clustering frequently generates fragmented clusters, resulting in distorted representations after pooling. To address these bottlenecks, we propose Tango, a novel framework designed to optimize the utilization of visual signals. Tango integrates a diversity-driven strategy to enhance attention-based token selection, and introduces Spatio-temporal Rotary Position Embedding (ST-RoPE) to preserve geometric structure via locality priors. Comprehensive experiments across various Video LLMs and video understanding benchmarks demonstrate the effectiveness and generalizability of our approach. Notably, when retaining only 10% of the video tokens, Tango preserves 98.9% of the original performance on LLaVA-OV while delivering a 1.88x inference speedup.</p>
+  </article>
+</body>
+</html>
