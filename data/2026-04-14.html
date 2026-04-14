@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-14.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 29]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 2]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 7]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-head-wise-modality-specialization-within-mllms-for-robust-fake-news-detection-under-missing-modality">[1] <a href="https://arxiv.org/abs/2604.09711">Head-wise Modality Specialization within MLLMs for Robust Fake News Detection under Missing Modality</a></h3>
+<p><em>Kai Qian, Weijie Shi, Jiaqi Wang, Mengze Li, Hao Chen, Yue Cui, Hanghui Guo, Ziyi Liu, Jia Zhu, Jiajie Xu</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于多模态大语言模型（MLLMs）的头级模态专业化方法，用于增强缺失模态下的多模态假新闻检测鲁棒性。该方法通过系统分析注意力头与模态性能的关系，并引入头级专业化机制和单模态知识保留策略来解决低贡献模态学习不足和单模态标注稀缺的问题。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现实世界中的新闻传播常因图像删除、截图损坏等问题导致模态缺失，而现有多模态假新闻检测方法在缺失模态场景下的鲁棒性不足。这主要源于低贡献模态学习不充分以及单模态标注稀缺，导致难以保持每个模态的独立验证能力。</p>
+<p><strong>Method:</strong> 首先系统研究了MLLMs中注意力头与缺失模态下性能的关系，发现模态关键头是单模态验证能力的关键载体。基于此，提出了头级专业化机制，明确将这些头分配给不同模态，并通过下界注意力约束保持其专业化。此外，设计了单模态知识保留策略，防止这些头从有限监督中学到的单模态知识发生漂移。</p>
+<p><strong>Result:</strong> 实验结果表明，该方法在缺失模态情况下显著提升了检测鲁棒性，同时在完整多模态输入下保持了原有性能。具体表现为在模态缺失场景下验证能力的有效保留，以及利用稀缺单模态标注的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了MLLMs中注意力头的模态专业化特性对于缺失模态鲁棒性的关键作用，提出的头级专业化框架为多模态任务中的模态不平衡和标注稀缺问题提供了有效解决方案。该方法不仅适用于假新闻检测，也为其他多模态应用中的鲁棒性设计提供了新思路。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Multimodal fake news detection (MFND) aims to verify news credibility by jointly exploiting textual and visual evidence. However, real-world news dissemination frequently suffers from missing modality due to deleted images, corrupted screenshots, and similar issues. Thus, robust detection in this scenario requires preserving strong verification ability for each modality, which is challenging in MFND due to insufficient learning of the low-contribution modality and scarce unimodal annotations. To address this issue, we propose Head-wise Modality Specialization within Multimodal Large Language Models (MLLMs) for robust MFND under missing modality. Specifically, we first systematically study attention heads in MLLMs and their relationship with performance under missing modality, showing that modality-critical heads serve as key carriers of unimodal verification ability through their modality specialization. Based on this observation, to better preserve verification ability for the low-contribution modality, we introduce a head-wise specialization mechanism that explicitly allocates these heads to different modalities and preserves their specialization through lower-bound attention constraints. Furthermore, to better exploit scarce unimodal annotations, we propose a Unimodal Knowledge Retention strategy that prevents these heads from drifting away from the unimodal knowledge learned from limited supervision. Experiments show that our method improves robustness under missing modality while preserving performance with full multimodal input.</p>
+<h3 id="2-last-leveraging-tools-as-hints-to-enhance-spatial-reasoning-for-multimodal-large-language-models">[2] <a href="https://arxiv.org/abs/2604.09712">LAST: Leveraging Tools as Hints to Enhance Spatial Reasoning for Multimodal Large Language Models</a></h3>
+<p><em>Shi-Yu Tian, Zhi Zhou, Kun-Yang Yu, Ming Yang, Yang Chen, Ziqiao Shang, Lan-Zhe Guo, Yu-Feng Li</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出LAST框架，通过工具增强的多模态大语言模型解决空间推理中的幻觉和不精确问题，将异构视觉工具抽象为可重用的空间技能，显著提升了复杂几何布局解析能力。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在解析复杂几何布局时经常出现幻觉和不精确问题，数据驱动的扩展方法难以内化结构化几何先验和空间约束，而集成成熟的专用视觉模型面临两大挑战：调用异构参数丰富工具的困难，以及理解和有效利用其多样化低级输出进行高层推理的挑战。</p>
+<p><strong>Method:</strong> 本文提出LAST框架，包含可扩展的交互式沙盒LAST-Box，将异构工具调用抽象为原子指令和可重用空间技能，返回可直接被LLM消费的多模态提示；设计三阶段渐进训练策略，引导模型从理解工具输出到熟练自适应工具调用。</p>
+<p><strong>Result:</strong> 在四个数据集上的实验表明，LAST-7B相比其骨干模型实现了约20%的性能提升，并优于强大的专有闭源大语言模型，显著增强了复杂空间任务的推理能力。</p>
+<p><strong>Conclusion:</strong> 该研究展示了工具增强方法在空间推理任务中的有效性，通过抽象工具调用和渐进训练策略解决了异构视觉模型集成难题，为多模态大语言模型在物理世界感知和交互方面提供了新的技术路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spatial reasoning is a cornerstone capability for intelligent systems to perceive and interact with the physical world. However, multimodal large language models (MLLMs) frequently suffer from hallucinations and imprecision when parsing complex geometric layouts. As data-driven scaling struggles to internalize structured geometric priors and spatial constraints, integrating mature, specialized vision models presents a compelling alternative. Despite its promise, applying this paradigm to spatial reasoning is hindered by two key challenges: The difficulty of invoking heterogeneous, parameter-rich tools, as well as the challenge of understanding and effectively leveraging their diverse low-level outputs (e.g., segmentation masks, depth maps) in high-level reasoning. To address these challenges, we propose LAST, a unified framework for tool-augmented spatial reasoning. LAST features an extensible interactive sandbox, termed LAST-Box, which abstracts heterogeneous tool invocations into atomic instructions and reusable spatial skills, returning multimodal hints (e.g., annotated images and textual descriptions) that can be directly consumed by LLMs. We further design a three-stage progressive training strategy that guides models from understanding tool outputs to proficient and adaptive tool invocation. Experiments on four datasets show that LAST-7B achieves around 20\% performance gains over its backbone and outperforms strong proprietary closed-source LLMs, substantially enhancing reasoning on complex spatial tasks.</p>
+<h3 id="3-see-fair-speak-truth-equitable-attention-improves-grounding-and-reduces-hallucination-in-vision-language-alignment">[3] <a href="https://arxiv.org/abs/2604.09749">See Fair, Speak Truth: Equitable Attention Improves Grounding and Reduces Hallucination in Vision-Language Alignment</a></h3>
+<p><em>Mohammad Anas Azeez, Ankan Deria, Zohaib Hasan Siddiqui, Adinath Madhavrao Dukre, Rafiq Ali, Sara Atito, Yutong Xie, Imran Razzak</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出DOP-OBC，一种无需训练且架构无关的解码策略，通过引入公平注意力原则来减少多模态大语言模型中的物体幻觉问题。该方法结合主导物体惩罚和离群物体增强系数，在解码过程中平衡注意力分配，显著提升了生成内容的忠实度。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型经常产生视觉输入中不存在的物体幻觉，主要原因是解码过程中注意力被不成比例地吸引到视觉上主导或频繁出现的内容上。这种注意力分配的不公平性是物体幻觉的根本原因，当罕见、小型或上下文边缘物体获得不足够的注意力时，模型无法将其生成内容充分锚定在整个视觉场景中。</p>
+<p><strong>Method:</strong> 本文提出DOP-OBC解码策略，基于公平注意力原则，包含两个互补的物体感知信号：主导物体惩罚（DOP）软性抑制对视觉主导区域的过度集中注意力，以及离群增强系数（OBC）放大对罕见但被自信检测到的物体的注意力。这些信号作为每行对数调制注入因果注意力掩码中，无需权重更新且保持自回归解码特性。</p>
+<p><strong>Result:</strong> 在图像和视频MLLMs上的广泛实验表明，DOP-OBC在CHAIR和POPE基准测试中持续减少了物体幻觉，同时在GPT-4o评估的标题质量方面，在正确性、一致性、细节、上下文和时间维度上均显示出改进。该方法证明了公平注意力分配对提升多模态生成忠实度的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究确立了公平注意力分配不仅是一个设计原则，而且是实现更忠实多模态生成的实用有效路径。DOP-OBC展示了通过解码策略调整注意力分配可以显著减少物体幻觉，为改善MLLMs的视觉基础能力提供了新方向，同时保持了模型架构的通用性和无需训练的优势。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) frequently hallucinate objects that are absent from the visual input, often because attention during decoding is disproportionately drawn to visually dominant or frequently occurring content. We observe that this inequity in attention allocation is a root cause of object hallucination: when rare, small, or contextually peripheral objects receive insufficient attention, the model fails to ground its generation in the full visual scene. We argue that every object in an image, regardless of its size, frequency or visual salience, deserves equal representational opportunity during decoding. To this end, we propose DOP-OBC, a training-free and architecture-agnostic decoding strategy built on the principle of equitable attention. Two complementary object-aware signals work in tandem: a Dominant Object Penalty (DOP) that softly suppresses attention over-concentration on visually dominant regions, and an Outlier Boost Coefficient (OBC) that amplifies attention toward rare yet confidently detected objects. These signals are injected as per-row logit modulations within the causal attention mask, requiring no weight updates and preserving autoregressive decoding properties. Extensive experiments across image and video MLLMs demonstrate consistent reductions in object hallucination on CHAIR and POPE benchmarks, alongside improvements in GPT-4o assessed captioning quality across correctness, consistency, detail, context and temporal dimensions. DOP-OBC establishes that fairness in attention allocation is not merely a design principle but a practical and effective path toward more faithful multimodal generation.</p>
+<h3 id="4-is-there-knowledge-left-to-extract-evidence-of-fragility-in-medically-fine-tuned-vision-language-models">[4] <a href="https://arxiv.org/abs/2604.09841">Is There Knowledge Left to Extract? Evidence of Fragility in Medically Fine-Tuned Vision-Language Models</a></h3>
+<p><em>Oliver McLaughlin, Daniel Shubin, Carsten Eickhoff, Ritambhara Singh, William Rudman, Michal Golovanevsky</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>该研究评估了医学领域视觉语言模型在医疗影像任务中的推理能力，发现医学微调并未带来一致优势，模型性能脆弱且高度依赖提示词，揭示了当前医疗VLM在临床推理方面的局限性。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 该研究旨在探究视觉语言模型在医学领域微调后是否真正提升了临床推理能力，而非仅学习表面视觉线索，特别是在高风险医疗影像诊断任务中，评估医学VLM在难度递增任务上的表现及其对提示词的敏感性。</p>
+<p><strong>Method:</strong> 研究评估了四对开源VLM模型（LLaVA vs. LLaVA-Med; Gemma vs. MedGemma），涵盖四个难度递增的医疗影像分类任务：脑肿瘤、肺炎、皮肤癌和组织病理学分类。为测试封闭式视觉问答是否抑制潜在知识，引入了基于描述的诊断流程，让VLM生成图像描述，再由纯文本模型GPT-5.1进行诊断，并分析了视觉编码器嵌入表示以探究失败原因。</p>
+<p><strong>Result:</strong> 研究发现随着任务难度增加，模型性能下降至接近随机水平，表明临床推理能力有限。医学微调未带来一致优势，模型对提示词高度敏感，微小变化会导致准确率和拒绝率大幅波动。基于描述的诊断流程仅恢复有限额外信号但仍受任务难度限制，视觉编码器嵌入分析显示失败源于弱视觉表示和下游推理能力不足。</p>
+<p><strong>Conclusion:</strong> 研究表明当前医疗视觉语言模型性能脆弱、高度依赖提示词，且医学领域微调未能可靠提升其表现。模型失败既源于视觉表示不足也受限于下游推理能力，这揭示了医疗VLM在真实临床环境中的局限性，提示需要更稳健的评估方法和改进的模型架构来支持可靠的医疗决策。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Vision-language models (VLMs) are increasingly adapted through domain-specific fine-tuning, yet it remains unclear whether this improves reasoning beyond superficial visual cues, particularly in high-stakes domains like medicine. We evaluate four paired open-source VLMs (LLaVA vs. LLaVA-Med; Gemma vs. MedGemma) across four medical imaging tasks of increasing difficulty: brain tumor, pneumonia, skin cancer, and histopathology classification. We find that performance degrades toward near-random levels as task difficulty increases, indicating limited clinical reasoning. Medical fine-tuning provides no consistent advantage, and models are highly sensitive to prompt formulation, with minor changes causing large swings in accuracy and refusal rates. To test whether closed-form VQA suppresses latent knowledge, we introduce a description-based pipeline where models generate image descriptions that a text-only model (GPT-5.1) uses for diagnosis. This recovers a limited additional signal but remains bounded by task difficulty. Analysis of vision encoder embeddings further shows that failures stem from both weak visual representations and downstream reasoning. Overall, medical VLM performance is fragile, prompt-dependent, and not reliably improved by domain-specific fine-tuning.</p>
+<h3 id="5-cross-cultural-value-awareness-in-large-vision-language-models">[5] <a href="https://arxiv.org/abs/2604.09945">Cross-Cultural Value Awareness in Large Vision-Language Models</a></h3>
+<p><em>Phillip Howard, Xin Su, Kathleen C. Fraser</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>该研究调查了大型视觉语言模型在文化背景下的价值判断偏见，通过反事实图像集分析发现这些模型会根据图像中的文化线索对人进行刻板价值判断，揭示了LVLMs在文化公平性方面的重要缺陷。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管大型视觉语言模型在社会偏见方面的公平性问题已受到关注，但先前研究较少探讨其在宗教、国籍和社会经济地位等文化背景下的刻板印象问题。本研究旨在填补这一空白，调查图像中描绘的文化背景如何影响LVLMs对人的道德、伦理和政治价值观的判断。</p>
+<p><strong>Method:</strong> 研究采用多维分析方法，使用反事实图像集评估五个流行LVLMs的价值判断，这些图像集描绘同一人物在不同文化背景下的场景。评估框架通过道德基础理论、词汇分析以及生成值对描绘文化背景的敏感性来诊断LVLM对文化价值差异的认知。</p>
+<p><strong>Result:</strong> 研究发现LVLMs会根据图像中的文化线索对人进行刻板价值判断，表明这些模型在文化公平性方面存在系统性偏见。实验结果显示模型的价值判断对文化背景高度敏感，揭示了LVLMs在跨文化理解方面的局限性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了LVLMs在文化公平性方面的重要缺陷，强调了开发更公平、文化敏感的视觉语言模型的必要性。研究结果为未来改进模型设计、减少文化刻板印象提供了实证基础，并提出了评估框架作为诊断工具。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>The rapid adoption of large vision-language models (LVLMs) in recent years has been accompanied by growing fairness concerns due to their propensity to reinforce harmful societal stereotypes. While significant attention has been paid to such fairness concerns in the context of social biases, relatively little prior work has examined the presence of stereotypes in LVLMs related to cultural contexts such as religion, nationality, and socioeconomic status. In this work, we aim to narrow this gap by investigating how cultural contexts depicted in images influence the judgments LVLMs make about a person's moral, ethical, and political values. We conduct a multi-dimensional analysis of such value judgments in five popular LVLMs using counterfactual image sets, which depict the same person across different cultural contexts. Our evaluation framework diagnoses LVLM awareness of cultural value differences through the use of Moral Foundations Theory, lexical analyses, and the sensitivity of generated values to depicted cultural contexts.</p>
+<h3 id="6-seeing-no-evil-blinding-large-vision-language-models-to-safety-instructions-via-adversarial-attention-hijacking">[6] <a href="https://arxiv.org/abs/2604.10299">Seeing No Evil: Blinding Large Vision-Language Models to Safety Instructions via Adversarial Attention Hijacking</a></h3>
+<p><em>Jingru Li, Wei Ren, Tianqing Zhu</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了一种注意力引导的视觉越狱攻击方法，通过直接操纵注意力模式而非对抗优化来规避大型视觉语言模型的安全对齐机制，显著提高了攻击成功率并减少了收敛时间。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有针对大型视觉语言模型的视觉越狱攻击通常通过优化图像扰动来最大化有害输出概率，但由于对抗目标与模型安全检索机制之间的梯度冲突，导致收敛速度缓慢且攻击效果受限。</p>
+<p><strong>Method:</strong> 本文提出注意力引导的视觉越狱攻击方法，通过引入两个简单的辅助目标来直接操纵注意力模式：一是抑制对对齐相关前缀令牌的注意力，二是将生成过程锚定在对抗性图像特征上，这种推拉式表述有效减少了梯度冲突。</p>
+<p><strong>Result:</strong> 该方法在Qwen-VL模型上实现了94.4%的攻击成功率，相比基线方法的68.8%有显著提升，同时减少了45%的梯度冲突和40%的迭代次数；在更严格的扰动预算下仍保持59.0%的攻击成功率，而标准方法仅为45.7%。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了大型视觉语言模型存在一种称为"安全盲视"的失效模式，成功攻击可将系统提示注意力抑制80%，表明模型生成有害内容并非通过覆盖安全规则，而是由于未能检索到这些规则，这对模型安全设计具有重要启示。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) rely on attention-based retrieval of safety instructions to maintain alignment during generation. Existing attacks typically optimize image perturbations to maximize harmful output likelihood, but suffer from slow convergence due to gradient conflict between adversarial objectives and the model's safety-retrieval mechanism. We propose Attention-Guided Visual Jailbreaking, which circumvents rather than overpowers safety alignment by directly manipulating attention patterns. Our method introduces two simple auxiliary objectives: (1) suppressing attention to alignment-relevant prefix tokens and (2) anchoring generation on adversarial image features. This simple yet effective push-pull formulation reduces gradient conflict by 45% and achieves 94.4% attack success rate on Qwen-VL (vs. 68.8% baseline) with 40% fewer iterations. At tighter perturbation budgets ($ε=8/255$), we maintain 59.0% ASR compared to 45.7% for standard methods. Mechanistic analysis reveals a failure mode we term safety blindness: successful attacks suppress system-prompt attention by 80%, causing models to generate harmful content not by overriding safety rules, but by failing to retrieve them.</p>
+<h3 id="7-lvsum-a-benchmark-for-timestamp-aware-long-video-summarization">[7] <a href="https://arxiv.org/abs/2604.10024">LVSum: A Benchmark for Timestamp-Aware Long Video Summarization</a></h3>
+<p><em>Alkesh Patel, Melis Ozyildirim, Ying-Chang Cheng, Ganesh Nagarajan</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出了LVSum基准数据集，专门用于评估长视频摘要任务，并通过全面评估揭示了现有多模态大语言模型在时间理解方面的系统性缺陷，为推进长视频摘要中的时间推理研究奠定了基础。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在长视频摘要任务中面临显著挑战，特别是在维持长时间尺度的时间保真度和生成语义与时间双重对齐的摘要方面存在不足，缺乏专门针对长视频摘要评估的基准数据集。</p>
+<p><strong>Method:</strong> 研究提出了LVSum基准数据集，包含13个领域的多样化长视频，每个视频都配有包含精确时间参考的人工标注摘要；采用新引入的基于LLM的内容相关性和模态一致性评估指标，结合标准评估指标，对专有和开源MLLMs进行了全面评估。</p>
+<p><strong>Result:</strong> 实验结果表明，现有MLLMs在时间理解方面存在系统性缺陷，在LVSum基准上的评估揭示了模型在长视频摘要任务中的性能局限，特别是在时间对齐和模态一致性方面表现不足。</p>
+<p><strong>Conclusion:</strong> 该研究为长视频摘要中的时间推理研究建立了新的基础，揭示了现有模型的局限性，并为开发具有更好时间保真度的多模态模型提供了重要见解和方向，强调了时间对齐在长视频理解中的关键作用。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Long video summarization presents significant challenges for current multimodal large language models (MLLMs), particularly in maintaining temporal fidelity over extended durations and producing summaries that are both semantically and temporally grounded. In this work, we present LVSum, a human-annotated benchmark designed specifically for evaluating long video summarization with fine-grained temporal alignment. LVSum comprises diverse long-form videos across 13 domains, each paired with human-generated summaries containing precise temporal references. We conduct a comprehensive evaluation of both proprietary and open-source MLLMs on LVSum, assessing performance using newly introduced LLM-based metrics for content relevance and modality coherence, alongside standard evaluation metrics. Our experiments reveal systematic gaps in temporal understanding among existing MLLMs and offer insights that establish a new foundation for advancing temporal reasoning in long video summarization.</p>
+<h3 id="8-spotlight-and-shadow-attention-guided-dual-anchor-introspective-decoding-for-mllm-hallucination-mitigation">[8] <a href="https://arxiv.org/abs/2604.10071">Spotlight and Shadow: Attention-Guided Dual-Anchor Introspective Decoding for MLLM Hallucination Mitigation</a></h3>
+<p><em>Yebo Wu, Han Jin, Zhijiang Guo, Li Li</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了双锚点内省解码（DaID），一种新颖的对比解码框架，通过挖掘多模态大语言模型内部感知差异来动态校准每个token的生成，从而显著缓解视觉幻觉问题。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型虽然展现出卓越的推理能力，但持续遭受幻觉问题的困扰，即生成的文本与视觉内容相矛盾，这限制了模型在实际应用中的可靠性和准确性。</p>
+<p><strong>Method:</strong> DaID框架通过挖掘模型内部感知差异来动态校准token生成，具体识别Spotlight层以增强视觉事实信号，同时识别Shadow层以抑制文本惯性，并利用视觉注意力分布来指导双锚点选择过程，实现精确的token级适应。</p>
+<p><strong>Result:</strong> 在多个基准测试和不同MLLM模型上的实验结果表明，DaID能够显著缓解幻觉问题，同时增强模型的通用推理能力，证明了该方法的有效性和泛化性。</p>
+<p><strong>Conclusion:</strong> 该研究通过挖掘模型内部表征差异来校准生成过程，为缓解MLLM幻觉问题提供了新的技术路径，表明内部感知信号的有效利用能够在不损害推理能力的前提下提升生成内容的视觉一致性。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have demonstrated remarkable reasoning capabilities yet continue to suffer from hallucination, where generated text contradicts visual content. In this paper, we introduce Dual-Anchor Introspective Decoding (DaID), a novel contrastive decoding framework that dynamically calibrates each token generation by mining the model's internal perceptual discrepancies. Specifically, DaID identifies a Spotlight layer to amplify visual factual signals and a Shadow layer to suppress textual inertia. By leveraging visual attention distributions to guide this dual-anchor selection process, our method ensures precise, token-specific adaptation. Experimental results across multiple benchmarks and MLLMs demonstrate that DaID significantly mitigates hallucination while enhancing general reasoning capabilities.</p>
+<h3 id="9-adapting-2d-multi-modal-large-language-model-for-3d-ct-image-analysis">[9] <a href="https://arxiv.org/abs/2604.10233">Adapting 2D Multi-Modal Large Language Model for 3D CT Image Analysis</a></h3>
+<p><em>Yang Yu, Dunyuan Xu, Yaoqian Li, Xiaomeng Li, Jinpeng Li, Pheng-Ann Heng</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出了一种将2D多模态大语言模型迁移至3D医学图像分析的方法，通过文本引导的分层混合专家框架和两阶段训练策略，显著提升了医学报告生成和医学视觉问答任务的性能。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有3D医学多模态大语言模型面临两个主要问题：由于3D医学图像数据稀缺导致视觉编码器预训练不足，以及无法为不同任务提取定制化的图像特征，这限制了模型在医学报告生成和医学视觉问答等临床任务中的性能表现。</p>
+<p><strong>Method:</strong> 该方法首先将经过2D自然图像充分训练的MLLM迁移至支持3D医学体积输入，同时重用所有预训练参数；然后设计了文本引导的分层混合专家框架，能够在文本提示的指导下区分不同任务；最后采用两阶段训练策略分别学习任务共享和任务特定的图像特征。</p>
+<p><strong>Result:</strong> 实验结果表明，该方法在医学报告生成和医学视觉问答任务上均优于现有的3D医学多模态大语言模型，证明了所提框架在提取定制化图像特征和任务区分方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究展示了通过迁移学习策略和任务感知的特征提取框架，可以有效解决3D医学图像数据稀缺问题，为医学多模态大语言模型的发展提供了新的技术路径，具有重要的临床应用价值。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>3D medical image analysis is of great importance in disease diagnosis and treatment. Recently, multimodal large language models (MLLMs) have exhibited robust perceptual capacity, strong cross-modal alignment, and promising generalizability. Therefore, they have great potential to improve the performance of medical report generation (MRG) and medical visual question answering (MVQA), which serve as two important tasks in clinical scenarios. However, due to the scarcity of 3D medical images, existing 3D medical MLLMs suffer from insufficiently pretrained vision encoder and inability to extract customized image features for different kinds of tasks. In this paper, we propose to first transfer a 2D MLLM, which is well trained with 2D natural images, to support 3D medical volumetric inputs while reusing all of its pre-trained parameters. To enable the vision encoder to extract tailored image features for various tasks, we then design a Text-Guided Hierarchical MoE (TGH-MoE) framework, which can distinguish tasks under the guidance of the text prompt. Furthermore, we propose a two-stage training strategy to learn both task-shared and task-specific image features. As demonstrated empirically, our method outperforms existing 3D medical MLLMs in both MRG and MVQA tasks. Our code will be released once this paper is accepted.</p>
+<h3 id="10-medveriseg-teaching-mllm-based-medical-segmentation-models-to-verify-query-validity-without-extra-training">[10] <a href="https://arxiv.org/abs/2604.10242">MedVeriSeg: Teaching MLLM-Based Medical Segmentation Models to Verify Query Validity Without Extra Training</a></h3>
+<p><em>Ziqian Lu, Qinyue Tong, Jun Liu, Yunlong Yu</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出了MedVeriSeg，一种无需训练的验证框架，能够为LISA类医学分割模型提供识别和拒绝包含不存在目标的虚假查询的能力，从而解决医学图像分割中的幻觉问题。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的LISA类医学图像分割方法无法可靠地拒绝虚假查询，经常为不存在的目标产生幻觉分割掩码，这降低了在医学教育和临床使用中的实际可靠性，需要解决这一关键限制。</p>
+<p><strong>Method:</strong> MedVeriSeg基于相似度响应质量评分模块，从强度、紧凑性和纯度三个方面表征[SEG]标记特征与MLLM图像特征之间的相似度图分布模式差异，并结合GPT-4o对相似度热图和评分模块结果的联合评估进行最终验证。</p>
+<p><strong>Result:</strong> 在基于SA-Med2D-20M构建的小规模基准测试中，MedVeriSeg能够有效拒绝虚假查询的分割请求，同时保持对真实查询的可靠识别，验证了该框架的实际有效性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了相似度图分布模式在区分真假查询中的关键作用，提出的训练免费验证框架为医学图像分割模型的可靠性提升提供了新思路，具有重要的临床应用价值。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Despite recent advances in MLLM-based medical image segmentation, existing LISA-like methods cannot reliably reject false queries and often produce hallucinated segmentation masks for absent targets. This limitation reduces practical reliability in both medical education and clinical use. In this work, we propose MedVeriSeg, a training-free verification framework that equips LISA-like medical segmentation models with the ability to identify and reject false queries which contain non-existent targets. Our key observation is that the similarity map between the [SEG] token feature and MLLM image features exhibits markedly different distribution patterns for true and false queries. Based on this, we introduce a Similarity Response Quality Scoring Module that characterizes the similarity map from three aspects: strength, compactness, and purity, producing an initial target-existence prediction. We further incorporate qualitative visual evidence by using GPT-4o to jointly assess the similarity heatmap and the results of Similarity Response Quality Scoring Module for final verification. Experiments on a small-scale benchmark constructed from SA-Med2D-20M show that MedVeriSeg effectively rejects false-query segmentation requests while maintaining reliable recognition of true queries.</p>
+<h3 id="11-storm-end-to-end-referring-multi-object-tracking-in-videos">[11] <a href="https://arxiv.org/abs/2604.10527">STORM: End-to-End Referring Multi-Object Tracking in Videos</a></h3>
+<p><em>Zijia Lu, Jingru Yi, Jue Wang, Yuxiao Chen, Junwen Chen, Xinyu Li, Davide Modolo</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了STORM，一种用于指代多目标跟踪的端到端多模态大语言模型，通过任务组合学习策略和新的STORM-Bench数据集，在统一框架内联合执行目标定位与跟踪，实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有指代多目标跟踪方法将目标定位与跟踪分解为独立模块，存在训练视频稀缺、标注模糊、领域受限等问题，导致性能受限，需要一种能够进行连贯外观-运动-语言推理的端到端解决方案。</p>
+<p><strong>Method:</strong> STORM采用端到端多模态大语言模型架构，在统一框架内联合执行目标定位与跟踪，无需外部检测器；提出任务组合学习策略，将RMOT分解为图像定位和目标跟踪两个子任务，利用数据丰富的子任务学习结构化时空推理；构建了STORM-Bench数据集，采用自下而上的标注流程生成准确轨迹和多样化的无歧义指代表达式。</p>
+<p><strong>Result:</strong> STORM在图像定位、单目标跟踪和RMOT基准测试中均达到最先进性能，展示了强大的泛化能力和复杂真实场景中的鲁棒时空定位能力；STORM-Bench数据集已公开发布，为RMOT研究提供了高质量基准。</p>
+<p><strong>Conclusion:</strong> 该研究表明端到端多模态大语言模型能够有效统一目标定位与跟踪任务，任务组合学习策略提高了数据效率，STORM-Bench数据集解决了现有数据集的标注质量问题，为复杂视觉语言时空推理任务提供了新的解决方案和基准资源。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Referring multi-object tracking (RMOT) is a task of associating all the objects in a video that semantically match with given textual queries or referring expressions. Existing RMOT approaches decompose object grounding and tracking into separated modules and exhibit limited performance due to the scarcity of training videos, ambiguous annotations, and restricted domains. In this work, we introduce STORM, an end-to-end MLLM that jointly performs grounding and tracking within a unified framework, eliminating external detectors and enabling coherent reasoning over appearance, motion, and language. To improve data efficiency, we propose a task-composition learning (TCL) strategy that decomposes RMOT into image grounding and object tracking, allowing STORM to leverage data-rich sub-tasks and learn structured spatial--temporal reasoning. We further construct STORM-Bench, a new RMOT dataset with accurate trajectories and diverse, unambiguous referring expressions generated through a bottom-up annotation pipeline. Extensive experiments show that STORM achieves state-of-the-art performance on image grounding, single-object tracking, and RMOT benchmarks, demonstrating strong generalization and robust spatial--temporal grounding in complex real-world scenarios. STORM-Bench is released at https://github.com/amazon-science/storm-referring-multi-object-grounding.</p>
+<h3 id="12-turning-generators-into-retrievers-unlocking-mllms-for-natural-language-guided-geo-localization">[12] <a href="https://arxiv.org/abs/2604.10721">Turning Generators into Retrievers: Unlocking MLLMs for Natural Language-Guided Geo-Localization</a></h3>
+<p><em>Yuqi Chen, Xiaohan Zhang, Ahmad Arrabi, Waqas Sultani, Chen Chen, Safwan Wshah</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文提出了一种简单而有效的框架，通过参数高效微调将多模态大语言模型（MLLMs）适配于自然语言引导的跨视角地理定位任务，在保持预训练多模态知识的同时实现强大的跨模态对齐，显著提升了检索性能。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 自然语言引导的跨视角地理定位（NGCG）任务旨在通过地面场景的文本描述检索地理标记的卫星图像。现有基于CLIP风格双编码器架构的方法存在跨模态泛化能力弱和架构设计复杂的问题，而多模态大语言模型（MLLMs）虽然具备强大的语义推理能力，但并未针对检索任务进行优化。</p>
+<p><strong>Method:</strong> 本文提出了一种通过参数高效微调将MLLMs适配于NGCG任务的框架。该方法优化MLLM内部的潜在表示，同时保留其预训练的多模态知识，无需重新设计模型架构即可实现强大的跨模态对齐。通过对从模型主干到特征聚合的多种变量进行系统分析，为在NGCG中利用MLLMs提供了实用且可泛化的见解。</p>
+<p><strong>Result:</strong> 该方法在GeoText-1652数据集上实现了最先进的性能，文本到图像Recall@1指标提升了12.2%，并在CVG-Text数据集的12个子任务中的5个中获得了最佳性能。所有这些成果都是在使用远少于基线方法可训练参数的情况下实现的，展示了参数效率与性能的优越平衡。</p>
+<p><strong>Conclusion:</strong> 研究结果表明MLLMs可以作为语义跨视角检索的强大基础，为MLLM-based NGCG成为传统双编码器设计的可扩展、强大替代方案铺平了道路。该方法通过参数高效微调实现了性能显著提升，同时保持了模型架构的简洁性，为跨模态检索任务提供了新的研究方向。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Natural-language Guided Cross-view Geo-localization (NGCG) aims to retrieve geo-tagged satellite imagery using textual descriptions of ground scenes. While recent NGCG methods commonly rely on CLIP-style dual-encoder architectures, they often suffer from weak cross-modal generalization and require complex architectural designs. In contrast, Multimodal Large Language Models (MLLMs) offer powerful semantic reasoning capabilities but are not directly optimized for retrieval tasks. In this work, we present a simple yet effective framework to adapt MLLMs for NGCG via parameter-efficient finetuning. Our approach optimizes latent representations within the MLLM while preserving its pretrained multimodal knowledge, enabling strong cross-modal alignment without redesigning model architectures. Through systematic analysis of diverse variables, from model backbone to feature aggregation, we provide practical and generalizable insights for leveraging MLLMs in NGCG. Our method achieves SOTA on GeoText-1652 with a 12.2% improvement in Text-to-Image Recall@1 and secures top performance in 5 out of 12 subtasks on CVG-Text, all while surpassing baselines with far fewer trainable parameters. These results position MLLMs as a robust foundation for semantic cross-view retrieval and pave the way for MLLM-based NGCG to be adopted as a scalable, powerful alternative to traditional dual-encoder designs. Project page and code are available at https://yuqichen888.github.io/NGCG-MLLMs-web/.</p>
+<h3 id="13-rexsonovqa-a-video-qa-benchmark-for-procedure-centric-ultrasound-understanding">[13] <a href="https://arxiv.org/abs/2604.10916">ReXSonoVQA: A Video QA Benchmark for Procedure-Centric Ultrasound Understanding</a></h3>
+<p><em>Xucheng Wang, Xiaoman Zhang, Sung Eun Kim, Ankit Pal, Pranav Rajpurkar</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文提出了ReXSonoVQA，一个用于评估视觉语言模型在动态超声程序理解能力的视频问答基准，包含514个视频片段和问题，旨在推动自主超声系统的发展。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 超声采集需要熟练的探头操作和实时调整，视觉语言模型可能实现自主超声系统，但现有基准仅评估静态图像，缺乏对动态程序理解能力的评估，这限制了模型在真实临床场景中的应用。</p>
+<p><strong>Method:</strong> 研究团队构建了ReXSonoVQA基准，包含514个视频片段和514个问题（249个多项选择题和265个自由回答题），针对三个核心能力维度：动作-目标推理、伪影识别与优化、以及程序上下文与规划，并对Gemini 3 Pro、Qwen3.5-397B、LLaVA-Video-72B和Seed 2.0 Pro等模型进行了零样本评估。</p>
+<p><strong>Result:</strong> 评估结果显示，视觉语言模型能够提取部分程序信息，但在故障排除问题上表现仍然具有挑战性，相对于纯文本基线的改进有限，这暴露了模型在因果推理方面的局限性，特别是在需要深入理解动态程序逻辑的任务上。</p>
+<p><strong>Conclusion:</strong> ReXSonoVQA基准为开发用于超声培训、指导和机器人自动化的感知系统提供了重要工具，揭示了当前视觉语言模型在动态医疗程序理解方面的不足，特别是因果推理能力的欠缺，为未来模型改进指明了方向。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Ultrasound acquisition requires skilled probe manipulation and real-time adjustments. Vision-language models (VLMs) could enable autonomous ultrasound systems, but existing benchmarks evaluate only static images, not dynamic procedural understanding. We introduce ReXSonoVQA, a video QA benchmark with 514 video clips and 514 questions (249 MCQ, 265 free-response) targeting three competencies: Action-Goal Reasoning, Artifact Resolution &amp; Optimization, and Procedure Context &amp; Planning. Zero-shot evaluation of Gemini 3 Pro, Qwen3.5-397B, LLaVA-Video-72B, and Seed 2.0 Pro shows VLMs can extract some procedural information, but troubleshooting questions remain challenging with minimal gains over text-only baselines, exposing limitations in causal reasoning. ReXSonoVQA enables developing perception systems for ultrasound training, guidance, and robotic automation.</p>
+<h3 id="14-barebones-benchmarking-zero-shot-geometric-comprehension-in-vlms">[14] <a href="https://arxiv.org/abs/2604.10528">BareBones: Benchmarking Zero-Shot Geometric Comprehension in VLMs</a></h3>
+<p><em>Aaditya Baranwal, Vishal Yadav, Abhishek Rajora</em></p>
+<h4 id="tldr_13">🧩 TL;DR</h4>
+<p>该研究提出了BareBones基准测试，用于评估视觉语言模型在零样本设置下对纯几何形状的理解能力，揭示了主流模型普遍存在的纹理偏倚问题，并记录了模型在RGB信息缺失时的性能崩溃现象。</p>
+<hr />
+<h4 id="detailed-summary_13">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视觉语言模型评估方法未能有效分离几何结构理解与纹理映射机制，通常将语义推理与纹理特征混淆，并依赖可能泄露环境线索的不精确标注。该研究旨在解决这一空白，探究模型是否真正理解几何结构还是仅利用RGB纹理和上下文先验作为统计捷径。</p>
+<p><strong>Method:</strong> 研究引入了BareBones零样本基准测试，通过像素级轮廓图像评估纯几何形状理解能力。该方法整合了来自六个数据集的几何特征明显类别，包括五个现有分割数据集（ImageNet-S、DIS5K、ThinObject5K、PASCAL VOC、CUB-200）和专门构建的WTP-Bench数据集。WTP-Bench作为精细化的视觉谜题，仅基于边界轮廓迫使模型识别类间几何概念，建立了无噪声的几何分类体系。</p>
+<p><strong>Result:</strong> 对26个最先进的专有和开源视觉语言模型（包括GPT-4.1、Gemini、Claude Sonnet 4.5、LLaVA等）的评估显示，在RGB信息缺失条件下，所有模型均表现出严重且一致的性能崩溃现象，研究者将其称为"纹理偏倚悬崖"。该基准测试系统地记录了模型普遍存在的结构盲点，为几何基础理解提供了严格的评估标准。</p>
+<p><strong>Conclusion:</strong> 研究表明当前视觉语言模型严重依赖纹理信息而非几何结构理解，BareBones基准为评估模型真正的几何基础能力提供了严谨的衡量标准。这一发现揭示了模型在形状理解方面的根本性局限，为未来开发具有更强几何推理能力的多模态模型指明了方向，并强调了在评估中分离不同认知机制的重要性。</p>
+<hr />
+<h4 id="abstract_13">📄 Abstract</h4>
+<p>While Vision-Language Models (VLMs) demonstrate remarkable zero-shot recognition capabilities across a diverse spectrum of multimodal tasks, it yet remains an open question whether these architectures genuinely comprehend geometric structure or merely exploit RGB textures and contextual priors as statistical shortcuts. Existing evaluations fail to isolate this mechanism, conflating semantic reasoning with texture mapping and relying on imprecise annotations that inadvertently leak environmental cues. To address this gap, we introduce \textbf{BareBones}, a zero-shot benchmark designed to stress-test pure geometric shape comprehension. We curate pixel-level silhouettes of geometrically distinct classes across six datasets: five established segmentation sources (ImageNet-S, DIS5K, ThinObject5K, PASCAL VOC, CUB-200) and our novel flagship collection, WTP-Bench, establishing a noise-free geometric taxonomy. WTP-Bench is an extreme, fine-grained visual puzzle that forces models to identify inter-class geometric concepts from boundary contours alone. Our evaluation of 26 state-of-the-art proprietary and open-weight VLMs (\eg, GPT-4.1, Gemini, Claude Sonnet 4.5, LLaVA) reveals a consistent, severe performance collapse under RGB deprivation, a phenomenon we term the \textit{Texture Bias Cliff}. By documenting universal structural blindspots, BareBones establishes a rigorous yardstick for genuine geometric grounding.</p>
+<h3 id="15-mmr-ad-a-large-scale-multimodal-dataset-for-benchmarking-general-anomaly-detection-with-multimodal-large-language-models">[15] <a href="https://arxiv.org/abs/2604.10971">MMR-AD: A Large-Scale Multimodal Dataset for Benchmarking General Anomaly Detection with Multimodal Large Language Models</a></h3>
+<p><em>Xincheng Yao, Zefeng Qian, Chao Shi, Jiayang Song, Chongyang Zhang</em></p>
+<h4 id="tldr_14">🧩 TL;DR</h4>
+<p>本文提出了MMR-AD基准测试和Anomaly-R1基线模型，用于评估和提升多模态大语言模型在通用异常检测任务上的性能，解决了现有MLLMs在工业异常检测场景中的性能差距问题。</p>
+<hr />
+<h4 id="detailed-summary_14">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在通用异常检测任务上的能力尚未充分探索，主要面临两大挑战：MLLMs的预训练数据与工业异常检测场景存在显著差距，且现有异常检测数据集多为图像形式，不适合MLLMs的后训练。因此需要专门针对MLLM-based通用异常检测研究的综合基准测试。</p>
+<p><strong>Method:</strong> 研究提出了MMR-AD综合基准测试，用于训练和评估MLLM-based异常检测模型。基于该基准，开发了Anomaly-R1基线模型，这是一种基于推理的异常检测模型，通过学习MMR-AD中的思维链数据，并利用强化学习进行增强。</p>
+<p><strong>Result:</strong> 实验表明，当前最先进的通用MLLMs在异常检测性能上仍远未达到工业要求。相比之下，提出的Anomaly-R1模型在异常检测和定位任务上均取得了显著改进，超越了通用MLLMs的表现。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了MLLMs在通用异常检测领域的性能局限性，并提供了有效的基准测试和基线模型。MMR-AD基准和Anomaly-R1模型为未来MLLM-based异常检测研究奠定了基础，展示了通过专门设计和强化学习增强可以显著提升MLLMs在工业异常检测任务上的性能。</p>
+<hr />
+<h4 id="abstract_14">📄 Abstract</h4>
+<p>In the progress of industrial anomaly detection, general anomaly detection (GAD) is an emerging trend and also the ultimate goal. Unlike the conventional single- and multi-class AD, general AD aims to train a general AD model that can directly detect anomalies in diverse novel classes without any retraining or fine-tuning on the target data. Recently, Multimodal Large Language Models (MLLMs) have shown great promise in achieving general anomaly detection due to their revolutionary visual understanding and language reasoning capabilities. However, MLLM's general AD ability remains underexplored due to: (1) MLLMs are pretrained on amounts of data sourced from the Web, these data still have significant gaps with the data in AD scenarios. Moreover, the image-text pairs during pretraining are also not specifically for AD tasks. (2) The current mainstream AD datasets are image-based and not yet suitable for post-training MLLMs. To facilitate MLLM-based general AD research, we present MMR-AD, which is a comprehensive benchmark for both training and evaluating MLLM-based AD models. With MMR-AD, we reveal that the AD performance of current SOTA generalist MLLMs still falls far behind the industrial requirements. Based on MMR-AD, we also propose a baseline model, Anomaly-R1, which is a reasoning-based AD model that learns from the CoT data in MMR-AD and is further enhanced by reinforcement learning. Extensive experiments show that our Anomaly-R1 achieves remarkable improvements over generalist MLLMs in both anomaly detection and localization.</p>
+<h3 id="16-panoptic-pairwise-distortion-graph">[16] <a href="https://arxiv.org/abs/2604.11004">Panoptic Pairwise Distortion Graph</a></h3>
+<p><em>Muhammad Kamran Janjua, Abdul Wahab, Bahador Rashidi</em></p>
+<h4 id="tldr_15">🧩 TL;DR</h4>
+<p>该论文提出了一种新的图像对比评估方法，通过将图像对表示为区域的结构化组合来创建失真图，从而实现了细粒度的、结构化的成对图像质量评估。研究贡献包括区域级数据集PandaSet、基准套件PandaBench和高效架构Panda，为精细图像退化分析开辟了新方向。</p>
+<hr />
+<h4 id="detailed-summary_15">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有图像评估方法主要关注整体图像分析，而隐式依赖区域级理解，缺乏对图像对中区域级退化的结构化表示。该研究旨在解决这一局限，通过引入失真图任务来提供细粒度的、结构化的成对图像质量评估，填补了区域级退化信息紧凑可解释表示的空白。</p>
+<p><strong>Method:</strong> 该研究将场景图概念从图像内扩展到图像间，提出了失真图任务，将成对图像表示为基于区域的结构化拓扑。方法包括创建区域级数据集PandaSet、设计具有不同区域级难度的基准套件PandaBench，以及开发高效架构Panda来生成失真图，这些图能够紧凑地表示失真类型、严重程度、比较和质量分数等密集退化信息。</p>
+<p><strong>Result:</strong> 实验表明，PandaBench对当前最先进的多模态大语言模型构成了显著挑战，这些模型即使在提供明确区域线索的情况下也无法理解区域级退化。研究证明，在PandaSet上训练或使用失真图提示能够激发区域级失真理解，Panda架构在生成结构化失真图方面表现出高效性，为细粒度图像评估提供了新的基准。</p>
+<p><strong>Conclusion:</strong> 该研究通过失真图任务为精细图像退化分析开辟了新方向，展示了结构化区域表示在成对图像评估中的重要性。研究结果表明，区域级理解对于准确评估图像质量至关重要，而现有MLLM方法在这一任务上存在明显不足，这为未来开发更精细的图像评估系统提供了重要启示。</p>
+<hr />
+<h4 id="abstract_15">📄 Abstract</h4>
+<p>In this work, we introduce a new perspective on comparative image assessment by representing an image pair as a structured composition of its regions. In contrast, existing methods focus on whole image analysis, while implicitly relying on region-level understanding. We extend the intra-image notion of a scene graph to inter-image, and propose a novel task of Distortion Graph (DG). DG treats paired images as a structured topology grounded in regions, and represents dense degradation information such as distortion type, severity, comparison and quality score in a compact interpretable graph structure. To realize the task of learning a distortion graph, we contribute (i) a region-level dataset, PandaSet, (ii) a benchmark suite, PandaBench, with varying region-level difficulty, and (iii) an efficient architecture, Panda, to generate distortion graphs. We demonstrate that PandaBench poses a significant challenge for state-of-the-art multimodal large language models (MLLMs) as they fail to understand region-level degradations even when fed with explicit region cues. We show that training on PandaSet or prompting with DG elicits region-wise distortion understanding, opening a new direction for fine-grained, structured pairwise image assessment.</p>
+<h3 id="17-mmrarebench-a-rare-disease-multimodal-and-multi-image-medical-benchmark">[17] <a href="https://arxiv.org/abs/2604.10755">MMRareBench: A Rare-Disease Multimodal and Multi-Image Medical Benchmark</a></h3>
+<p><em>Junzhi Ning, Jiashi Lin, Yingying Fang, Wei Li, Jiyao Liu, Cheng Tang, Chenglong Ma, Wenhao Tang, Tianbin Li, Ziyan Huang, Guang Yang, Junjun He</em></p>
+<h4 id="tldr_16">🧩 TL;DR</h4>
+<p>该研究提出了MMRareBench，这是首个针对罕见病的多模态多图像临床能力基准测试，系统评估了23个多模态大语言模型在罕见病场景下的表现，揭示了医学领域模型在多图像证据整合方面的显著不足。</p>
+<hr />
+<h4 id="detailed-summary_16">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在常见疾病任务上表现良好，但在罕见病场景下的性能尚未得到充分测试。现有基准主要评估常见疾病的单图像设置，而罕见病数据稀缺下的多模态和多图像证据整合能力缺乏系统性评估，临床医生在罕见病诊断中往往缺乏先验知识，只能严格依赖病例级证据进行临床判断。</p>
+<p><strong>Method:</strong> 研究引入了MMRareBench基准测试，包含1,756个问答对和7,958张相关医学图像，数据来源于PMC病例报告，采用Orphanet锚定的本体对齐、轨迹特异性泄漏控制、证据基础的标注以及两级评估协议。基准涵盖四个工作流程对齐的轨迹：诊断、治疗规划、跨图像证据对齐和检查建议，系统评估了23个多模态大语言模型。</p>
+<p><strong>Result:</strong> 系统评估显示模型能力呈现碎片化特征，所有模型在治疗规划方面表现普遍较低。医学领域模型在多图像轨迹上显著落后于通用多模态大语言模型，尽管在诊断分数上具有竞争力。这些模式与能力稀释效应一致：医学微调可以缩小诊断差距，但可能削弱罕见病证据整合所需的组合多图像能力。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了当前多模态大语言模型在罕见病临床工作流程中的局限性，特别是医学领域模型在多图像证据整合方面的不足。研究结果表明需要开发专门针对罕见病多模态推理的模型，并强调了评估框架需要更好地反映真实临床工作流程，特别是治疗规划和跨图像证据对齐等关键任务。</p>
+<hr />
+<h4 id="abstract_16">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have advanced clinical tasks for common conditions, but their performance on rare diseases remains largely untested. In rare-disease scenarios, clinicians often lack prior clinical knowledge, forcing them to rely strictly on case-level evidence for clinical judgments. Existing benchmarks predominantly evaluate common-condition, single-image settings, leaving multimodal and multi-image evidence integration under rare-disease data scarcity systematically unevaluated. We introduce MMRareBench, to our knowledge the first rare-disease benchmark jointly evaluating multimodal and multi-image clinical capability across four workflow-aligned tracks: diagnosis, treatment planning, cross-image evidence alignment, and examination suggestion. The benchmark comprises 1,756 question-answer pairs with 7,958 associated medical images curated from PMC case reports, with Orphanet-anchored ontology alignment, track-specific leakage control, evidence-grounded annotations, and a two-level evaluation protocol. A systematic evaluation of 23 MLLMs reveals fragmented capability profiles and universally low treatment-planning performance, with medical-domain models trailing general-purpose MLLMs substantially on multi-image tracks despite competitive diagnostic scores. These patterns are consistent with a capacity dilution effect: medical fine-tuning can narrow the diagnostic gap but may erode the compositional multi-image capability that rare-disease evidence integration demands.</p>
+<h3 id="18-semantic-geometric-dual-compression-training-free-visual-token-reduction-for-ultra-high-resolution-remote-sensing-understanding">[18] <a href="https://arxiv.org/abs/2604.11122">Semantic-Geometric Dual Compression: Training-Free Visual Token Reduction for Ultra-High-Resolution Remote Sensing Understanding</a></h3>
+<p><em>Yueying Li, Fengxiang Wang, Yan Li, Mingshuo Chen, Mengying Zhao, Long Lan</em></p>
+<h4 id="tldr_17">🧩 TL;DR</h4>
+<p>本文提出DualComp，一种任务自适应的双流令牌压缩框架，用于解决多模态大语言模型处理超高分辨率遥感图像时视觉令牌过多导致的计算开销问题。该框架通过轻量级路由器动态引导，将特征处理解耦为对象语义流和场景几何流，实现了高效且高保真的遥感解译。</p>
+<hr />
+<h4 id="detailed-summary_17">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在遥感领域展现出巨大潜力，但处理超高分辨率图像时产生的海量视觉令牌带来了极高的计算开销，严重制约了推理效率。现有视觉令牌压缩方法主要采用静态均匀压缩策略，忽视了遥感解译任务中固有的"语义-几何对偶性"：对象语义任务关注物体抽象语义并受益于背景剪枝，而场景几何任务则严重依赖空间拓扑结构的完整性。</p>
+<p><strong>Method:</strong> 本文提出DualComp框架，通过轻量级预训练路由器动态引导，将特征处理解耦为两个专用路径。在对象语义流中，空间连续语义聚合器利用尺寸自适应聚类聚合冗余背景同时保护小物体；在场景几何流中，指令引导结构恢复器引入贪婪路径追踪拓扑补全机制来重建空间骨架结构。</p>
+<p><strong>Result:</strong> 在超高分辨率遥感基准XLRS-Bench上的实验表明，DualComp能够以极低的计算成本实现高保真的遥感解译，在效率和准确性方面同时获得提升。该方法在保持解译质量的同时显著降低了计算开销，验证了任务自适应双流压缩策略的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了遥感解译任务中语义与几何需求的对偶性，并提出相应的自适应压缩策略。DualComp框架通过解耦处理路径和任务特定优化，为多模态大语言模型在遥感领域的实际部署提供了高效解决方案，同时为视觉令牌压缩研究开辟了新的方向。</p>
+<hr />
+<h4 id="abstract_17">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have demonstrated immense potential in Earth observation. However, the massive visual tokens generated when processing Ultra-High-Resolution (UHR) imagery introduce prohibitive computational overhead, severely bottlenecking their inference efficiency. Existing visual token compression methods predominantly adopt static and uniform compression strategies, neglecting the inherent "Semantic-Geometric Duality" in remote sensing interpretation tasks. Specifically, object semantic tasks focus on the abstract semantics of objects and benefit from aggressive background pruning, whereas scene geometric tasks critically rely on the integrity of spatial topology. To address this challenge, we propose DualComp, a task-adaptive dual-stream token compression framework. Dynamically guided by a lightweight pre-trained router, DualComp decouples feature processing into two dedicated pathways. In the object semantic stream, the Spatially-Contiguous Semantic Aggregator (SCSA) utilizes size-adaptive clustering to aggregates redundant background while protecting small object. In the scene geometric stream, the Instruction-Guided Structure Recoverer (IGSR) introduces a greedy path-tracing topology completion mechanism to reconstruct spatial skeletons. Experiments on the UHR remote sensing benchmark XLRS-Bench demonstrate that DualComp accomplishes high-fidelity remote sensing interpretation at an exceptionally low computational cost, achieving simultaneous improvements in both efficiency and accuracy.</p>
+<h3 id="19-boxtuning-directly-injecting-the-object-box-for-multimodal-model-fine-tuning">[19] <a href="https://arxiv.org/abs/2604.11136">BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning</a></h3>
+<p><em>Zekun Qian, Ruize Han, Wei Feng</em></p>
+<h4 id="tldr_18">🧩 TL;DR</h4>
+<p>本文提出BoxTuning方法，通过将彩色边界框和轨迹轨迹作为视觉提示直接渲染到视频帧中，解决了视频多模态大语言模型中对象级时空理解的问题，显著减少了文本标记开销并保持了完整的时间分辨率。</p>
+<hr />
+<h4 id="detailed-summary_18">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视频多模态大语言模型在对象级时空理解方面存在不足，它们通常对帧进行整体编码，缺乏细粒度对象定位的显式机制。虽然最近的工作尝试通过将边界框坐标序列化为文本标记来解决这一问题，但这种文本-坐标范式存在根本性的模态不匹配问题：对象信息本质上是视觉的，但将其编码为文本会导致高昂的标记成本，迫使进行激进的时间下采样。</p>
+<p><strong>Method:</strong> BoxTuning方法通过将对象时空信息直接注入视觉模态来解决模态不匹配问题。具体而言，将彩色边界框和轨迹轨迹作为视觉提示渲染到视频帧上，仅保留简洁的颜色到对象图例作为文本。这种方法显著减少了文本标记成本，同时保持了完整的时间分辨率，其中轨迹轨迹进一步编码了关键帧内帧间的运动方向和速度，恢复了文本-坐标方法被迫丢弃的细粒度动态信息。</p>
+<p><strong>Result:</strong> 实验结果表明，BoxTuning在实践中实现了87-93%的文本标记减少。在五个视频问答基准测试（CLEVRER、Perception Test、STAR、NExT-QA、IntentQA）上，BoxTuning在空间导向任务上超越了文本-坐标基线，并在推理中心任务上几乎消除了观察到的准确性下降，确立了视觉提示作为向视频MLLMs传达对象信息的更自然和高效的范式。</p>
+<p><strong>Conclusion:</strong> 该研究表明，视觉提示是向视频多模态大语言模型传达对象信息的更自然和高效的范式。BoxTuning方法通过直接注入视觉模态的对象信息，解决了文本-坐标范式的根本性模态不匹配问题，同时保持了完整的时间分辨率和细粒度动态信息，为视频理解中的对象级时空建模提供了新的方向。</p>
+<hr />
+<h4 id="abstract_18">📄 Abstract</h4>
+<p>Object-level spatial-temporal understanding is essential for video question answering, yet existing multimodal large language models (MLLMs) encode frames holistically and lack explicit mechanisms for fine-grained object grounding. Recent work addresses this by serializing bounding box coordinates as text tokens, but this text-coordinate paradigm suffers from a fundamental modality mismatch: object information is inherently visual, yet encoding it as text incurs a high token cost that forces aggressive temporal downsampling. We propose BoxTuning, which resolves this mismatch by injecting object spatial-temporal information directly into the visual modality. Colored bounding boxes and trajectory trails are rendered onto video frames as visual prompts, with only a concise color-to-object legend retained as text. This reduces the token cost significantly, achieving 87-93% text token reduction in practice. It also preserves full temporal resolution, where the trajectory trails further encode inter-frame motion direction and speed within each keyframe, recovering fine-grained dynamics that text-coordinate methods are forced to discard. Experimental results on five video QA benchmarks (CLEVRER, Perception Test, STAR, NExT-QA, IntentQA) show that BoxTuning surpasses text-coordinate baselines on spatially oriented tasks and nearly eliminates the accuracy degradation observed on reasoning-centric tasks, establishing visual prompting as a more natural and efficient paradigm for conveying object information to video MLLMs.</p>
+<h3 id="20-test-time-scaling-over-perception-resolving-the-grounding-paradox-in-thinking-with-images">[20] <a href="https://arxiv.org/abs/2604.11025">Test-time Scaling over Perception: Resolving the Grounding Paradox in Thinking with Images</a></h3>
+<p><em>Zheng Jiang, Yiming Chen, Nan He, Jiahui Chen, Chaoyang Li, Houde Qian, Lifeng Sun</em></p>
+<h4 id="tldr_19">🧩 TL;DR</h4>
+<p>本文提出测试时感知扩展（TTSP）框架，通过将感知本身视为可扩展的推理过程来解决多模态大语言模型中的定位悖论问题，显著提升了细粒度视觉推理的鲁棒性。</p>
+<hr />
+<h4 id="detailed-summary_19">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在细粒度视觉推理中存在定位悖论问题，即模型必须在获取足够证据之前决定观察位置，导致系统脆弱性。这种循环依赖限制了模型在感知不确定性下的稳健推理能力。</p>
+<p><strong>Method:</strong> 提出测试时感知扩展（TTSP）框架，包含四个核心组件：生成多个探索性感知轨迹、基于熵的置信度估计过滤不可靠轨迹、将验证后的观察结果蒸馏为结构化知识、以及迭代优化后续探索方向以解决未解决的感知不确定性。</p>
+<p><strong>Result:</strong> 在高分辨率和通用多模态推理基准测试中，TTSP在不同骨干模型规模下均显著优于强基线方法，同时展现出良好的可扩展性和令牌效率优势，证明了测试时感知扩展的有效性。</p>
+<p><strong>Conclusion:</strong> 研究表明将感知视为可扩展的推理过程是解决多模态推理中定位悖论的有效途径，测试时感知扩展为在感知不确定性下实现鲁棒的多模态推理提供了有前景的研究方向。</p>
+<hr />
+<h4 id="abstract_19">📄 Abstract</h4>
+<p>Recent multimodal large language models (MLLMs) have begun to support Thinking with Images by invoking visual tools such as zooming and cropping during inference. Yet these systems remain brittle in fine-grained visual reasoning because they must decide where to look before they have access to the evidence needed to make that decision correctly. We identify this circular dependency as the Grounding Paradox. To address it, we propose Test-Time Scaling over Perception (TTSP), a framework that treats perception itself as a scalable inference process. TTSP generates multiple exploratory perception traces, filters unreliable traces using entropy-based confidence estimation, distills validated observations into structured knowledge, and iteratively refines subsequent exploration toward unresolved uncertainty. Extensive experiments on high-resolution and general multimodal reasoning benchmarks show that TTSP consistently outperforms strong baselines across backbone sizes, while also exhibiting favorable scalability and token efficiency. Our results suggest that scaling perception at test time is a promising direction for robust multimodal reasoning under perceptual uncertainty.</p>
+<h3 id="21-omniscript-towards-audio-visual-script-generation-for-long-form-cinematic-video">[21] <a href="https://arxiv.org/abs/2604.11102">OmniScript: Towards Audio-Visual Script Generation for Long-Form Cinematic Video</a></h3>
+<p><em>Junfu Pu, Yuxin Chen, Teng Wang, Ying Shan</em></p>
+<h4 id="tldr_20">🧩 TL;DR</h4>
+<p>本文提出了视频转剧本（V2S）任务，并开发了OmniScript模型，这是一个8B参数的音频-视觉语言模型，专门用于长叙事视频的理解和剧本生成，在时间定位和多领域语义准确性方面表现出色。</p>
+<hr />
+<h4 id="detailed-summary_20">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在短视频理解方面表现出色，但将长叙事电影视频转化为具有时间基础的详细分层剧本仍然是一个重大挑战，缺乏专门的任务定义和评估框架。</p>
+<p><strong>Method:</strong> 本文提出了视频转剧本（V2S）任务，构建了首个人工标注的基准数据集，并开发了OmniScript模型——一个8B参数的音频-视觉语言模型，采用渐进式训练流程，包括基于思维链的监督微调进行情节和角色推理，以及使用时间分段奖励的强化学习。</p>
+<p><strong>Result:</strong> 实验表明，尽管参数效率高，OmniScript在时间定位和多领域语义准确性方面显著优于更大的开源模型，性能与最先进的专有模型（包括Gemini 3-Pro）相当，证明了其在长叙事视频理解方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究为长叙事视频理解建立了新的任务框架和评估标准，证明了参数效率模型通过专门架构和训练策略可以在复杂多模态任务中达到先进性能，为电影分析、内容创作和视频理解应用开辟了新方向。</p>
+<hr />
+<h4 id="abstract_20">📄 Abstract</h4>
+<p>Current multimodal large language models (MLLMs) have demonstrated remarkable capabilities in short-form video understanding, yet translating long-form cinematic videos into detailed, temporally grounded scripts remains a significant challenge. This paper introduces the novel video-to-script (V2S) task, aiming to generate hierarchical, scene-by-scene scripts encompassing character actions, dialogues, expressions, and audio cues. To facilitate this, we construct a first-of-its-kind human-annotated benchmark and propose a temporally-aware hierarchical evaluation framework. Furthermore, we present OmniScript, an 8B-parameter omni-modal (audio-visual) language model tailored for long-form narrative comprehension. OmniScript is trained via a progressive pipeline that leverages chain-of-thought supervised fine-tuning for plot and character reasoning, followed by reinforcement learning using temporally segmented rewards. Extensive experiments demonstrate that despite its parameter efficiency, OmniScript significantly outperforms larger open-source models and achieves performance comparable to state-of-the-art proprietary models, including Gemini 3-Pro, in both temporal localization and multi-field semantic accuracy.</p>
+<h3 id="22-rppg-vqa-a-video-quality-assessment-framework-for-unsupervised-rppg-training">[22] <a href="https://arxiv.org/abs/2604.11156">rPPG-VQA: A Video Quality Assessment Framework for Unsupervised rPPG Training</a></h3>
+<p><em>Tianyang Dai, Ming Chang, Yan Chen, Yang Hu</em></p>
+<h4 id="tldr_21">🧩 TL;DR</h4>
+<p>本文提出了rPPG-VQA框架，用于评估视频对远程光电容积描记术（rPPG）的适用性，通过集成信号级和场景级分析来筛选高质量训练数据，从而显著提升无监督rPPG模型的性能。</p>
+<hr />
+<h4 id="detailed-summary_21">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 无监督远程光电容积描记术（rPPG）在处理未标记的野外视频数据时面临关键挑战：低质量视频会严重降低模型性能，而现有视频质量评估方法主要针对人类感知设计，无法有效评估视频对rPPG模型学习的适用性。</p>
+<p><strong>Method:</strong> 提出了rPPG-VQA框架，采用双分支评估架构：信号级分支通过多方法共识机制进行稳健的信噪比估计来评估视频生理信号质量，场景级分支利用多模态大语言模型识别运动和光照不稳定等干扰因素，并提出了基于质量分数的两阶段自适应采样策略来筛选最优训练数据集。</p>
+<p><strong>Result:</strong> 实验表明，通过使用该框架筛选的大规模野外视频进行训练，开发的无监督rPPG模型在标准基准测试中实现了显著精度提升，验证了视频质量评估对rPPG模型性能的重要影响。</p>
+<p><strong>Conclusion:</strong> 该研究强调了视频质量评估在无监督rPPG学习中的关键作用，提出的框架不仅解决了野外视频数据质量参差不齐的问题，还为构建更稳健的生理信号监测系统提供了有效的数据筛选方法，具有重要的实际应用价值。</p>
+<hr />
+<h4 id="abstract_21">📄 Abstract</h4>
+<p>Unsupervised remote photoplethysmography (rPPG) promises to leverage unlabeled video data, but its potential is hindered by a critical challenge: training on low-quality "in-the-wild" videos severely degrades model performance. An essential step missing here is to assess the suitability of the videos for rPPG model learning before using them for the task. Existing video quality assessment (VQA) methods are mainly designed for human perception and not directly applicable to the above purpose. In this work, we propose rPPG-VQA, a novel framework for assessing video suitability for rPPG. We integrate signal-level and scene-level analyses and design a dual-branch assessment architecture. The signal-level branch evaluates the physiological signal quality of the videos via robust signal-to-noise ratio (SNR) estimation with a multi-method consensus mechanism, and the scene-level branch uses a multimodal large language model (MLLM) to identify interferences like motion and unstable lighting. Furthermore, we propose a two-stage adaptive sampling (TAS) strategy that utilizes the quality score to curate optimal training datasets. Experiments show that by training on large-scale, "in-the-wild" videos filtered by our framework, we can develop unsupervised rPPG models that achieve a substantial improvement in accuracy on standard benchmarks. Our code is available at https://github.com/Tianyang-Dai/rPPG-VQA.</p>
+<h3 id="23-decoupled-similarity-for-task-aware-token-pruning-in-large-vision-language-models">[23] <a href="https://arxiv.org/abs/2604.11240">Decoupled Similarity for Task-Aware Token Pruning in Large Vision-Language Models</a></h3>
+<p><em>Kexin Ma, Jing Xiao, Chaofeng Chen, Geyong Min, Guibo Zhu, Jinqiao Wang, Liang Liao</em></p>
+<h4 id="tldr_22">🧩 TL;DR</h4>
+<p>本文提出DeSAP，一种用于大型视觉语言模型的新型解耦相似性感知令牌剪枝方法，通过结合任务相关指导和视觉显著性信号实现精确的视觉令牌剪枝，在保持性能的同时显著降低计算开销。</p>
+<hr />
+<h4 id="detailed-summary_22">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有大型视觉语言模型令牌剪枝方法通常依赖不同组件的独立注意力源，导致注意力分布存在偏差，产生不完整且次优的剪枝决策，无法有效平衡计算效率与模型性能。</p>
+<p><strong>Method:</strong> DeSAP引入解耦相似性来捕获视觉特征与文本令牌之间的细粒度跨模态相关性，提供明确的任务相关剪枝指导；同时结合从视觉注意力中提取的视觉显著性信号，在任务相关和视觉线索的双重指导下执行令牌剪枝。</p>
+<p><strong>Result:</strong> 在多样化基准测试和架构上的实验表明，DeSAP在准确性和效率方面均优于现有最先进方法；在LLaVA-1.5-7B上，仅保留11.1%的视觉令牌即可实现10倍FLOPs减少和2.3倍预填充加速，同时保持原始性能的98.1%。</p>
+<p><strong>Conclusion:</strong> 该研究证明了结合任务相关指导和视觉显著性信号进行令牌剪枝的有效性，为大型视觉语言模型的高效部署提供了新思路，即使在激进剪枝比例下也能保持鲁棒性能，具有重要的实际应用价值。</p>
+<hr />
+<h4 id="abstract_22">📄 Abstract</h4>
+<p>Token pruning has emerged as an effective approach to reduce the substantial computational overhead of Large Vision-Language Models (LVLMs) by discarding less informative visual tokens while preserving performance. However, existing methods typically rely on individual attention sources from different LVLM components, resulting in incomplete and suboptimal pruning decisions due to biased attention distributions. To address this problem, we propose DeSAP, a novel Decoupled Similarity-Aware Pruning method for precise, task-aware token pruning within the visual encoder. Specifically, DeSAP introduces a decoupled similarity to capture fine-grained cross-modal relevance between visual features and text tokens, providing explicit task-related guidance for pruning. By integrating decoupled similarity with visual saliency signals derived from visual attention, DeSAP performs token pruning under the guidance of both task-related and visual cues, enabling robust pruning even under aggressive pruning ratios. Extensive experiments across diverse benchmarks and architectures show that DeSAP consistently outperforms SOTA methods in both accuracy and efficiency. On LLaVA-1.5-7B, DeSAP achieves a 10 times FLOPs reduction and a 2.3 times prefill speedup by retaining only 11.1% of visual tokens, while maintaining 98.1% of the original performance.</p>
+<h3 id="24-script-a-video-deep-structured-audio-visual-captions-via-factorized-streams-and-relational-grounding">[24] <a href="https://arxiv.org/abs/2604.11244">Script-a-Video: Deep Structured Audio-visual Captions via Factorized Streams and Relational Grounding</a></h3>
+<p><em>Tencent Hunyuan Team</em></p>
+<h4 id="tldr_23">🧩 TL;DR</h4>
+<p>本文提出多流场景脚本（MTSS）范式，通过将视频分解为互补的流并建立显式关系连接，解决了传统视频描述中单一段落耦合视觉、听觉和身份信息的问题，显著提升了视频理解和生成的质量。</p>
+<hr />
+<h4 id="detailed-summary_23">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型主导的视频描述方法将视频视为单一段落，将视觉、听觉和身份信息紧密耦合，这种密集耦合不仅损害了表示保真度，还限制了可扩展性，因为局部编辑可能触发全局重写，需要解决这一结构性瓶颈。</p>
+<p><strong>Method:</strong> MTSS基于两个核心原则构建：流分解将视频解耦为互补的流（参考流、镜头流、事件流和全局流），关系接地通过显式身份和时间链接重新连接这些孤立流以保持视频的整体一致性，从而用分解且显式接地的场景描述替代单一段落文本。</p>
+<p><strong>Result:</strong> 实验表明MTSS显著提升了各种模型的视频理解能力，在Video-SALMONN-2上平均减少25%的总错误率，在Daily-Omni推理基准上平均获得67%的性能提升，缩小了小型和大型MLLM之间的性能差距，在视频生成中替换单一段落提示可获得45%的跨镜头身份一致性提升、56%的视听对齐提升和71%的时间可控性提升。</p>
+<p><strong>Conclusion:</strong> MTSS范式将视频描述从描述性端点转变为语义接口，通过结构化解耦和显式连接解决了传统方法的局限性，提供了更可学习的描述接口，显著提升了视频理解和生成任务的质量，为多模态视频处理开辟了新的研究方向。</p>
+<hr />
+<h4 id="abstract_23">📄 Abstract</h4>
+<p>Advances in Multimodal Large Language Models (MLLMs) are transforming video captioning from a descriptive endpoint into a semantic interface for both video understanding and generation. However, the dominant paradigm still casts videos as monolithic narrative paragraphs that entangle visual, auditory, and identity information. This dense coupling not only compromises representational fidelity but also limits scalability, since even local edits can trigger global rewrites. To address this structural bottleneck, we propose Multi-Stream Scene Script (MTSS), a novel paradigm that replaces monolithic text with factorized and explicitly grounded scene descriptions. MTSS is built on two core principles: Stream Factorization, which decouples a video into complementary streams (Reference, Shot, Event, and Global), and Relational Grounding, which reconnects these isolated streams through explicit identity and temporal links to maintain holistic video consistency. Extensive experiments demonstrate that MTSS consistently enhances video understanding across various models, achieving an average reduction of 25% in the total error rate on Video-SALMONN-2 and an average performance gain of 67% on the Daily-Omni reasoning benchmark. It also narrows the performance gap between smaller and larger MLLMs, indicating a substantially more learnable caption interface. Finally, even without architectural adaptation, replacing monolithic prompts with MTSS in multi-shot video generation yields substantial human-rated improvements: a 45% boost in cross-shot identity consistency, a 56% boost in audio-visual alignment, and a 71% boost in temporal controllability.</p>
+<h3 id="25-empowering-video-translation-using-multimodal-large-language-models">[25] <a href="https://arxiv.org/abs/2604.11283">Empowering Video Translation using Multimodal Large Language Models</a></h3>
+<p><em>Bingzheng QU, Kehai Chen, Xuefeng Bai, Min Zhang</em></p>
+<h4 id="tldr_24">🧩 TL;DR</h4>
+<p>本文首次系统综述了基于多模态大语言模型的视频翻译研究，提出了一个三角色分类法来组织该领域的技术进展，并讨论了当前面临的挑战和未来研究方向。</p>
+<hr />
+<h4 id="detailed-summary_24">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在视频翻译中发挥着越来越重要的作用，并且已有大量关于通用视频语言理解的综述，但缺乏针对MLLMs如何赋能视频翻译任务的系统性综述。本文旨在填补这一空白，提供首个全面概述MLLMs在视频翻译中的应用。</p>
+<p><strong>Method:</strong> 本文提出了一个三角色分类法来组织MLLMs在视频翻译中的技术：1) 语义推理器，分析MLLMs如何进行视频理解、时序推理和多模态融合；2) 表达性表演器，研究LLM驱动和LLM增强的富有表现力、可控语音生成技术；3) 视觉合成器，考察不同类型视频生成器用于高保真唇形同步和视觉对齐的方法。</p>
+<p><strong>Result:</strong> MLLMs驱动的视频翻译系统不仅实现了竞争性或更优的翻译质量，还在零样本设置和多说话者场景中表现出更强的鲁棒性，同时能够联合建模语义保真度、时序、说话者身份和情感一致性，克服了传统级联管道的局限性。</p>
+<p><strong>Conclusion:</strong> 本文系统梳理了MLLMs在视频翻译中的技术进展，识别了视频理解、时序建模和多模态对齐等开放挑战，并展望了未来研究方向，为研究者提供了该领域的结构化知识框架和明确的技术发展路径。</p>
+<hr />
+<h4 id="abstract_24">📄 Abstract</h4>
+<p>Recent developments in video translation have further enhanced cross-lingual access to video content, with multimodal large language models (MLLMs) playing an increasingly important supporting role. With strong multimodal understanding, reasoning, and generation capabilities, MLLMs-based video translation systems are overcoming the limitations of traditional cascaded pipelines that separately handle automatic speech recognition, machine translation, text-to-speech and lip synchronization. These MLLM-powered approaches not only achieve competitive or superior translation quality, but also demonstrate stronger robustness in zero-shot settings and multi-speaker scenarios, while jointly modeling semantic fidelity, timing, speaker identity, and emotional consistency. However, despite the rapid progress of MLLMs and extensive surveys on general video-language understanding, a focused and systematic review of how MLLMs empower video translation tasks is still lacking. To fill this gap, we provide the first comprehensive overview of MLLMs-based video translation, organized around a three-role taxonomy: 1) Semantic Reasoner, which characterizes how MLLMs perform video understanding, temporal reasoning, and multimodal fusion; 2) Expressive Performer, which analyzes LLM-driven and LLM-augmented techniques for expressive, controllable speech generation; and 3) Visual Synthesizer, which examines different types of video generators for high-fidelity lip-sync and visual alignment. Finally, we discuss open challenges in video understanding, temporal modeling, and multimodal alignment, and outline promising future research directions for MLLMs-powered video translation.</p>
+<h3 id="26-mllm-as-a-judge-exhibits-model-preference-bias">[26] <a href="https://arxiv.org/abs/2604.11589">MLLM-as-a-Judge Exhibits Model Preference Bias</a></h3>
+<p><em>Shuitsu Koyama, Yuiga Wada, Daichi Yashima, Komei Sugiura</em></p>
+<h4 id="tldr_25">🧩 TL;DR</h4>
+<p>本研究提出了Philautia-Eval框架来量化MLLM-as-a-Judge评估方法中的模型特定偏好偏差，发现主流多模态大语言模型存在自偏好偏差，并通过集成方法Pomms有效缓解了该偏差。</p>
+<hr />
+<h4 id="detailed-summary_25">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前广泛使用的MLLM-as-a-Judge自动评估方法可能存在模型特定偏好偏差，这种偏差会扭曲模型比较和基准测试驱动的科学进展，但此类偏差的程度和性质尚不清楚，需要系统量化研究。</p>
+<p><strong>Method:</strong> 研究提出了Philautia-Eval框架，通过解耦偏好倾向与生成质量差异来量化模型特定偏好偏差，收集了来自12个MLLM的129万条字幕-评分对进行分析，并引入了简单的MLLM集成方法Pomms来缓解偏差。</p>
+<p><strong>Result:</strong> 实验发现代表性MLLM普遍存在自偏好偏差，特定模型家族间存在相互偏好偏差，这可能由共享连接器和重叠的指令调优资源驱动，而Pomms集成方法在保持性能的同时有效缓解了模型特定偏好偏差。</p>
+<p><strong>Conclusion:</strong> 研究揭示了MLLM-as-a-Judge评估中存在的系统性模型特定偏好偏差问题，提出了量化框架和缓解方法，对构建更公平的AI评估基准具有重要意义，并暗示了模型架构和训练数据共享可能导致的评估偏差模式。</p>
+<hr />
+<h4 id="abstract_25">📄 Abstract</h4>
+<p>Automatic evaluation using multimodal large language models (MLLMs), commonly referred to as MLLM-as-a-Judge, has been widely used to measure model performance. If such MLLM-as-a-Judge methods were biased, they could distort model comparisons and benchmark-driven scientific progress. However, it remains unclear to what extent MLLM-as-a-Judge methods favor or disfavor text generated by specific MLLMs. In this study, we propose Philautia-Eval to investigate such model-specific preference bias. Philautia-Eval quantifies the degree of the bias by disentangling preference tendencies from differences in generation quality. Using 1.29M caption-score pairs collected from 12 MLLMs, we found that representative MLLMs tend to exhibit self-preference bias. Moreover, experimental results indicate mutual preference bias within particular model families, which is potentially driven by reused connectors and overlapping instruction-tuning resources. Finally, we introduce a simple ensemble of MLLMs, Pomms. Our results demonstrated that Pomms effectively mitigated the model-specific preference bias while maintaining performance.</p>
+<h3 id="27-geoparsing-diagram-parsing-for-plane-and-solid-geometry-with-a-unified-formal-language">[27] <a href="https://arxiv.org/abs/2604.11600">Geoparsing: Diagram Parsing for Plane and Solid Geometry with a Unified Formal Language</a></h3>
+<p><em>Peijie Wang, Ming-Liang Zhang, Jun Cao, Chao Deng, Dekang Ran, Hongda Sun, Pi Bu, Xuan Zhang, Yingyao Wang, Jun Song, Bo Zheng, Fei Yin, Cheng-Lin Liu</em></p>
+<h4 id="tldr_26">🧩 TL;DR</h4>
+<p>本文提出了一种统一的形式语言来整合平面与立体几何，并构建了GDP-29K大规模数据集，通过监督微调与基于可验证奖励的强化学习相结合的训练范式，显著提升了多模态大语言模型在几何推理任务中的表现。</p>
+<hr />
+<h4 id="detailed-summary_26">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在几何推理方面仍存在显著不足，特别是对细粒度视觉元素的感知瓶颈问题。虽然形式语言已辅助平面几何理解，但需要空间理解的立体几何领域仍未被充分探索，因此需要开发能够统一处理平面与立体几何的解决方案。</p>
+<p><strong>Method:</strong> 研究设计了一种统一的形式语言，全面覆盖几何结构与语义关系。构建了GDP-29K大规模数据集，包含20k平面几何和9k立体几何样本，每个样本都配有真实的形式描述。提出了一种结合监督微调与基于可验证奖励的强化学习的训练范式，确保语法正确性和几何一致性。</p>
+<p><strong>Result:</strong> 实验表明该方法在解析性能上达到了最先进水平。解析后的形式描述作为关键认知支架，显著提升了多模态大语言模型在下游几何推理任务中的能力。数据集和代码已在Geoparsing平台上公开可用。</p>
+<p><strong>Conclusion:</strong> 该研究通过统一形式语言和大规模数据集解决了几何推理中的感知瓶颈问题，为多模态大语言模型的几何理解提供了重要基础。提出的训练范式确保了形式描述的准确性和一致性，为后续几何推理应用开辟了新途径。</p>
+<hr />
+<h4 id="abstract_26">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have achieved remarkable progress but continue to struggle with geometric reasoning, primarily due to the perception bottleneck regarding fine-grained visual elements. While formal languages have aided plane geometry understanding, solid geometry which requires spatial understanding remains largely unexplored. In this paper, we address this challenge by designing a unified formal language that integrates plane and solid geometry, comprehensively covering geometric structures and semantic relations. We construct GDP-29K, a large-scale dataset comprising 20k plane and 9k solid geometry samples collected from diverse real-world sources, each paired with its ground-truth formal description. To ensure syntactic correctness and geometric consistency, we propose a training paradigm that combines Supervised Fine-Tuning with Reinforcement Learning via Verifiable Rewards. Experiments show that our approach achieves state-of-the-art parsing performance. Furthermore, we demonstrate that our parsed formal descriptions serve as a critical cognitive scaffold, significantly boosting MLLMs' capabilities for downstream geometry reasoning tasks. Our data and code are available at Geoparsing.</p>
+<h3 id="28-points-long-adaptive-dual-mode-visual-reasoning-in-mllms">[28] <a href="https://arxiv.org/abs/2604.11627">POINTS-Long: Adaptive Dual-Mode Visual Reasoning in MLLMs</a></h3>
+<p><em>Haicheng Wang, Yuan Liu, Yikun Liu, Zhemeng Yu, Zhongyin Zhao, Yangxiu You, Zilin Yu, Le Tian, Xiao Zhou, Jie Zhou, Weidi Xie, Yanfeng Wang</em></p>
+<h4 id="tldr_27">🧩 TL;DR</h4>
+<p>本文提出了POINTS-Long，一种原生双模态多模态大语言模型，通过受人类视觉系统启发的动态视觉令牌缩放机制，解决了长视频和流式场景中视觉令牌序列快速增长带来的可扩展性挑战。</p>
+<hr />
+<h4 id="detailed-summary_27">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在跨模态理解和生成方面展现出卓越能力，但长视频和流式场景中视觉令牌序列的快速增长对其可扩展性和实际部署构成了重大挑战，需要更高效的视觉处理机制。</p>
+<p><strong>Method:</strong> 该模型采用受人类视觉系统启发的动态视觉令牌缩放机制，支持两种互补的感知模式：专注模式和待机模式，并设计了动态可分离的KV缓存架构，以原生支持流式视觉理解。</p>
+<p><strong>Result:</strong> 在细粒度视觉任务上，专注模式保持了最佳性能；在长格式通用视觉理解任务中，待机模式仅使用1/40至1/10的视觉令牌即可保留97.7-99.7%的原始准确率，同时支持高效的超长视觉记忆维护。</p>
+<p><strong>Conclusion:</strong> 该研究为未来多模态大语言模型的设计提供了新思路，为自适应和高效的长格式视觉理解奠定了基础，展示了动态视觉令牌缩放在实际部署中的可行性和优势。</p>
+<hr />
+<h4 id="abstract_27">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have recently demonstrated remarkable capabilities in cross-modal understanding and generation. However, the rapid growth of visual token sequences--especially in long-video and streaming scenarios--poses a major challenge to their scalability and real-world deployment. Thus, we introduce POINTS-Long, a native dual-mode MLLM featuring dynamic visual token scaling inspired by the human visual system. The model supports two complementary perception modes: focus mode and standby mode, enabling users to dynamically trade off efficiency and accuracy during inference. On fine-grained visual tasks, the focus mode retains the optimal performance, while on long-form general visual understanding, the standby mode retains 97.7-99.7% of the original accuracy using only 1/40-1/10th of the visual tokens. Moreover, POINTS-Long natively supports streaming visual understanding via a dynamically detachable KV-cache design, allowing efficient maintenance of ultra-long visual memory. Our work provides new insights into the design of future MLLMs and lays the foundation for adaptive and efficient long-form visual understanding.</p>
+<h3 id="29-lottiegpt-tokenizing-vector-animation-for-autoregressive-generation">[29] <a href="https://arxiv.org/abs/2604.11792">LottieGPT: Tokenizing Vector Animation for Autoregressive Generation</a></h3>
+<p><em>Junhao Chen, Kejun Gao, Yuehan Cui, Mingze Sun, Mingjin Chen, Shaohui Wang, Xiaoxiao Long, Fei Ma, Qi Tian, Ruqi Huang, Hao Zhao</em></p>
+<h4 id="tldr_28">🧩 TL;DR</h4>
+<p>本文提出了首个用于矢量动画生成的自回归框架LottieGPT，通过设计专门的Lottie Tokenizer和构建大规模数据集LottieAnimation-660K，实现了从自然语言或视觉提示直接生成可编辑的矢量动画，填补了现有生成模型无法生成矢量动画的空白。</p>
+<hr />
+<h4 id="detailed-summary_28">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视频生成模型无法生成矢量动画这一在互联网上占主导地位且具有高度表现力的多媒体形式，矢量动画具有分辨率无关性、紧凑性、语义结构和可编辑参数化运动表示等优势，而当前生成模型仅在栅格空间操作，无法合成矢量动画，同时多模态大模型在生成结构化数据方面的进展表明原生矢量动画生成可能实现。</p>
+<p><strong>Method:</strong> 研究采用广泛部署的JSON动画标准Lottie，设计了专门的Lottie Tokenizer将分层几何图元、变换和基于关键帧的运动编码为紧凑且语义对齐的令牌序列，构建了包含66万个真实世界Lottie动画和1500万个静态Lottie图像文件的大规模数据集LottieAnimation-660K，并基于Qwen-VL微调创建了多模态模型LottieGPT。</p>
+<p><strong>Result:</strong> 实验表明该Tokenizer显著减少了序列长度同时保持了结构保真度，实现了动态矢量内容的有效自回归学习，LottieGPT在多样化动画风格上表现出强大的泛化能力，并在SVG生成（单帧矢量动画的特殊情况）上超越了先前最先进模型。</p>
+<p><strong>Conclusion:</strong> 该研究首次实现了原生矢量动画的生成框架，通过结构化令牌化和大规模数据集构建解决了矢量动画生成的挑战，为多媒体生成开辟了新方向，同时模型生成的可编辑参数化表示为创意工作流程提供了实用价值，展示了多模态大模型在复杂结构化内容生成方面的潜力。</p>
+<hr />
+<h4 id="abstract_28">📄 Abstract</h4>
+<p>Despite rapid progress in video generation, existing models are incapable of producing vector animation, a dominant and highly expressive form of multimedia on the Internet. Vector animations offer resolution-independence, compactness, semantic structure, and editable parametric motion representations, yet current generative models operate exclusively in raster space and thus cannot synthesize them. Meanwhile, recent advances in large multimodal models demonstrate strong capabilities in generating structured data such as slides, 3D meshes, LEGO sequences, and indoor layouts, suggesting that native vector animation generation may be achievable. In this work, we present the first framework for tokenizing and autoregressively generating vector animations. We adopt Lottie, a widely deployed JSON-based animation standard, and design a tailored Lottie Tokenizer that encodes layered geometric primitives, transforms, and keyframe-based motion into a compact and semantically aligned token sequence. To support large-scale training, we also construct LottieAnimation-660K, the largest and most diverse vector animation dataset to date, consisting of 660k real-world Lottie animation and 15M static Lottie image files curated from broad Internet sources. Building upon these components, we finetune Qwen-VL to create LottieGPT, a native multimodal model capable of generating coherent, editable vector animations directly from natural language or visual prompts. Experiments show that our tokenizer dramatically reduces sequence length while preserving structural fidelity, enabling effective autoregressive learning of dynamic vector content. LottieGPT exhibits strong generalization across diverse animation styles and outperforms previous state-of-the-art models on SVG generation (a special case of single-frame vector animation).</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="30-dialectic-med-mitigating-diagnostic-hallucinations-via-counterfactual-adversarial-multi-agent-debate">[30] <a href="https://arxiv.org/abs/2604.11258">Dialectic-Med: Mitigating Diagnostic Hallucinations via Counterfactual Adversarial Multi-Agent Debate</a></h3>
+<p><em>Zhixiang Lu, Jionglong Su</em></p>
+<h4 id="tldr_29">🧩 TL;DR</h4>
+<p>本文提出了Dialectic-Med，一种用于医疗多模态大语言模型的多智能体对抗辩证框架，通过引入视觉证伪机制来缓解确认偏误和幻觉问题，显著提升了诊断推理的可信度和准确性。</p>
+<hr />
+<h4 id="detailed-summary_29">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 医疗多模态大语言模型存在严重的确认偏误问题，倾向于幻觉视觉细节来支持初始可能错误的诊断假设，而现有的思维链方法缺乏内在的纠错机制，容易导致错误传播。</p>
+<p><strong>Method:</strong> 该方法提出了Dialectic-Med多智能体框架，通过对抗辩证过程强制实施诊断严谨性，包含三个角色专门化的智能体：提出诊断假设的支持者、配备新颖视觉证伪模块以检索矛盾视觉证据挑战支持者的反对者，以及通过加权共识图解决冲突的调解者。</p>
+<p><strong>Result:</strong> 在MIMIC-CXR-VQA、VQA-RAD和PathVQA数据集上的实证评估表明，Dialectic-Med不仅实现了最先进的性能，而且从根本上增强了推理过程的可信度，显著提高了解释忠实度并有效缓解了幻觉问题。</p>
+<p><strong>Conclusion:</strong> 该研究通过显式建模证伪认知过程，确保诊断推理紧密基于已验证的视觉区域，为医疗多模态大语言模型建立了新的可信推理标准，超越了单智能体基线方法。</p>
+<hr />
+<h4 id="abstract_29">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) in healthcare suffer from severe confirmation bias, often hallucinating visual details to support initial, potentially erroneous diagnostic hypotheses. Existing Chain-of-Thought (CoT) approaches lack intrinsic correction mechanisms, rendering them vulnerable to error propagation. To bridge this gap, we propose Dialectic-Med, a multi-agent framework that enforces diagnostic rigor through adversarial dialectics. Unlike static consensus models, Dialectic-Med orchestrates a dynamic interplay between three role-specialized agents: a proponent that formulates diagnostic hypotheses; an opponent equipped with a novel visual falsification module that actively retrieves contradictory visual evidence to challenge the Proponent; and a mediator that resolves conflicts via a weighted consensus graph. By explicitly modeling the cognitive process of falsification, our framework guarantees that diagnostic reasoning is tightly grounded in verified visual regions. Empirical evaluations on MIMIC-CXR-VQA, VQA-RAD, and PathVQA demonstrate that Dialectic-Med not only achieves state-of-the-art performance but also fundamentally enhances the trustworthiness of the reasoning process. Beyond accuracy, our approach significantly enhances explanation faithfulness and decisively mitigates hallucinations, establishing a new standard over single-agent baselines.</p>
+<h3 id="31-enhancing-multimodal-large-language-models-for-ancient-chinese-character-evolution-analysis-via-glyph-driven-fine-tuning">[31] <a href="https://arxiv.org/abs/2604.11299">Enhancing Multimodal Large Language Models for Ancient Chinese Character Evolution Analysis via Glyph-Driven Fine-Tuning</a></h3>
+<p><em>Rui Song, Lida Shi, Ruihua Qi, Yingji Li, Hao Xu</em></p>
+<h4 id="tldr_30">🧩 TL;DR</h4>
+<p>本研究提出了一个专门用于评估多模态大语言模型在古汉字演变分析中能力的综合基准，并开发了一种字形驱动的微调框架GEVO，以增强模型对文本演变的理解能力。</p>
+<hr />
+<h4 id="detailed-summary_30">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在古汉字研究中的应用日益增多，但如何系统性地利用这些模型支持文本演变分析仍是一个开放且未充分探索的问题，现有研究缺乏专门的评估基准和方法框架来提升模型在此领域的性能。</p>
+<p><strong>Method:</strong> 研究构建了一个包含11个任务和超过13万个实例的综合基准，专门用于评估MLLMs在古汉字演变分析中的能力，并提出了一种字形驱动的微调框架GEVO，该框架通过显式鼓励模型捕捉字形转换中的演变一致性来增强对文本演变的理解。</p>
+<p><strong>Result:</strong> 实验评估发现现有MLLMs在字形级别比较方面能力有限，在字符识别和演变推理等核心任务上表现显著受限，而应用GEVO框架后，即使是2B规模的模型也在所有评估任务上实现了全面且一致的性能提升。</p>
+<p><strong>Conclusion:</strong> 该研究为古汉字演变分析提供了首个系统性评估基准和方法框架，证明了字形驱动微调策略的有效性，公开的基准和训练模型将促进该领域的未来研究，为文化传承和历史连续性理解提供了新的技术途径。</p>
+<hr />
+<h4 id="abstract_30">📄 Abstract</h4>
+<p>In recent years, rapid advances in Multimodal Large Language Models (MLLMs) have increasingly stimulated research on ancient Chinese scripts. As the evolution of written characters constitutes a fundamental pathway for understanding cultural transformation and historical continuity, how MLLMs can be systematically leveraged to support and advance text evolution analysis remains an open and largely underexplored problem. To bridge this gap, we construct a comprehensive benchmark comprising 11 tasks and over 130,000 instances, specifically designed to evaluate the capability of MLLMs in analyzing the evolution of ancient Chinese scripts. We conduct extensive evaluations across multiple widely used MLLMs and observe that, while existing models demonstrate a limited ability in glyph-level comparison, their performance on core tasks-such as character recognition and evolutionary reasoning-remains substantially constrained. Motivated by these findings, we propose a glyph-driven fine-tuning framework (GEVO) that explicitly encourages models to capture evolutionary consistency in glyph transformations and enhances their understanding of text evolution. Experimental results show that even models at the 2B scale achieve consistent and comprehensive performance improvements across all evaluated tasks. To facilitate future research, we publicly release both the benchmark and the trained models\footnote{https://github.com/songruiecho/GEVO}.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="32-cwcd-category-wise-contrastive-decoding-for-structured-medical-report-generation">[32] <a href="https://arxiv.org/abs/2604.10410">CWCD: Category-Wise Contrastive Decoding for Structured Medical Report Generation</a></h3>
+<p><em>Shantam Srivastava, Mahesh Bhosale, David Doermann, Mingchen Gao</em></p>
+<h4 id="tldr_31">🧩 TL;DR</h4>
+<p>本文提出了一种新颖的类别对比解码框架，用于解决多模态大语言模型在结构化放射学报告生成中因单次前向解码导致的视觉注意力衰减和虚假病理共现问题，显著提升了报告生成的临床有效性和语言质量。</p>
+<hr />
+<h4 id="detailed-summary_31">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前基于多模态大语言模型的放射学报告生成方法采用单次前向解码策略，导致生成过程中对视觉标记的关注度逐渐降低，同时过度依赖语言先验，从而在生成的报告中引入了虚假的病理共现关系，限制了结构化放射学报告生成的准确性和可靠性。</p>
+<p><strong>Method:</strong> 本文提出了类别对比解码框架，通过引入类别特定的参数化设计，利用类别特定的视觉提示，对比正常X射线图像与掩码处理后的X射线图像，逐类别生成放射学报告，该框架具有模块化特性，可与现有基础模型集成。</p>
+<p><strong>Result:</strong> 实验结果表明，CWCD框架在临床有效性和自然语言生成指标上均持续优于基线方法，消融研究进一步阐明了各架构组件对整体性能的贡献，验证了该方法的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究为解决多模态大语言模型在放射学报告生成中的视觉注意力衰减问题提供了有效方案，通过对比解码策略增强了模型对视觉信息的利用，为结构化医疗报告生成领域提供了新的技术路径，具有重要的临床应用价值。</p>
+<hr />
+<h4 id="abstract_31">📄 Abstract</h4>
+<p>Interpreting chest X-rays is inherently challenging due to the overlap between anatomical structures and the subtle presentation of many clinically significant pathologies, making accurate diagnosis time-consuming even for experienced radiologists. Recent radiology-focused foundation models, such as LLaVA-Rad and Maira-2, have positioned multi-modal large language models (MLLMs) at the forefront of automated radiology report generation (RRG). However, despite these advances, current foundation models generate reports in a single forward pass. This decoding strategy diminishes attention to visual tokens and increases reliance on language priors as generation proceeds, which in turn introduces spurious pathology co-occurrences in the generated reports. To mitigate these limitations, we propose Category-Wise Contrastive Decoding (CWCD), a novel and modular framework designed to enhance structured radiology report generation (SRRG). Our approach introduces category-specific parameterization and generates category-wise reports by contrasting normal X-rays with masked X-rays using category-specific visual prompts. Experimental results demonstrate that CWCD consistently outperforms baseline methods across both clinical efficacy and natural language generation metrics. An ablation study further elucidates the contribution of each architectural component to overall performance.</p>
+<h3 id="33-cspo-alleviating-reward-ambiguity-for-structured-table-to-latex-generation">[33] <a href="https://arxiv.org/abs/2604.10918">CSPO: Alleviating Reward Ambiguity for Structured Table-to-LaTeX Generation</a></h3>
+<p><em>Yunfan Yang, Cuiling Lan, Jitao Sang, Yan Lu</em></p>
+<h4 id="tldr_32">🧩 TL;DR</h4>
+<p>本文提出了组件特定策略优化（CSPO），一种用于表格图像到LaTeX转换的强化学习框架，通过将优化分解为结构、样式和内容组件来解决奖励模糊性问题，从而提高了结构化生成的可靠性。</p>
+<hr />
+<h4 id="detailed-summary_32">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 表格图像包含丰富的结构化信息，但当前的多模态大语言模型在转换为LaTeX代码时往往无法保持结构、样式或内容的保真度。传统的强化学习后训练通常依赖单一聚合奖励，导致奖励模糊性，混淆了多个行为方面并阻碍了有效优化。</p>
+<p><strong>Method:</strong> 本文提出了组件特定策略优化（CSPO）框架，该框架将LaTeX表格的优化分解为结构、样式和内容三个组件。CSPO为每个组件分配特定的奖励，并将每个信号仅反向传播到与其组件相关的标记上，从而缓解奖励模糊性并实现有针对性的组件级优化。</p>
+<p><strong>Result:</strong> 广泛的实验证明了CSPO的有效性，并引入了一套分层评估指标来全面评估性能。结果表明，组件特定优化对于可靠的结构化生成至关重要，显著提高了表格图像到LaTeX转换的保真度。</p>
+<p><strong>Conclusion:</strong> 该研究强调了组件特定优化在可靠结构化生成中的重要性，为表格图像数字化提供了更有效的解决方案。CSPO框架通过解决奖励模糊性问题，为多模态大语言模型的后训练优化提供了新思路，具有更广泛的结构化生成应用潜力。</p>
+<hr />
+<h4 id="abstract_32">📄 Abstract</h4>
+<p>Tables contain rich structured information, yet when stored as images their contents remain "locked" within pixels. Converting table images into LaTeX code enables faithful digitization and reuse, but current multimodal large language models (MLLMs) often fail to preserve structural, style, or content fidelity. Conventional post-training with reinforcement learning (RL) typically relies on a single aggregated reward, leading to reward ambiguity that conflates multiple behavioral aspects and hinders effective optimization. We propose Component-Specific Policy Optimization (CSPO), an RL framework that disentangles optimization across LaTeX tables components-structure, style, and content. In particular, CSPO assigns component-specific rewards and backpropagates each signal only through the tokens relevant to its component, alleviating reward ambiguity and enabling targeted component-wise optimization. To comprehensively assess performance, we introduce a set of hierarchical evaluation metrics. Extensive experiments demonstrate the effectiveness of CSPO, underscoring the importance of component-specific optimization for reliable structured generation.</p>
+<h3 id="34-cfms-a-coarse-to-fine-multimodal-synthesis-framework-for-enhanced-tabular-reasoning">[34] <a href="https://arxiv.org/abs/2604.10973">CFMS: A Coarse-to-Fine Multimodal Synthesis Framework for Enhanced Tabular Reasoning</a></h3>
+<p><em>Qixian Huang, Hongqiang Lin, Tong Fu, Yingsen Wang, Zhenghui Fu, Qirui Wang, Yiding Sun, Dongxu Zhang</em></p>
+<h4 id="tldr_33">🧩 TL;DR</h4>
+<p>本文提出了粗到细多模态合成框架（CFMS），这是一种新颖的两阶段范式，通过将高层视觉感知与细粒度符号推理分层解耦，显著提升了表格数据的推理能力。该框架利用多模态大语言模型生成多视角知识元组作为动态推理地图，指导符号引擎执行高效迭代操作。</p>
+<hr />
+<h4 id="detailed-summary_33">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 表格数据推理是问答和事实验证等任务的关键能力，但现有方法如思维链（CoT）等纯符号方法存在固有局限性，无法捕捉整体视觉模式。这些方法在处理表格数据时对视觉信息的忽视限制了其推理效果，特别是在处理大型表格时表现不足。</p>
+<p><strong>Method:</strong> 本文提出了粗到细多模态合成框架（CFMS），采用两阶段分层范式。粗粒度阶段利用多模态大语言模型一次性合成多视角知识元组，该元组作为动态推理地图指导细粒度阶段。在细粒度阶段，符号引擎基于该地图对表格执行有针对性的高效迭代操作序列，实现视觉感知与符号推理的有效解耦。</p>
+<p><strong>Result:</strong> 在WikiTQ和TabFact基准测试上的广泛实验表明，CFMS实现了具有竞争力的准确率。该框架在处理大型表格时表现出特别的鲁棒性，并且在采用较小骨干模型实例化时仍能保持良好性能，验证了其有效性和泛化能力。</p>
+<p><strong>Conclusion:</strong> CFMS框架通过分层解耦视觉感知与符号推理，为表格数据推理提供了新的解决方案。该研究证明了多模态合成在增强符号推理中的价值，特别是在处理大规模结构化数据时，为未来多模态推理系统的设计提供了重要启示。</p>
+<hr />
+<h4 id="abstract_33">📄 Abstract</h4>
+<p>Reasoning over tabular data is a crucial capability for tasks like question answering and fact verification, as it requires models to comprehend both free-form questions and semi-structured tables. However, while methods like Chain-of-Thought (CoT) introduce reasoning chains, purely symbolic methodes are inherently limited by their blindness to holistic visual patterns. To address this, we propose the Coarse-to-Fine Multimodal Synthesis framework (CFMS), a novel two-stage paradigm that hierarchically decouples high-level visual perception from granular symbolic reasoning. In the Coarse Stage, CFMS leverages the Multimodal Large Language Models (MLLMs) to perform a one-time synthesis of a multi-perspective knowledge tuple. This tuple subsequently serves as a dynamic reasoning map to guide the fine stage, where a symbolic engine executes a targeted and efficient sequence of iterative operations over the table. Extensive experiments on the WikiTQ and TabFact benchmarks demonstrate that CFMS achieves competitive accuracy. The framework exhibits particular robustness when handling large tables and when instantiated with smaller backbone models, validating its effectiveness and generalizability.</p>
+<h3 id="35-diffusion-cam-faithful-visual-explanations-for-dmllms">[35] <a href="https://arxiv.org/abs/2604.11005">Diffusion-CAM: Faithful Visual Explanations for dMLLMs</a></h3>
+<p><em>Haomin Zuo, Yidi Li, Luoxiao Yang, Xiaofeng Zhang</em></p>
+<h4 id="tldr_34">🧩 TL;DR</h4>
+<p>本文提出了Diffusion-CAM，这是首个专门为扩散多模态大语言模型设计的可解释性方法，通过解决并行去噪生成带来的独特挑战，显著提升了定位准确性和视觉保真度。</p>
+<hr />
+<h4 id="detailed-summary_34">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 扩散多模态大语言模型在并行去噪生成过程中产生平滑、分布式的激活模式，与传统自回归模型的序列化激活模式截然不同，导致现有的类激活映射方法无法有效解释这种非自回归行为，因此需要专门针对扩散模型架构的可解释性机制。</p>
+<p><strong>Method:</strong> Diffusion-CAM通过可微分探测变换器骨干中的中间表示来获取原始激活图，捕获潜在特征及其类别特定梯度，并引入四个关键模块来解决空间模糊性、减轻图像内混杂因素和冗余标记相关性，以应对原始信号的固有随机性。</p>
+<p><strong>Result:</strong> 大量实验表明，Diffusion-CAM在定位准确性和视觉保真度方面显著优于现有最先进方法，为理解扩散多模态系统的并行生成过程建立了新的标准。</p>
+<p><strong>Conclusion:</strong> 该研究填补了扩散多模态大语言模型可解释性方法的空白，提出的Diffusion-CAM能够有效解释并行生成过程中的分布式激活模式，为理解复杂扩散模型的行为提供了新的工具和框架。</p>
+<hr />
+<h4 id="abstract_34">📄 Abstract</h4>
+<p>While diffusion Multimodal Large Language Models (dMLLMs) have recently achieved remarkable strides in multimodal generation, the development of interpretability mechanisms has lagged behind their architectural evolution. Unlike traditional autoregressive models that produce sequential activations, diffusion-based architectures generate tokens via parallel denoising, resulting in smooth, distributed activation patterns across the entire sequence. Consequently, existing Class Activation Mapping (CAM) methods, which are tailored for local, sequential dependencies, are ill-suited for interpreting these non-autoregressive behaviors. To bridge this gap, we propose Diffusion-CAM, the first interpretability method specifically tailored for dMLLMs. We derive raw activation maps by differentiably probing intermediate representations in the transformer backbone, accordingly capturing both latent features and their class-specific gradients. To address the inherent stochasticity of these raw signals, we incorporate four key modules to resolve spatial ambiguity and mitigate intra-image confounders and redundant token correlations. Extensive experiments demonstrate that Diffusion-CAM significantly outperforms SoTA methods in both localization accuracy and visual fidelity, establishing a new standard for understanding the parallel generation process of diffusion multimodal systems.</p>
+<h3 id="36-environmental-footprint-of-genai-research-insights-from-the-moshi-foundation-model">[36] <a href="https://arxiv.org/abs/2604.11154">Environmental Footprint of GenAI Research: Insights from the Moshi Foundation Model</a></h3>
+<p><em>Marta López-Rauhut, Loic Landrieu, Mathieu Aubry, Anne-Laure Ligozat</em></p>
+<h4 id="tldr_35">🧩 TL;DR</h4>
+<p>本研究首次对多模态大语言模型Moshi的研发全过程进行细粒度计算分析，量化了从早期实验到最终训练各阶段的GPU时间消耗，并采用生命周期评估方法全面评估了其环境影响，为可持续AI研究提供了可操作指南。</p>
+<hr />
+<h4 id="detailed-summary_35">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前生成式AI快速发展导致能源消耗和温室气体排放持续增加，但该领域普遍缺乏透明度，现有环境影响评估通常仅关注最终训练阶段的碳足迹，忽略了研发、实验、失败训练和消融研究等全过程，本研究旨在填补这一空白。</p>
+<p><strong>Method:</strong> 研究采用细粒度分析方法，首次深入解剖计算密集型MLLM研究的全过程，量化了Moshi模型各组件和训练阶段的具体GPU时间消耗，包括早期实验阶段、失败训练运行、调试和消融研究，并运用生命周期评估方法全面评估硬件生产和使用的环境影响。</p>
+<p><strong>Result:</strong> 研究首次完整量化了7B参数语音文本基础模型Moshi从研发到部署全过程的计算资源消耗，提供了各阶段GPU时间的详细解剖数据，并系统评估了能源和水资源消耗、温室气体排放以及矿物资源枯竭等多维度环境影响指标。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了MLLM研发过程中被忽视的计算消耗和环境代价，为减少计算使用和环境影响提供了可操作指南，推动了更可持续的AI研究实践，强调了从全生命周期视角评估AI环境影响的必要性。</p>
+<hr />
+<h4 id="abstract_35">📄 Abstract</h4>
+<p>New multi-modal large language models (MLLMs) are continuously being trained and deployed, following rapid development cycles. This generative AI frenzy is driving steady increases in energy consumption, greenhouse gas emissions, and a plethora of other environmental impacts linked to datacenter construction and hardware manufacturing. Mitigating the environmental consequences of GenAI remains challenging due to an overall lack of transparency by the main actors in the field. Even when the environmental impacts of specific models are mentioned, they are typically restricted to the carbon footprint of the final training run, omitting the research and development stages.
+  In this work, we explore the impact of GenAI research through a fine-grained analysis of the compute spent to create Moshi, a 7B-parameter speech-text foundation model for real-time dialogue developed by Kyutai, a leading privately funded open science AI lab. For the first time, our study dives into the anatomy of compute-intensive MLLM research, quantifying the GPU-time invested in specific model components and training phases, as well as early experimental stages, failed training runs, debugging, and ablation studies. Additionally, we assess the environmental impacts of creating Moshi from beginning to end using a life cycle assessment methodology: we quantify energy and water consumption, greenhouse gas emissions, and mineral resource depletion associated with the production and use of datacenter hardware.
+  Our detailed analysis allows us to provide actionable guidelines to reduce compute usage and environmental impacts of MLLM research, paving the way for more sustainable AI research.</p>
+<h3 id="37-mobile-gui-agent-privacy-personalization-with-trajectory-induced-preference-optimization">[37] <a href="https://arxiv.org/abs/2604.11259">Mobile GUI Agent Privacy Personalization with Trajectory Induced Preference Optimization</a></h3>
+<p><em>Zhixin Lin, Jungang Li, Dongliang Xu, Shidong Pan, Yibo Shi, Yuchi Liu, Yuecong Min, Yue Yao</em></p>
+<h4 id="tldr_36">🧩 TL;DR</h4>
+<p>本文提出轨迹诱导偏好优化（TIPO）方法，针对移动GUI智能体中的隐私个性化问题，通过偏好强度加权和填充门控机制解决执行轨迹的结构异质性挑战，显著提升智能体的隐私偏好对齐能力。</p>
+<hr />
+<h4 id="detailed-summary_36">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有移动GUI智能体系统主要优化任务成功率或效率，忽视了用户的隐私个性化需求，而隐私优先用户与效用优先用户在执行轨迹上存在系统性结构异质性，这种变长且结构不同的轨迹使得标准偏好优化方法不稳定且信息量不足。</p>
+<p><strong>Method:</strong> 本文提出轨迹诱导偏好优化（TIPO）方法，采用偏好强度加权机制来强调关键的隐私相关步骤，同时使用填充门控技术来抑制对齐噪声，从而处理隐私个性化导致的执行轨迹结构异质性问题。</p>
+<p><strong>Result:</strong> 在隐私偏好数据集上的实验结果表明，TIPO在保持强大任务执行能力的同时，显著提升了角色对齐度和区分度，达到65.60%的成功率、46.22的合规性和66.67%的偏好区分度，在各种GUI任务上均优于现有优化方法。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了隐私个性化在移动GUI智能体中的重要性，提出的TIPO方法为解决执行轨迹结构异质性提供了有效解决方案，为个性化智能体的开发提供了新思路，相关代码和数据集将开源以促进该领域研究。</p>
+<hr />
+<h4 id="abstract_36">📄 Abstract</h4>
+<p>Mobile GUI agents powered by Multimodal Large Language Models (MLLMs) can execute complex tasks on mobile devices. Despite this progress, most existing systems still optimize task success or efficiency, neglecting users' privacy personalization. In this paper, we study the often-overlooked problem of agent personalization. We observe that personalization can induce systematic structural heterogeneity in execution trajectories. For example, privacy-first users often prefer protective actions, e.g., refusing permissions, logging out, and minimizing exposure, leading to logically different execution trajectories from utility-first users. Such variable-length and structurally different trajectories make standard preference optimization unstable and less informative. To address this issue, we propose Trajectory Induced Preference Optimization (TIPO), which uses preference-intensity weighting to emphasize key privacy-related steps and padding gating to suppress alignment noise. Results on our Privacy Preference Dataset show that TIPO improves persona alignment and distinction while preserving strong task executability, achieving 65.60% SR, 46.22 Compliance, and 66.67% PD, outperforming existing optimization methods across various GUI tasks. The code and dataset will be publicly released at https://github.com/Zhixin-L/TIPO.</p>
+<h3 id="38-paperscope-a-multi-modal-multi-document-benchmark-for-agentic-deep-research-across-massive-scientific-papers">[38] <a href="https://arxiv.org/abs/2604.11307">PaperScope: A Multi-Modal Multi-Document Benchmark for Agentic Deep Research Across Massive Scientific Papers</a></h3>
+<p><em>Lei Xiong, Huaying Yuan, Zheng Liu, Zhao Cao, Zhicheng Dou</em></p>
+<h4 id="tldr_37">🧩 TL;DR</h4>
+<p>本文提出了PaperScope，一个用于智能深度研究的多模态多文档基准，基于2000多篇AI论文的知识图谱构建，包含2000多个QA对，用于评估多步骤科学推理能力。实验显示当前先进系统在该基准上表现有限，突显了深度多源推理的挑战性。</p>
+<hr />
+<h4 id="detailed-summary_37">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准主要关注单文档理解，而真实科学研究工作流需要整合多篇论文中的证据（包括文本、表格和图表），导致多模态、多文档的科学推理研究不足且缺乏系统性评估。</p>
+<p><strong>Method:</strong> 提出了PaperScope多模态多文档基准，其构建于包含2000多篇AI论文的知识图谱之上，采用语义相关关键信息节点集成和优化随机游走文章选择器来采样主题连贯的论文集，包含2000多个QA对，涵盖推理、检索、摘要和问题解决等多任务评估。</p>
+<p><strong>Result:</strong> 实验结果表明，即使是OpenAI Deep Research和Tongyi Deep Research等先进系统在PaperScope上也仅获得有限分数，突显了长上下文检索和深度多源推理的难度。</p>
+<p><strong>Conclusion:</strong> PaperScope为多模态、多文档深度科学研究提供了一个严谨的基准，同时提供了一个可扩展的管道来构建大规模多模态多源深度研究数据集，填补了该领域系统性评估的空白。</p>
+<hr />
+<h4 id="abstract_37">📄 Abstract</h4>
+<p>Leveraging Multi-modal Large Language Models (MLLMs) to accelerate frontier scientific research is promising, yet how to rigorously evaluate such systems remains unclear. Existing benchmarks mainly focus on single-document understanding, whereas real scientific workflows require integrating evidence from multiple papers, including their text, tables, and figures. As a result, multi-modal, multi-document scientific reasoning remains underexplored and lacks systematic evaluation. To address this gap, we introduce PaperScope, a multi-modal multi-document benchmark designed for agentic deep research. PaperScope presents three advantages: (1) Structured scientific grounding. It is built on a knowledge graph of over 2,000 AI papers spanning three years, providing a structured foundation for research-oriented queries. (2) Semantically dense evidence construction. It integrates semantically related key information nodes and employs optimized random-walk article selector to sample thematically coherent paper sets, thereby ensuring adequate semantic density and task complexity. (3) Multi-task evaluation of scientific reasoning. It contains over 2,000 QA pairs across reasoning, retrieval, summarization, and problem solving, enabling evaluation of multi-step scientific reasoning. Experimental results show that even advanced systems such as OpenAI Deep Research and Tongyi Deep Research achieve limited scores on PaperScope, highlighting the difficulty of long-context retrieval and deep multi-source reasoning. PaperScope thus provides a rigorous benchmark alongside a scalable pipeline for constructing large-scale multi-modal, multi-source deep research datasets.</p>
+  </article>
+</body>
+</html>
