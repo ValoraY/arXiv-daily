@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-15.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 13]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 2]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-does-visual-token-pruning-improve-calibration-an-empirical-study-on-confidence-in-mllms">[1] <a href="https://arxiv.org/abs/2604.12035">Does Visual Token Pruning Improve Calibration? An Empirical Study on Confidence in MLLMs</a></h3>
+<p><em>Kaizhen Tan</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文研究了视觉token剪枝对多模态大语言模型校准性的影响，发现剪枝不仅影响效率与准确性，更显著影响模型置信度与真实正确率的匹配质量，提出评估视觉token剪枝时应同时考虑准确性和置信度质量。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视觉token剪枝研究主要关注任务准确性，而忽略了剪枝对模型校准性的影响，即模型预测置信度是否与实际正确率匹配。本研究旨在填补这一研究空白，探究视觉token剪枝如何影响多模态大语言模型的可靠性评估。</p>
+<p><strong>Method:</strong> 研究使用LLaVA-1.5-7B模型，在POPE和ScienceQA-IMG数据集上评估多种剪枝策略。评估指标包括期望校准误差、Brier分数和AURC，剪枝方法涵盖SCOPE（含不同显著性权重）、纯显著性剪枝、FastV和随机剪枝，并在多个token预算下进行系统实验。</p>
+<p><strong>Result:</strong> 实验结果显示，在POPE数据集上，SCOPE的纯覆盖率剪枝相比完整未剪枝模型显著降低了期望校准误差，同时保持相似准确性。降低显著性权重在所有测试token预算下都能改善校准性，而准确性变化很小。相反，基于显著性的剪枝导致校准性变差，FastV在实际设置中引起严重性能下降。在ScienceQA-IMG上，剪枝同样降低了期望校准误差，准确性保持稳定或略有提升。</p>
+<p><strong>Conclusion:</strong> 研究表明视觉token剪枝不应仅通过准确性评估，还需考虑置信度质量，特别是对于需要可靠决策的多模态系统。研究还发现覆盖率选择中的间隙幂指数默认设置并非总是最优，为未来高效可靠的多模态模型设计提供了重要指导。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Visual token pruning is a widely used strategy for efficient inference in multimodal large language models (MLLMs), but existing work mainly evaluates it with task accuracy. In this paper, we study how visual token pruning affects model calibration, that is, whether predicted confidence matches actual correctness. Using LLaVA-1.5-7B on POPE and ScienceQA-IMG, we evaluate Expected Calibration Error (ECE), Brier score, and AURC under several pruning strategies, including SCOPE with different saliency weights, saliency-only pruning, FastV, and random pruning, across multiple token budgets. Our results show that pruning does not simply trade reliability for efficiency. On POPE, a pure-coverage setting in SCOPE achieves substantially lower ECE than the full unpruned model while maintaining similar accuracy. An internal alpha-sweep further shows a consistent trend: reducing the saliency weight improves calibration at all tested token budgets, while accuracy changes only slightly. In contrast, saliency-based pruning leads to worse calibration, and real FastV causes severe performance degradation in our setting. On ScienceQA-IMG, pruning also reduces ECE, with accuracy remaining stable or slightly improving. We additionally study the gap power exponent in coverage-based selection and find that its default setting is not always optimal. Overall, our results suggest that visual token pruning should be evaluated not only by accuracy, but also by confidence quality, especially for multimodal systems that need reliable decisions.</p>
+<h3 id="2-htdc-hesitation-triggered-differential-calibration-for-mitigating-hallucination-in-large-vision-language-models">[2] <a href="https://arxiv.org/abs/2604.12115">HTDC: Hesitation-Triggered Differential Calibration for Mitigating Hallucination in Large Vision-Language Models</a></h3>
+<p><em>Xinyun Liu</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种基于犹豫触发的差分校准（HTDC）解码框架，通过检测中间层的犹豫信号仅在需要时激活校准，在减少大型视觉语言模型幻觉的同时保持计算效率。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型在多模态任务中表现出色，但仍存在因视觉基础不稳定和过度依赖语言先验而产生的幻觉问题。现有免训练解码方法通常在每一步解码都进行校准，引入了不必要的计算开销并可能干扰稳定预测，需要更高效的解决方案。</p>
+<p><strong>Method:</strong> 本文提出犹豫触发的差分校准框架，首先识别层间犹豫信号——即中间层间令牌偏好的波动，作为基础不稳定的简单指标。当检测到犹豫时，HTDC通过对比完整分支与两个轻量级探针来激活校准：视觉无效化探针和语义无效化探针，以抑制幻觉倾向的候选输出，同时避免对稳定步骤的不必要干预。</p>
+<p><strong>Result:</strong> 在代表性幻觉基准测试上的实验表明，HTDC能持续减少幻觉现象，同时保持强大的任务准确性。该方法在有效性和计算开销之间实现了有利的平衡，相比传统每步校准方法显著降低了计算负担。</p>
+<p><strong>Conclusion:</strong> 研究表明层间犹豫信号是检测视觉基础不稳定性的有效指标，HTDC框架通过选择性校准机制实现了幻觉减少与计算效率的平衡。该方法为大型视觉语言模型的解码优化提供了新思路，展示了基于模型内部动态而非外部干预的高效幻觉缓解策略。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Large vision-language models (LVLMs) achieve strong multimodal performance, but still suffer from hallucinations caused by unstable visual grounding and over-reliance on language priors. Existing training-free decoding methods typically apply calibration at every decoding step, introducing unnecessary computation and potentially disrupting stable predictions. We address this problem by identifying layer-wise hesitation, a simple signal of grounding instability reflected by fluctuations in token preference across intermediate layers. Based on this observation, we propose Hesitation-Triggered Differential Calibration (HTDC), a training-free decoding framework that preserves standard full-branch inference and activates calibration only at hesitation-prone steps. When triggered, HTDC contrasts the full branch with two lightweight probes, a visual-nullification probe and a semantic-nullification probe, to suppress hallucination-prone candidates while avoiding unnecessary intervention on stable steps. Experiments on representative hallucination benchmarks show that HTDC consistently reduces hallucinations while maintaining strong task accuracy, achieving a favorable trade-off between effectiveness and computational overhead.</p>
+<h3 id="3-redefining-quality-criteria-and-distance-aware-score-modeling-for-image-editing-assessment">[3] <a href="https://arxiv.org/abs/2604.12175">Redefining Quality Criteria and Distance-Aware Score Modeling for Image Editing Assessment</a></h3>
+<p><em>Xinjie Zhang, Qiang Li, Xiaowen Ma, Axi Niu, Li Yan, Qingsen Yan</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了DS-IEQA框架，通过联合学习评估标准和分数表示来解决图像编辑质量评估中的两个关键限制：刚性度量提示和距离无关的分数建模，实现了与人类隐式标准的更好对齐。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 图像编辑质量评估需要复杂的多模态推理和多维度评估，现有基于MLLM的方法依赖人工启发式提示，存在刚性度量提示和距离无关分数建模两个关键限制，阻碍了与人类隐式标准的对齐，且无法捕捉分数空间的连续结构。</p>
+<p><strong>Method:</strong> 提出了DS-IEQA统一框架，包含反馈驱动的度量提示优化来自动通过概率反馈精炼度量定义，以及令牌解耦距离回归损失将数值令牌从语言建模中解耦，通过期望距离最小化显式建模分数连续性。</p>
+<p><strong>Result:</strong> 广泛实验表明该方法性能优越，在2026年NTIRE X-AIGC质量评估赛道2中排名第4，且无需任何额外训练数据，验证了框架在图像编辑质量评估任务中的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究通过联合学习评估标准和分数表示，解决了现有MLLM方法在图像编辑质量评估中的关键限制，为多模态质量评估提供了更符合人类感知的自动化评估框架，具有重要的实际应用价值。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Recent advances in image editing have heightened the need for reliable Image Editing Quality Assessment (IEQA). Unlike traditional methods, IEQA requires complex reasoning over multimodal inputs and multi-dimensional assessments. Existing MLLM-based approaches often rely on human heuristic prompting, leading to two key limitations: rigid metric prompting and distance-agnostic score modeling. These issues hinder alignment with implicit human criteria and fail to capture the continuous structure of score spaces. To address this, we propose Define-and-Score Image Editing Quality Assessment (DS-IEQA), a unified framework that jointly learns evaluation criteria and score representations. Specifically, we introduce Feedback-Driven Metric Prompt Optimization (FDMPO) to automatically refine metric definitions via probabilistic feedback. Furthermore, we propose Token-Decoupled Distance Regression Loss (TDRL), which decouples numerical tokens from language modeling to explicitly model score continuity through expected distance minimization. Extensive experiments show our method's superior performance; it ranks 4th in the 2026 NTIRE X-AIGC Quality Assessment Track 2 without any additional training data.</p>
+<h3 id="4-all-in-one-a-unified-synthetic-data-pipeline-for-multimodal-video-understanding">[4] <a href="https://arxiv.org/abs/2604.12335">All in One: A Unified Synthetic Data Pipeline for Multimodal Video Understanding</a></h3>
+<p><em>Tanzila Rahman, Renjie Liao, Leonid Sigal</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种统一的多模态视频合成数据生成框架，能够自动生成无限量的多模态视频数据，并配合基于视觉问答的微调策略，显著提升了视频理解模型的性能。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 训练多模态大语言模型进行视频理解需要大规模标注数据，涵盖对象计数、问答和分割等多种任务，但真实世界多模态视频数据的收集和标注成本高昂、速度慢，且多样性和覆盖范围有限。</p>
+<p><strong>Method:</strong> 提出了一种统一的合成数据生成流水线，能够自动生成无限量的多模态视频数据，支持单流水线内多种任务格式；同时引入基于视觉问答的微调策略，训练模型回答关于视觉内容的结构化问题而非仅依赖字幕或简单指令。</p>
+<p><strong>Result:</strong> 在视频对象计数、视频视觉问答和视频对象分割三个挑战性任务上的实验结果表明，主要使用合成数据训练的模型能够有效泛化到真实世界数据集，通常优于传统训练方法的模型。</p>
+<p><strong>Conclusion:</strong> 研究结果表明统一合成数据流水线作为昂贵真实世界标注的可扩展替代方案具有巨大潜力，基于视觉问答的微调策略能够促进更深入的视觉基础和推理能力，为多模态视频理解提供了新的数据生成和训练范式。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Training multimodal large language models (MLLMs) for video understanding requires large-scale annotated data spanning diverse tasks such as object counting, question answering, and segmentation. However, collecting and annotating multimodal video data in real-world is costly, slow, and inherently limited in diversity and coverage. To address this challenge, we propose a unified synthetic data generation pipeline capable of automatically producing unlimited multimodal video data with rich and diverse supervision. Our framework supports multiple task formats within a single pipeline, enabling scalable and consistent data creation across tasks. To further enhance reasoning ability, we introduce a VQA-based fine-tuning strategy that trains models to answer structured questions about visual content rather than relying solely on captions or simple instructions. This formulation encourages deeper visual grounding and reasoning. We evaluate our approach in three challenging tasks: video object counting, video-based visual question answering, and video object segmentation. Experimental results demonstrate that models trained predominantly on synthetic data generalize effectively to real-world datasets, often outperforming traditionally trained counterparts. Our findings highlight the potential of unified synthetic data pipelines as a scalable alternative to expensive real-world annotation for multimodal video understanding.</p>
+<h3 id="5-why-and-when-visual-token-pruning-fails-a-study-on-relevant-visual-information-shift-in-mllms-decoding">[5] <a href="https://arxiv.org/abs/2604.12358">Why and When Visual Token Pruning Fails? A Study on Relevant Visual Information Shift in MLLMs Decoding</a></h3>
+<p><em>Jiwan Kim, Kibum Kim, Wonjoong Kim, Byung-Kwan Lee, Chanyoung Park</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了解码阶段偏移感知令牌剪枝（DSTP），一种无需训练的附加框架，旨在解决现有视觉令牌剪枝方法在复杂视觉推理任务中泛化能力不足的问题，通过使视觉令牌与解码阶段不断变化的推理需求对齐来提升性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视觉令牌剪枝方法虽然在简单视觉理解任务上表现可靠，但在复杂视觉推理任务中泛化能力不足，这一关键差距在先前研究中未被充分探索。通过系统分析，作者发现解码过程中的相关视觉信息偏移（RVIS）是导致失败的主要驱动因素。</p>
+<p><strong>Method:</strong> 本文提出了解码阶段偏移感知令牌剪枝（DSTP），这是一种无需训练的附加框架，能够使现有剪枝方法在解码阶段将视觉令牌与不断变化的推理需求对齐。DSTP通过动态调整视觉令牌的保留策略来适应推理过程中的信息需求变化，从而提升复杂任务中的性能。</p>
+<p><strong>Result:</strong> 大量实验表明，DSTP显著减轻了剪枝方法在复杂推理任务中的性能下降，同时在视觉理解基准测试中也持续带来性能提升。此外，DSTP在多种最先进的架构上都表现出有效性，突显了其通用性和高效性，且计算开销最小。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了视觉令牌剪枝在复杂推理任务中的关键局限性，并提出了一种有效的解决方案。DSTP框架展示了通过解码阶段动态调整策略来适应信息需求变化的重要性，为多模态大语言模型的高效推理提供了新的方向，具有广泛的适用性和实际部署价值。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Recently, visual token pruning has been studied to handle the vast number of visual tokens in Multimodal Large Language Models. However, we observe that while existing pruning methods perform reliably on simple visual understanding, they struggle to effectively generalize to complex visual reasoning tasks, a critical gap underexplored in previous studies. Through a systematic analysis, we identify Relevant Visual Information Shift (RVIS) during decoding as the primary failure driver. To address this, we propose Decoding-stage Shift-aware Token Pruning (DSTP), a training-free add-on framework that enables existing pruning methods to align visual tokens with shifting reasoning requirements during the decoding stage. Extensive experiments demonstrate that DSTP significantly mitigates performance degradation of pruning methods in complex reasoning tasks, while consistently yielding performance gains even across visual understanding benchmarks. Furthermore, DSTP demonstrates effectiveness across diverse state-of-the-art architectures, highlighting its generalizability and efficiency with minimal computational overhead.</p>
+<h3 id="6-from-attenuation-to-attention-variational-information-flow-manipulation-for-fine-grained-visual-perception">[6] <a href="https://arxiv.org/abs/2604.12508">From Attenuation to Attention: Variational Information Flow Manipulation for Fine-Grained Visual Perception</a></h3>
+<p><em>Jilong Zhu, Yang Feng</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出变分信息流（VIF）框架，通过条件变分自编码器建模视觉显著性，以解决多模态大语言模型在细粒度感知任务中的视觉衰减问题，显著提升了模型性能。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在通用视觉理解方面表现出色，但在需要识别微小物体或辨别细微视觉关系的细粒度感知任务中经常失败，这归因于视觉衰减现象——稀疏的细粒度视觉信号在传播过程中被主导的文本标记过早抑制或稀释，导致深层决策过程中的"注意力丢失"。</p>
+<p><strong>Method:</strong> 本文提出变分信息流（VIF）框架，采用概率视角，利用条件变分自编码器（CVAE）将与问答对相关的视觉显著性建模为潜在分布，该框架作为即插即用模块可集成到现有架构中，从本质上解决信息损失的内在机制。</p>
+<p><strong>Result:</strong> 在涵盖通用视觉问答、细粒度感知和视觉定位的多样化基准测试中，VIF框架相比先前方法取得了有竞争力的改进，验证了其在增强多模态大语言模型细粒度感知能力方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究通过概率建模方法从根本上解决了多模态大语言模型的视觉衰减问题，提出的VIF框架不仅提升了细粒度感知性能，还为理解视觉-语言交互中的信息流机制提供了新视角，具有重要的理论和应用价值。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>While Multimodal Large Language Models (MLLMs) have demonstrated impressive capabilities in general visual understanding, they frequently falter in fine-grained perception tasks that require identifying tiny objects or discerning subtle visual relationships. We attribute this limitation to Visual Attenuation: a phenomenon where sparse fine-grained visual signals are prematurely suppressed or diluted by dominant textual tokens during network propagation, resulting in a "loss of focus" during the deep-level decision-making process. Existing input-centric solutions fail to fundamentally reverse this intrinsic mechanism of information loss. To address this challenge, we propose the Variational Information Flow (VIF) framework. Adopting a probabilistic perspective, VIF leverages a Conditional Variational Autoencoder (CVAE) to model the visual saliency relevant to the question-answer pair as a latent distribution. As a plug-and-play module, VIF can be integrated into existing architectures. Extensive evaluations across diverse benchmarks, covering General VQA, fine-grained perception, and visual grounding, demonstrate that VIF yields competitive improvements over previous methods, validating its effectiveness in enhancing the fine-grained perception of MLLMs.</p>
+<h3 id="7-geoalign-geometric-feature-realignment-for-mllm-spatial-reasoning">[7] <a href="https://arxiv.org/abs/2604.12630">GeoAlign: Geometric Feature Realignment for MLLM Spatial Reasoning</a></h3>
+<p><em>Zhaochen Liu, Limeng Qiao, Guanglu Wan, Tingting Jiang</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出GeoAlign框架，通过动态聚合多层几何特征来解决多模态大语言模型在空间推理中的任务对齐偏差问题，该紧凑的4B模型在多个基准测试中实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在各种视觉任务中表现出色，但在空间推理方面仍存在困难。现有方法通过从3D基础模型注入几何特征来缓解这一问题，但依赖于静态单层特征提取，导致任务对齐偏差：几何特征自然趋向于3D预训练目标，这可能与MLLMs的异构空间需求相矛盾，使得任何单层特征本质上都不充分。</p>
+<p><strong>Method:</strong> 本文提出GeoAlign框架，通过动态聚合多层几何特征来重新对齐实际需求。该框架构建分层几何特征库，并利用MLLM的原始视觉标记作为内容感知查询来执行逐层稀疏路由，自适应地为每个图像块获取合适的几何特征。</p>
+<p><strong>Result:</strong> 在VSI-Bench、ScanQA和SQA3D上的广泛实验表明，本文提出的紧凑4B模型有效实现了最先进的性能，甚至超越了现有更大的多模态大语言模型。</p>
+<p><strong>Conclusion:</strong> 研究表明，通过动态聚合多层几何特征可以有效解决多模态大语言模型中的任务对齐偏差问题，为空间推理任务提供了更有效的特征表示方法。该方法不仅提高了性能，还展示了紧凑模型在复杂空间推理任务中的潜力。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have exhibited remarkable performance in various visual tasks, yet still struggle with spatial reasoning. Recent efforts mitigate this by injecting geometric features from 3D foundation models, but rely on static single-layer extractions. We identify that such an approach induces a task misalignment bias: the geometric features naturally evolve towards 3D pretraining objectives, which may contradict the heterogeneous spatial demands of MLLMs, rendering any single layer fundamentally insufficient. To resolve this, we propose GeoAlign, a novel framework that dynamically aggregates multi-layer geometric features to realign with the actual demands. GeoAlign constructs a hierarchical geometric feature bank and leverages the MLLM's original visual tokens as content-aware queries to perform layer-wise sparse routing, adaptively fetching the suitable geometric features for each patch. Extensive experiments on VSI-Bench, ScanQA, and SQA3D demonstrate that our compact 4B model effectively achieves state-of-the-art performance, even outperforming larger existing MLLMs.</p>
+<h3 id="8-ntire-2026-the-3rd-restore-any-image-model-raim-challenge-professional-image-quality-assessment-track-1">[8] <a href="https://arxiv.org/abs/2604.12512">NTIRE 2026 The 3rd Restore Any Image Model (RAIM) Challenge: Professional Image Quality Assessment (Track 1)</a></h3>
+<p><em>Guanyi Qin, Jie Liang, Bingbing Zhang, Lishen Qu, Ya-nan Guan, Hui Zeng, Lei Zhang, Radu Timofte, Jianhui Sun, Xinli Yue, Tao Shao, Huan Hou, Wenjie Liao, Shuhao Han, Jieyu Yuan, Chunle Guo, Chongyi Li, Zewen Chen, Yunze Liu, Jian Guo, Juan Wang, Yun Zeng, Bing Li, Weiming Hu, Hesong Li, Dehua Liu, Xinjie Zhang, Qiang Li, Li Yan, Wei Dong, Qingsen Yan, Xingcan Li, Shenglong Zhou, Manjiang Yin, Yinxiang Zhang, Hongbo Wang, Jikai Xu, Zhaohui Fan, Dandan Zhu, Wei Sun, Weixia Zhang, Kun Zhu, Nana Zhang, Kaiwei Zhang, Qianqian Zhang, Zhihan Zhang, William Gordon, Linwei Wu, Jiachen Tu, Guoyi Xu, Yaoxin Jiang, Cici Liu, Yaokun Shi</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文介绍了NTIRE 2026挑战赛中关于专业图像质量评估的新基准，该基准探索多模态大语言模型在评估高质量图像对时模仿人类专家认知的能力，要求参与者实现比较质量选择和解释性推理两个核心目标。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统图像质量评估方法通常依赖标量分数，将复杂视觉特征压缩为单一数值，这种方法难以区分高质量图像间的细微差异，且无法解释为何一幅图像更优，缺乏为视觉任务提供指导所需的推理能力。多模态大语言模型为这一领域提供了新的范式，本挑战旨在探索MLLMs在专业场景中模仿人类专家认知评估高质量图像对的能力。</p>
+<p><strong>Method:</strong> 挑战建立了一个新颖的基准，探索多模态大语言模型在专业图像质量评估中的应用，要求参与者克服专业场景中的关键瓶颈，专注于两个主要目标：比较质量选择（可靠识别高质量图像对中视觉上更优的图像）和解释性推理（生成基于事实的专家级解释，详细说明选择背后的原理）。</p>
+<p><strong>Result:</strong> 该挑战吸引了近200个注册和超过2,500次提交，表现最佳的方法显著推进了专业图像质量评估的技术水平。挑战数据集已在GitHub上公开，官方主页可通过Codabench平台访问。</p>
+<p><strong>Conclusion:</strong> 该研究展示了多模态大语言模型在专业图像质量评估领域的潜力，通过建立包含比较选择和解释推理的基准，推动了超越传统标量评分方法的更精细评估范式的发展。挑战的成功举办和数据集的开源为未来研究提供了重要资源，促进了基于推理的图像质量评估方法的进步。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>In this paper, we present an overview of the NTIRE 2026 challenge on the 3rd Restore Any Image Model in the Wild, specifically focusing on Track 1: Professional Image Quality Assessment. Conventional Image Quality Assessment (IQA) typically relies on scalar scores. By compressing complex visual characteristics into a single number, these methods fundamentally struggle to distinguish subtle differences among uniformly high-quality images. Furthermore, they fail to articulate why one image is superior, lacking the reasoning capabilities required to provide guidance for vision tasks. To bridge this gap, recent advancements in Multimodal Large Language Models (MLLMs) offer a promising paradigm. Inspired by this potential, our challenge establishes a novel benchmark exploring the ability of MLLMs to mimic human expert cognition in evaluating high-quality image pairs. Participants were tasked with overcoming critical bottlenecks in professional scenarios, centering on two primary objectives: (1) Comparative Quality Selection: reliably identifying the visually superior image within a high-quality pair; and (2) Interpretative Reasoning: generating grounded, expert-level explanations that detail the rationale behind the selection. In total, the challenge attracted nearly 200 registrations and over 2,500 submissions. The top-performing methods significantly advanced the state of the art in professional IQA. The challenge dataset is available at https://github.com/narthchin/RAIM-PIQA, and the official homepage is accessible at https://www.codabench.org/competitions/12789/.</p>
+<h3 id="9-clasp-class-adaptive-layer-fusion-and-dual-stage-pruning-for-multimodal-large-language-models">[9] <a href="https://arxiv.org/abs/2604.12767">CLASP: Class-Adaptive Layer Fusion and Dual-Stage Pruning for Multimodal Large Language Models</a></h3>
+<p><em>Yunkai Dang, Yizhu Jiang, Yifan Jiang, Qi Fan, Yinghuan Shi, Wenbin Li, Yang Gao</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出CLASP，一种基于类别自适应层融合和双阶段剪枝的即插即用视觉令牌缩减框架，旨在解决多模态大语言模型中视觉令牌序列冗余导致的过高计算开销问题。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型因视觉令牌序列高度冗余而承受巨大计算开销，现有方法通常采用单层ViT特征和静态剪枝策略，但这些固定配置在不同指令下表现脆弱，无法适应多样化需求。</p>
+<p><strong>Method:</strong> CLASP框架首先通过多层视觉特征融合构建类别特定的视觉表示，然后执行双阶段剪枝：在注意力显著的关键令牌和冗余感知的补全令牌之间分配令牌预算，通过类别自适应剪枝实现提示条件特征融合和预算分配。</p>
+<p><strong>Result:</strong> 大量实验表明，CLASP在广泛基准测试、不同剪枝比例和多种MLLM架构中均优于现有方法，实现了既激进又鲁棒的视觉令牌缩减效果。</p>
+<p><strong>Conclusion:</strong> 该研究展示了通过类别自适应层融合和双阶段动态剪枝策略，可以在保持模型性能的同时显著降低计算开销，为多模态大语言模型的高效部署提供了新的技术路径。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) suffer from substantial computational overhead due to the high redundancy in visual token sequences. Existing approaches typically address this issue using single-layer Vision Transformer (ViT) features and static pruning strategies. However, such fixed configurations are often brittle under diverse instructions. To overcome these limitations, we propose CLASP, a plug-and-play token reduction framework based on class-adaptive layer fusion and dual-stage pruning. Specifically, CLASP first constructs category-specific visual representations through multi-layer vision feature fusion. It then performs dual-stage pruning, allocating the token budget between attention-salient pivot tokens for relevance and redundancy-aware completion tokens for coverage. Through class-adaptive pruning, CLASP enables prompt-conditioned feature fusion and budget allocation, allowing aggressive yet robust visual token reduction. Extensive experiments demonstrate that CLASP consistently outperforms existing methods across a wide range of benchmarks, pruning ratios, and MLLM architectures. Code will be available at https://github.com/Yunkaidang/CLASP.</p>
+<h3 id="10-dpc-vqa-decoupling-quality-perception-and-residual-calibration-for-video-quality-assessment">[10] <a href="https://arxiv.org/abs/2604.12813">DPC-VQA: Decoupling Quality Perception and Residual Calibration for Video Quality Assessment</a></h3>
+<p><em>Xinyue Li, Shubo Xu, Zhichao Zhang, Zhaolin Cai, Yitong Chen, Guangtao Zhai</em></p>
+<h4 id="tldr_9">🧩 TL;DR</h4>
+<p>本文提出DPC-VQA框架，通过解耦感知与校准来解决多模态大语言模型在视频质量评估中的适应性问题，该框架利用冻结MLLM提供基础质量估计，并通过轻量级校准分支进行目标场景适应，显著降低了训练成本和数据需求。</p>
+<hr />
+<h4 id="detailed-summary_9">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于多模态大语言模型的视频质量评估方法在新场景适应时面临大规模重新训练和昂贵平均意见分数标注的高成本问题，需要一种更高效的适应机制来利用预训练MLLM的感知先验。</p>
+<p><strong>Method:</strong> 提出DPC-VQA框架，采用解耦感知与校准的设计思路，使用冻结的MLLM提供基础质量估计和感知先验，同时引入轻量级校准分支预测残差校正项，实现目标场景的适应而不需要端到端重新训练。</p>
+<p><strong>Result:</strong> 在用户生成内容和AI生成内容基准测试上的广泛实验表明，DPC-VQA在保持竞争力的性能同时，仅使用传统MLLM方法2%的可训练参数，并在仅20%MOS标注数据下仍保持有效，显著降低了训练和数据成本。</p>
+<p><strong>Conclusion:</strong> 研究表明预训练MLLM已具备有效的感知先验，核心挑战在于将其校准到目标MOS空间，DPC-VQA的解耦框架为高效适应提供了可行方案，为视频质量评估的轻量化部署开辟了新方向。</p>
+<hr />
+<h4 id="abstract_9">📄 Abstract</h4>
+<p>Recent multimodal large language models (MLLMs) have shown promising performance on video quality assessment (VQA) tasks. However, adapting them to new scenarios remains expensive due to large-scale retraining and costly mean opinion score (MOS) annotations. In this paper, we argue that a pretrained MLLM already provides a useful perceptual prior for VQA, and that the main challenge is to efficiently calibrate this prior to the target MOS space. Based on this insight, we propose DPC-VQA, a decoupling perception and calibration framework for video quality assessment. Specifically, DPC-VQA uses a frozen MLLM to provide a base quality estimate and perceptual prior, and employs a lightweight calibration branch to predict a residual correction for target-scenario adaptation. This design avoids costly end-to-end retraining while maintaining reliable performance with lower training and data costs. Extensive experiments on both user-generated content (UGC) and AI-generated content (AIGC) benchmarks show that DPC-VQA achieves competitive performance against representative baselines, while using less than 2% of the trainable parameters of conventional MLLM-based VQA methods and remaining effective with only 20\% of MOS labels. The code will be released upon publication.</p>
+<h3 id="11-challenging-vision-language-models-with-physically-deployable-multimodal-semantic-lighting-attacks">[11] <a href="https://arxiv.org/abs/2604.12833">Challenging Vision-Language Models with Physically Deployable Multimodal Semantic Lighting Attacks</a></h3>
+<p><em>Yingying Zhao, Chengyin Hu, Qike Zhang, Xin Li, Xin Wang, Yiwei Wei, Jiujiang Guo, Jiahuan Long, Tingsong Jiang, Wen Yao</em></p>
+<h4 id="tldr_10">🧩 TL;DR</h4>
+<p>本文提出了首个针对视觉语言模型（VLM）的可物理部署对抗攻击框架——多模态语义光照攻击（MSLA），通过可控对抗性光照破坏多模态语义理解，揭示了VLM在物理世界中的严重安全漏洞。</p>
+<hr />
+<h4 id="detailed-summary_10">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有对抗性研究几乎完全集中在数字设置中，而物理世界威胁尚未得到充分探索。随着VLM在真实环境中的部署日益增多，这一研究空白变得至关重要，因为对抗性扰动必须是物理可实现的。物理攻击可能导致识别失败并进一步破坏多模态推理，在下游任务中引发严重的语义误解，因此研究VLM的物理攻击对于评估其真实世界安全风险至关重要。</p>
+<p><strong>Method:</strong> 本文提出了多模态语义光照攻击（MSLA）框架，这是首个针对VLM的可物理部署对抗攻击框架。MSLA使用可控对抗性光照来破坏真实场景中的多模态语义理解，攻击语义对齐而非仅任务特定输出。该框架通过物理可实现的照明扰动来干扰VLM的语义理解能力，从而在图像描述和视觉问答等任务中引发语义幻觉。</p>
+<p><strong>Result:</strong> 实验表明MSLA能够有效降低主流CLIP变体的零样本分类性能，同时在LLaVA和BLIP等先进VLM中引发严重的语义幻觉，影响图像描述和视觉问答任务。在数字和物理领域的广泛实验证明，MSLA具有有效性、可迁移性和实际可实现性。该攻击框架展示了VLM对物理可部署语义攻击的高度脆弱性。</p>
+<p><strong>Conclusion:</strong> 研究首次证明VLM对物理可部署语义攻击高度脆弱，暴露了先前被忽视的鲁棒性差距，并强调了VLM物理世界鲁棒性评估的紧迫需求。这些发现为理解VLM在真实环境中的安全风险提供了重要证据，并为未来开发更鲁棒的VLM系统指明了方向。</p>
+<hr />
+<h4 id="abstract_10">📄 Abstract</h4>
+<p>Vision-Language Models (VLMs) have shown remarkable performance, yet their security remains insufficiently understood. Existing adversarial studies focus almost exclusively on the digital setting, leaving physical-world threats largely unexplored. As VLMs are increasingly deployed in real environments, this gap becomes critical, since adversarial perturbations must be physically realizable. Despite this practical relevance, physical attacks against VLMs have not been systematically studied. Such attacks may induce recognition failures and further disrupt multimodal reasoning, leading to severe semantic misinterpretation in downstream tasks. Therefore, investigating physical attacks on VLMs is essential for assessing their real-world security risks. To address this gap, we propose Multimodal Semantic Lighting Attacks (MSLA), the first physically deployable adversarial attack framework against VLMs. MSLA uses controllable adversarial lighting to disrupt multimodal semantic understanding in real scenes, attacking semantic alignment rather than only task-specific outputs. Consequently, it degrades zero-shot classification performance of mainstream CLIP variants while inducing severe semantic hallucinations in advanced VLMs such as LLaVA and BLIP across image captioning and visual question answering (VQA). Extensive experiments in both digital and physical domains demonstrate that MSLA is effective, transferable, and practically realizable. Our findings provide the first evidence that VLMs are highly vulnerable to physically deployable semantic attacks, exposing a previously overlooked robustness gap and underscoring the urgent need for physical-world robustness evaluation of VLMs.</p>
+<h3 id="12-dont-show-pixels-show-cues-unlocking-visual-tool-reasoning-in-language-models-via-perception-programs">[12] <a href="https://arxiv.org/abs/2604.12896">Don't Show Pixels, Show Cues: Unlocking Visual Tool Reasoning in Language Models via Perception Programs</a></h3>
+<p><em>Muhammad Kamran Janjua, Hugo Silva, Di Niu, Bahador Rashidi</em></p>
+<h4 id="tldr_11">🧩 TL;DR</h4>
+<p>本文提出了感知程序（P²），这是一种无需训练、模型无关的方法，通过将视觉工具输出重写为紧凑、结构化、语言原生的摘要，显著提升了多模态语言模型在感知任务上的性能。</p>
+<hr />
+<h4 id="detailed-summary_11">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态语言模型可以访问视觉工具生成的深度、光流、对应关系等视觉线索，但它们往往无法有效利用这些信息。现有方法通常将原始工具输出直接输入模型，但这些密集的像素级表示与LLMs的语言原生推理优势不匹配，导致感知能力弱且过度依赖语言先验。研究认为，在视觉工具能提供必要视觉线索的问题中，瓶颈不在于更多工具调用或更大的模型，而在于工具输出的表示方式。</p>
+<p><strong>Method:</strong> 本文提出了感知程序（P²），这是一种无需训练、模型无关的方法，通过将视觉工具输出重写为紧凑、结构化、语言原生的摘要，使多模态语言模型能够直接解析和推理。该方法不依赖模型修改或额外训练，而是专注于改进工具输出的表示方式，使其与语言模型的推理能力对齐。</p>
+<p><strong>Result:</strong> 在BLINK的六个感知中心任务中，P²相比基础模型和原始工具增强基线均实现了显著提升。使用GPT-5 Mini作为基础模型时，P²将多视图推理准确率从41.35%提升至86.47%，相对深度任务从52.42%提升至81.45%，平均任务增益达22%，创造了新的最先进结果。即使在较小的MLLMs如InternVL3.5-4B和Qwen3VL-4B上，P²也实现了15-40%的绝对增益，超越了先前基于代理、监督学习和强化学习的工具使用方法，且无需任何训练或模型修改。</p>
+<p><strong>Conclusion:</strong> 研究表明，在多模态语言模型中，视觉工具输出的表示方式比工具调用数量或模型规模更为关键。通过将密集的像素级表示转换为语言原生的结构化摘要，可以显著提升模型的感知推理能力。该方法为增强多模态系统的视觉理解提供了一种高效、通用的解决方案，无需复杂的训练过程或模型架构修改。</p>
+<hr />
+<h4 id="abstract_11">📄 Abstract</h4>
+<p>Multimodal language models (MLLMs) are increasingly paired with vision tools (e.g., depth, flow, correspondence) to enhance visual reasoning. However, despite access to these tool-generated visual cues, MLLMs often fail to benefit from them. Existing approaches typically feed raw tool outputs into the model, but these dense, pixel-level representations are misaligned with the language-native reasoning strengths of LLMs, leading to weak perception and reliance on language priors. We argue that, in problems where vision tools can provide the necessary visual cues, the bottleneck is not more tool calls or larger MLLMs, it is how tool outputs are represented. We introduce Perception Programs (P$^2$), a training-free, model-agnostic method that rewrites tool outputs into compact, structured, language-native summaries that MLLMs can directly parse and reason over. Across six perception-centric tasks in BLINK, P$^2$ consistently yields large improvements over base models and raw tool-augmented baselines. With GPT-5 Mini as the base model, P$^2$ raises its accuracy from 41.35\% to 86.47\% on multi-view reasoning, from 52.42\% to 81.45\% on relative depth, and achieves a 22\% average gain across tasks, setting new state-of-the-art results. Even on smaller MLLMs, e.g., InternVL3.5-4B and Qwen3VL-4B, we observe 15-40\% absolute gains from P$^2$, surpassing prior agentic, supervised, and RL-based tool-use methods-without any training or model modifications.</p>
+<h3 id="13-boosting-visual-instruction-tuning-with-self-supervised-guidance">[13] <a href="https://arxiv.org/abs/2604.12966">Boosting Visual Instruction Tuning with Self-Supervised Guidance</a></h3>
+<p><em>Sophia Sirko-Galouchenko, Monika Wysoczanska, Andrei Bursuc, Nicolas Thome, Spyros Gidaris</em></p>
+<h4 id="tldr_12">🧩 TL;DR</h4>
+<p>本文提出了一种简单轻量的方法，通过将经典的自监督预训练任务重新表述为图像-指令-响应三元组来增强多模态大语言模型的视觉指令微调，从而改善其视觉中心推理能力。该方法无需人工标注、架构修改或额外训练阶段，仅注入少量视觉基础指令即可在多个基准上持续提升性能。</p>
+<hr />
+<h4 id="detailed-summary_12">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在视觉语言任务上表现良好，但在需要细粒度视觉推理的视觉中心问题上往往表现不佳。研究表明这种限制并非源于弱视觉表示，而是由于指令微调过程中视觉信息利用不足，许多任务可以仅通过语言先验部分解决。因此需要一种方法强制模型在推理过程中依赖视觉证据。</p>
+<p><strong>Method:</strong> 该方法提出了一种简单轻量的视觉基础指令微调方法，通过将经典的自监督预训练任务重新表述为图像-指令-响应三元组来增强视觉指令微调。具体将旋转预测、颜色匹配和跨视图对应等自监督预训练任务转化为自然语言指令形式，创建无法仅凭语言先验解决的监督信号。该方法无需人工标注、架构修改或额外训练阶段，仅需在训练数据分布中注入少量视觉基础指令。</p>
+<p><strong>Result:</strong> 在多个模型、训练机制和基准测试中，仅注入少量（3-10%）视觉基础指令即可持续改善视觉中心评估的性能。该方法在多个基准测试上表现出显著提升，证明了通过简单调整训练数据分布即可有效增强多模态大语言模型的视觉推理能力。代码已在GitHub上公开提供。</p>
+<p><strong>Conclusion:</strong> 研究结果表明，使用视觉基础自监督学习任务进行指令微调是通过简单调整训练数据分布来改善多模态大语言模型视觉推理能力的有效杠杆。该方法强调了在指令微调过程中强制模型依赖视觉证据的重要性，为提升视觉中心任务性能提供了一种无需复杂架构修改的实用解决方案。</p>
+<hr />
+<h4 id="abstract_12">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) perform well on many vision-language tasks but often struggle with vision-centric problems that require fine-grained visual reasoning. Recent evidence suggests that this limitation arises not from weak visual representations, but from under-utilization of visual information during instruction tuning, where many tasks can be partially solved using language priors alone. We propose a simple and lightweight approach that augments visual instruction tuning with a small number of visually grounded self-supervised tasks expressed as natural language instructions. By reformulating classical self-supervised pretext tasks, such as rotation prediction, color matching, and cross-view correspondence, as image-instruction-response triplets, we introduce supervision that cannot be solved without relying on visual evidence. Our approach requires no human annotations, no architectural modifications, and no additional training stages. Across multiple models, training regimes, and benchmarks, injecting only a small fraction (3-10%) of such visually grounded instructions consistently improves performance on vision-centric evaluations. Our findings highlight instruction tuning with visually grounded SSL tasks as a powerful lever for improving visual reasoning in MLLMs through simple adjustments to the training data distribution. Code available at: https://github.com/sirkosophia/V-GIFT</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="14-benchmarking-deflection-and-hallucination-in-large-vision-language-models">[14] <a href="https://arxiv.org/abs/2604.12033">Benchmarking Deflection and Hallucination in Large Vision-Language Models</a></h3>
+<p><em>Nicholas Moratelli, Christopher Davis, Leonardo F. R. Ribeiro, Bill Byrne, Gonzalo Iglesias</em></p>
+<h4 id="tldr_13">🧩 TL;DR</h4>
+<p>本文提出了VLM-DeflectionBench基准测试，用于评估大型视觉语言模型在知识密集型多模态问答中的检索依赖性和偏转能力，并开发了动态数据筛选流程以保持基准测试的长期有效性。</p>
+<hr />
+<h4 id="detailed-summary_13">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准测试忽视了视觉与文本证据之间的冲突，以及当检索知识不完整时模型生成偏转回答（如"抱歉，我无法回答..."）的重要性。同时，这些基准测试面临快速过时的问题，因为不断增长的LVLM训练集使模型无需检索即可回答许多问题。</p>
+<p><strong>Method:</strong> 研究提出了三个核心贡献：首先，开发了动态数据筛选流程，通过过滤真正依赖检索的样本来保持基准测试的长期难度；其次，构建了VLM-DeflectionBench基准测试，包含2,775个样本，涵盖多种多模态检索场景；第三，定义了细粒度评估协议，包含四种场景以区分参数记忆与检索鲁棒性。</p>
+<p><strong>Result:</strong> 在20个最先进的LVLM上的实验表明，模型在面对噪声或误导性证据时通常无法正确偏转回答。评估结果揭示了模型在知识不完整情况下的行为缺陷，并提供了可重复使用的基准测试框架。</p>
+<p><strong>Conclusion:</strong> 研究强调了评估模型不仅要知道什么，还要了解它们在不知道时的行为方式的重要性。该基准测试可作为可靠知识库视觉问答评估的可重用和可扩展工具，为未来研究提供了重要的评估框架。</p>
+<hr />
+<h4 id="abstract_13">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) increasingly rely on retrieval to answer knowledge-intensive multimodal questions. Existing benchmarks overlook conflicts between visual and textual evidence and the importance of generating deflections (e.g., Sorry, I cannot answer...) when retrieved knowledge is incomplete. These benchmarks also suffer from rapid obsolescence, as growing LVLM training sets allow models to answer many questions without retrieval. We address these gaps with three contributions. First, we propose a dynamic data curation pipeline that preserves benchmark difficulty over time by filtering for genuinely retrieval-dependent samples. Second, we introduce VLM-DeflectionBench, a benchmark of 2,775 samples spanning diverse multimodal retrieval settings, designed to probe model behaviour under conflicting or insufficient evidence. Third, we define a fine-grained evaluation protocol with four scenarios that disentangle parametric memorization from retrieval robustness. Experiments across 20 state-of-the-art LVLMs indicate that models usually fail to deflect in the presence of noisy or misleading evidence. Our results highlight the need to evaluate not only what models know, but how they behave when they do not, and serve as a reusable and extensible benchmark for reliable KB-VQA evaluation. All resources will be publicly available upon publication.</p>
+<h3 id="15-decoding-by-perturbation-mitigating-mllm-hallucinations-via-dynamic-textual-perturbation">[15] <a href="https://arxiv.org/abs/2604.12424">Decoding by Perturbation: Mitigating MLLM Hallucinations via Dynamic Textual Perturbation</a></h3>
+<p><em>Sihang Jia, Shuliang Liu, Songbo Yang, Yibo Yan, Xin Zou, Xuming Hu</em></p>
+<h4 id="tldr_14">🧩 TL;DR</h4>
+<p>本文提出了一种名为DeP（解码扰动）的训练免费框架，通过受控的文本干预来缓解多模态大语言模型中的推理幻觉问题，该方法基于视觉基础对文本表述过度敏感的新视角，在多个基准测试中取得了优越性能。</p>
+<hr />
+<h4 id="detailed-summary_14">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型经常遭受推理幻觉问题，部分原因是语言先验主导了视觉证据，现有训练免费缓解方法要么扰动视觉表示并偏离自然图像分布，要么采用侵入性操作损害模型的固有生成流畅性，因此需要一种更有效的解决方案。</p>
+<p><strong>Method:</strong> 本文提出解码扰动框架，基于多模态幻觉表现为解码阶段视觉基础对文本表述过度敏感的新视角，采用动态探针应用多级文本扰动来引出潜在语言先验，利用注意力方差增强稳定证据区域并抑制特征空间中的可疑噪声，同时构建可解释的先验漂移方向来抵消文本共现带来的概率偏差。</p>
+<p><strong>Result:</strong> 大量实验证实DeP能有效减少幻觉，在多个基准测试中实现了优越性能，该方法通过受控文本干预显著改善了多模态大语言模型的推理准确性，同时保持了模型的生成流畅性和自然图像分布特性。</p>
+<p><strong>Conclusion:</strong> 该研究提供了多模态幻觉源于视觉基础对文本表述过度敏感的新视角，提出的训练免费框架为缓解语言先验主导问题提供了有效解决方案，具有实际应用价值并为未来研究提供了新方向。</p>
+<hr />
+<h4 id="abstract_14">📄 Abstract</h4>
+<p>Multimodal Large Language Models frequently suffer from inference hallucinations, partially stemming from language priors dominating visual evidence. Existing training-free mitigation methods either perturb the visual representation and deviate from the natural image distribution, or enforce intrusive manipulations that compromise the model's inherent generative fluency. We introduce a novel perspective that multimodal hallucination manifests as the hypersensitivity of visual grounding to textual phrasing during the decoding phase. Building on this insight, we propose Decoding by Perturbation (DeP), a training-free framework mitigating prior-induced hallucinations via controlled textual interventions. DeP employs a dynamic probe applying multi-level textual perturbations to elicit latent language priors. Leveraging attention variance, it enhances stable evidence regions while suppressing suspicious noise in the feature space. Furthermore, it constructs an interpretable prior drift direction using logits statistics to counteract probability biases from textual co-occurrences. Extensive experiments confirm DeP effectively reduces hallucinations and achieves superior performance across multiple benchmarks.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="16-reflectcap-detailed-image-captioning-with-reflective-memory">[16] <a href="https://arxiv.org/abs/2604.12357">ReflectCAP: Detailed Image Captioning with Reflective Memory</a></h3>
+<p><em>Kyungmin Min, Minbeom Kim, Kang-il Lee, Seunghyun Yoon, Kyomin Jung</em></p>
+<h4 id="tldr_15">🧩 TL;DR</h4>
+<p>本文提出了ReflectCAP方法，通过分析大型视觉语言模型在详细图像描述中的系统性幻觉和遗漏模式，生成结构化反思笔记来指导描述生成，从而同时提升事实准确性和覆盖范围，实现了在计算成本约束下的高质量详细描述。</p>
+<hr />
+<h4 id="detailed-summary_15">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有详细图像描述方法难以同时实现事实准确性和细粒度覆盖，存在事实性幻觉和系统性遗漏的张力问题，需要在保持高质量描述的同时满足实际部署中的计算成本和延迟约束。</p>
+<p><strong>Method:</strong> 提出ReflectCAP方法，采用多智能体流程分析目标大型视觉语言模型在描述生成中持续出现的幻觉模式和系统性遗漏，将这些模式提炼为可重用的结构化反思笔记，在推理时指导描述模型避免幻觉并关注遗漏内容。</p>
+<p><strong>Result:</strong> 在涵盖GPT-4.1系列、Qwen系列和InternVL变体的8个大型视觉语言模型上，ReflectCAP在事实准确性和覆盖范围的权衡中达到帕累托前沿，在CapArena-Auto基准上相比强参考模型获得显著提升，同时计算开销比模型缩放或现有多智能体流程减少21-36%。</p>
+<p><strong>Conclusion:</strong> 该方法通过结构化反思笔记机制有效解决了详细图像描述中事实准确性和覆盖范围的固有张力，提供了比模型缩放更优的质量-成本权衡，使高质量详细描述在实际成本和时间约束下变得可行，为视觉语言模型的优化提供了新范式。</p>
+<hr />
+<h4 id="abstract_15">📄 Abstract</h4>
+<p>Detailed image captioning demands both factual grounding and fine-grained coverage, yet existing methods have struggled to achieve them simultaneously. We address this tension with Reflective Note-Guided Captioning (ReflectCAP), where a multi-agent pipeline analyzes what the target large vision-language model (LVLM) consistently hallucinates and what it systematically overlooks, distilling these patterns into reusable guidelines called Structured Reflection Notes. At inference time, these notes steer the captioning model along both axes -- what to avoid and what to attend to -- yielding detailed captions that jointly improve factuality and coverage. Applying this method to 8 LVLMs spanning the GPT-4.1 family, Qwen series, and InternVL variants, ReflectCAP reaches the Pareto frontier of the trade-off between factuality and coverage, and delivers substantial gains on CapArena-Auto, where generated captions are judged head-to-head against strong reference models. Moreover, ReflectCAP offers a more favorable trade-off between caption quality and compute cost than model scaling or existing multi-agent pipelines, which incur 21--36\% greater overhead. This makes high-quality detailed captioning viable under real-world cost and latency constraints.</p>
+<h3 id="17-misid-a-multimodal-multi-turn-dataset-for-complex-intent-recognition-in-strategic-deception-games">[17] <a href="https://arxiv.org/abs/2604.12700">MISID: A Multimodal Multi-turn Dataset for Complex Intent Recognition in Strategic Deception Games</a></h3>
+<p><em>Shufang Lin, Muyang Chen, Xiabing Zhou, Rongrong Zhang, Dayou Zhang, Fangxin Wang</em></p>
+<h4 id="tldr_16">🧩 TL;DR</h4>
+<p>该研究提出了MISID基准数据集和FRACTAM框架，用于解决复杂多轮战略交互中的意图识别挑战，通过解耦-锚定-推理范式显著提升了多模态大语言模型在长上下文欺骗性叙事分析中的性能。</p>
+<hr />
+<h4 id="detailed-summary_16">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有意图识别数据集主要关注单轮话语或简单对话，无法应对现实世界中涉及复杂欺骗性叙事和长期战略交互的场景，这导致多模态大语言模型在理解复杂人类意图方面存在显著缺陷。</p>
+<p><strong>Method:</strong> 研究首先构建了MISID基准数据集，该数据集源自高风险社交策略游戏，采用细粒度双层多维标注方案；随后提出了FRACTAM框架，采用"解耦-锚定-推理"范式，通过提取纯单模态事实表示减少文本偏见，使用两阶段检索进行长距离事实锚定，并构建显式跨模态证据链。</p>
+<p><strong>Result:</strong> 对最先进多模态大语言模型的系统评估揭示了在复杂场景中的关键缺陷，包括文本优先的视觉幻觉、受损的跨模态协同以及因果线索链推理能力有限；FRACTAM框架显著提升了主流模型在复杂战略任务中的性能，改善了隐藏意图检测和推理能力，同时保持了稳健的感知准确性。</p>
+<p><strong>Conclusion:</strong> 该研究强调了当前多模态大语言模型在复杂战略交互理解方面的局限性，提出的解耦-锚定-推理范式为解决文本偏见和跨模态协同问题提供了有效途径，为长上下文多模态意图识别领域建立了新的基准和基线框架。</p>
+<hr />
+<h4 id="abstract_16">📄 Abstract</h4>
+<p>Understanding human intent in complex multi-turn interactions remains a fundamental challenge in human-computer interaction and behavioral analysis. While existing intent recognition datasets focus mainly on single utterances or simple dialogues, real-world scenarios often involve sophisticated strategic interactions where participants must maintain complex deceptive narratives over extended periods. To address this gap, we introduce MISID, a comprehensive multimodal, multi-turn, and multi-participant benchmark for intent recognition. Sourced from high-stakes social strategy games, MISID features a fine-grained, two-tier multi-dimensional annotation scheme tailored for long-context discourse analysis and evidence-based causal tracking. Our systematic evaluation of state-of-the-art Multimodal Large Language Models (MLLMs) on MISID reveals critical deficiencies in complex scenarios, including text-prior visual hallucination, impaired cross-modal synergy, and limited capacity in chaining causal cues. Consequently, we propose FRACTAM as a baseline framework. Using a ``Decouple-Anchor-Reason'' paradigm, FRACTAM reduces text bias by extracting pure unimodal factual representations, employs two-stage retrieval for long-range factual anchoring, and constructs explicit cross-modal evidence chains. Extensive experiments demonstrate that FRACTAM enhances mainstream models' performance in complex strategic tasks, improving hidden intent detection and inference while maintaining robust perceptual accuracy. Our dataset is available at https://naislab.cn/datasets/MISID.</p>
+<h3 id="18-docseeker-structured-visual-reasoning-with-evidence-grounding-for-long-document-understanding">[18] <a href="https://arxiv.org/abs/2604.12812">DocSeeker: Structured Visual Reasoning with Evidence Grounding for Long Document Understanding</a></h3>
+<p><em>Hao Yan, Yuliang Liu, Xingchen Liu, Yuyi Zhang, Minghui Liao, Jihao Wu, Wei Chen, Xiang Bai</em></p>
+<h4 id="tldr_17">🧩 TL;DR</h4>
+<p>本文提出DocSeeker，一种用于长文档理解的多模态大语言模型新范式，通过结构化"分析-定位-推理"工作流程解决信号噪声比低和监督稀缺问题，显著提升长文档理解性能。</p>
+<hr />
+<h4 id="detailed-summary_17">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型在长文档理解任务上存在性能随文档长度增加而显著下降的问题，主要源于两个根本挑战：一是信号噪声比低，关键证据被埋没在无关页面中；二是监督稀缺，仅提供最终简短答案的数据集提供的学习信号较弱。</p>
+<p><strong>Method:</strong> 提出结构化"分析-定位-推理"工作流程范式，设计两阶段训练框架：首先在通过高效知识蒸馏策略生成的高质量数据上进行监督微调，随后采用证据感知的组相对策略优化联合优化证据定位和答案准确性，并引入证据引导的分辨率分配策略以缓解多页文档训练的内存约束。</p>
+<p><strong>Result:</strong> 广泛实验表明DocSeeker在领域内和领域外任务上均实现优越性能，能够稳健地从短页训练推广到超长文档，并且与视觉检索增强生成系统自然协同，为其实现提供坚实基础。</p>
+<p><strong>Conclusion:</strong> 该研究为长文档理解提供了有效的解决方案，通过结构化工作流程和两阶段训练框架显著提升模型性能，展示了从短页训练到超长文档的稳健泛化能力，并为视觉检索增强生成系统的实现提供了可靠基础。</p>
+<hr />
+<h4 id="abstract_17">📄 Abstract</h4>
+<p>Existing Multimodal Large Language Models (MLLMs) suffer from significant performance degradation on the long document understanding task as document length increases. This stems from two fundamental challenges: 1) a low Signal-to-Noise Ratio (SNR), with crucial evidence buried in irrelevant pages; and 2) supervision scarcity, as datasets offering only final short answers provide a weak learning signal. In this paper, we address these challenges by proposing a paradigm that requires the model to execute a structured ``\textbf{Analysis}, \textbf{Localization} and \textbf{Reasoning}'' workflow. To instill this capability, we design a two-stage training framework: we first perform Supervised Fine-Tuning on high-quality data generated via an efficient knowledge distillation strategy. Subsequently, we employ an Evidence-aware Group Relative Policy Optimization which jointly optimizes for both evidence localization and answer accuracy. Additionally, we introduce a Evidence-Guided Resolution Allocation strategy to mitigate memory constraints of training on multi-pages documents. Extensive experiments demonstrate that DocSeeker achieves superior performance on both in-domain and out-of-domain tasks. We show it robustly generalizes from short-page training to ultra-long documents and is naturally synergistic with visual Retrieval-Augmented Generation systems, serving as a solid foundation for their implementation.</p>
+  </article>
+</body>
+</html>
