@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-17.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 7]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-chain-of-modality-from-static-fusion-to-dynamic-orchestration-in-omni-mllms">[1] <a href="https://arxiv.org/abs/2604.14520">Chain of Modality: From Static Fusion to Dynamic Orchestration in Omni-MLLMs</a></h3>
+<p><em>Ziyang Luo, Nian Liu, Junwei Han</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出Chain of Modality (CoM)框架，通过动态编排多模态融合拓扑结构来解决当前Omni-MLLMs中的性能悖论问题，实现了从被动拼接向动态编排的转变，显著提升了多模态推理的鲁棒性和一致性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前Omni-MLLMs存在关键的性能悖论：单模态基线经常优于联合多模态推理。研究发现这种感知脆弱性源于当前模型普遍采用的静态融合拓扑结构，具体表现为顺序输入中的位置偏差和交错格式中的对齐陷阱，这些结构病理会系统性扭曲注意力机制而不考虑任务语义。</p>
+<p><strong>Method:</strong> 提出Chain of Modality (CoM)代理框架，将多模态融合从被动拼接转变为动态编排。CoM自适应地编排输入拓扑结构，在并行、顺序和交错路径之间切换以消除结构偏差。此外，CoM将认知执行分为两个任务对齐的路径：用于直接感知的简化"Direct-Decide"路径和用于分析审计的结构化"Reason-Decide"路径，可在无训练或数据高效的SFT设置下运行。</p>
+<p><strong>Result:</strong> CoM在多样化基准测试中实现了鲁棒且一致的泛化性能。该方法通过动态编排多模态融合拓扑结构，有效解决了静态融合结构导致的性能悖论问题，显著提升了多模态推理的稳定性和准确性。</p>
+<p><strong>Conclusion:</strong> 研究表明多模态融合的结构编排对模型性能具有决定性影响，动态拓扑切换能够有效消除静态融合的固有偏差。CoM框架为多模态大语言模型的设计提供了新范式，强调了任务感知的融合策略和认知路径分化的必要性，为未来多模态系统的架构设计提供了重要启示。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Omni-modal Large Language Models (Omni-MLLMs) promise a unified integration of diverse sensory streams. However, recent evaluations reveal a critical performance paradox: unimodal baselines frequently outperform joint multimodal inference. We trace this perceptual fragility to the static fusion topologies universally employed by current models, identifying two structural pathologies: positional bias in sequential inputs and alignment traps in interleaved formats, which systematically distort attention regardless of task semantics. To resolve this functional rigidity, we propose Chain of Modality (CoM), an agentic framework that transitions multimodal fusion from passive concatenation to dynamic orchestration. CoM adaptively orchestrates input topologies, switching among parallel, sequential, and interleaved pathways to neutralize structural biases. Furthermore, CoM bifurcates cognitive execution into two task-aligned pathways: a streamlined <code>Direct-Decide'' path for direct perception and a structured</code>Reason-Decide'' path for analytical auditing. Operating in either a training-free or a data-efficient SFT setting, CoM achieves robust and consistent generalization across diverse benchmarks.</p>
+<h3 id="2-towards-design-compositing">[2] <a href="https://arxiv.org/abs/2604.14605">Towards Design Compositing</a></h3>
+<p><em>Abhinav Mahajan, Abhikhya Tripathy, Sudeeksha Reddy Pala, Vaibhav Methi, K J Joseph, Balaji Vasan Srinivasan</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了GIST，一种无需训练、保持元素身份的图像合成器，用于解决组件到设计流程中的视觉不和谐问题。GIST可无缝集成到现有设计流程中，显著提升视觉和谐度与美学质量。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有组件到设计方法主要关注布局预测或互补元素生成，但假设输入组件在风格上已经和谐，而实践中输入元素常来自不同来源，存在视觉不匹配问题。身份保持的风格化与合成是真正实现和谐组件到设计流程的关键缺失环节。</p>
+<p><strong>Method:</strong> GIST是一种无需训练、保持元素身份的图像合成器，位于布局预测与排版生成之间，可无需修改地集成到任何现有组件到设计或设计优化流程中。该方法通过身份保持的风格化处理输入元素，确保视觉和谐性。</p>
+<p><strong>Result:</strong> GIST与LaDeCo和Design-o-meter两种不同现有方法集成后，在视觉和谐度与美学质量方面均显示出显著改进。LLaVA-OV和GPT-4V在各方面评分和与朴素粘贴的成对偏好评估中验证了这些改进。</p>
+<p><strong>Conclusion:</strong> 身份保持的风格化与合成是组件到设计流程中实现真正视觉和谐的关键要素。GIST作为无需训练的即插即用模块，为现有设计流程提供了有效的视觉和谐化解决方案，具有广泛的适用性和实用价值。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Graphic design creation involves harmoniously assembling multimodal components such as images, text, logos, and other visual assets collected from diverse sources, into a visually-appealing and cohesive design. Recent methods have largely focused on layout prediction or complementary element generation, while retaining input elements exactly, implicitly assuming that provided components are already stylistically harmonious. In practice, inputs often come from disparate sources and exhibit visual mismatch, making this assumption limiting. We argue that identity-preserving stylization and compositing of input elements is a critical missing ingredient for truly harmonized components-to-design pipelines. To this end, we propose GIST, a training-free, identity-preserving image compositor that sits between layout prediction and typography generation, and can be plugged into any existing components-to-design or design-refining pipeline without modification. We demonstrate this by integrating GIST with two substantially different existing methods, LaDeCo and Design-o-meter. GIST shows significant improvements in visual harmony and aesthetic quality across both pipelines, as validated by LLaVA-OV and GPT-4V on aspect-wise ratings and pairwise preference over naive pasting. Project Page: abhinav-mahajan10.github.io/GIST/.</p>
+<h3 id="3-switch-kd-visual-switch-knowledge-distillation-for-vision-language-models">[3] <a href="https://arxiv.org/abs/2604.14629">Switch-KD: Visual-Switch Knowledge Distillation for Vision-Language Models</a></h3>
+<p><em>Haoyi Sun, Xiaoxiao Wang, Ning Mao, Qian Wang, Lifu Mu, Wen Zheng, Tao Wei, Wei Chen</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出Switch-KD，一种视觉切换蒸馏框架，通过将学生模型的视觉输出切换到教师模型的语言通路中，在共享的文本概率空间内统一视觉-语言知识迁移，从而有效解决多模态知识蒸馏中的模态对齐挑战。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管视觉语言模型在联合视觉-语言理解方面表现出色，但其大规模部署在资源受限场景下面临挑战。知识蒸馏虽能提升模型能力而不增加规模，但现有方法在应用于视觉语言模型时存在模态特定监督问题：多模态知识在语言空间融合，而当前方法分别监督各模态，未能显式处理多模态对齐，导致不一致的多模态知识迁移。</p>
+<p><strong>Method:</strong> 本文提出Switch-KD框架，包含两个关键组件：视觉切换蒸馏将学生模型的视觉输出切换到教师模型的语言通路中，构建跨模态概率参考以实现隐式视觉知识迁移；动态双向对数差异损失通过双向监督自适应对齐信息丰富的概率区域，同时保持教师和学生模型的分布结构。该方法在共享文本概率空间内统一视觉-语言知识迁移。</p>
+<p><strong>Result:</strong> 实验表明，在Switch-KD指导下，0.5B参数的TinyLLaVA能够有效从3B参数的教师模型中蒸馏丰富的多模态知识，在10个多模态基准测试中平均提升3.6个百分点，且无需任何架构修改。这证明了该方法在保持模型规模不变的情况下显著提升多模态理解能力。</p>
+<p><strong>Conclusion:</strong> Switch-KD通过统一的多模态知识蒸馏框架解决了视觉语言模型中的模态对齐问题，为资源受限场景下的高效部署提供了有效方案。该方法的核心创新在于将视觉知识迁移统一到语言空间中，并通过双向概率对齐保持分布结构，为多模态模型压缩和知识迁移开辟了新方向。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Vision-Language Models (VLMs) have shown remarkable capabilities in joint vision-language understanding, but their large scale poses significant challenges for deployment in resource-constrained scenarios. Knowledge Distillation (KD) offers a viable way to improve model capabilities without increasing model size or data requirements, making deployment more efficient. However, applying KD to VLMs is challenged by modality-specific supervision: although multimodal knowledge in VLMs is fused within the language space, current methods supervise each modality separately without explicitly addressing multimodal alignment, leading to inconsistent multimodal knowledge transfer. To address this, we propose Switch-KD, a visual-switch distillation framework that unifies vision-language knowledge transfer within a shared text-probability space. Switch-KD comprises two key components: (1) Visual-Switch Distillation, which switches the student's visual outputs into the teacher's language pathway to construct cross-modal probabilistic references for implicit visual knowledge transfer; and (2) Dynamic Bi-directional Logits Difference (DBiLD) loss, which adaptively aligns informative probability regions while preserving the distributional structures of teacher and student through bidirectional supervision. Guided by Switch-KD, a 0.5B TinyLLaVA effectively distills rich multimodal knowledge from its 3B teacher, yielding an average improvement of 3.6 points across 10 multimodal benchmarks without any architectural modification.</p>
+<h3 id="4-rata-tool-retrieval-based-tool-selection-with-multimodal-large-language-models">[4] <a href="https://arxiv.org/abs/2604.14951">RaTA-Tool: Retrieval-based Tool Selection with Multimodal Large Language Models</a></h3>
+<p><em>Gabriele Mattioli, Evelyn Turri, Sara Sarto, Lorenzo Baraldi, Marcella Cornia, Lorenzo Baraldi, Rita Cucchiara</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了RaTA-Tool框架，一种面向开放世界的多模态工具选择方法，通过将多模态查询转换为结构化任务描述并基于语义匹配检索工具，解决了现有工具学习方法在开放世界和多模态场景下的局限性。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有工具学习方法主要局限于文本输入和封闭世界设置，难以处理多模态用户指令，且无法泛化到训练期间未见过的工具。这限制了AI系统在复杂现实场景中调用外部资源的能力，需要一种能够支持开放世界多模态工具选择的框架。</p>
+<p><strong>Method:</strong> RaTA-Tool框架采用检索式方法，首先使用多模态大语言模型将多模态查询转换为结构化任务描述，然后通过语义匹配从机器可读的工具描述库中检索最合适的工具。为提升任务描述与工具选择的对齐效果，框架还引入了基于直接偏好优化的偏好优化阶段，并构建了首个开放世界多模态工具使用数据集，该数据集基于Hugging Face模型卡片构建了标准化工具描述。</p>
+<p><strong>Result:</strong> 大量实验表明，该方法在工具选择性能上取得显著提升，特别是在开放世界和多模态场景中。框架的检索式设计自然支持对新工具的扩展而无需重新训练，验证了其在处理未见工具和多模态输入方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究展示了检索式方法在开放世界多模态工具选择中的优势，为构建更具扩展性和适应性的AI系统提供了新思路。通过结构化任务描述和语义匹配机制，系统能够更好地理解用户意图并选择合适的外部资源，为未来工具学习研究提供了重要的数据集和方法论基础。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Tool learning with foundation models aims to endow AI systems with the ability to invoke external resources -- such as APIs, computational utilities, and specialized models -- to solve complex tasks beyond the reach of standalone language generation. While recent advances in Large Language Models (LLMs) and Multimodal Large Language Models (MLLMs) have expanded their reasoning and perception capabilities, existing tool-use methods are predominantly limited to text-only inputs and closed-world settings. Consequently, they struggle to interpret multimodal user instructions and cannot generalize to tools unseen during training. In this work, we introduce RaTA-Tool, a novel framework for open-world multimodal tool selection. Rather than learning direct mappings from user queries to fixed tool identifiers, our approach enables an MLLM to convert a multimodal query into a structured task description and subsequently retrieve the most appropriate tool by matching this representation against semantically rich, machine-readable tool descriptions. This retrieval-based formulation naturally supports extensibility to new tools without retraining. To further improve alignment between task descriptions and tool selection, we incorporate a preference-based optimization stage using Direct Preference Optimization (DPO). To support research in this setting, we also introduce the first dataset for open-world multimodal tool use, featuring standardized tool descriptions derived from Hugging Face model cards. Extensive experiments demonstrate that our approach significantly improves tool-selection performance, particularly in open-world, multimodal scenarios.</p>
+<h3 id="5-g-mixer-geodesic-mixup-based-implicit-semantic-expansion-and-explicit-semantic-re-ranking-for-zero-shot-composed-image-retrieval">[5] <a href="https://arxiv.org/abs/2604.14710">G-MIXER: Geodesic Mixup-based Implicit Semantic Expansion and Explicit Semantic Re-ranking for Zero-Shot Composed Image Retrieval</a></h3>
+<p><em>Jiyoung Lim, Heejae Yang, Jee-Hyong Lee</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了一种无需训练的零样本组合图像检索方法G-MIXER，通过测地线混合构建反映隐式语义的组合查询特征，并利用多模态大语言模型进行显式语义重排序，在多个基准测试中实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的零样本组合图像检索方法过度依赖文本模态，无法捕捉检索的模糊性本质，导致检索结果的多样性和准确性降低。这些方法主要利用多模态大语言模型生成详细的目标描述，将隐式信息转化为显式文本表达，但忽略了需要考虑候选图像多样组合的检索特性。</p>
+<p><strong>Method:</strong> G-MIXER方法通过测地线混合在一系列混合比例上构建反映参考图像-文本对隐式语义的组合查询特征，并建立多样化的候选集。然后利用从多模态大语言模型提取的显式语义对生成的候选进行重排序，结合了隐式和显式语义处理，无需额外训练。</p>
+<p><strong>Result:</strong> G-MIXER在多个零样本组合图像检索基准测试中实现了最先进的性能，有效提升了检索的多样性和准确性。该方法能够同时处理隐式和显式语义，在无需额外训练的情况下显著优于现有方法。</p>
+<p><strong>Conclusion:</strong> 该研究表明通过测地线混合构建隐式语义特征并结合显式语义重排序，可以有效解决零样本组合图像检索中的多样性和准确性问题。这种方法为无需训练的跨模态检索提供了新思路，展示了隐式和显式语义协同处理的优势。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Composed Image Retrieval (CIR) aims to retrieve target images by integrating a reference image with a corresponding modification text. CIR requires jointly considering the explicit semantics specified in the query and the implicit semantics embedded within its bi-modal composition. Recent training-free Zero-Shot CIR (ZS-CIR) methods leverage Multimodal Large Language Models (MLLMs) to generate detailed target descriptions, converting the implicit information into explicit textual expressions. However, these methods rely heavily on the textual modality and fail to capture the fuzzy retrieval nature that requires considering diverse combinations of candidates. This leads to reduced diversity and accuracy in retrieval results. To address this limitation, we propose a novel training-free method, Geodesic Mixup-based Implicit semantic eXpansion and Explicit semantic Re-ranking for ZS-CIR (G-MIXER). G-MIXER constructs composed query features that reflect the implicit semantics of reference image-text pairs through geodesic mixup over a range of mixup ratios, and builds a diverse candidate set. The generated candidates are then re-ranked using explicit semantics derived from MLLMs, improving both retrieval diversity and accuracy. Our proposed G-MIXER achieves state-of-the-art performance across multiple ZS-CIR benchmarks, effectively handling both implicit and explicit semantics without additional training. Our code will be available at https://github.com/maya0395/gmixer.</p>
+<h3 id="6-unidoc-rl-coarse-to-fine-visual-rag-with-hierarchical-actions-and-dense-rewards">[6] <a href="https://arxiv.org/abs/2604.14967">UniDoc-RL: Coarse-to-Fine Visual RAG with Hierarchical Actions and Dense Rewards</a></h3>
+<p><em>Jun Wang, Shuo Tan, Zelong Sun, Tiancheng Gu, Yongle Zhao, Ziyong Feng, Kaicheng Yang, Cewu Lu</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出UniDoc-RL，一个统一的强化学习框架，使大型视觉语言模型能够通过分层决策过程联合执行检索、重排序、主动视觉感知和推理，显著提升了视觉检索增强生成系统的细粒度语义理解能力。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视觉检索增强生成系统通常依赖通用的检索信号，忽视了复杂推理所需的细粒度视觉语义，这限制了模型对精细视觉内容的理解和利用能力。</p>
+<p><strong>Method:</strong> UniDoc-RL将视觉信息获取建模为具有分层动作空间的序列决策问题，通过从粗粒度文档检索到细粒度图像选择和主动区域裁剪的渐进式证据细化过程，结合基于Group Relative Policy Optimization的端到端训练框架和密集多奖励方案，实现无需独立价值网络的代理行为对齐。</p>
+<p><strong>Result:</strong> 在三个基准测试上的实验表明，UniDoc-RL始终优于现有最先进基线，相比先前基于强化学习的方法取得了高达17.7%的性能提升，验证了该框架在细粒度视觉推理任务中的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究展示了通过强化学习统一视觉信息获取过程的可行性，为视觉检索增强生成系统提供了更精细的语义理解框架，同时构建的高质量推理轨迹数据集为未来相关研究提供了有价值的资源。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Retrieval-Augmented Generation (RAG) extends Large Vision-Language Models (LVLMs) with external visual knowledge. However, existing visual RAG systems typically rely on generic retrieval signals that overlook the fine-grained visual semantics essential for complex reasoning. To address this limitation, we propose UniDoc-RL, a unified reinforcement learning framework in which an LVLM agent jointly performs retrieval, reranking, active visual perception, and reasoning. UniDoc-RL formulates visual information acquisition as a sequential decision-making problem with a hierarchical action space. Specifically, it progressively refines visual evidence from coarse-grained document retrieval to fine-grained image selection and active region cropping, allowing the model to suppress irrelevant content and attend to information-dense regions. For effective end-to-end training, we introduce a dense multi-reward scheme that provides task-aware supervision for each action. Based on Group Relative Policy Optimization (GRPO), UniDoc-RL aligns agent behavior with multiple objectives without relying on a separate value network. To support this training paradigm, we curate a comprehensive dataset of high-quality reasoning trajectories with fine-grained action annotations. Experiments on three benchmarks demonstrate that UniDoc-RL consistently surpasses state-of-the-art baselines, yielding up to 17.7% gains over prior RL-based methods.</p>
+<h3 id="7-beyond-visual-cues-semantic-driven-token-filtering-and-expert-routing-for-anytime-person-reid">[7] <a href="https://arxiv.org/abs/2604.15090">Beyond Visual Cues: Semantic-Driven Token Filtering and Expert Routing for Anytime Person ReID</a></h3>
+<p><em>Jiaxuan Li, Xin Wen, Zhihang Li</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出了一种基于语义驱动令牌过滤与专家路由（STFER）的新框架，利用大型视觉语言模型生成身份一致性文本，以解决任意时间行人重识别中因模态偏移和衣物变化导致的性能下降问题。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有任意时间行人重识别方法高度依赖纯视觉特征，这些特征容易因环境因素和时间变化而改变，导致在涉及光照引起的模态偏移或衣物变化的场景中性能显著下降，需要一种能够同时处理衣物变化和RGB-IR跨模态偏移的鲁棒身份识别方法。</p>
+<p><strong>Method:</strong> 提出语义驱动令牌过滤与专家路由框架，利用大型视觉语言模型通过指令引导生成身份固有语义文本，捕获生物特征常量；该文本令牌用于语义驱动视觉令牌过滤以增强信息区域并抑制背景噪声，同时用于语义驱动专家路由以实现更鲁棒的多场景门控机制。</p>
+<p><strong>Result:</strong> 在任意时间行人重识别数据集AT-USTC上实现了最先进的结果，同时在5个广泛使用的行人重识别基准测试中展现出优异的泛化能力，获得了高度竞争力的性能表现。</p>
+<p><strong>Conclusion:</strong> 该研究证明了利用大型视觉语言模型生成身份一致性文本的有效性，为处理任意时间行人重识别中的模态偏移和衣物变化提供了新思路，展示了语义驱动方法在提升模型鲁棒性和泛化能力方面的潜力。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Any-Time Person Re-identification (AT-ReID) necessitates the robust retrieval of target individuals under arbitrary conditions, encompassing both modality shifts (daytime and nighttime) and extensive clothing-change scenarios, ranging from short-term to long-term intervals. However, existing methods are highly relying on pure visual features, which are prone to change due to environmental and time factors, resulting in significantly performance deterioration under scenarios involving illumination caused modality shifts or cloth-change. In this paper, we propose Semantic-driven Token Filtering and Expert Routing (STFER), a novel framework that leverages the ability of Large Vision-Language Models (LVLMs) to generate identity consistency text, which provides identity-discriminative features that are robust to both clothing variations and cross-modality shifts between RGB and IR. Specifically, we employ instructions to guide the LVLM in generating identity-intrinsic semantic text that captures biometric constants for the semantic model driven. The text token is further used for Semantic-driven Visual Token Filtering (SVTF), which enhances informative visual regions and suppresses redundant background noise. Meanwhile, the text token is also used for Semantic-driven Expert Routing (SER), which integrates the semantic text into expert routing, resulting in more robust multi-scenario gating. Extensive experiments on the Any-Time ReID dataset (AT-USTC) demonstrate that our model achieves state-of-the-art results. Moreover, the model trained on AT-USTC was evaluated across 5 widely-used ReID benchmarks demonstrating superior generalization capabilities with highly competitive results. Our code will be available soon.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="8-mirrorbench-evaluating-self-centric-intelligence-in-mllms-by-introducing-a-mirror">[8] <a href="https://arxiv.org/abs/2604.14785">MirrorBench: Evaluating Self-centric Intelligence in MLLMs by Introducing a Mirror</a></h3>
+<p><em>Shengyu Guo, Tongrui Ye, Jianbo Zhang, Zicheng Zhang, Chunyi Li, Guangtao Zhai</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了MirrorBench基准测试，这是一个基于心理学镜像自我识别测试的仿真基准，用于系统评估多模态大语言模型在具身智能中的自我中心智能能力，揭示了现有模型在自我参照理解方面的根本局限性。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在具身智能方面的研究主要关注对外部物体的感知、理解和交互能力，缺乏对自我中心智能的系统性评估。现有基准测试未能充分评估模型对自身状态、行为和身份的认知能力，这一研究空白限制了我们对大模型是否具备真正通用智能的理解。</p>
+<p><strong>Method:</strong> 研究者提出了MirrorBench基准测试，这是一个基于心理学经典镜像自我识别测试的仿真基准。该方法采用分层框架设计，包含从基础视觉感知到高级自我表征的渐进式挑战任务，通过模拟环境中的具身交互来评估多模态大语言模型的自我认知能力。</p>
+<p><strong>Result:</strong> 实验结果表明，即使在最低难度级别，领先的多模态大语言模型性能也显著低于人类表现。模型在自我参照理解方面表现出根本性局限，无法有效完成涉及自我识别、自我表征和自我意识的任务，揭示了当前模型在自我中心智能方面的严重不足。</p>
+<p><strong>Conclusion:</strong> 该研究建立了心理学范式与具身智能评估之间的桥梁，为评估大模型中通用智能的出现提供了原则性框架。研究揭示了多模态大语言模型在自我认知能力方面的根本缺陷，强调了未来研究需要关注模型的自我参照理解和内在表征能力，这对实现真正的通用人工智能至关重要。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Recent progress in Multimodal Large Language Models (MLLMs) has demonstrated remarkable advances in perception and reasoning, suggesting their potential for embodied intelligence. While recent studies have evaluated embodied MLLMs in interactive settings, current benchmarks mainly target capabilities to perceive, understand, and interact with external objects, lacking a systematic evaluation of self-centric intelligence. To address this, we introduce MirrorBench, a simulation-based benchmark inspired by the classical Mirror Self-Recognition (MSR) test in psychology. MirrorBench extends this paradigm to embodied MLLMs through a tiered framework of progressively challenging tasks, assessing agents from basic visual perception to high-level self-representation. Experiments on leading MLLMs show that even at the lowest level, their performance remains substantially inferior to human performance, revealing fundamental limitations in self-referential understanding. Our study bridges psychological paradigms and embodied intelligence, offering a principled framework for evaluating the emergence of general intelligence in large models. Project page: https://fflahm.github.io/mirror-bench-page/.</p>
+  </article>
+</body>
+</html>
