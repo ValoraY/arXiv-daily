@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-20.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 5]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 1]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-simmer-cross-modal-food-image-recipe-retrieval-via-mllm-based-embedding">[1] <a href="https://arxiv.org/abs/2604.15628">SIMMER: Cross-Modal Food Image--Recipe Retrieval via MLLM-Based Embedding</a></h3>
+<p><em>Keisuke Gomi, Keiji Yanai</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出SIMMER，一种基于多模态大语言模型的单编码器方法，用于食品图像与食谱文本的跨模态检索，取代传统的双编码器架构，在Recipe1M数据集上实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有食品图像与食谱文本跨模态检索方法主要依赖双编码器架构，需要复杂的对齐策略和特定任务网络设计来弥合模态间的语义鸿沟，这限制了方法的通用性和效率。</p>
+<p><strong>Method:</strong> SIMMER采用基于多模态大语言模型的单统一编码器架构，具体使用VLM2Vec模型处理食品图像和食谱文本；设计了针对食谱结构化特征（标题、成分、烹饪步骤）的提示模板，并引入了组件感知数据增强策略，通过训练模型处理完整和部分食谱来提高对不完整输入的鲁棒性。</p>
+<p><strong>Result:</strong> 在Recipe1M数据集上的实验表明，SIMMER在1k和10k评估设置下均实现了最先进的性能，最佳模型将1k图像到食谱的R@1从81.8%提升至87.5%，将10k图像到食谱的R@1从56.5%提升至65.5%，显著优于所有先前方法。</p>
+<p><strong>Conclusion:</strong> 该研究证明了基于多模态大语言模型的单编码器方法在跨模态检索任务中的有效性，特别是通过针对性的提示工程和数据增强策略，能够有效处理结构化食谱数据，为食品计算领域的检索系统提供了更简洁高效的解决方案。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Cross-modal retrieval between food images and recipe texts is an important task with applications in nutritional management, dietary logging, and cooking assistance. Existing methods predominantly rely on dual-encoder architectures with separate image and text encoders, requiring complex alignment strategies and task-specific network designs to bridge the semantic gap between modalities. In this work, we propose SIMMER (Single Integrated Multimodal Model for Embedding Recipes), which applies Multimodal Large Language Model (MLLM)-based embedding models, specifically VLM2Vec, to this task, replacing the conventional dual-encoder paradigm with a single unified encoder that processes both food images and recipe texts. We design prompt templates tailored to the structured nature of recipes, which consist of a title, ingredients, and cooking instructions, enabling effective embedding generation by the MLLM. We further introduce a component-aware data augmentation strategy that trains the model on both complete and partial recipes, improving robustness to incomplete inputs. Experiments on the Recipe1M dataset demonstrate that SIMMER achieves state-of-the-art performance across both the 1k and 10k evaluation settings, substantially outperforming all prior methods. In particular, our best model improves the 1k image-to-recipe R@1 from 81.8\% to 87.5\% and the 10k image-to-recipe R@1 from 56.5\% to 65.5\% compared to the previous best method.</p>
+<h3 id="2-refereebench-are-video-mllms-ready-to-be-multi-sport-referees">[2] <a href="https://arxiv.org/abs/2604.15736">RefereeBench: Are Video MLLMs Ready to be Multi-Sport Referees</a></h3>
+<p><em>Yichen Xu, Yuanhang Liu, Chuhan Wang, Zihan Zhao, jinghan luo, Jianzhe Ma, Wenxuan Wang, Qin Jin</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了RefereeBench，这是首个用于评估多模态大语言模型作为自动体育裁判能力的大规模基准测试，涵盖11项运动、925个视频和6,475个问答对，揭示了当前模型在规则应用和时间定位方面的显著不足。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在通用视频理解方面表现出色，但其支持专业化、基于规则的决策能力尚未得到充分探索。本研究旨在填补这一空白，通过构建首个大规模基准测试来评估MLLMs作为自动体育裁判的能力，以推动可信赖的AI辅助裁判和更广泛的多模态决策系统的发展。</p>
+<p><strong>Method:</strong> 研究团队开发了RefereeBench基准测试，涵盖11项不同运动，包含925个精心策划的视频和6,475个问答对。该基准评估五个核心裁判能力：犯规存在性判断、犯规和处罚分类、犯规和处罚推理、实体感知以及时间定位。所有标注均经过人工处理，确保基于真实裁判逻辑和多模态证据的高质量标注。</p>
+<p><strong>Result:</strong> 对最先进MLLMs的广泛评估显示，即使是性能最强的模型如Doubao-Seed-1.8和Gemini-3-Pro，准确率也仅达到约60%，而最强的开源模型Qwen3-VL仅达到47%。进一步分析表明，模型虽然能够识别事件和涉及实体，但在规则应用和时间定位方面表现不佳，且经常在正常片段上过度判罚犯规。</p>
+<p><strong>Conclusion:</strong> 研究结果表明当前多模态大语言模型距离成为可靠的体育裁判仍有很大差距，特别是在规则应用和时间定位方面存在显著不足。该基准测试强调了未来MLLMs需要更好地整合领域知识和多模态理解能力，这对于推进可信赖的AI辅助裁判系统和更广泛的多模态决策应用具有重要意义。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>While Multimodal Large Language Models (MLLMs) excel at generic video understanding, their ability to support specialized, rule-grounded decision-making remains insufficiently explored. In this paper, we introduce RefereeBench, the first large-scale benchmark for evaluating MLLMs as automatic sports referees. Spanning 11 sports with 925 curated videos and 6,475 QA pairs, RefereeBench evaluates five core officiating abilities: foul existence, foul and penalty classification, foul and penalty reasoning, entity perception, and temporal grounding. The benchmark is fully human-annotated to ensure high-quality annotations grounded in authentic officiating logic and multimodal evidence. Extensive evaluations of state-of-the-art MLLMs show that even the strongest models, such as Doubao-Seed-1.8 and Gemini-3-Pro, achieve only around 60% accuracy, while the strongest open-source model, Qwen3-VL, reaches only 47%. These results indicate that current models remain far from being reliable sports referees. Further analysis shows that while models can often identify incidents and involved entities, they struggle with rule application and temporal grounding, and frequently over-call fouls on normal clips. Our benchmark highlights the need for future MLLMs that better integrate domain knowledge and multimodal understanding, advancing trustworthy AI-assisted officiating and broader multimodal decision-making.</p>
+<h3 id="3-unieditbench-a-unified-and-cost-effective-benchmark-for-image-and-video-editing-via-distilled-mllms">[3] <a href="https://arxiv.org/abs/2604.15871">UniEditBench: A Unified and Cost-Effective Benchmark for Image and Video Editing via Distilled MLLMs</a></h3>
+<p><em>Lifan Jiang, Tianrun Wu, Yuhang Pei, Chenyang Wang, Boxi Wu, Deng Cai</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了UniEditBench，一个统一的图像和视频编辑基准，通过蒸馏大语言模型构建轻量级评估器，解决了现有视觉编辑评估方法碎片化、成本高昂的问题。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前视觉编辑模型的评估存在碎片化问题，不同方法和模态使用不同的基准，难以进行公平的跨范式比较；视频编辑缺乏可靠的评估基准；现有的自动评估指标与人类偏好不一致，而直接使用大语言模型作为评估器又带来过高的计算和财务成本。</p>
+<p><strong>Method:</strong> 提出了UniEditBench统一基准，支持重建型和指令驱动型方法，包含九种图像操作和八种视频操作的结构化分类；通过蒸馏高容量大语言模型评估器（Qwen3-VL-235B-A22B Instruct）构建轻量级4B/8B评估器，提供结构保真度、文本对齐、背景一致性、自然度和时空一致性等多维度评分。</p>
+<p><strong>Result:</strong> 实验表明，蒸馏得到的轻量级评估器与人类判断保持高度一致，同时相对于教师模型大幅降低了部署成本；UniEditBench为现代视觉编辑方法提供了实用且可复现的基准协议。</p>
+<p><strong>Conclusion:</strong> 该研究为视觉编辑领域提供了统一的评估框架，通过模型蒸馏技术实现了高效且准确的自动评估，解决了跨范式比较和视频编辑评估的难题，为未来视觉编辑方法的发展提供了可靠的基准工具。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>The evaluation of visual editing models remains fragmented across methods and modalities. Existing benchmarks are often tailored to specific paradigms, making fair cross-paradigm comparisons difficult, while video editing lacks reliable evaluation benchmarks. Furthermore, common automatic metrics often misalign with human preference, yet directly deploying large multimodal models (MLLMs) as evaluators incurs prohibitive computational and financial costs. We present UniEditBench, a unified benchmark for image and video editing that supports reconstruction-based and instruction-driven methods under a shared protocol. UniEditBench includes a structured taxonomy of nine image operations (Add, Remove, Replace, Change, Stroke-based, Extract, Adjust, Count, Reorder) and eight video operations, with coverage of challenging compositional tasks such as counting and spatial reordering. To enable scalable evaluation, we distill a high-capacity MLLM judge (Qwen3-VL-235B-A22B Instruct) into lightweight 4B/8B evaluators that provide multi-dimensional scoring over structural fidelity, text alignment, background consistency, naturalness, and temporal-spatial consistency (for videos). Experiments show that the distilled evaluators maintain strong agreement with human judgments and substantially reduce deployment cost relative to the teacher model. UniEditBench provides a practical and reproducible protocol for benchmarking modern visual editing methods. Our benchmark and the associated reward models are publicly available at https://github.com/wesar1/UniEditBench.</p>
+<h3 id="4-making-image-editing-easier-via-adaptive-task-reformulation-with-agentic-executions">[4] <a href="https://arxiv.org/abs/2604.15917">Making Image Editing Easier via Adaptive Task Reformulation with Agentic Executions</a></h3>
+<p><em>Bo Zhao, Kairui Guo, Runnan Du, Haiyang Sun, Pengshan Wang, Huan Yang, Kun Gai, Yixin Cao, Wei Ji</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种自适应任务重构框架，通过将原始图像编辑指令转化为由多模态大语言模型代理动态确定和执行的序列化操作，显著提升了指令引导图像编辑的可靠性，而无需修改底层生成模型。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前指令引导图像编辑在许多看似简单的情况下仍无法产生可靠结果，研究发现大量失败并非源于模型容量不足，而是由于任务表述不当，如涉及小目标、隐式空间关系或指令不明确等问题，这揭示了任务表述作为关键但未被充分探索的因素。</p>
+<p><strong>Method:</strong> 该研究提出自适应任务重构框架，将原始图像-指令对转化为由多模态大语言模型代理通过分析、路由、重构和反馈驱动优化动态确定并执行的序列化操作，该框架不修改底层编辑模型，而是通过任务重构来匹配模型的有效操作区间。</p>
+<p><strong>Result:</strong> 在多个基准测试（包括ImgEdit、PICA和RePlan）上，使用不同编辑骨干模型（如Qwen Image Edit和Nano Banana）的实验显示了一致的性能改进，特别是在涉及小目标、复杂空间关系等挑战性案例上取得了显著增益，证明了任务重构对提升编辑可靠性的有效性。</p>
+<p><strong>Conclusion:</strong> 研究表明任务重构是影响图像编辑性能的关键因素，通过将编辑任务更好地匹配到现有模型的有效操作区间，可以在不修改底层模型的情况下实现实质性改进，这为未来图像编辑系统设计提供了新方向，强调了任务表述优化的重要性。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Instruction guided image editing has advanced substantially with recent generative models, yet it still fails to produce reliable results across many seemingly simple cases. We observe that a large portion of these failures stem not from insufficient model capacity, but from poorly formulated editing tasks, such as those involving small targets, implicit spatial relations, or under-specified instructions. In this work, we frame image editing failures as a task formulation problem and propose an adaptive task reformulation framework that improves editing performance without modifying the underlying model. Our key idea is to transform the original image-instruction pair into a sequence of operations that are dynamically determined and executed by a MLLM agent through analysis, routing, reformulation, and feedback-driven refinement. Experiments on multiple benchmarks, including ImgEdit, PICA, and RePlan, across diverse editing backbones such as Qwen Image Edit and Nano Banana, show consistent improvements, with especially large gains on challenging cases. These results suggest that task reformulation is a critical but underexplored factor, and that substantial gains can be achieved by better matching editing tasks to the effective operating regime of existing models.</p>
+<h3 id="5-minds-eye-a-benchmark-of-visual-abstraction-transformation-and-composition-for-multimodal-llms">[5] <a href="https://arxiv.org/abs/2604.16054">Mind's Eye: A Benchmark of Visual Abstraction, Transformation and Composition for Multimodal LLMs</a></h3>
+<p><em>Rohit Sinha, Aditya Kanade, Sai Srinivas Kancheti, Vineeth N Balasubramanian, Tanuja Ganu</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了"Mind's Eye"基准测试，用于评估多模态大语言模型的视觉认知与空间推理能力，发现当前模型在八项视觉认知任务上的表现显著低于人类水平，揭示了模型在视觉注意力分配和概念抽象方面的局限性。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在视觉语言基准测试上取得了显著进展，但其视觉认知和空间推理能力尚未得到充分理解。现有研究缺乏对模型流体智力核心过程（如模式归纳、类比关系映射和心理转换）的系统评估，这构成了当前研究的重要空白。</p>
+<p><strong>Method:</strong> 研究引入了"Mind's Eye"基准测试，包含八个视觉认知任务，这些任务灵感来源于经典人类智力测试，并按照新颖的"A-R-T"分类法组织：抽象、关系和转换。该基准评估了闭源和开源的多模态大语言模型，并与人类参与者的表现进行比较，同时进行了详细的错误分析以识别模型失败的具体模式。</p>
+<p><strong>Result:</strong> 人类参与者在基准测试中达到了80%的准确率，而表现最佳的多模态大语言模型准确率仍低于50%。错误分析揭示了模型在三个关键方面的失败：视觉注意力分配不当、内部感知操作能力不足以及对底层视觉概念的抽象能力薄弱。</p>
+<p><strong>Conclusion:</strong> 研究结果表明，与人类相比，当前的多模态大语言模型在视觉空间推理能力上存在显著局限。这一发现强调了需要开发更具认知基础的评估框架，以更好地理解和提升模型的高级视觉认知能力，为未来模型设计提供了重要的方向性指导。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have achieved impressive progress on vision language benchmarks, yet their capacity for visual cognitive and visuospatial reasoning remains less understood. We introduce "Mind's Eye", a multiple-choice benchmark of eight visuo-cognitive tasks inspired by classic human intelligence tests and organized under a novel "A-R-T" taxonomy: Abstraction, Relation, and Transformation. The tasks probe core processes of fluid intelligence such as pattern induction, analogical relation mapping, and mental transformation. We evaluate a diverse suite of closed-source and open-source MLLMs and compare their performance with human participants. Humans achieve 80% accuracy, while top performing MLLMs remain below 50%. Error analysis reveals failures in: (i) visual attention allocation, (ii) internal perceptual manipulation, and (iii) weak abstraction of underlying visual concepts. Our findings suggest that current MLLMs exhibit limited visuospatial reasoning capabilities, when compared with human participants, highlighting the need for more cognitively grounded evaluation frameworks.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="6-hypergvl-benchmarking-and-improving-large-vision-language-models-in-hypergraph-understanding-and-reasoning">[6] <a href="https://arxiv.org/abs/2604.15648">HyperGVL: Benchmarking and Improving Large Vision-Language Models in Hypergraph Understanding and Reasoning</a></h3>
+<p><em>Yanbin Wei, Chun Kang, Siwei Li, Haoxuan Che, Yang Chen, Hua Liu, Jian Liu, Zhuang Liu, Can Ouyang, Fei Xing, Lei Sha, Rui Liu, Yu Zhang, James Kwok</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了首个用于评估大型视觉语言模型在超图理解与推理方面能力的基准测试HyperGVL，包含84,000个视觉语言问答样本，涵盖12项任务，并引入了可学习的自适应表示路由器WiseHyGR来提升模型性能。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管超图在生命科学和社会网络等现实领域具有重要应用价值，且大型视觉语言模型在复杂拓扑理解方面展现出潜力，但目前缺乏专门评估LVLMs在超图理解与推理能力的基准测试，导致其能力边界不明确。</p>
+<p><strong>Method:</strong> 研究提出了HyperGVL基准测试，包含84,000个视觉语言问答样本，涵盖12项从基础组件计数到复杂NP难问题推理的任务，涉及多尺度合成结构及真实引文和蛋白质网络。同时研究了12种文本和视觉超图表示方法的影响，并引入了可泛化的路由器WiseHyGR，通过学习自适应表示来提升LVLMs在超图任务上的性能。</p>
+<p><strong>Result:</strong> 研究对12种先进的大型视觉语言模型进行了全面评估，涵盖了广泛的超图理解任务。实验结果表明，不同表示方法对模型性能有显著影响，而提出的WiseHyGR路由器能够有效提升模型在超图任务上的表现，为模型选择最优表示提供了机制。</p>
+<p><strong>Conclusion:</strong> 这项工作在连接超图与大型视觉语言模型方面迈出了重要一步，为评估和提升LVLMs在复杂超图结构上的理解能力提供了系统框架。提出的基准测试和自适应表示学习机制为未来研究提供了基础，有助于明确模型能力边界并推动超图相关应用的发展。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Large Vision-Language Models (LVLMs) consistently require new arenas to guide their expanding boundaries, yet their capabilities with hypergraphs remain unexplored. In the real world, hypergraphs have significant practical applications in areas such as life sciences and social communities. Recent advancements in LVLMs have shown promise in understanding complex topologies, yet there remains a lack of a benchmark to delineate the capabilities of LVLMs with hypergraphs, leaving the boundaries of their abilities unclear. To fill this gap, in this paper, we introduce $\texttt{HyperGVL}$, the first benchmark to evaluate the proficiency of LVLMs in hypergraph understanding and reasoning. $\texttt{HyperGVL}$ provides a comprehensive assessment of 12 advanced LVLMs across 84,000 vision-language question-answering (QA) samples spanning 12 tasks, ranging from basic component counting to complex NP-hard problem reasoning. The involved hypergraphs contain multiscale synthetic structures and real-world citation and protein networks. Moreover, we examine the effects of 12 textual and visual hypergraph representations and introduce a generalizable router $\texttt{WiseHyGR}$ that improves LVLMs in hypergraph via learning adaptive representations. We believe that this work is a step forward in connecting hypergraphs with LVLMs.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="7-reactbench-a-benchmark-for-topological-reasoning-in-mllms-on-chemical-reaction-diagrams">[7] <a href="https://arxiv.org/abs/2604.15994">ReactBench: A Benchmark for Topological Reasoning in MLLMs on Chemical Reaction Diagrams</a></h3>
+<p><em>Qiang Xu, Shengyuan Bai, Yu Wang, He Cao, Leqing Chen, Yuanyuan Liu, Bin Feng, Zijing Liu, Yu Li</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>该研究揭示了多模态大语言模型在复杂拓扑结构推理方面的根本性缺陷，并提出了ReactBench基准测试来量化这一差距，发现MLLMs在整体结构推理任务上的性能比基于锚点的任务低30%以上。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在识别单个视觉元素和简单线性图推理方面表现出色，但在处理涉及分支路径、汇聚流和循环依赖的复杂拓扑结构时，其推理能力急剧下降，现有基准测试主要关注语义理解而非结构推理，无法有效探测这一能力差距。</p>
+<p><strong>Method:</strong> 研究引入了ReactBench基准测试，该基准利用化学反应图作为理想测试平台，包含1,618个专家标注的问答对，涵盖四个层次化的任务维度，通过控制消融实验区分感知与推理瓶颈，对17个MLLMs进行了广泛评估。</p>
+<p><strong>Result:</strong> 评估结果显示，MLLMs在基于锚点的任务和整体结构推理任务之间存在超过30%的显著性能差距，控制消融实验证实这一瓶颈在于推理而非感知能力，表明模型在复杂拓扑结构理解方面存在根本性缺陷。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了多模态大语言模型在结构理解方面的根本性不足，为推进视觉推理能力的发展确立了明确方向，强调了开发能够处理复杂拓扑关系的模型架构和训练方法的重要性。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) excel at recognizing individual visual elements and reasoning over simple linear diagrams. However, when faced with complex topological structures involving branching paths, converging flows, and cyclic dependencies, their reasoning capabilities degrade sharply, even on tasks as basic as counting endpoints. Existing benchmarks fail to probe this gap, focusing on semantic comprehension rather than structural reasoning. We introduce ReactBench, a benchmark that reveals fundamental limitations in structural reasoning through chemical reaction diagrams. These real-world scientific diagrams offer an ideal testbed because they naturally span diverse structures from linear chains to cyclic graphs, while requiring both precise local recognition and coherent global reasoning. Our benchmark comprises 1,618 expert-annotated QA pairs across four hierarchical task dimensions. Extensive evaluation across 17 MLLMs reveals a significant performance gap exceeding 30% between anchor-based tasks and holistic structural reasoning tasks. Controlled ablations confirm this bottleneck lies in reasoning, not perception. These findings expose a fundamental deficit in structural understanding and establish directions for advancing visual reasoning.</p>
+  </article>
+</body>
+</html>
