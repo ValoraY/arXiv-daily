@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-22.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 5]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 1]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-vce-a-zero-cost-hallucination-mitigation-method-of-lvlms-via-visual-contrastive-editing">[1] <a href="https://arxiv.org/abs/2604.19412">VCE: A zero-cost hallucination mitigation method of LVLMs via visual contrastive editing</a></h3>
+<p><em>Yanbin Huang, Yisen Li, Guiyao Tie, Xiaoye Qu, Pan Zhou, Hongfei Wang, Zhaofan Zou, Hao Sun, Xuelong Li</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种名为视觉对比编辑（VCE）的新型后处理方法，通过分析模型对对比视觉扰动的响应来识别和抑制大型视觉语言模型中的物体幻觉问题，该方法无需微调或标注数据，在保持计算效率的同时有效减少了幻觉现象。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉语言模型经常遭受物体幻觉问题的困扰，即模型生成包含输入图像中实际不存在的物体的描述，这种现象在医学影像和自动驾驶等对准确性要求极高的现实应用中尤为严重，研究表明幻觉问题可能源于语言先验——预训练期间学习到的偏差导致模型基于统计共现生成词汇。</p>
+<p><strong>Method:</strong> 本文提出了视觉对比编辑（VCE）这一新颖的后处理方法，通过分析模型对对比视觉扰动的响应来识别和抑制幻觉倾向，利用奇异值分解（SVD）分解模型的激活模式以隔离幻觉子空间，并应用有针对性的参数编辑来减弱其影响，该方法作为无标签干预手段运行，无需微调或标注数据。</p>
+<p><strong>Result:</strong> 实验结果表明，VCE在多个基准测试中有效减少了物体幻觉，同时保持了模型原有的计算效率，该方法在资源受限的环境中具有可扩展性和实用性，相比现有方法具有显著优势。</p>
+<p><strong>Conclusion:</strong> 该研究提供了一种无需微调或标注数据即可缓解大型视觉语言模型中物体幻觉问题的有效解决方案，VCE方法通过分析对比视觉扰动和奇异值分解技术实现了对幻觉子空间的精确识别和抑制，为实际部署提供了既高效又实用的技术路径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Large vision-language models (LVLMs) frequently suffer from Object Hallucination (OH), wherein they generate descriptions containing objects that are not actually present in the input image. This phenomenon is particularly problematic in real-world applications such as medical imaging and autonomous driving, where accuracy is critical. Recent studies suggest that the hallucination problem may stem from language priors: biases learned during pretraining that cause LVLMs to generate words based on their statistical co-occurrence. To mitigate this problem, we propose Visual Contrastive Editing (VCE), a novel post-hoc method that identifies and suppresses hallucinatory tendencies by analyzing the model's response to contrastive visual perturbations. Using Singular Value Decomposition (SVD), we decompose the model's activation patterns to isolate hallucination subspaces and apply targeted parameter edits to attenuate its influence. Unlike existing approaches that require fine-tuning or labeled data, VCE operates as a label-free intervention, making it both scalable and practical for deployment in resource-constrained settings. Experimental results demonstrate that VCE effectively reduces object hallucination across multiple benchmarks while maintaining the model's original computational efficiency.</p>
+<h3 id="2-autonomous-skeletal-landmark-localization-towards-agentic-c-arm-control">[2] <a href="https://arxiv.org/abs/2604.18740">Autonomous Skeletal Landmark Localization towards Agentic C-Arm Control</a></h3>
+<p><em>Jay Jung, Ahmad Arrabi, Jax Luo, Scott Raymond, Safwan Wshah</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本研究提出了一种基于多模态大语言模型的智能C臂控制框架，通过微调MLLMs实现骨骼标志点精确定位，为自主C臂导航提供了新的解决方案。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统深度学习方法在C臂自动定位失败时需要临床医生手动操作，导致治疗延迟，因此需要能够整合临床反馈并通过推理进行调整的智能C臂控制框架，而骨骼标志点定位是实现这一目标的关键技术。</p>
+<p><strong>Method:</strong> 研究使用标注的合成X射线数据集和真实X射线数据集，对两种多模态大语言模型进行微调，使其能够从X射线图像中检索最接近的骨骼标志点，并与领先的深度学习方法进行定量比较，同时设计了推理校正和顺序导航的定性实验。</p>
+<p><strong>Result:</strong> 在两个数据集上，微调后的MLLMs在所有定位任务中均表现出与深度学习方法相当的竞争性能，定性实验进一步证明MLLMs具备推理能力和空间感知能力，能够通过推理校正初始错误预测并顺序导航C臂至目标位置。</p>
+<p><strong>Conclusion:</strong> 研究表明微调后的多模态大语言模型能够实现准确的骨骼标志点定位，为智能自主C臂控制提供了有前景的技术路径，其推理能力和适应性有望改善紧急介入治疗中的操作效率。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Purpose: Automated C-arm positioning ensures timely treatment in patients requiring emergent interventions. When a conventional Deep Learning (DL) approach for C-arm control fails, clinicians must revert to manual operation, resulting in additional delays. Consequently, an agentic C-arm control framework based on multimodal large language models (MLLMs) is highly desirable, as it can incorporate clinician feedback and use reasoning to make adjustments toward more accurate positioning. Skeletal landmark localization is essential for C-arm control, and we investigate adapting MLLMs for autonomous landmark localization.
+  Methods: We used an annotated synthetic X-ray dataset and a real X-ray dataset. Each X-ray in both datasets is paired with several skeletal landmarks. We fine-tuned two MLLMs and tasked them with retrieving the closest landmarks from each X-ray. Quantitative evaluations of landmark localization were performed and compared against a leading DL approach. We further conducted qualitative experiments demonstrating: (1) how an MLLM can correct an initially incorrect prediction through reasoning, and (2) how the MLLM can sequentially navigate the C-arm toward a target location.
+  Results: On both datasets, fine-tuned MLLMs demonstrate competitive performance across all localization tasks when compared with the DL approach. In the qualitative experiments, the MLLMs provide evidence of reasoning and spatial awareness.
+  Conclusion: This study shows that fine-tuned MLLMs achieve accurate skeletal landmark localization and hold promise for agentic autonomous C-arm control. Our code is available athttps://github.com/marszzibros/C-arm-localization-LLMs.git</p>
+<h3 id="3-dualvision-rgb-infrared-multimodal-large-language-models-for-robust-visual-reasoning">[3] <a href="https://arxiv.org/abs/2604.18829">DUALVISION: RGB-Infrared Multimodal Large Language Models for Robust Visual Reasoning</a></h3>
+<p><em>Abrar Majeedi, Zhiyuan Ruan, Ziyi Zhao, Hongcheng Wang, Jianglin Lu, Yin Li</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了DUALVISION，一种轻量级融合模块，通过补丁级局部交叉注意力将红外-可见光信息高效整合到多模态大语言模型中，以增强模型在视觉退化条件下的鲁棒性，并发布了包含对齐图像对和问答标注的大规模数据集用于训练和评估。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 多模态大语言模型在RGB图像上取得了显著性能，但在雾、模糊、低光等常见退化条件下表现脆弱，而红外成像在这些条件下具有固有鲁棒性，但其与MLLMs的集成研究仍不足，需要解决这一技术空白。</p>
+<p><strong>Method:</strong> 提出了DUALVISION轻量级融合模块，通过补丁级局部交叉注意力机制高效整合红外与RGB信息；同时构建了DV-204K数据集，包含约25K对齐的红外-RGB图像对和204K模态特定问答标注，以及DV-500基准测试，包含500个图像对和问答对用于评估跨模态推理能力。</p>
+<p><strong>Result:</strong> 实验表明DUALVISION在各种视觉退化条件下均表现出强大的实证性能，在开源和闭源MLLMs上的基准测试验证了该方法的有效性，模型在红外-RGB融合任务中展现出显著优势。</p>
+<p><strong>Conclusion:</strong> 该研究证明了红外成像与多模态大语言模型融合的可行性和价值，为视觉退化条件下的鲁棒感知提供了有效解决方案，发布的资源将促进未来跨模态融合研究的发展，并为实际应用中的环境适应性提供了技术基础。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have achieved impressive performance on visual perception and reasoning tasks with RGB imagery, yet they remain fragile under common degradations, such as fog, blur, or low-light conditions. Infrared (IR) imaging, a well-established complement to RGB, offers inherent robustness in these conditions, but its integration into MLLMs remains underexplored. To bridge this gap, we propose DUALVISION, a lightweight fusion module that efficiently incorporates IR-RGB information into MLLMs via patch-level localized cross-attention. To support training and evaluation and to facilitate future research, we also introduce DV-204K, a dataset of ~25K publicly available aligned IR-RGB image pairs with 204K modality-specific QA annotations, and DV-500, a benchmark of 500 IR-RGB image pairs with 500 QA pairs designed for evaluating cross-modal reasoning. Leveraging these datasets, we benchmark both open- and closed-source MLLMs and demonstrate that DUALVISION delivers strong empirical performance under a wide range of visual degradations. Our code and dataset are available at https://abrarmajeedi.github.io/dualvision.</p>
+<h3 id="4-air-know-arbiter-calibrated-knowledge-internalizing-robust-network-for-composed-image-retrieval">[4] <a href="https://arxiv.org/abs/2604.19386">Air-Know: Arbiter-Calibrated Knowledge-Internalizing Robust Network for Composed Image Retrieval</a></h3>
+<p><em>Zhiheng Fu, Yupeng Hu, Qianyun Yang, Shiqi Zhang, Zhiwei Chen, Zixu Li</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种名为Air-Know的新型去耦范式，通过专家-代理-分流架构解决组合图像检索中的噪声三元组对应问题，显著提升了模型在噪声环境下的鲁棒性和性能。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 组合图像检索的发展受到噪声三元组对应问题的严重制约，现有基于"小损失假设"的鲁棒学习方法因NTC中独特的语义模糊性（如"部分匹配"）而失效，导致不可靠的噪声识别，使模型陷入学习器与仲裁器相互依赖的恶性循环，最终造成灾难性的"表示污染"。</p>
+<p><strong>Method:</strong> 本文提出了名为Air-Know的"专家-代理-分流"去耦范式，包含三个核心模块：外部先验仲裁利用多模态大语言模型作为离线专家构建高精度锚点数据集；专家知识内化引导轻量级代理仲裁器内化专家的判别逻辑；双流调和利用EKI的匹配置信度分流训练数据，实现干净对齐流和表示反馈调和流。</p>
+<p><strong>Result:</strong> 在多个CIR基准数据集上的广泛实验表明，Air-Know在NTC设置下显著优于现有最先进方法，同时在传统CIR任务中也表现出强大的竞争力，验证了所提去耦范式的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究为解决组合图像检索中的噪声三元组对应问题提供了新的去耦范式，通过分离学习器与仲裁器的依赖关系，有效避免了表示污染，为多模态检索系统的鲁棒性设计提供了重要见解和可行方案。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Composed Image Retrieval (CIR) has attracted significant attention due to its flexible multimodal query method, yet its development is severely constrained by the Noisy Triplet Correspondence (NTC) problem. Most existing robust learning methods rely on the "small loss hypothesis", but the unique semantic ambiguity in NTC, such as "partial matching", invalidates this assumption, leading to unreliable noise identification. This entraps the model in a self dependent vicious cycle where the learner is intertwined with the arbiter, ultimately causing catastrophic "representation pollution". To address this critical challenge, we propose a novel "Expert-Proxy-Diversion" decoupling paradigm, named Air-Know (ArbIteR calibrated Knowledge iNternalizing rObust netWork). Air-Know incorporates three core modules: (1) External Prior Arbitration (EPA), which utilizes Multimodal Large Language Models (MLLMs) as an offline expert to construct a high precision anchor dataset; (2) Expert Knowledge Internalization (EKI), which efficiently guides a lightweight proxy "arbiter" to internalize the expert's discriminative logic; (3) Dual Stream Reconciliation (DSR), which leverages the EKI's matching confidence to divert the training data, achieving a clean alignment stream and a representation feedback reconciliation stream. Extensive experiments on multiple CIR benchmark datasets demonstrate that Air-Know significantly outperforms existing SOTA methods under the NTC setting, while also showing strong competitiveness in traditional CIR.</p>
+<h3 id="5-unveiling-fine-grained-visual-traces-evaluating-multimodal-interleaved-reasoning-chains-in-multimodal-stem-tasks">[5] <a href="https://arxiv.org/abs/2604.19697">Unveiling Fine-Grained Visual Traces: Evaluating Multimodal Interleaved Reasoning Chains in Multimodal STEM Tasks</a></h3>
+<p><em>Jing Jin, Hao Liu, Yan Bai, Yihang Lou, Zhenke Wang, Tianrun Yuan, Juntong Chen, Yongkang Zhu, Fanhu Zeng, Xuanyu Zhu, Yige Xu</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了StepSTEM基准测试，用于细粒度评估多模态大语言模型在STEM领域的跨模态推理能力。该基准包含283个研究生级别的问题，通过严格的模态互补性构建，并引入了步骤级评估框架来评估推理过程。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前多模态大语言模型在专业领域评估面临挑战，特别是STEM推理领域。现有基准测试存在模态冗余问题，允许单模态捷径，且主要关注最终答案准确性而忽略了推理过程本身，缺乏对跨模态推理能力的细粒度评估。</p>
+<p><strong>Method:</strong> 研究团队构建了StepSTEM基准，包含数学、物理、化学、生物和工程领域的283个研究生级别问题，通过严格的筛选流程确保文本和视觉输入的严格互补性。提出通用的步骤级评估框架，支持纯文本思维链和交错图像-文本推理评估，使用动态规划算法将预测的推理步骤与多个参考解决方案对齐。</p>
+<p><strong>Result:</strong> 实验结果显示，当前最先进的多模态大语言模型在StepSTEM基准上表现有限，即使Gemini 3.1 Pro和Claude Opus 4.6也仅达到38.29%的准确率。这表明现有模型仍然严重依赖文本推理，在真正的跨模态STEM推理方面仍有显著提升空间。</p>
+<p><strong>Conclusion:</strong> StepSTEM基准为多模态大语言模型的跨模态推理能力提供了细粒度评估工具，揭示了当前模型在STEM领域跨模态推理的局限性。该研究强调了评估推理过程的重要性，并为未来开发真正理解多模态信息的模型提供了有价值的基准测试框架。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have shown promising reasoning abilities, yet evaluating their performance in specialized domains remains challenging. STEM reasoning is a particularly valuable testbed because it provides highly verifiable feedback, but existing benchmarks often permit unimodal shortcuts due to modality redundancy and focus mainly on final-answer accuracy, overlooking the reasoning process itself. To address this challenge, we introduce StepSTEM: a graduate-level benchmark of 283 problems across mathematics, physics, chemistry, biology, and engineering for fine-grained evaluation of cross-modal reasoning in MLLMs. StepSTEM is constructed through a rigorous curation pipeline that enforces strict complementarity between textual and visual inputs. We further propose a general step-level evaluation framework for both text-only chain-of-thought and interleaved image-text reasoning, using dynamic programming to align predicted reasoning steps with multiple reference solutions. Experiments across a wide range of models show that current MLLMs still rely heavily on textual reasoning, with even Gemini 3.1 Pro and Claude Opus 4.6 achieving only 38.29% accuracy. These results highlight substantial headroom for genuine cross-modal STEM reasoning and position StepSTEM as a benchmark for fine-grained evaluation of multimodal reasoning. Source code is available at https://github.com/lll-hhh/STEPSTEM.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="6-lost-in-translation-do-lvlm-judges-generalize-across-languages">[6] <a href="https://arxiv.org/abs/2604.19405">Lost in Translation: Do LVLM Judges Generalize Across Languages?</a></h3>
+<p><em>Md Tahmid Rahman Laskar, Mohammed Saidul Islam, Mir Tafseer Nayeem, Amran Bhuiyan, Mizanur Rahman, Shafiq Joty, Enamul Hoque, Jimmy Huang</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出了MM-JudgeBench，这是首个用于多语言多模态评估模型的大规模基准测试，包含超过6万个跨25种语言的成对偏好实例，揭示了当前奖励模型在多语言泛化方面的严重局限性。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前大型视觉语言模型的自动评估器（如奖励模型）主要基于英语基准进行评估，其在多语言环境下的泛化能力存在严重研究空白，这阻碍了可靠自动化评估器的发展。</p>
+<p><strong>Method:</strong> 研究构建了MM-JudgeBench基准，包含两个互补子集：扩展VL-RewardBench的通用视觉语言偏好评估子集，以及源自OpenCQA的图表中心视觉文本推理子集，共涵盖25种类型多样的语言。同时发布了与评估数据不相交的多语言训练集MM-RewardBench以支持领域适应。</p>
+<p><strong>Result:</strong> 评估了22个大型视觉语言模型（15个开源，7个专有），发现存在显著的跨语言性能差异。模型规模和架构对多语言鲁棒性的预测能力较差，即使最先进的LVLM评估器在不同语言间也表现出不一致的行为。</p>
+<p><strong>Conclusion:</strong> 研究揭示了当前奖励建模的基本局限性，强调了开发多语言多模态基准对于构建可靠自动化评估器的必要性。这些发现表明需要重新思考评估模型的跨语言泛化策略。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Automatic evaluators such as reward models play a central role in the alignment and evaluation of large vision-language models (LVLMs). Despite their growing importance, these evaluators are almost exclusively assessed on English-centric benchmarks, leaving open the question of how well these evaluators generalize across languages. To answer this question, we introduce MM-JudgeBench, the first large-scale benchmark for multilingual and multimodal judge model evaluation, which includes over 60K pairwise preference instances spanning 25 typologically diverse languages. MM-JudgeBench integrates two complementary subsets: a general vision-language preference evaluation subset extending VL-RewardBench, and a chart-centric visual-text reasoning subset derived from OpenCQA, enabling systematic analysis of reward models (i.e., LVLM judges) across diverse settings. We additionally release a multilingual training set derived from MM-RewardBench, disjoint from our evaluation data, to support domain adaptation. By evaluating 22 LVLMs (15 open-source, 7 proprietary), we uncover substantial cross-lingual performance variance in our proposed benchmark. Our analysis further shows that model size and architecture are poor predictors of multilingual robustness, and that even state-of-the-art LVLM judges exhibit inconsistent behavior across languages. Together, these findings expose fundamental limitations of current reward modeling and underscore the necessity of multilingual, multimodal benchmarks for developing reliable automated evaluators.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="7-dt2it-mrm-debiased-preference-construction-and-iterative-training-for-multimodal-reward-modeling">[7] <a href="https://arxiv.org/abs/2604.19544">DT2IT-MRM: Debiased Preference Construction and Iterative Training for Multimodal Reward Modeling</a></h3>
+<p><em>Zhihong Zhang, Jie Zhao, Xiaojian Huang, Jin Xu, Zhuodong Luo, Xin Liu, Jiansheng Wei, Xuejin Chen</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>本文提出DT2IT-MRM方法，通过去偏好的偏好构建流程、文本到图像偏好数据重构和迭代训练框架，解决了多模态偏好数据集中的粒度不足、文本风格偏差和信号不可靠等问题，显著提升了多模态奖励模型的性能。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有用于训练多模态奖励模型的多模态偏好数据集面临三个关键挑战：偏好强度缺乏粒度、存在文本风格偏差以及偏好信号不可靠。此外，现有的开源多模态偏好数据集存在大量噪声，且缺乏有效且可扩展的数据质量提升方法。</p>
+<p><strong>Method:</strong> 本文提出DT2IT-MRM方法，该方法整合了三个核心组件：去偏好的偏好构建流程、文本到图像偏好数据的新颖重构方法，以及用于多模态奖励模型训练的迭代训练框架。该框架旨在通过系统化方法提升现有多模态偏好数据集的质量。</p>
+<p><strong>Result:</strong> 实验结果表明，DT2IT-MRM在三个主要基准测试中实现了新的最先进性能：VL-RewardBench、Multimodal RewardBench和MM-RLHF-RewardBench。该方法在整体性能上超越了现有方法，证明了其在多模态奖励建模任务中的有效性。</p>
+<p><strong>Conclusion:</strong> 本研究为解决多模态偏好数据集的质量问题提供了系统化解决方案，通过去偏好、数据重构和迭代训练相结合的方法，显著提升了多模态奖励模型的训练效果。该方法为未来多模态对齐研究提供了高质量数据构建和模型训练的新范式。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Multimodal reward models (MRMs) play a crucial role in aligning Multimodal Large Language Models (MLLMs) with human preferences. Training a good MRM requires high-quality multimodal preference data. However, existing preference datasets face three key challenges: lack of granularity in preference strength, textual style bias, and unreliable preference signals. Besides, existing open-source multimodal preference datasets suffer from substantial noise, yet there is a lack of effective and scalable curation methods to enhance their quality. To address these limitations, we propose \textbf{DT2IT-MRM}, which integrates a \textbf{D}ebiased preference construction pipeline, a novel reformulation of text-to-image (\textbf{T2I}) preference data, and an \textbf{I}terative \textbf{T}raining framework that curates existing multimodal preference datasets for \textbf{M}ultimodal \textbf{R}eward \textbf{M}odeling. Our experimental results show that DT2IT-MRM achieves new \textbf{state-of-the-art} overall performance on three major benchmarks: VL-RewardBench, Multimodal RewardBench, and MM-RLHF-RewardBench.</p>
+<h3 id="8-multi-modal-reasoning-with-llms-for-visual-semantic-arithmetic">[8] <a href="https://arxiv.org/abs/2604.19567">Multi-modal Reasoning with LLMs for Visual Semantic Arithmetic</a></h3>
+<p><em>Chuou Xu, Liya Ji, Qifeng Chen</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>本文提出了一种名为语义算术强化微调（SAri-RFT）的新方法，通过强化学习后训练增强大型视觉语言模型在视觉语义算术任务中的关系推理能力，解决了从图像中提取简洁概念并进行跨模态关系推理的挑战。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前大型语言模型在编码和数学推理方面的强化学习后训练已取得进展，但它们在视觉语义算术方面的能力仍未被充分探索，即从图像中推断语义关系的能力。传统文本类比任务在图像领域表现不佳，因为需要从无关视觉细节中提取简洁概念并运用常识知识，而这一能力对于非结构化环境中的服务机器人和家庭机器人至关重要，它们需要基于感知建立符号关系以支持工具替代、任务泛化和语义推理。</p>
+<p><strong>Method:</strong> 本研究提出了两项新颖任务：二项减法和三项运算，并构建了图像关系对数据集（IRPD）进行基准测试。核心方法是语义算术强化微调（SAri-RFT），该方法使用可验证函数和组相对策略优化（GRPO）对大型视觉语言模型进行后训练，通过强化学习增强模型从图像中提取语义概念并进行跨模态关系推理的能力。</p>
+<p><strong>Result:</strong> 该方法在IRPD数据集和真实世界的Visual7W-Telling数据集上取得了最先进的性能。实验结果表明，SAri-RFT能够显著提升大型视觉语言模型在视觉语义算术任务中的表现，有效解决了先前方法中存在的模态鸿沟问题，并提供了系统化的评估框架。</p>
+<p><strong>Conclusion:</strong> 这项研究通过增强大型视觉语言模型的跨模态关系推理能力，推动了家庭机器人将符号推理建立在感知基础上的能力，从而提升了复杂环境中的决策制定、工具适应性和人机交互。该工作为视觉语义算术任务提供了系统化的评估基准和方法论，并为机器人语义推理的实际应用奠定了基础。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Reinforcement learning (RL) as post-training is crucial for enhancing the reasoning ability of large language models (LLMs) in coding and math. However, their capacity for visual semantic arithmetic, inferring relationships from images, remains underexplored. The classic text analogy "king"-"man"+"woman" = "queen" illustrates relational reasoning, yet replacing text with images of "king" and "man" significantly reduces performance because it requires commonsense knowledge and the extraction of concise concepts from irrelevant visual details. This capability is important for service and domestic robotics in unstructured environments, where robots must infer semantic relationships among objects, agents, and actions. In a kitchen, recognizing from images that "powder" and "cake" are related by "is made of" grounds symbolic relations in perception, enabling tool substitution, task generalization, and improved semantic reasoning. Prior work approaches semantic arithmetic by decoding image features after vector arithmetic, but suffers from modality gaps and lacks systematic evaluation. In this paper, we formulate two novel tasks, two-term subtraction and three-term operations, and construct the Image-Relation-Pair Dataset (IRPD) for benchmarking. We further propose Semantic Arithmetic Reinforcement Fine-Tuning (SAri-RFT), which post-trains large vision-language models (LVLMs) using a verifiable function and Group Relative Policy Optimization (GRPO). Our method achieves state-of-the-art results on IRPD and the real-world Visual7W-Telling dataset. By equipping LVLMs with robust cross-modal relational reasoning, this work advances domestic robots' ability to ground symbolic reasoning in perception, enhancing decision-making, tool adaptability, and human-robot interaction in complex environments. Datasets and source code are provided in the supplementary material.</p>
+<h3 id="9-a-mar-agent-based-multimodal-art-retrieval-for-fine-grained-artwork-understanding">[9] <a href="https://arxiv.org/abs/2604.19689">A-MAR: Agent-based Multimodal Art Retrieval for Fine-Grained Artwork Understanding</a></h3>
+<p><em>Shuai Wang, Hongyi Zhu, Jia-Hong Huang, Yixian Shen, Chengxi Zeng, Stevan Rudinac, Monika Kackovic, Nachoem Wijnberg, Marcel Worring</em></p>
+<h4 id="tldr_8">🧩 TL;DR</h4>
+<p>本文提出A-MAR框架，一种基于智能体的多模态艺术检索方法，通过结构化推理计划显式地指导检索过程，以解决艺术理解任务中多步推理和证据可解释性的挑战。该框架在多个艺术数据集上超越了传统检索方法和现有MLLM基线。</p>
+<hr />
+<h4 id="detailed-summary_8">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 理解艺术作品需要结合视觉内容与文化、历史和风格背景进行多步推理，而现有的多模态大语言模型依赖隐式推理和内部知识，限制了可解释性和显式证据基础。因此需要开发能够进行显式结构化推理和证据检索的方法，以提升艺术理解任务的可解释性和准确性。</p>
+<p><strong>Method:</strong> 本文提出A-MAR框架，这是一种基于智能体的多模态艺术检索方法，首先将艺术理解和查询任务分解为结构化推理计划，明确指定每个步骤的目标和证据需求。然后基于该计划进行条件化检索，实现有针对性的证据选择和逐步基础的解释生成。为评估艺术领域的多模态推理能力，作者还构建了ArtCoT-QA诊断基准，包含多步推理链和多样化艺术相关查询。</p>
+<p><strong>Result:</strong> 在SemArt和Artpedia数据集上的实验表明，A-MAR在最终解释质量方面持续优于静态非计划检索方法和强大的MLLM基线。ArtCoT-QA基准上的进一步评估证明了A-MAR在证据基础和多步推理能力方面的优势，提供了超越简单最终答案准确度的细粒度分析。</p>
+<p><strong>Conclusion:</strong> 该研究强调了推理条件化检索对于知识密集型多模态理解的重要性，将A-MAR定位为迈向可解释、目标驱动的AI系统的一步，对文化产业具有特别相关性。该方法通过结构化推理计划显式指导检索过程，为解决复杂多模态理解任务中的可解释性问题提供了有效途径。</p>
+<hr />
+<h4 id="abstract_8">📄 Abstract</h4>
+<p>Understanding artworks requires multi-step reasoning over visual content and cultural, historical, and stylistic context. While recent multimodal large language models show promise in artwork explanation, they rely on implicit reasoning and internalized knowl- edge, limiting interpretability and explicit evidence grounding. We propose A-MAR, an Agent-based Multimodal Art Retrieval framework that explicitly conditions retrieval on structured reasoning plans. Given an artwork and a user query, A-MAR first decomposes the task into a structured reasoning plan that specifies the goals and evidence requirements for each step. Retrieval is then conditionedon this plan, enabling targeted evidence selection and supporting step-wise, grounded explanations. To evaluate agent-based multi- modal reasoning within the art domain, we introduce ArtCoT-QA. This diagnostic benchmark features multi-step reasoning chains for diverse art-related queries, enabling a granular analysis that extends beyond simple final answer accuracy. Experiments on SemArt and Artpedia show that A-MAR consistently outperforms static, non planned retrieval and strong MLLM baselines in final explanation quality, while evaluations on ArtCoT-QA further demonstrate its advantages in evidence grounding and multi-step reasoning ability. These results highlight the importance of reasoning-conditioned retrieval for knowledge-intensive multimodal understanding and position A-MAR as a step toward interpretable, goal-driven AI systems, with particular relevance to cultural industries. The code and data are available at: https://github.com/ShuaiWang97/A-MAR.</p>
+  </article>
+</body>
+</html>
