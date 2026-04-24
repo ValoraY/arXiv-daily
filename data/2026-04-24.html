@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-24.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 4]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 1]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-when-prompts-override-vision-prompt-induced-hallucinations-in-lvlms">[1] <a href="https://arxiv.org/abs/2604.21911">When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs</a></h3>
+<p><em>Pegah Khayatan, Jayneel Parekh, Arnaud Dapogny, Mustafa Shukor, Alasdair Newson, Matthieu Cord</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出HalluScope基准以分析大型视觉-语言模型幻觉的成因，发现幻觉主要源于对文本先验和背景知识的过度依赖；在此基础上提出HalluVL-DPO框架，通过偏好优化引导模型生成更符合视觉输入的回答，有效缓解了由文本指令先验诱导的幻觉。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉-语言模型（LVLMs）虽然能力显著提升，但仍存在输出与视觉输入不一致的幻觉问题。已有工作将幻觉归因于视觉骨干网络的局限性或语言组件的支配性，但这些因素的相对重要性尚不明确，亟需系统性分析幻觉的根源。</p>
+<p><strong>Method:</strong> 首先构建HalluScope基准，通过精细设计的评估任务量化不同因素对幻觉的诱发程度；分析表明幻觉主要源于对文本先验和背景知识的过度依赖，尤其是文本指令引入的信息。基于该发现，提出HalluVL-DPO框架，利用偏好优化方法在自建的数据集上对现成LVLMs进行微调，使模型倾向于选择更符合视觉输入的回应而非幻觉回应。</p>
+<p><strong>Result:</strong> HalluScope分析揭示了文本先验是LVLMs幻觉的主要根源；HalluVL-DPO优化的模型在有效缓解由文本指令先验引发的幻觉的同时，在其他幻觉基准和视觉能力评估上保持或提升了性能。</p>
+<p><strong>Conclusion:</strong> 研究表明LVLMs的幻觉在很大程度上源于对文本先验的过度依赖，而非视觉编码器的局限；通过有针对性的偏好优化可以有效缓解该问题，为构建更可靠的视觉-语言模型提供了新的方向。基准、训练数据和代码将公开发布以促进可重复性和后续研究。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Despite impressive progress in capabilities of large vision-language models (LVLMs), these systems remain vulnerable to hallucinations, i.e., outputs that are not grounded in the visual input. Prior work has attributed hallucinations in LVLMs to factors such as limitations of the vision backbone or the dominance of the language component, yet the relative importance of these factors remains unclear. To resolve this ambiguity, We propose HalluScope, a benchmark to better understand the extent to which different factors induce hallucinations. Our analysis indicates that hallucinations largely stem from excessive reliance on textual priors and background knowledge, especially information introduced through textual instructions. To mitigate hallucinations induced by textual instruction priors, we propose HalluVL-DPO, a framework for fine-tuning off-the-shelf LVLMs towards more visually grounded responses. HalluVL-DPO leverages preference optimization using a curated training dataset that we construct, guiding the model to prefer grounded responses over hallucinated ones. We demonstrate that our optimized model effectively mitigates the targeted hallucination failure mode, while preserving or improving performance on other hallucination benchmarks and visual capability evaluations. To support reproducibility and further research, we will publicly release our evaluation benchmark, preference training dataset, and code at https://pegah-kh.github.io/projects/prompts-override-vision/ .</p>
+<h3 id="2-latent-denoising-improves-visual-alignment-in-large-multimodal-models">[2] <a href="https://arxiv.org/abs/2604.21343">Latent Denoising Improves Visual Alignment in Large Multimodal Models</a></h3>
+<p><em>Dhruv Parikh, Jacob Fein-Ashley, Rajgopal Kannan, Viktor Prasanna</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出一种基于潜在去噪的视觉监督框架，通过带显著性感知的掩码与高斯噪声破坏视觉token并训练LMM从中间层隐状态中恢复干净教师特征，在不引入推理开销的情况下显著提升多模态理解与分布外鲁棒性。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有LMM（如LLaVA）使用自回归语言建模目标训练，仅对视觉token提供间接监督，导致内部视觉表征较弱且分布偏移下行为脆弱，亟需一种有效的视觉监督机制来改善视觉特征对齐与多模态理解能力。</p>
+<p><strong>Method:</strong> 提出潜在去噪框架，对投影后的视觉token施加基于显著性感知的混合掩码与高斯噪声破坏，训练LMM通过一个解码器从中间LLM层的隐状态中恢复干净的教师patch特征；同时引入保持教师内部图像相似性结构的对比补丁蒸馏以防止表征坍塌。推理时禁用破坏与辅助头，不增加额外开销。</p>
+<p><strong>Result:</strong> 在多个标准多模态基准上持续优于强基线；在NaturalBench等组合鲁棒性基准上取得明显提升；在ImageNet-C风格的非对抗性常见损坏下，中等和严重损坏水平均保持更高准确率并展现更低的性能退化。</p>
+<p><strong>Conclusion:</strong> 潜在去噪为LMM提供了一种有效的视觉监督形式，能够在不增加推理成本的前提下同时提升标准多模态理解与分布外鲁棒性，为增强多模态模型的视觉表示质量提供了可行路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Large Multimodal Models (LMMs) such as LLaVA are typically trained with an autoregressive language modeling objective, providing only indirect supervision to visual tokens. This often yields weak internal visual representations and brittle behavior under distribution shift. Inspired by recent progress on latent denoising for learning high-quality visual tokenizers, we show that the same principle provides an effective form of visual supervision for improving internal visual feature alignment and multimodal understanding in LMMs. We propose a latent denoising framework that corrupts projected visual tokens using a saliency-aware mixture of masking and Gaussian noising. The LMM is trained to denoise these corrupted tokens by recovering clean teacher patch features from hidden states at a selected intermediate LLM layer using a decoder. To prevent representation collapse, our framework also preserves the teacher's intra-image similarity structure and applies intra-image contrastive patch distillation. During inference, corruption and auxiliary heads are disabled, introducing no additional inference-time overhead. Across a broad suite of standard multimodal benchmarks, our method consistently improves visual understanding and reasoning over strong baselines, and yields clear gains on compositional robustness benchmarks (e.g., NaturalBench). Moreover, under ImageNet-C-style non-adversarial common corruptions applied to benchmark images, our method maintains higher accuracy and exhibits reduced degradation at both moderate and severe corruption levels. Our code is available at https://github.com/dhruvashp/latent-denoising-for-lmms.</p>
+<h3 id="3-vg-cot-towards-trustworthy-visual-reasoning-via-grounded-chain-of-thought">[3] <a href="https://arxiv.org/abs/2604.21396">VG-CoT: Towards Trustworthy Visual Reasoning via Grounded Chain-of-Thought</a></h3>
+<p><em>Byeonggeuk Lim, Kyeonghyun Kim, JungMin Yun, YoungBin Kim</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>提出VG-CoT数据集，通过全自动三阶段流水线将多步推理与视觉证据显式对齐，并引入三维度评测基准，实验表明该方法能有效增强LVLM的可信推理能力，同时保持数据集构建的可扩展性和成本效率。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有LVLMs在局部区域推理中缺乏对视觉证据的显式对齐，且已有数据集因依赖大量人工标注而面临可扩展性受限的问题，无法充分评估模型推理的可信度。</p>
+<p><strong>Method:</strong> 提出全自动化三阶段流水线：第一阶段利用先进检测和OCR模型提取物体级和文本级视觉证据；第二阶段使用GPT-4o生成逐步可溯源的链式推理；第三阶段通过基于理据驱动的开放集检测过程精化视觉证据与推理步骤的对齐。</p>
+<p><strong>Result:</strong> 在LLaVA-1.5和Qwen2-VL等代表性LVLM上的实验表明，VG-CoT在大多数评测指标上取得一致提升，验证了该方法能有效增强可信的、基于证据的推理能力。</p>
+<p><strong>Conclusion:</strong> VG-CoT通过显式链接推理步骤与视觉证据，有效提升了LVLMs的推理可信度，同时全自动流水线保证了数据集构建的可扩展性和成本效率，为可信视觉语言推理研究提供了新方向。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>The advancement of Large Vision-Language Models (LVLMs) requires precise local region-based reasoning that faithfully grounds the model's logic in actual visual evidence. However, existing datasets face limitations in scalability due to extensive manual annotation and lack of explicit alignment between multi-step reasoning and corresponding image regions, which constrains the evaluation of model trustworthiness. To address these challenges, we propose the Visual Grounding Chain-of-Thought (VG-CoT) dataset, which explicitly links each reasoning step to real visual evidence within the image through a fully automated three-stage pipeline. The pipeline first extracts object- and text-level visual evidence using state-of-the-art detection and OCR models, then generates step-by-step grounded reasoning with GPT-4o, and finally refines the grounding through a rationale-driven open-set detection process. In addition, we introduce a new benchmark that comprehensively evaluates LVLMs reasoning across three complementary dimensions: Rationale Quality, Answer Accuracy, and Reasoning-Answer Alignment. Experiments with representative LVLMs, including LLaVA-1.5 and Qwen2-VL, demonstrate consistent improvements on most evaluation metrics, confirming that VG-CoT effectively enhances trustworthy, evidence-based reasoning while maintaining scalable and cost-efficient dataset construction. The dataset and code will be released publicly upon acceptance to facilitate further research.</p>
+<h3 id="4-do-mllms-understand-pointing-benchmarking-and-enhancing-referential-reasoning-in-egocentric-vision">[4] <a href="https://arxiv.org/abs/2604.21461">Do MLLMs Understand Pointing? Benchmarking and Enhancing Referential Reasoning in Egocentric Vision</a></h3>
+<p><em>Chentao Li, Zirui Gao, Mingze Gao, Yinglian Ren, Jianjiang Feng, Jie Zhou</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出EgoPoint-Bench，一个针对第一人称视角下指向手势空间语义理解的多模态问答基准，揭示了现有多模态大模型存在"指代幻觉"问题，并通过合成数据微调显著提升了模型在egocentric指向推理上的性能。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有MLLMs在理解第一人称视角（egocentric）下指向手势的空间语义时存在严重缺陷，往往依赖视觉邻近性或物体显著性的虚假相关性进行指代消解，而非真正理解指向的几何语义，作者将这种现象称为"指代幻觉"（Referential Hallucination），但目前缺乏系统性评测该能力的基准。</p>
+<p><strong>Method:</strong> 作者构建了EgoPoint-Bench基准，包含超过11k个高质量模拟和真实世界样本，覆盖五个评测维度和三个指代复杂度等级，并通过对合成数据进行监督微调来提升模型在第一人称视角下的指向推理能力。</p>
+<p><strong>Result:</strong> 实验表明，无论是闭源还是开源的SOTA多模态大模型，在egocentric指向推理任务上均表现不佳；而通过EgoPoint-Bench合成数据微调后的模型获得了显著的性能提升，并展现出强大的从模拟到真实（sim-to-real）泛化能力。</p>
+<p><strong>Conclusion:</strong> 这项工作揭示了空间感知监督对于构建精确的egocentric AI助手的重要性，为克服多模态大模型在指向理解上的根本性缺陷提供了一条可扩展的解决方案路径。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Egocentric AI agents, such as smart glasses, rely on pointing gestures to resolve referential ambiguities in natural language commands. However, despite advancements in Multimodal Large Language Models (MLLMs), current systems often fail to precisely ground the spatial semantics of pointing. Instead, they rely on spurious correlations with visual proximity or object saliency, a phenomenon we term "Referential Hallucination." To address this gap, we introduce EgoPoint-Bench, a comprehensive question-answering benchmark designed to evaluate and enhance multimodal pointing reasoning in egocentric views. Comprising over 11k high-fidelity simulated and real-world samples, the benchmark spans five evaluation dimensions and three levels of referential complexity. Extensive experiments demonstrate that while state-of-the-art proprietary and open-source models struggle with egocentric pointing, models fine-tuned on our synthetic data achieve significant performance gains and robust sim-to-real generalization. This work highlights the importance of spatially aware supervision and offers a scalable path toward precise egocentric AI assistants. Project page: https://guyyyug.github.io/EgoPoint-Bench/</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="5-aitp-traffic-accident-responsibility-allocation-via-multimodal-large-language-models">[5] <a href="https://arxiv.org/abs/2604.20878">AITP: Traffic Accident Responsibility Allocation via Multimodal Large Language Models</a></h3>
+<p><em>Zijin Zhou, Songan Zhang</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出AITP（人工智能交通警察），一种融合多模态思维链推理与检索增强生成的多模态大语言模型，用于交通事故责任分配与理解，并构建了包含67,941个标注视频和195,821个问答对的十项全能基准DecaTARA，实验表明AITP在责任分配、事故检测与理解任务上均达到最优性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有MLLM在交通事故检测和理解方面取得进展，但主要停留在描述和解释层面，缺乏基于交通法规的深层因果推理与法律知识整合能力。交通事故责任分配（TARA）需要多步推理且依赖法规知识，现有方法难以胜任，亟需一种能够融合推理机制与法律知识的统一框架。</p>
+<p><strong>Method:</strong> AITP模型采用多模态思维链（MCoT）机制增强多步推理能力，并通过检索增强生成（RAG）整合交通法规知识。同时构建了DecaTARA基准，统一涵盖十项相互关联的事故推理任务，包含67,941个标注视频与195,821个问答对，为多任务评估提供标准化平台。</p>
+<p><strong>Result:</strong> 在责任分配、交通事故检测（TAD）与交通事故理解（TAU）三类任务上，AITP均取得了最优性能（state-of-the-art），验证了MCoT与RAG融合策略在多模态交通事故推理中的有效性。DecaTARA基准的规模和多任务设计也为该领域提供了全面的评估标准。</p>
+<p><strong>Conclusion:</strong> AITP为推理驱动的多模态交通分析建立了新范式，表明将结构化推理（MCoT）与外部知识检索（RAG）结合是多模态大模型完成复杂法规推理任务的关键方向。该工作为未来自动驾驶责任判定、智能交通执法等应用提供了可行的技术路线。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Multimodal Large Language Models (MLLMs) have achieved remarkable progress in Traffic Accident Detection (TAD) and Traffic Accident Understanding (TAU). However, existing studies mainly focus on describing and interpreting accident videos, leaving room for deeper causal reasoning and integration of legal knowledge. Traffic Accident Responsibility Allocation (TARA) is a more challenging task that requires multi-step reasoning grounded in traffic regulations. To address this, we introduce AITP (Artificial Intelligence Traffic Police), a multimodal large language model for responsibility reasoning and allocation. AITP enhances reasoning via a Multimodal Chain-of-Thought (MCoT) mechanism and integrates legal knowledge through Retrieval-Augmented Generation (RAG). We further present DecaTARA, a decathlon-style benchmark unifying ten interrelated traffic accident reasoning tasks with 67,941 annotated videos and 195,821 question-answer pairs. Extensive experiments show that AITP achieves state-of-the-art performance across responsibility allocation, TAD, and TAU tasks, establishing a new paradigm for reasoning-driven multimodal traffic analysis.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="6-can-mllms-read-what-is-missing">[6] <a href="https://arxiv.org/abs/2604.21277">Can MLLMs "Read" What is Missing?</a></h3>
+<p><em>Jindi Guo, Xi Fang, Chaozheng Huang</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>MMTR-Bench 是一个专门评估多模态大语言模型（MLLMs）从视觉上下文中直接重建被遮蔽文本能力的基准，通过消除显式提示和引入层级感知评估协议，揭示了现有模型在句级和段级文本重建上的显著挑战。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准多采用问答形式评估MLLMs，难以区分模型的指令跟随能力与真实的视觉理解及文本重建能力，缺乏专门针对从视觉上下文中直接重建遮蔽文本这一核心能力的评测。</p>
+<p><strong>Method:</strong> MMTR-Bench 包含2,771个测试样本，覆盖多语言和不同目标文本长度，涵盖文档、网页等真实场景的单页或多页输入。设计上消除显式提示，要求模型直接从视觉上下文恢复被遮蔽文本，并提出层级感知评估协议以区分词级、句级和段级重建难度。</p>
+<p><strong>Result:</strong> 在代表性MLLMs上的实验表明，该基准构成了显著挑战，尤其是在句级和段级重建任务上，模型表现大幅下降，揭示了当前模型在长程文本重建和视觉布局理解方面的局限性。</p>
+<p><strong>Conclusion:</strong> MMTR-Bench 提供了一种更纯净的评估范式，用于测量MLLMs的布局理解、视觉定位和知识整合能力，为未来模型在细粒度视觉文本重建能力上的改进指明了方向。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>We introduce MMTR-Bench, a benchmark designed to evaluate the intrinsic ability of Multimodal Large Language Models (MLLMs) to reconstruct masked text directly from visual context. Unlike conventional question-answering tasks, MMTR-Bench eliminates explicit prompts, requiring models to recover masked text from single- or multi-page inputs across real-world domains such as documents and webpages. This design isolates the reconstruction task from instruction-following abilities, enabling a direct assessment of a model's layout understanding, visual grounding, and knowledge integration. MMTR-Bench comprises 2,771 test samples spanning multiple languages and varying target lengths. To account for this diversity, we propose a level-aware evaluation protocol. Experiments on representative MLLMs show that the benchmark poses a significant challenge, especially for sentence- and paragraph-level reconstruction. The homepage is available at https://mmtr-bench-dataset.github.io/MMTR-Bench/.</p>
+  </article>
+</body>
+</html>
