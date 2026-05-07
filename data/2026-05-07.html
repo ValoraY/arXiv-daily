@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-07.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 7]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-are-multimodal-llms-ready-for-clinical-dermatology-a-real-world-evaluation-in-dermatology">[1] <a href="https://arxiv.org/abs/2605.04098">Are Multimodal LLMs Ready for Clinical Dermatology? A Real-World Evaluation in Dermatology</a></h3>
+<p><em>Roy Jiang, Hyunjae Kim, Zhenyue Qin, Morten Lee, Margaret MacGibeny, Ailish Hanly, Angela Sadlowski, Shanin Chowdhury, Xuguang Ai, Jeffrey Gehlhausen, Qingyu Chen</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>当前皮肤病学多模态大语言模型在公开基准上的表现显著高估了其真实临床诊断能力；在包含5,811例病例和46,405张临床图像的多中心真实队列中，最佳开源模型的top-3诊断准确率仅13.35%，GPT-4.1为24.65%，远低于公开基准上的26.55%–42.25%。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管多模态大语言模型在公开皮肤病学数据集上表现良好，但其在真实临床决策环境中的泛化能力尚不明确，现有基准测试可能无法反映实际医疗场景中的诊断性能。</p>
+<p><strong>Method:</strong> 评估了四种开源MLLM（InternVL-Chat v1.5、LLaVA-Med v1.5、SkinGPT4、MedGemma-4B-Instruct）和一种商业MLLM（GPT-4.1）在三个公开皮肤病数据集和一个包含5,811例病例及46,405张临床图像的多中心医院皮肤病会诊回顾性队列上的表现，使用鉴别诊断生成和基于严重程度的分诊两项临床任务进行评估。</p>
+<p><strong>Result:</strong> 公开数据集上最佳开源模型top-3诊断准确率26.55%，GPT-4.1为42.25%；真实队列中仅使用图像时，开源模型top-3准确率降至1.50%–13.35%，GPT-4.1降至24.65%。加入临床上下文后，开源模型提升至28.75%，GPT-4.1提升至38.93%，但模型对不完整或错误的就诊信息高度敏感。严重程度分诊任务模型敏感性超过60%，但可靠性不足以支持临床部署。</p>
+<p><strong>Conclusion:</strong> 当前皮肤病学MLLM的基准测试表现显著高估了其真实临床能力，真实场景下模型诊断性能大幅下降；临床上下文虽能提升性能，但模型对错误或不完整信息的脆弱性限制了其实际应用可靠性，需进一步研究弥合从基准到临床的鸿沟。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Multimodal large language models (MLLMs) have demonstrated promise on publicly available dermatology benchmarks. However, benchmark performance may not generalize to real-world dermatologic decision-making. To quantify this benchmark-to-bedside gap, we evaluated four open-weight MLLMs (InternVL-Chat v1.5, LLaVA-Med v1.5, SkinGPT4 and MedGemma-4B-Instruct) and one commercial MLLM (GPT-4.1) across three publicly available dermatology datasets and a retrospective multi-site hospital-based dermatology consultation cohort comprising 5,811 cases and 46,405 clinical images. Models were evaluated on two clinically relevant tasks: differential diagnosis generation and severity-based triage. Diagnostic performance was modest on public datasets and declined substantially in the real-world cohort. On public benchmarks, top-3 diagnostic accuracy reached 26.55% for the best open-weight model and 42.25% for GPT-4.1. On real-world consultation cases using images alone, top-3 diagnostic accuracy fell to 1.50%-13.35% among open-weight models and 24.65% for GPT-4.1. Incorporating clinical context improved performance across all models, increasing top-3 diagnostic accuracy up to 28.75% among open-weight models and 38.93% for GPT-4.1. However, model outputs were highly sensitive to incomplete or erroneous consultation context. For severity-based triage, models achieved moderate sensitivity (above 60%), suggesting potential utility for screening but insufficient reliability for clinical deployment. These findings demonstrate that benchmark performance substantially overestimates the real-world clinical capability of current dermatology MLLMs.</p>
+<h3 id="2-hierarchical-visual-agent-managing-contexts-in-joint-image-text-space-for-advanced-chart-reasoning">[2] <a href="https://arxiv.org/abs/2605.04304">Hierarchical Visual Agent: Managing Contexts in Joint Image-Text Space for Advanced Chart Reasoning</a></h3>
+<p><em>Qihua Dong, Ruozhen He, Junwen Chen, Yizhou Wang, Xu Ma, Songyao Jiang, Yun Fu</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>HierVA是一个面向图表问答的分层视觉智能体框架，通过高层管理者和专业工作者在联合图像-文本空间中迭代构建和更新工作上下文，利用缩放工具限制视觉上下文和分离的上下文蒸馏机制，在CharXiv推理子集上一致优于强多模态基线。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有多模态大语言模型在理解单张图表方面表现强劲，但在跨多个子图的复杂多步推理任务中表现欠佳，尤其是对微小视觉元素的精确感知和多步推理链条的构建存在明显不足。</p>
+<p><strong>Method:</strong> HierVA采用分层视觉智能体架构，高层管理者负责生成推理计划并维护仅包含关键信息的紧凑上下文，专业化工作者负责执行具体推理、收集证据并返回结果；智能体维护分离的视觉上下文和文本上下文，通过缩放工具限制视觉上下文的关注范围，并采用上下文蒸馏机制渐进更新工作记忆。</p>
+<p><strong>Result:</strong> 在CharXiv推理子集上的实验表明，HierVA一致优于强多模态基线方法；消融研究验证了分层架构、限定范围的视觉上下文以及蒸馏上下文三者分别贡献了互补的性能提升。</p>
+<p><strong>Conclusion:</strong> 分层智能体架构、作用域受限的视觉上下文和上下文蒸馏机制是提升跨子图图表推理能力的三个关键互补因素，为构建具备多步推理能力的视觉问答系统提供了有效范式。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Advanced chart question answering requires both precise perception of small visual elements and multi-step reasoning across several subplots. While existing MLLMs are strong at understanding single plots, they often struggle with multi-step reasoning across multiple subplots. We propose HierVA, a hierarchical visual agent framework for chart reasoning that iteratively constructs and updates a working context in a joint image--text space. A high-level manager generates plans and maintains a compact context containing only key information, while specialized workers perform reasoning, gather evidence, and return results. In particular, the agent maintains separate visual and textual contexts, using a zoom-in tool to restrict the visual context. Experiments on the CharXiv reasoning subset demonstrate consistent improvements over strong multimodal baselines, and ablation studies verify that hierarchical architecture, scoped visual context, and distilled context contribute complementary gains.</p>
+<h3 id="3-remotezero-geospatial-reasoning-with-zero-human-annotations">[3] <a href="https://arxiv.org/abs/2605.04451">RemoteZero: Geospatial Reasoning with Zero Human Annotations</a></h3>
+<p><em>Liang Yao, Fan Liu, Shengxiang Xu, Chuanyi Zhang, Rui Min, Shimin Di, Yuhui Zheng</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>RemoteZero 提出了一种无框监督的地理空间推理框架，利用多模态大语言模型更强的语义验证能力替代人工标注的坐标监督，通过内在验证信号和 GRPO 训练实现模型在无标注遥感数据上的自主迭代进化，在定位任务上取得了与强监督方法可比的性能。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有地理空间推理模型虽然在推理路径上实现了自主生成，但仍依赖于人工标注的地面真值坐标进行监督，导致推理过程的终结点无法自主进化，无法利用海量的无标注遥感数据实现自我提升。</p>
+<p><strong>Method:</strong> RemoteZero 利用多模态大语言模型在验证区域是否满足查询条件方面优于直接生成精确坐标这一非对称能力，用内在语义验证替代几何监督，在无需边界框标注的条件下进行 GRPO 训练，并支持模型通过自身的验证信号在无标注遥感图像上实现迭代自我进化。</p>
+<p><strong>Result:</strong> 实验结果表明，RemoteZero 在无任何框监督的条件下取得了与强监督方法可比的竞争性能，验证了自验证训练范式在地理空间推理定位中的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过模型自身的判别性验证能力替代人工几何标注的可行性，为地理空间推理摆脱对人工标注坐标的依赖、实现完全自主的自我进化提供了新的训练范式。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Geospatial reasoning requires models to resolve complex spatial semantics and user intent into precise target locations for Earth observation. Recent progress has liberated the reasoning path from manual curation, allowing models to generate their own inference chains. Yet a final dependency remains: they are still supervised by human-annotated ground-truth coordinates. This leaves the reasoning process autonomous, but not its spatial endpoint, and prevents true self-evolution on abundant unlabeled remote sensing data. To break this bottleneck, we introduce RemoteZero, a box-supervision-free framework for geospatial reasoning. RemoteZero is motivated by a simple asymmetry: an MLLM is typically better at verifying whether a region satisfies a query than at directly generating precise coordinates. Leveraging this stronger discriminative ability, RemoteZero replaces geometric supervision with intrinsic semantic verification and enables GRPO training without box annotations. The resulting framework further supports iterative self-evolution, allowing the model to improve from unlabeled remote sensing imagery through its own verification signal. Experiments show that RemoteZero achieves competitive performance against strong supervised methods, demonstrating the potential of self-verifying training for geospatial reasoning localization.</p>
+<h3 id="4-stablei2i-spotting-unintended-changes-in-image-to-image-transition">[4] <a href="https://arxiv.org/abs/2605.04453">StableI2I: Spotting Unintended Changes in Image-to-Image Transition</a></h3>
+<p><em>Jiayang Li, Shuo Cao, Xiaohui Li, Zhizhen Zhang, Kaiwen Zhu, Yule Duan, Yu Qiao, Jian Zhang, Yihao Liu</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>提出StableI2I，一个无需参考图像的统一动态评估框架，用于衡量图像到图像任务中的内容保真度和前后一致性，并构建了StableI2I-Bench基准来系统评估多模态大语言模型在这类评估任务上的准确性。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的图像到图像（I2I）评估主要关注指令遵循和生成图像的感知质量或美学效果，但未能评估输出图像是否保留了输入图像的语义对应关系和空间结构，缺乏对内容保真度和前后一致性的系统度量方法。</p>
+<p><strong>Method:</strong> 提出StableI2I，一个统一且动态的评估框架，能够在无需参考图像的情况下显式衡量多种I2I任务（包括图像编辑和图像恢复）中的内容保真度和前后一致性。同时构建StableI2I-Bench基准，用于系统评估多模态大语言模型（MLLMs）在这类保真度和一致性评估任务上的准确性。</p>
+<p><strong>Result:</strong> 大量实验结果表明，StableI2I能够提供准确、细粒度且可解释的内容保真度和一致性评估，并且评估结果与人类主观判断具有强相关性。</p>
+<p><strong>Conclusion:</strong> 该框架可作为诊断实际I2I系统中内容一致性和基准测试模型性能的实用且可靠的评估工具，弥补了现有I2I评估体系在语义一致性和结构保真度方面的缺失。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>In most real-world image-to-image (I2I) scenarios, existing evaluations primarily focus on instruction following and the perceptual quality or aesthetics of the generated images. However, they largely fail to assess whether the output image preserves the semantic correspondence and spatial structure of the input image. To address this limitation, we propose StableI2I, a unified and dynamic evaluation framework that explicitly measures content fidelity and pre--post consistency across a wide range of I2I tasks without requiring reference images, including image editing and image restoration. In addition, we construct StableI2I-Bench, a benchmark designed to systematically evaluate the accuracy of MLLMs on such fidelity and consistency assessment tasks. Extensive experimental results demonstrate that StableI2I provides accurate, fine-grained, and interpretable evaluations of content fidelity and consistency, with strong correlations to human subjective judgments. Our framework serves as a practical and reliable evaluation tool for diagnosing content consistency and benchmarking model performance in real-world I2I systems.</p>
+<h3 id="5-diffcap-bench-a-comprehensive-challenging-robust-benchmark-for-image-difference-captioning">[5] <a href="https://arxiv.org/abs/2605.04503">DiffCap-Bench: A Comprehensive, Challenging, Robust Benchmark for Image Difference Captioning</a></h3>
+<p><em>Yuancheng Wei, Haojie Zhang, Linli Yao, Lei Li, Jiali Chen, Tao Huang, Yiting Lu, Duojun Huang, Xin Li, Zhao Zhong</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>提出了DiffCap-Bench基准，涵盖十种差异类别以增强图像差异描述任务的多样性和组合复杂性，并设计了基于LLM-as-a-Judge和人工验证差异列表的评估协议，揭示了现有MLLMs在细粒度变化感知与跨模态推理中的性能差距与局限性。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有图像差异描述（IDC）基准缺乏多样性和组合复杂性，且传统基于词汇重叠的指标（如BLEU、METEOR）无法捕捉语义一致性或惩罚幻觉，导致对多模态大模型（MLLMs）在IDC任务上的评估不全面、不鲁棒。</p>
+<p><strong>Method:</strong> 构建了涵盖十种差异类别的DiffCap-Bench基准以保证多样性与组合复杂度；提出了基于LLM-as-a-Judge的评估协议，以人工验证的差异列表（Difference Lists）为基准，对模型捕获和描述视觉变化的能力进行鲁棒评估。</p>
+<p><strong>Result:</strong> 对多种先进MLLMs的广泛评估显示，闭源与开源模型之间存在显著性能差距，推理能力对IDC任务至关重要，且模型扩展存在明显局限性；该框架与人类专家判断及下游图像编辑数据构建质量均表现出强一致性。</p>
+<p><strong>Conclusion:</strong> DiffCap-Bench可作为可靠的IDC评估框架和实用的下游效用预测工具，其发现揭示了当前模型在细粒度变化感知与推理方面的不足，为未来模型设计与评估提供了重要指导。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Image Difference Captioning (IDC) generates natural language descriptions that precisely identify differences between two images, serving as a key benchmark for fine-grained change perception, cross-modal reasoning, and image editing data construction. However, existing benchmarks lack diversity and compositional complexity, and standard lexical-overlap metrics (e.g., BLEU, METEOR) fail to capture semantic consistency or penalize hallucinations, which together prevent a comprehensive and robust evaluation of multimodal large language models (MLLMs) on IDC. To address these gaps, we introduce DiffCap-Bench, a comprehensive IDC benchmark covering ten distinct difference categories to ensure diversity and compositional complexity. Furthermore, we propose an LLM-as-a-Judge evaluation protocol grounded in human-validated Difference Lists, enabling a robust assessment of models' ability to both capture and describe visual changes. Through extensive evaluation of state-of-the-art MLLMs, we reveal significant performance gaps between proprietary and open-source models, highlight the critical importance of reasoning capability, and identify clear limitations in model scaling. Our framework also demonstrates strong alignment with human expert judgments and strong correlation with downstream image editing data construction quality. These findings establish DiffCap-Bench as both a reliable IDC evaluation framework and a practical predictor of downstream utility. The benchmark and code will be made publicly available to support further research.</p>
+<h3 id="6-advancing-aesthetic-image-generation-via-composition-transfer">[6] <a href="https://arxiv.org/abs/2605.04609">Advancing Aesthetic Image Generation via Composition Transfer</a></h3>
+<p><em>Kai Zou, Zhiwei Zhao, Bin Liu, Nenghai Yu</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文提出Composer，一个基于美学理论的语义无关构图建模框架，通过从参考图像中提取构图感知表示、利用LVLM的主题驱动构图检索以及无参考模式下的文本到构图微调，显著提升文本到图像生成的美学质量，并支持个性化的构图控制与迁移。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有图像生成方法通常将构图与语义耦合，通过隐式学习或基于语义的布局控制来增强构图，而非显式地对构图本身进行建模，缺乏语义无关的构图表达与控制机制。</p>
+<p><strong>Method:</strong> Composer框架包含三个核心模块：一是构图迁移模块，从参考图像中提取构图感知表示，并结合定制的条件引导模块控制预训练扩散模型；二是主题驱动的构图检索模块，利用大型视觉语言模型的上下文学习能力实现显式构图规划；三是无参考模式下的隐式构图规划，通过对控制模块进行文本到构图的微调实现。此外，论文利用最先进的生成模型构建了包含200万图像-文本对的高质量数据集用于训练。</p>
+<p><strong>Result:</strong> 实验结果表明，Composer在文本到图像生成任务中显著提升了美学质量，同时支持个性化的构图控制与迁移，为用户提供了在创作过程中的精确性与灵活性。</p>
+<p><strong>Conclusion:</strong> Composer证明了将构图作为语义无关的独立视觉要素进行显式建模的有效性，为美学引导的图像生成提供了新的范式；其构图迁移与规划能力拓展了生成模型的创作自由度，具有广泛的应用前景。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>Composition is a cornerstone of visual aesthetics, influencing the appeal of an image. While its principles operate independently of specific content, in practice, composition is often coupled with semantics. As a result, existing methods often enhance composition either through implicit learning or by semantics-based layout control, rather than explicitly modeling composition itself. To address this gap, we introduce Composer, a framework rooted in aesthetic theory, designed to model composition in a semantic-agnostic manner. First, it supports composition transfer by extracting key composition-aware representations from a reference image and leveraging a tailored conditional guidance module to control composition based on pre-trained diffusion models. Second, when users specify only text themes without a composition reference, Composer supports theme-driven composition retrieval by leveraging the in-context learning capabilities of Large Vision-Language Models (LVLMs), achieving explicit composition planning. To enhance composition in a reference-free mode, we conduct text-to-composition fine-tuning on the trained control module to enable implicit composition planning. Furthermore, we curated a high-quality dataset comprising 2 million image-text pairs using state-of-the-art generative models to support model training. Experimental results demonstrate that Composer significantly enhances aesthetic quality in text-to-image tasks and facilitates personalized composition control and transfer, offering users precision and flexibility in the creative process.</p>
+<h3 id="7-cast-mitigating-object-hallucination-in-large-vision-language-models-via-caption-guided-visual-attention-steering">[7] <a href="https://arxiv.org/abs/2605.04641">CAST: Mitigating Object Hallucination in Large Vision-Language Models via Caption-Guided Visual Attention Steering</a></h3>
+<p><em>Qiming Li, Zekai Ye, Xiaocheng Feng, Weihong Zhong, Libo Qin, Ruihan Chen, Lei Huang, Baohang Li, Kui Jiang, Yaowei Wang, Ting Liu, Bing Qin</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>提出了一种名为CAST（Caption-guided Visual Attention Steering）的训练无关、即插即用的方法，通过利用字幕查询对应的注意力激活模式来引导视觉注意力，在不增加训练成本和显著推理开销的情况下，有效缓解大型视觉-语言模型中的对象幻觉问题。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大型视觉-语言模型在下游任务中表现出色，但常产生偏离视觉信息的内容，即对象幻觉问题。现有缓解方法要么依赖昂贵的人工标注和训练成本，要么采用解码策略但显著增加推理时间，缺乏一种高效、低成本且无需额外训练的解决方案。</p>
+<p><strong>Method:</strong> 观察到LVLMs在处理字幕查询时对视觉信息的注意力显著强于非字幕查询，据此提出CAST方法。该方法通过探测技术识别对字幕查询高度敏感的注意力头，并估计其输出最优的引导方向，从而在推理时直接增强模型对细粒度视觉信息的感知能力，实现对象幻觉的缓解，无需训练且即插即用。</p>
+<p><strong>Result:</strong> 在五种广泛使用的LVLMs和五个涵盖判别式与生成式任务的基准测试上，CAST平均减少了6.03%的对象幻觉，展示了最先进的性能，同时几乎没有增加推理开销，且不损害模型的其他基础能力。</p>
+<p><strong>Conclusion:</strong> CAST证明了一种简单、高效且无需训练的注意力引导策略可以有效缓解LVLMs的对象幻觉问题，为提升多模态大模型的视觉感知可靠性提供了新思路，且具有良好的即插即用性和跨模型泛化能力。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Although Large Vision-Language Models (LVLMs) have demonstrated remarkable performance on downstream tasks, they frequently produce contents that deviate from visual information, leading to object hallucination. To tackle this, recent works mostly depend on expensive manual annotations and training cost, or decoding strategies which significantly increase inference time. In this work, we observe that LVLMs' attention to visual information is significantly enhanced when answering caption queries compared to non-caption queries. Inspired by this phenomenon, we propose Caption-guided Visual Attention Steering (CAST), a training-free, plug-and-play hallucination mitigation method that leverages the attention activation pattern corresponding to caption queries to enhance LVLMs' visual perception capability. Specifically, we use probing techniques to identify attention heads that are highly sensitive to caption queries and estimate optimized steering directions for their outputs. This steering strengthens LVLM's fine-grained visual perception capabilities, thereby effectively mitigating object hallucination. CAST reduced object hallucination by an average of 6.03% across five widely used LVLMs and five benchmarks including both discriminative and generative tasks, demonstrating state-of-the-art performance while adding little inference cost and preserving other foundational capabilities.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="8-pro2assist-continuous-step-aware-proactive-assistance-with-multimodal-egocentric-perception-for-long-horizon-procedural-tasks">[8] <a href="https://arxiv.org/abs/2605.04227">Pro$^2$Assist: Continuous Step-Aware Proactive Assistance with Multimodal Egocentric Perception for Long-Horizon Procedural Tasks</a></h3>
+<p><em>Lilin Xu, Bufang Yang, Siyang Jiang, Kaiwei Liu, Kaiyuan Hou, Yuang Fan, Hongkai Chen, Zhenyu Yan, Xiaofan Jiang</em></p>
+<h4 id="tldr_7">🧩 TL;DR</h4>
+<p>Pro$^2$Assist是一个基于多模态大模型和AR眼镜的步骤感知主动式任务助手，通过连续追踪细粒度任务进度并推理用户状态，在长程程序性任务中提供及时、主动的辅助，在动作理解准确率上超越基线21%以上，主动时机准确率达到基线的2.29倍。</p>
+<hr />
+<h4 id="detailed-summary_7">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有程序性任务辅助系统主要为被动式响应（由用户查询触发）或仅对孤立短时事件提供有限的主动辅助，缺乏针对长程多步骤程序性任务的持续主动支持能力，无法实时追踪任务进度并根据用户演化状态提供及时协助。</p>
+<p><strong>Method:</strong> Pro$^2$Assist利用AR眼镜采集多模态数据进行基于运动的感知，从多尺度时间动态和任务特定专家知识中提取面向步骤的程序性上下文，并基于感官输入与程序性上下文进行连续推理以推断用户需求，最终在AR眼镜上显示及时辅助信息。</p>
+<p><strong>Result:</strong> 在公开来源数据集和自建AR眼镜真实场景数据集上，Pro$^2$Assist在程序性动作理解准确率上超出最佳基线方法21%以上，主动时机准确率达到基线方法的2.29倍。20名参与者的人机实验显示90%的用户认为该系统有用。</p>
+<p><strong>Conclusion:</strong> 该研究表明结合AR眼镜多模态感知与MLLM连续推理能够有效实现长程程序性任务的主动辅助，在准确性和时机把握上显著优于现有方法，且用户接受度高，为智能个人助手在现实复杂任务场景中的应用提供了可行方案。</p>
+<hr />
+<h4 id="abstract_7">📄 Abstract</h4>
+<p>Procedural tasks with multiple ordered steps are ubiquitous in daily life. Recent advances in multimodal large language models (MLLMs) have enabled personal assistants that support daily activities. However, existing systems primarily provide reactive guidance triggered by user queries, or limited proactive assistance for isolated short-term events rather than long-horizon procedural tasks. In this work, we introduce Pro$^2$Assist, a step-aware proactive assistant that continuously tracks fine-grained task progress and reasons over the user's evolving state to provide timely assistance throughout tasks. Pro$^2$Assist leverages multimodal data from augmented reality (AR) glasses to achieve motion-based perception. It then extracts step-oriented procedural context from multi-scale temporal dynamics and task-specific expert knowledge. Based on both sensory input and procedural context, Pro$^2$Assist performs continuous reasoning to infer user needs and display timely assistance on AR glasses. We evaluate Pro$^2$Assist using a dataset curated from public sources and a real-world dataset collected on our testbed with AR glasses. Extensive evaluations show that Pro$^2$Assist outperforms the best-performing baselines by over 21% in procedural action understanding accuracy, and it achieves up to 2.29x the proactive timing accuracy of baselines. A user study with 20 participants further shows that 90% find Pro$^2$Assist useful, indicating its effectiveness for real-world procedural assistance.</p>
+  </article>
+</body>
+</html>
