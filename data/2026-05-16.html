@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-16.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 5]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-can-visual-mamba-improve-ai-generated-image-detection-an-in-depth-investigation">[1] <a href="https://arxiv.org/abs/2605.14799">Can Visual Mamba Improve AI-Generated Image Detection? An In-Depth Investigation</a></h3>
+<p><em>Mamadou Keita, Wassim Hamidouche, Hessen Bougueffa Eutamene, Abdelmalik Taleb-Ahmed, Xianxun Zhu, Abdenour Hadid</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文系统评估了Vision Mamba模型在AI生成图像检测任务中的性能，通过与CNN、ViT和VLM-based检测器在多数据集和多种生成模型上的对比实验，揭示了Vision Mamba在该任务中的优势与局限性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管CNN、GAN、扩散模型、ViT和VLM等架构推动了图像生成技术的飞速发展，引发了关于 misinformation、身份盗窃和隐私安全等方面的担忧，但Mamba架构在AI生成图像检测领域的潜力尚未被充分探索，缺乏与已有成熟方法的系统性对比研究。</p>
+<p><strong>Method:</strong> 本文对多种Vision Mamba变体进行了系统性的基准测试与比较分析，将其与代表性的CNN、ViT和VLM-based检测器在多个数据集和合成图像来源上进行公平对比，评估指标包括准确率、效率和跨图像类型及生成模型的泛化能力。</p>
+<p><strong>Result:</strong> 实验结果表明Vision Mamba在区分真实与AI生成视觉内容方面展现出一定潜力，但同时也暴露了当前存在的局限性；研究提供了其在准确性、效率和泛化性方面相对于CNN、ViT和VLM的优劣势量化分析。</p>
+<p><strong>Conclusion:</strong> Vision Mamba有望成为AI生成图像检测系统中的一个有效组件，但当前仍存在局限性，需结合其他架构共同提升检测能力；该研究对应对AI生成内容带来的真实性鉴别挑战具有重要意义。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>In recent years, computer vision has witnessed remarkable progress, fueled by the development of innovative architectures such as Convolutional Neural Networks (CNNs), Generative Adversarial Networks (GANs), diffusion-based architectures, Vision Transformers (ViTs), and, more recently, Vision-Language Models (VLMs). This progress has undeniably contributed to creating increasingly realistic and diverse visual content. However, such advancements in image generation also raise concerns about potential misuse in areas such as misinformation, identity theft, and threats to privacy and security. In parallel, Mamba-based architectures have emerged as versatile tools for a range of image analysis tasks, including classification, segmentation, medical imaging, object detection, and image restoration, in this rapidly evolving field. However, their potential for identifying AI-generated images remains relatively unexplored compared to established techniques. This study provides a systematic evaluation and comparative analysis of Vision Mamba models for AI-generated image detection. We benchmark multiple Vision Mamba variants against representative CNNs, ViTs, and VLM-based detectors across diverse datasets and synthetic image sources, focusing on key metrics such as accuracy, efficiency, and generalizability across diverse image types and generative models. Through this comprehensive analysis, we aim to elucidate Vision Mamba's strengths and limitations relative to established methodologies in terms of applicability, accuracy, and efficiency in detecting AI-generated images. Overall, our findings highlight both the promise and current limitations of Vision Mamba as a component in systems designed to distinguish authentic from AI-generated visual content. This research is crucial for enhancing detection in an age where distinguishing between real and AI-generated content is a major challenge.</p>
+<h3 id="2-multi-proposal-collaboration-and-multi-task-training-for-weakly-supervised-video-moment-retrieval">[2] <a href="https://arxiv.org/abs/2605.14838">Multi-proposal Collaboration and Multi-task Training for Weakly-supervised Video Moment Retrieval</a></h3>
+<p><em>Bolin Zhang, Chao Yang, Bin Jiang, Takahiro Komamizu, Ichiro Ide</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出了一种名为MCMT（多提案协作与多任务训练）的弱监督视频时刻检索方法，通过生成多个提案并构造高质量正样本掩码，结合前向与反向掩码查询重构任务，有效解决了现有方法提案质量低、难以区分错配时刻及训练不稳定等问题。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有弱监督视频时刻检索（VMR）方法存在三大局限：生成的时序提案质量较低、难以区分同一视频中与查询语义不匹配的时刻、以及过度依赖单一辅助任务导致训练不稳定；本研究旨在克服这些缺陷，提高弱监督VMR的检索性能与鲁棒性。</p>
+<p><strong>Method:</strong> 提出MCMT方法：首先生成多个时序提案，并从中推导出可学习的Gaussian掩码；通过融合这些掩码构造高质量的正样本掩码，突出与查询最相关的视频片段；同时将同一视频中其他片段分类为易负样本、将整个视频分类为难负样本；在训练阶段引入前向和反向掩码查询重构任务，对网络施加更强的约束以促进稳定检索。</p>
+<p><strong>Result:</strong> 在两个标准基准数据集上进行的大量实验验证了所提方法在VMR任务中的有效性，表明MCMT相比现有弱监督方法显著提升了检索性能。</p>
+<p><strong>Conclusion:</strong> 多提案协作与多任务训练策略能够有效提升弱监督视频时刻检索的质量与稳定性，为如何在缺乏时序标注的条件下实现精准的跨模态对齐提供了新的思路。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>This study focuses on weakly-supervised Video Moment Retrieval (VMR), aiming to identify a moment semantically similar to the given query within an untrimmed video using only video-level correspondences, without relying on temporal annotations during training. Previous methods either aggregate predictions for all instances in the video, or indirectly address the task by proposing reconstructions for the query. However, these methods often produce low-quality temporal proposals, struggle with distinguishing misaligned moments in the same video, or lack stability due to a reliance on a single auxiliary task. To address these limitations, we present a novel weakly-supervised method called Multi-proposal Collaboration and Multi-task Training (MCMT). Initially, we generate multiple proposals and derive corresponding learnable Gaussian masks from them. These masks are then combined to create a high-quality positive sample mask, highlighting video clips most relevant to the query. Concurrently, we classify other clips in the same video as the easy negative sample and the entire video as the hard negative sample. During training, we introduce forward and inverse masked query reconstruction tasks to impose more substantial constraints on the network, promoting more robust and stable retrieval performance. Extensive experiments on two standard benchmarks affirm the effectiveness of the proposed method in VMR.</p>
+<h3 id="3-mechverse-evaluating-physical-motion-consistency-in-video-generation-models">[3] <a href="https://arxiv.org/abs/2605.14843">MechVerse: Evaluating Physical Motion Consistency in Video Generation Models</a></h3>
+<p><em>Rahul Jain, Mayank Patel, Asim Unmesh, Karthik Ramani</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>MechVerse是一个用于评估视频生成模型中运动机械一致性的基准，包含21,156个合成片段和1,357个机械装配体，实验表明现有模型在视觉上看似合理但常违反运动学约束且误差随耦合复杂度增加而上升。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有文本和图像条件视频生成模型虽能实现高视觉保真度和时间连贯性，但常无法生成受运动学和几何约束支配的运动，例如物体部件应保持刚性、维持接触或耦合关系并在连接部件间一致传递运动，这在铰接式机械装配体中尤为关键，而现有模型生成的运动常违反这些物理机制。</p>
+<p><strong>Method:</strong> 论文构建了MechVerse基准，包含来自141个类别共1,357个机械装配体的21,156个合成视频片段，按运动学复杂度分为独立关节运动、成对耦合运动和多部件密集耦合运动三个层级；每个片段附带结构化提示，描述部件身份、固定支撑、运动部件、运动基元、方向、速度/范围和部件间依赖关系；评估了闭源、开源及微调图像到视频模型，使用标准视频指标、指令遵循评分和人类对运动正确性与运动学耦合的评判。</p>
+<p><strong>Result:</strong> 实验结果表明，现有模型能够保持外观平滑性和视觉似然性，但常生成机械上不可接受的运动，例如旋转本应平移的部件、使刚性部件变形、破坏部件间耦合关系或无法驱动下游组件运动，且运动学误差随耦合复杂度增加而显著上升。</p>
+<p><strong>Conclusion:</strong> MechVerse为从图像和语言输入中进行机械感知视频生成提供了标准化评测基准，揭示了当前视频生成模型在物理合理性方面的系统性不足，为未来改进模型对运动学约束和物理机制的建模能力指明了方向。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Text- and image-conditioned video generation models have achieved strong visual fidelity and temporal coherence, but they often fail to generate motion governed by kinematic and geometric constraints. In these settings, object parts must remain rigid, maintain contact or coupling with neighboring components, and transfer motion consistently across connected parts. These requirements are especially explicit in articulated mechanical assemblies, where motion is constrained by rigid-link geometry, contact/coupling relations, and transmission through kinematic chains. A generated video may therefore appear plausible while violating the intended mechanism, such as rotating a part that should translate, deforming a rigid component, breaking coupling between parts, or failing to move downstream components. To evaluate this gap, We introduce MechVerse, a benchmark for mechanically consistent image-to-video generation. MechVerse contains 21,156 synthetic clips from 1,357 mechanical assemblies across 141 categories, organized into three tiers of increasing kinematic complexity: independent articulation, pairwise coupling, and densely coupled multi-part mechanisms. Each clip is paired with a structured prompt describing part identities, stationary supports, moving components, motion primitives, direction, speed/extent, and inter-part dependencies. We evaluate proprietary, open-source, and fine-tuned image-to-video models using standard video metrics, instruction-following scores, and human judgments of motion correctness and kinematic coupling. Results show that current models can preserve appearance and smoothness while failing to generate mechanically admissible motion, with errors increasing as coupling complexity grows. MechVerse provides a benchmark for measuring and improving mechanism-aware video generation from image and language inputs.</p>
+<h3 id="4-memlens-benchmarking-multimodal-long-term-memory-in-large-vision-language-models">[4] <a href="https://arxiv.org/abs/2605.14906">MemLens: Benchmarking Multimodal Long-Term Memory in Large Vision-Language Models</a></h3>
+<p><em>Xiyu Ren, Zhaowei Wang, Yiming Du, Zhongwei Xie, Chi Liu, Xinlin Yang, Haoyue Feng, Wenjun Pan, Tianshi Zheng, Baixuan Xu, Zhengnan Li, Yangqiu Song, Ginny Wong, Simon See</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>MEMLENS是一个用于评估多模态多会话对话中记忆能力的综合基准，包含789道题目，覆盖五种记忆能力和四种上下文长度。实验发现，长上下文LVLM在短上下文中表现优异但随长度增长而下降，记忆增强型代理长度稳定但视觉保真度损失，两者均无法独立解决任务，亟需混合架构。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基准缺乏对长上下文LVLM和记忆增强型代理在多模态对话中记忆能力的系统性比较，特别是在需要真正多模态证据的问题上存在空白。</p>
+<p><strong>Method:</strong> 构建MEMLENS基准，包含789道问题，覆盖信息提取、多会话推理、时间推理、知识更新和拒绝回答五种记忆能力，以及32K-256K四种标准上下文长度，采用跨模态token计数方案，并通过图像消融实验验证视觉证据的必要性。</p>
+<p><strong>Result:</strong> 图像消融实验表明，去除证据图像后两个前沿LVLM在80.4%的含图像问题中准确率降至2%以下；评估27个LVLM和7个记忆代理发现，长上下文LVLM短上下文准确率高但随对话增长下降，记忆代理长度稳定但存储时压缩导致视觉保真度损失，多会话推理能力上限低于30%。</p>
+<p><strong>Conclusion:</strong> 长上下文LVLM和记忆代理各有优劣，单一方法无法解决多模态记忆任务，未来应探索结合长上下文注意力与结构化多模态检索的混合架构。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Memory is essential for large vision-language models (LVLMs) to handle long, multimodal interactions, with two method directions providing this capability: long-context LVLMs and memory-augmented agents. However, no existing benchmark conducts a systematic comparison of the two on questions that genuinely require multimodal evidence. To close this gap, we introduce MEMLENS, a comprehensive benchmark for memory in multimodal multi-session conversations, comprising 789 questions across five memory abilities (information extraction, multi-session reasoning, temporal reasoning, knowledge update, and answer refusal) at four standard context lengths (32K-256K tokens) under a cross-modal token-counting scheme. An image-ablation study confirms that solving MEMLENS requires visual evidence: removing evidence images drops two frontier LVLMs below 2% accuracy on the 80.4% of questions whose evidence includes images. Evaluating 27 LVLMs and 7 memory-augmented agents, we find that long-context LVLMs achieve high short-context accuracy through direct visual grounding but degrade as conversations grow, whereas memory agents are length-stable but lose visual fidelity under storage-time compression. Multi-session reasoning caps most systems below 30%, and neither approach alone solves the task. These results motivate hybrid architectures that combine long-context attention with structured multimodal retrieval. Our code is available at https://github.com/xrenaf/MEMLENS.</p>
+<h3 id="5-steerseg-attention-steering-for-reasoning-video-segmentation">[5] <a href="https://arxiv.org/abs/2605.14908">SteerSeg: Attention Steering for Reasoning Video Segmentation</a></h3>
+<p><em>Ali Cheraghian, Hamidreza Dastmalchi, Abdelwahed Khamis, Morteza Saberi, Aijun An, Lars Petersson</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>SteerSeg通过输入级软提示和思维链推理引导的方法，在不冻结大型视觉语言模型参数的前提下，显著改善注意力图的空间定位能力，从而提升视频推理分割性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于冻结大型视觉语言模型的视频推理分割方法依赖注意力图作为空间先验，但这些注意力图是为文本生成而非空间定位优化的，导致定位信号弥散且模糊，缺乏明确的引导机制来纠正注意力分布的空间偏差。</p>
+<p><strong>Method:</strong> SteerSeg提出了一种轻量级框架，通过输入级条件控制来引导注意力分布。该方法结合可学习的软提示与推理引导的思维链提示：软提示重塑注意力分布使其更加空间集中，链式思维推理生成的属性特征用于解决相似对象间的歧义。优化后的注意力图被转换为关键帧点提示以驱动分割模型，并通过基于相关性的评分对候选轨迹进行排序和选择。整个框架冻结LVLM和分割模型参数，仅学习少量软提示。</p>
+<p><strong>Result:</strong> SteerSeg仅在Ref-YouTube-VOS数据集上训练，但在多个多样化基准上展现出优异的泛化能力，显著提升了LVLM的空间定位性能。实验结果表明该方法能有效生成空间更集中的注意力图，并通过消融研究验证了软提示和思维链提示各自的贡献。</p>
+<p><strong>Conclusion:</strong> 该研究揭示注意力错配是基于注意力定位方法的关键瓶颈，并证明通过输入级条件控制而非修改模型参数即可有效矫正注意力分布。SteerSeg保留了模型预训练的推理能力同时大幅提升空间定位，为训练高效、泛化能力强的视频推理分割提供了新范式。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Video reasoning segmentation requires localizing objects across video frames from natural language expressions, often involving spatial reasoning and implicit references. Recent approaches leverage frozen large vision-language models (LVLMs) by extracting attention maps and using them as spatial priors for segmentation, enabling training-free grounding. However, these attention maps are optimized for text generation rather than spatial localization, often resulting in diffuse and ambiguous grounding signals. In this work, we introduce SteerSeg, a lightweight framework that identifies attention misalignment as the key bottleneck in attention-based grounding and proposes to steer attention at its source through input-level conditioning. SteerSeg combines learnable soft prompts with reasoning-guided Chain-of-Thought (CoT) prompting. The soft prompts reshape the attention distribution to produce more spatially concentrated maps, while CoT-derived attributes resolve ambiguity among similar objects by guiding attention toward the correct instance. The resulting attention maps are converted into point prompts across keyframes to guide a segmentation model, while candidate tracklets are ranked and selected using correlation-based scoring. Our approach freezes the LVLM and segmentation model parameters and learns only a small set of soft prompts, preserving the model's pretrained reasoning capabilities while significantly improving grounding. Despite being trained only on Ref-YouTube-VOS, SteerSeg generalizes well across diverse benchmarks, significantly improving the spatial grounding capability of LVLMs. Project page: https://steerseg.github.io</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="6-grounded-continuation-a-linear-time-runtime-verifier-for-llm-conversations">[6] <a href="https://arxiv.org/abs/2605.14175">Grounded Continuation: A Linear-Time Runtime Verifier for LLM Conversations</a></h3>
+<p><em>Qisong He, Yi Dong, Xiaowei Huang</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>提出一个运行时验证器，通过显式维护依赖图（将每轮对话分类为8种更新操作）来检测LLM长对话中的前提漂移问题，支持线性代价的结论撤回检查，在多基准测试中优于基线并实现100%的过时前提检测准确率。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 在长对话中，LLM可能生成看似合理但依赖于已放弃前提的下一轮回复，而现有的上下文操纵攻击正利用这一漏洞，亟需一种能够结构性地检测和预防这种前提漂移的方法。</p>
+<p><strong>Method:</strong> 提出一个运行时验证器，维护显式依赖图：LLM将每轮对话分类为来自四种形式化框架（动态认知逻辑、溯因推理、意识逻辑、论证理论）的8种更新操作之一，符号引擎记录各声明所依赖的证据；通过图遍历检查回复是否被支持，通过同一图传播撤回操作以标记失去支持的结论，具有线性每轮代价和形式化无冲突保证。</p>
+<p><strong>Result:</strong> 在LongMemEval-KU oracle（n=78）上，验证器达到89.7%准确率，优于LLM基线（88.5%，+1.3pp）和检索增强基线（87.2%，+2.6pp）；在LoCoMo的60个官方QA上具有竞争力；在自构50项接地测试的15项过时前提子集上达到100%准确率（vs. 93.3%，+6.7pp）；撤回检查在微秒级饱和而历史回放随对话长度线性增长。</p>
+<p><strong>Conclusion:</strong> 该工作将对话可靠性分解为结构合理性（soundness，由构造保证）和提取忠实度（faithfulness，通过跨四个LLM家族实证测量），验证器的撤回检查在效率上显著优于历史回放方法，为长对话中的事实一致性和安全推理提供了形式化基础。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>In long conversations, an LLM can produce a next utterance that sounds plausible but rests on premises the conversation has already abandoned. Context-manipulation attacks against deployed agents now actively exploit this gap. We close it with a runtime verifier that maintains an explicit dependency graph: an LLM classifies each turn into one of 8 update operations drawn from four formalisms (dynamic epistemic logic, abductive reasoning, awareness logic, argumentation), and a symbolic engine records which claims depend on which evidence. Checking whether a continuation is supported reduces to a graph walk; retraction propagates through the same graph to flag exactly the conclusions that lose support, with linear per-turn cost and a formal conflict-free guarantee. On LongMemEval-KU oracle (n=78), the verifier reaches 89.7% accuracy vs. 88.5% for the LLM-only baseline (+1.3pp) and 87.2% for a transcript-RAG baseline matched on retrieval budget (+2.6pp); wins among disagreements are correct abstentions where the baseline confabulates. On LoCoMo's 60 official QA items the verifier is competitive with retrieval-augmented baselines. Beyond external benchmarks, we construct two multi-agent scenarios and a 50-item grounding test: on the 15-item stale-premise subset, the verifier reaches 100% accuracy vs. 93.3% (+6.7pp). These instantiate a soundness-faithfulness decomposition: the structural check is sound by construction, and per-deployment LLM extraction faithfulness is the empirical question we measure across four LLM families. The retraction check plateaus at microseconds while history-replay grows linearly with conversation length.</p>
+<h3 id="7-bifedkd-bidirectional-federated-knowledge-distillation-framework-for-non-iid-and-long-tailed-ecg-monitoring">[7] <a href="https://arxiv.org/abs/2605.14886">BiFedKD: Bidirectional Federated Knowledge Distillation Framework for Non-IID and Long-Tailed ECG Monitoring</a></h3>
+<p><em>Zixuan Shu, Tiancheng Cao, Hen-Wei Huang</em></p>
+<h4 id="tldr_6">🧩 TL;DR</h4>
+<p>提出双向联邦知识蒸馏（BiFedKD）框架，通过聚合-蒸馏流程和温度缩放解决非IID和长尾标签分布下联邦蒸馏性能退化问题，在MIT-BIH心律失常数据集上相比基线提升准确率3.52%和Macro-F1 9.93%，同时降低40%通信开销和71.7%计算成本。</p>
+<hr />
+<h4 id="detailed-summary_6">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 心电图监测在医疗物联网网络中受数据共享法规和隐私限制，联邦学习虽可保护原始数据但高维模型更新在带宽受限链路上产生巨大通信开销，联邦蒸馏通过逻辑知识传输替代参数交换以缓解瓶颈，但在非独立同分布和长尾标签分布的ECG部署场景中性能严重下降，亟需一种能同时解决通信效率与异构数据分布挑战的框架。</p>
+<p><strong>Method:</strong> 提出双向联邦知识蒸馏（BiFedKD）框架，采用聚合-蒸馏（aggregation-by-distillation）流程并引入温度缩放（temperature scaling）机制，产生稳定的全局蒸馏信号用于跨客户端对齐，从而在不传输高维模型参数的情况下实现客户端间的有效知识迁移。</p>
+<p><strong>Result:</strong> 在MIT-BIH心律失常数据集上，BiFedKD相比基线将准确率提升3.52%，Macro-F1提升9.93%；在达到同等Macro-F1性能的条件下，BiFedKD相比基线减少40%的通信开销和71.7%的计算成本。</p>
+<p><strong>Conclusion:</strong> BiFedKD通过双向知识蒸馏策略有效克服了非IID和长尾标签分布带来的联邦学习性能退化问题，在显著降低通信与计算开销的同时提升了模型性能，为资源受限和隐私敏感的医疗物联网场景提供了一种高效可行的分布式学习方案。</p>
+<hr />
+<h4 id="abstract_6">📄 Abstract</h4>
+<p>Electrocardiogram (ECG) monitoring in Internet of Medical Things (IoMT) networks is constrained by strict data-sharing regulations and privacy concerns. Federated learning (FL) enables collaborative learning by keeping raw ECG data on devices, but frequent transmissions of high-dimensional model updates incur heavy per-round traffic over bandwidth-limited links. To alleviate this bottleneck, federated distillation (FD) replaces parameter exchange with logit-based knowledge transfer. However, the performance of FD often degrades under the non-independent and identically distributed (non-IID) and long-tailed label distributions in ECG deployments. To address these challenges, we propose a bidirectional federated knowledge distillation (BiFedKD) framework that employs an aggregation-by-distillation pipeline with temperature scaling to produce a stable global distillation signal for cross-client alignment. Experiments on the MIT-BIH Arrhythmia dataset show that BiFedKD improves accuracy and Macro-F1 over the baseline by $3.52\%$ and $9.93\%$, respectively. Moreover, to reach the same Macro-F1, BiFedKD reduces communication overhead by $40\%$ and computation cost by $71.7\%$ compared with the baseline.</p>
+  </article>
+</body>
+</html>
