@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-06.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.CL">cs.CL</a> [Total: 2]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-robust-scene-transfer-for-pointgoal-navigation-via-privileged-sensor-guided-contrastive-learning">[1] <a href="https://arxiv.org/abs/2606.05506">Robust Scene Transfer for PointGoal Navigation via Privileged Sensor Guided Contrastive Learning</a></h3>
+<p><em>Amirhossein Zhalehmehrabi, Tiziano Tezze, Alberto Castelini, Alessandro Farinelli</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出一种传感器引导的自适应对比学习框架，利用特权LiDAR信号指导视觉表示学习，使智能体在PointGoal导航中仅依赖单目RGB即可实现跨场景迁移，性能优于大规模预训练视觉模型和标准对比学习基线。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的视觉导航表示学习通常依赖场景特定的外观特征，难以在训练环境和部署环境之间存在显著外观与语义差异时实现有效迁移；同时，表示学习与策略优化的解耦方法缺乏对导航相关几何结构的显式引导，导致视觉编码器捕获了与任务无关的信息。</p>
+<p><strong>Method:</strong> 提出传感器引导的自适应对比学习框架，在训练阶段利用特权LiDAR传感信号通过几何感知相似度度量和自适应温度缩放来指导对比目标，使视觉嵌入捕获导航相关的几何结构而非场景外观；所得编码器独立预训练后冻结作为强化学习的感知骨干网络；进一步引入跨阶段域不匹配策略，在表示预训练与策略学习之间抑制环境特定的捷径特征，促使策略依赖任务相关特征。</p>
+<p><strong>Result:</strong> 在高质量仿真环境中进行大量实验，结果表明该方法在多样化的室内外场景下显著提升了策略级别的场景迁移能力；在部署时智能体仅依赖单目RGB观测、目标位置和本体感知信号，无需LiDAR或其他特权传感器；在严重外观与语义偏移下，该方法优于大规模预训练视觉模型和标准对比学习基线。</p>
+<p><strong>Conclusion:</strong> 研究表明，通过特权传感器信号引导的对比学习能够有效学习导航相关的视觉表示，且解耦表示学习与策略优化结合跨阶段域不匹配策略可显著提升策略的场景泛化能力；该方法为仅依赖廉价RGB传感器的视觉导航提供了一种实用的范式；同时发布了多模态数据集以支持后续研究。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>We propose a sensor-guided adaptive contrastive learning framework for visual representation learning in PointGoal navigation. During training, privileged LiDAR sensing guides the contrastive objective through a geometry-aware similarity metric and adaptive temperature scaling, encouraging visual embeddings to capture navigation-relevant structure rather than scene-specific appearance. The resulting encoder is pretrained independently, frozen, and used as the perceptual backbone for reinforcement learning, decoupling representation learning from policy optimization. We further introduce a cross-stage domain mismatch between representation pretraining and policy learning to suppress environment-specific shortcuts and promote reliance on task-relevant features.
+  Extensive experiments in high-fidelity simulation demonstrate that our approach significantly improves policy-level scene transfer across diverse indoor and outdoor environments. At deployment, the agent relies only on monocular RGB observations together with standard task-related inputs such as goal position and proprioceptive signals, without access to LiDAR or other privileged sensors. Our method outperforms large pretrained vision models and standard contrastive baselines under severe appearance and semantic shifts. We also release a multimodal dataset to support future research on privileged-guided visual representation learning for navigation. The code is available at:</p>
+<h3 id="2-unveiling-the-unknown-open-vocabulary-object-detection-with-scene-graphs">[2] <a href="https://arxiv.org/abs/2606.05916">Unveiling the Unknown: Open Vocabulary Object Detection with Scene Graphs</a></h3>
+<p><em>Yi Chen, Yinghao Lu, Zhehao Li, Chenchen Yan, Jiafei Wu, Chong Wang, Jiangbo Qian</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出 Scene-guided Relational Modeling (SGRM) 检测框架，通过场景图显式建模目标间的结构语义与空间关系，并引入关系注意力模块与场景文本对齐分支，显著提升开放词汇目标检测中 novel 类别的检测性能，在 COCO 和 LVIS 数据集上取得最优结果。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于知识蒸馏的开放词汇目标检测方法虽能利用预训练视觉-语言模型的知识，但普遍忽视了图像中目标之间的结构化场景级关系（如交互关系和空间布局），这种缺失严重限制了模型对 novel 类别目标的检测能力。</p>
+<p><strong>Method:</strong> 本文提出 Scene-guided Relational Modeling (SGRM) 框架，核心包括：利用场景图显式捕获候选区域与其上下文目标之间的结构化语义与空间关系；设计关系注意力模块隐式增强场景图中提取的关键关系线索；提出基于场景的文本对齐分支，从图像描述中蒸馏类别知识以引导关系对齐，实现视觉关系与语义信息的深度融合。</p>
+<p><strong>Result:</strong> 在 COCO 和 LVIS 数据集上的大量实验表明，该方法在所有开放词汇目标检测方法中表现最优，尤其在 novel 类别上的平均精度 (AP) 指标取得了显著提升。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了结构化场景关系建模在开放词汇目标检测中的关键作用，通过显式与隐式相结合的关系建模以及视觉-语义对齐，有效突破了蒸馏类方法由于忽视场景关系而导致的性能瓶颈，为开放词汇检测提供了新的研究思路。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Open-vocabulary object detection seeks to identify novel object categories that were not part of the training data. Many knowledge distillation-based approaches have shown promising performance by transferring knowledge from pre-trained vision-language models to object detection. However, these methods often overlook structured, image-specific relationships between objects, such as interactions and spatial arrangements. This oversight can significantly restrict the effectiveness of detecting novel categories. To address this issue, we propose a Scene-guided Relational Modeling detection framework. This framework utilizes scene graphs to capture structured semantic and spatial relationships between candidate regions and their contextual objects. It explicitly models interactions among neighboring regions and incorporates a Relation Attention Module to implicitly amplify the key relational cues extracted from the scene graph. Furthermore, we present a scene-based textual alignment branch that distills category knowledge from captions to guide relational alignment. This approach facilitates a seamless integration of visual relations with semantic information for enhanced detection performance. Comprehensive experiments show that our model achieves superior performance compared to other OVOD methods, improving the AP for novel categories on COCO and LVIS datasets.</p>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="3-self-supervised-user-profile-generation-for-personalization">[3] <a href="https://arxiv.org/abs/2606.05336">Self-supervised User Profile Generation for Personalization</a></h3>
+<p><em>Clark Mingxuan Ju, Yuwei Qiu, Tong Zhao, Neil Shah</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>BUMP is a self-supervised framework that trains an LLM-based profile generator for user personalization using GRPO and a bidirectional in-batch ranking objective, eliminating the need for downstream labeled data while achieving competitive performance on the LaMP benchmark.</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> Existing methods for personalizing LLMs by summarizing user interaction history into natural-language profiles require expensive labeled downstream task supervision, which is sparse and task-specific; this work aims to train a profile generator entirely without any downstream labels.</p>
+<p><strong>Method:</strong> BUMP uses GRPO to train an LLM to generate free-form textual profiles from user interaction histories, optimized under a bidirectional in-batch ranking objective: a small LLM judge scores how well the profile ranks the user's own held-out interactions above others (profile-to-interactions) and how well a held-out interaction ranks the user's own profile above others (interaction-to-profile), both measured via multi-positive NDCG and combined into a dense reward per rollout, with other users in the batch providing free negatives.</p>
+<p><strong>Result:</strong> On the LaMP benchmark, BUMP matches or outperforms closed-source APIs and prior methods that rely on labeled rewards, despite requiring no task labels during training, demonstrating the effectiveness of self-supervised personalization.</p>
+<p><strong>Conclusion:</strong> Self-supervised bidirectional ranking objectives can effectively replace expensive labeled rewards for training profile generators, enabling scalable and task-agnostic user personalization for LLMs from raw interaction logs alone.</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Personalizing large language models (LLMs) has become a central challenge as LLMs are deployed across recommendation, search, dialogue, and content generation -- settings where the same query should yield different answers given different users. A promising route is to summarize each user's interaction history into a natural-language memory or profile and prepend it to the prompt to facilitate personalization. Existing methods learn such profile generators with explicit rewards derived from labeled downstream tasks, which are expensive and sparse as they require annotated supervision for every target task. In light of this challenge, we introduce Bidirectional User Modeling via Profiles (BUMP), a self-supervised framework that trains a profile generator without any downstream labels. Specifically, given a user's interaction history, we use GRPO to train an LLM to emit a free-form textual profile under a bidirectional in-batch ranking objective: a small LLM judge measures (i) how well the generated profile, used as a query, ranks the user's own held-out interactions above interactions from other users in the batch, and (ii) how well a held-out interaction, used as a query, ranks the user's own profile above profiles of other users. Both directions are scored with multi-positive NDCG and combined into a dense reward per rollout; other users in the batch supply free negatives, so every training example yields supervision from raw interaction logs alone. Evaluated on the LaMP benchmark, BUMP matches or outperforms closed-source APIs and prior methods relying on labeled rewards, while requiring no task label at training.</p>
+<h3 id="4-beyond-tokens-a-unified-framework-for-latent-communication-in-llm-based-multi-agent-systems">[4] <a href="https://arxiv.org/abs/2606.05711">Beyond tokens: a unified framework for latent communication in LLM-based multi-agent systems</a></h3>
+<p><em>Yingzhuo Liu</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出一个统一的三轴分析框架（信息类型、发送-接收对齐、信息融合方式），系统梳理了2024–2026年间18种基于大语言模型的智能体间潜空间通信方法，识别出五种主要设计模式，并指出了跨架构对齐、潜在信道安全等开放挑战。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于大语言模型的多智能体系统普遍采用自然语言作为通信协议，虽具备可解释性，但存在推理成本高、离散化导致信息不可逆丢失、以及自然语言固有的歧义与冗余三大结构性缺陷，亟需探索更高效的替代方案。</p>
+<p><strong>Method:</strong> 本文构建了一个三维分析框架来组织潜空间通信领域文献：第一轴是所传递信息的类型（嵌入、隐藏状态、KV缓存或其他连续状态）；第二轴是发送-接收对齐方式（潜空间对齐和层对齐）；第三轴是信息在接收端的融合方式（拼接、前置、数学运算、交叉注意力或缓存恢复）。基于此框架，对2024至2026年间提出的18种代表性方法进行了系统分类。</p>
+<p><strong>Result:</strong> 通过三维框架的系统分类，论文识别出五种主要设计模式，并揭示了当前潜空间通信面临的若干开放挑战，包括跨架构对齐问题、潜在信道的安全性、面向边缘部署的压缩技术，以及潜空间通信与潜在思维链之间的关系。</p>
+<p><strong>Conclusion:</strong> 该统一框架为研究者提供了比较和理解潜空间通信方法的规范化语汇，降低了新研究者的入门门槛，并为未来在多智能体系统中利用连续表示绕过文本生成瓶颈的研究指明了关键方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Multi-agent systems built on large language models (LLMs) have become a prevailing paradigm for tackling complex reasoning, planning, and tool-use tasks. The dominant communication protocol in such systems is natural language: agents exchange messages token-by-token, verbalising their internal reasoning so that peers can read, verify, and respond. While convenient and interpretable, this protocol suffers from three structural drawbacks -- high inference cost, irreversible information loss during discretization, and ambiguity/redundancy of natural language. A growing body of work therefore explores an alternative protocol -- latent communication -- in which agents exchange continuous representations (embeddings, hidden states, or KV-caches) directly, bypassing the bottleneck of text generation. This paper presents a unified framework for organising the rapidly expanding literature on latent communication. We analyse existing methods along three orthogonal axes: (1) WHAT information is communicated (Embeddings, Hidden States, KV-Caches, or other continuous state); (2) WHICH sender-receiver alignment is used (latent-space alignment and layer alignment); and (3) HOW the communicated information is fused into the receiver (concatenation, prepending, mathematical operations, cross-attention, or cache restoration). Under this 3-axis framework, we systematically categorise eighteen representative methods proposed between 2024 and 2026, identify five major design patterns, and surface a set of open challenges -- including cross-architecture alignment, security of latent channels, compression for edge deployment, and the relationship between latent communication and latent chain-of-thought. We hope that this framework both lowers the barrier to entry for new researchers and provides a vocabulary for comparing future work.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="5-how-far-did-they-go-the-persuasive-tactics-of-covert-llm-agents-in-a-discontinued-field-experiment">[5] <a href="https://arxiv.org/abs/2606.05256">How Far Did They Go? The Persuasive Tactics of Covert LLM Agents in a Discontinued Field Experiment</a></h3>
+<p><em>Kokil Jaidka, Saifuddin Ahmed</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本研究通过对Reddit r/ChangeMyView实验中未公开的AI生成辩论评论进行结构化内容分析，发现AI代理系统性地采用身份伪装、权威信号、对齐策略和认知偏差触发手段，其修辞架构以说服效率而非真实参与为导向，且与人类评论在每个维度上呈现分布反转，揭示了在身份丰富的公共论坛中AI与人类认知立场日益模糊的治理挑战。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 该研究旨在填补关于大语言模型在未公开条件下如何在身份丰富的公共论坛中进行辩论互动的研究空白，现有披露机制无法解决AI系统在真实对话中如何结构化可信度、激活认知偏差以及与人类评论在修辞策略上的系统性差异等深层问题。</p>
+<p><strong>Method:</strong> 研究采用了结构化内容分析方法，对Reddit r/ChangeMyView实验中AI生成的评论进行了系统的身份表演、权威信号、对齐策略和认知启发式激活评估，并与人类撰写的CMV反驳论点进行对比分析。</p>
+<p><strong>Result:</strong> 研究发现身份目标采用出现在超过三分之二的评论中，对齐动作和权威声明几乎出现在所有评论中，认知偏差触发——尤其是确认偏差、代表性和可得性——出现在绝大多数评论中；AI代理在权威使用密度、对抗性对齐程度和外部引证依赖上均高于人类评论，且在这每个维度上呈现与人类相反的分布。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了在身份丰富的公共论坛中，AI生成内容与人类认知立场之间的界限日益模糊，仅靠披露令无法解决这一不对称性；结论指向需要建立能够评估AI系统如何结构化可信度的审计框架，而非仅仅检测其是否存在。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>This study analyzes a publicly released dataset from a discontinued field experiment on Reddit's r/ChangeMyView. The intervention, conducted by unknown, external researchers and halted following ethical backlash, involved undisclosed AI-generated accounts engaging users in live debate. After public disclosure, Reddit authorized moderators to release an archive of the AI-generated comments, creating a rare opportunity to examine how large language models operated in an identity-rich deliberative forum without disclosure. We conduct a structured content analysis of this corpus, evaluating identity performance, authority signaling, alignment strategies, and activation of cognitive heuristics. Identity targeting or adoption appears in over two-thirds of comments, alignment moves and authority claims in nearly all of them, and cognitive-bias triggers -- particularly confirmation bias, representativeness, and availability -- in the large majority. These patterns co-occur systematically, composing a rhetorical architecture calibrated for persuasive efficiency rather than authentic deliberative participation. Compared against human-authored CMV counter-arguments, the agents inverted the typical distribution on every dimension: denser authority use, more adversarial alignment, and heavier reliance on external citation over experiential grounding. In such environments, distinctions between authentic and synthetic epistemic standing grow increasingly opaque -- an asymmetry that disclosure mandates alone cannot address. The results point toward auditing frameworks capable of assessing how AI systems structure credibility, not merely whether they are present.</p>
+  </article>
+</body>
+</html>
